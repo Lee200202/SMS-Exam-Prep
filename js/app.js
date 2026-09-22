@@ -1252,6 +1252,13 @@ function renderRegulations() {
   const container = document.getElementById('regulations-content-body');
   if (!container || !data) return;
 
+  const lawMetaItems = data.law_meta ? [
+    { title: '《替代役實施條例》', badge: '110.01.27修正公布', text: data.law_meta.latest_amend || '保險與撫卹請求權消滅時效延長為10年；增訂國保保費由役政機關編列預算' },
+    { title: '《役男申請服替代役辦法》', badge: '113.12.25最新修正', text: data.law_meta.apply_rules || '家庭因素第11條：家屬年齡由60歲提高至65歲以上；因病生活不能自理需專人照顧標準' },
+    { title: '《替代役役男請假規則》', badge: '111.05.30最新修正', text: data.law_meta.leave_rules || '「陪產檢及陪產假」合計7日（15日內請畢）；婚假14日（3個月內請畢）；刪除事假8小時折算1日' },
+    { title: '主管機關組織改制', badge: '112.09.20生效', text: data.law_meta.org_reform || '內政部役政署組織改造，主管機關改制為「內政部替代役訓練及管理中心」與「內政部役政司」' }
+  ] : [];
+
   container.innerHTML = `
     <div class="space-y-6">
       <div class="p-6 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl space-y-2 shadow">
@@ -1260,6 +1267,30 @@ function renderRegulations() {
         </h3>
         <p class="text-sm text-slate-300">${data.description}</p>
       </div>
+
+      ${lawMetaItems.length > 0 ? `
+        <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm border border-emerald-500/30">
+          <div class="flex items-center justify-between">
+            <h4 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5 text-emerald-500"></i> 最新法規修正依據與主管機關異動速覽 (2024-2026標準)
+            </h4>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2.5 py-1 rounded-full font-bold border border-emerald-200 dark:border-emerald-800">
+              全國法規資料庫最新校訂
+            </span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            ${lawMetaItems.map(item => `
+              <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 space-y-2">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-semibold shrink-0">${item.badge}</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${item.text}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
 
       ${data.sections.map(sec => `
         <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm">
@@ -1369,6 +1400,29 @@ function renderRightsAndManagement() {
         </h3>
         <p class="text-sm text-slate-300">${data.description}</p>
       </div>
+
+      <!-- Salary Structure Card -->
+      ${data.salary_structure ? `
+        <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm border border-indigo-500/30">
+          <div class="flex items-center justify-between">
+            <h4 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i data-lucide="banknote" class="w-5 h-5 text-indigo-500"></i> ${data.salary_structure.title}
+            </h4>
+            <span class="text-xs text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-2.5 py-1 rounded-full font-bold border border-indigo-200 dark:border-indigo-800">
+              113年兵力結構調薪
+            </span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+            ${data.salary_structure.data.map(item => `
+              <div class="p-4 rounded-xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50/40 dark:bg-indigo-950/20 space-y-1.5">
+                <div class="text-xs font-bold text-slate-800 dark:text-slate-200">${item.tier}</div>
+                <div class="text-base font-extrabold text-indigo-600 dark:text-indigo-400">${item.amount}</div>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${item.detail}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
 
       <!-- Grade Breakdown Calculator -->
       <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm border border-emerald-500/30">
