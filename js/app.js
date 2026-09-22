@@ -1244,7 +1244,7 @@ function escapeRegex(string) {
 }
 
 /* ==========================================================================
-   STUDY GUIDES: REGULATIONS, VOLUNTEER, RIGHTS, SHOOTING
+   STUDY GUIDES: REGULATIONS, VOLUNTEER, RIGHTS, SHOOTING, CHECKLIST
    ========================================================================== */
 
 function renderRegulations() {
@@ -1259,18 +1259,26 @@ function renderRegulations() {
     { title: '主管機關組織改制', badge: '112.09.20生效', text: data.law_meta.org_reform || '內政部役政署組織改造，主管機關改制為「內政部替代役訓練及管理中心」與「內政部役政司」' }
   ] : [];
 
+  const keyPoints = data.key_points_full ? data.key_points_full.items : [];
+  const fullAct = data.full_act ? data.full_act : null;
+
   container.innerHTML = `
-    <div class="space-y-6">
-      <div class="p-6 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl space-y-2 shadow">
-        <h3 class="text-xl font-bold flex items-center gap-2 text-emerald-400">
-          <i data-lucide="scale" class="w-6 h-6"></i> ${data.title}
+    <div class="space-y-8">
+      <!-- Header Banner -->
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl space-y-3 shadow-lg">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold">
+          <i data-lucide="scale" class="w-4 h-4"></i> 法律條文與重點完全收錄
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-black text-white">
+          ${data.title}
         </h3>
-        <p class="text-sm text-slate-300">${data.description}</p>
+        <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">${data.description}</p>
       </div>
 
+      <!-- Law Meta Cards -->
       ${lawMetaItems.length > 0 ? `
         <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm border border-emerald-500/30">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between flex-wrap gap-2">
             <h4 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <i data-lucide="sparkles" class="w-5 h-5 text-emerald-500"></i> 最新法規修正依據與主管機關異動速覽 (2024-2026標準)
             </h4>
@@ -1292,46 +1300,124 @@ function renderRegulations() {
         </div>
       ` : ''}
 
-      ${data.sections.map(sec => `
-        <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm">
-          <h4 class="text-base font-bold text-slate-900 dark:text-white border-l-4 border-emerald-500 pl-3">
-            ${sec.title}
-          </h4>
+      <!-- Core Summary Sections -->
+      <div class="space-y-6">
+        <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
+          <i data-lucide="bookmark-check" class="w-5 h-5 text-emerald-500"></i> 鑑測高頻核心法規表格速查
+        </h4>
 
-          ${sec.content ? `
-            <div class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-              ${sec.content.map(c => `<p class="leading-relaxed">${c.replace(/\*\*(.*?)\*\*/g, '<strong class="text-emerald-700 dark:text-emerald-400 font-bold">$1</strong>')}</p>`).join('')}
-            </div>
-          ` : ''}
+        ${data.sections.map(sec => `
+          <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm">
+            <h5 class="text-base font-bold text-slate-900 dark:text-white border-l-4 border-emerald-500 pl-3">
+              ${sec.title}
+            </h5>
 
-          ${sec.table ? `
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs sm:text-sm border-collapse">
-                <thead>
-                  <tr class="border-b border-slate-200 dark:border-slate-700 bg-slate-100/70 dark:bg-slate-800/70 text-slate-800 dark:text-slate-200">
-                    ${sec.table.headers.map(h => `<th class="py-2.5 px-3 font-bold">${h}</th>`).join('')}
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                  ${sec.table.rows.map(row => `
-                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
-                      <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">${row[0]}</td>
-                      <td class="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">${row[1]}</td>
-                      <td class="py-2.5 px-3 text-slate-600 dark:text-slate-400">${row[2]}</td>
+            ${sec.content ? `
+              <div class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                ${sec.content.map(c => `<p class="leading-relaxed">${c.replace(/\*\*(.*?)\*\*/g, '<strong class="text-emerald-700 dark:text-emerald-400 font-bold">$1</strong>')}</p>`).join('')}
+              </div>
+            ` : ''}
+
+            ${sec.table ? `
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                  <thead>
+                    <tr class="border-b border-slate-200 dark:border-slate-700 bg-slate-100/70 dark:bg-slate-800/70 text-slate-800 dark:text-slate-200">
+                      ${sec.table.headers.map(h => `<th class="py-2.5 px-3 font-bold">${h}</th>`).join('')}
                     </tr>
-                  `).join('')}
-                </tbody>
-              </table>
-            </div>
-          ` : ''}
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                    ${sec.table.rows.map(row => `
+                      <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
+                        <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">${row[0]}</td>
+                        <td class="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">${row[1]}</td>
+                        <td class="py-2.5 px-3 text-slate-600 dark:text-slate-400">${row[2] || ''}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            ` : ''}
+          </div>
+        `).join('')}
+      </div>
 
-          ${sec.points ? `
-            <ul class="list-disc list-inside space-y-2 text-sm text-slate-700 dark:text-slate-300">
-              ${sec.points.map(p => `<li>${p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-white font-bold">$1</strong>')}</li>`).join('')}
-            </ul>
-          ` : ''}
+      <!-- Google Doc Complete Key Points (52 items) -->
+      ${keyPoints.length > 0 ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-emerald-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="list-ordered" class="w-5 h-5 text-emerald-500"></i> ${data.key_points_full.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">完整收錄 Google 雲端文件「重點整理」全部條列內容，一字不漏完全列出</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-bold rounded-full">共 ${keyPoints.length} 項</span>
+          </div>
+
+          <div class="space-y-2.5">
+            ${keyPoints.map((item, idx) => {
+              const isHeader = item.startsWith('*') || item.startsWith('☞') || item.startsWith('現行役期');
+              if (isHeader) {
+                return `
+                  <div class="p-3 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-200">
+                    ${item}
+                  </div>
+                `;
+              }
+              return `
+                <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-800/40 flex items-start gap-3 hover:border-emerald-400 transition text-xs sm:text-sm leading-relaxed">
+                  <span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-mono font-bold text-xs shrink-0 mt-0.5">
+                    #${idx + 1}
+                  </span>
+                  <div class="text-slate-800 dark:text-slate-200 flex-1">
+                    ${item.replace(/\b(\d+年|\d+歲|\d+日|\d+個月|\d+週|\d+小時|\d+萬|10年)\b/g, '<strong class="text-emerald-600 dark:text-emerald-400 font-extrabold">$1</strong>')}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
         </div>
-      `).join('')}
+      ` : ''}
+
+      <!-- Full Act Articles (Articles 1 to 63) -->
+      ${fullAct ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="book-text" class="w-5 h-5 text-emerald-500"></i> ${fullAct.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">依據 ${fullAct.amend_date}，全案第 1 條至第 63 條無刪減完整條文</p>
+            </div>
+            <button onclick="toggleAllAct('reg-act')" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white rounded-lg transition">
+              全部展開 / 收合
+            </button>
+          </div>
+
+          <div class="space-y-4" id="reg-act-container">
+            ${fullAct.chapters.map((chap, cIdx) => `
+              <details class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30 overflow-hidden" ${cIdx === 0 ? 'open' : ''}>
+                <summary class="p-4 cursor-pointer font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-800 select-none">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    ${chap.chapter}
+                  </span>
+                  <span class="text-xs text-slate-400 font-normal">(${chap.articles.length} 條)</span>
+                </summary>
+                <div class="p-4 space-y-3 bg-white/40 dark:bg-slate-900/30 divide-y divide-slate-100 dark:divide-slate-800/60 text-xs sm:text-sm">
+                  ${chap.articles.map(art => `
+                    <div class="pt-3 first:pt-0 space-y-1">
+                      <div class="font-bold text-emerald-700 dark:text-emerald-400">${art.article}</div>
+                      ${art.content.map(p => `<p class="text-slate-700 dark:text-slate-300 leading-relaxed">${p}</p>`).join('')}
+                    </div>
+                  `).join('')}
+                </div>
+              </details>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
     </div>
   `;
 
@@ -1343,44 +1429,92 @@ function renderVolunteer() {
   const container = document.getElementById('volunteer-content-body');
   if (!container || !data) return;
 
+  const fullAct = data.full_act ? data.full_act : null;
+
   container.innerHTML = `
-    <div class="space-y-6">
-      <div class="p-6 bg-gradient-to-r from-teal-800 to-slate-900 text-white rounded-2xl space-y-2 shadow">
-        <h3 class="text-xl font-bold flex items-center gap-2 text-teal-300">
-          <i data-lucide="hand-heart" class="w-6 h-6"></i> ${data.title}
+    <div class="space-y-8">
+      <!-- Header Banner -->
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-teal-900 via-slate-900 to-teal-950 text-white rounded-3xl space-y-3 shadow-lg">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs font-semibold">
+          <i data-lucide="hand-heart" class="w-4 h-4"></i> 志願服務法規與訓練規範
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-black text-white">
+          ${data.title}
         </h3>
-        <p class="text-sm text-slate-300">${data.description}</p>
+        <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">${data.description}</p>
       </div>
 
-      ${data.sections.map(sec => `
-        <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm">
-          <h4 class="text-base font-bold text-slate-900 dark:text-white border-l-4 border-teal-500 pl-3">
-            ${sec.title}
-          </h4>
+      <!-- Core Summary Cards -->
+      <div class="space-y-6">
+        ${data.sections.map(sec => `
+          <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm">
+            <h4 class="text-base font-bold text-slate-900 dark:text-white border-l-4 border-teal-500 pl-3">
+              ${sec.title}
+            </h4>
 
-          ${sec.content ? `
-            <div class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-              ${sec.content.map(c => `<p class="leading-relaxed">${c.replace(/\*\*(.*?)\*\*/g, '<strong class="text-teal-700 dark:text-teal-400 font-bold">$1</strong>')}</p>`).join('')}
+            ${sec.content ? `
+              <div class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                ${sec.content.map(c => `<p class="leading-relaxed">${c.replace(/\*\*(.*?)\*\*/g, '<strong class="text-teal-700 dark:text-teal-400 font-bold">$1</strong>')}</p>`).join('')}
+              </div>
+            ` : ''}
+
+            ${sec.items ? `
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                ${sec.items.map(item => `
+                  <div class="p-4 rounded-xl border border-teal-200 dark:border-teal-900/60 bg-teal-50/40 dark:bg-teal-950/20 space-y-2">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500 text-white shadow-sm">
+                      ${item.badge}
+                    </span>
+                    <h5 class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</h5>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      ${item.desc.replace(/\*\*(.*?)\*\*/g, '<strong class="text-teal-600 dark:text-teal-400 font-bold">$1</strong>')}
+                    </p>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- Full Act Articles (Articles 1 to 25) -->
+      ${fullAct ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-teal-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="book-text" class="w-5 h-5 text-teal-500"></i> ${fullAct.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">依據 ${fullAct.amend_date}，全案第 1 條至第 25 條無刪減完整條文</p>
             </div>
-          ` : ''}
+            <button onclick="toggleAllAct('vol-act')" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-teal-500 hover:text-white rounded-lg transition">
+              全部展開 / 收合
+            </button>
+          </div>
 
-          ${sec.items ? `
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              ${sec.items.map(item => `
-                <div class="p-4 rounded-xl border border-teal-200 dark:border-teal-900/60 bg-teal-50/40 dark:bg-teal-950/20 space-y-2">
-                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500 text-white shadow-sm">
-                    ${item.badge}
+          <div class="space-y-4" id="vol-act-container">
+            ${fullAct.chapters.map((chap, cIdx) => `
+              <details class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30 overflow-hidden" ${cIdx === 0 ? 'open' : ''}>
+                <summary class="p-4 cursor-pointer font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-800 select-none">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                    ${chap.chapter}
                   </span>
-                  <h5 class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</h5>
-                  <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                    ${item.desc.replace(/\*\*(.*?)\*\*/g, '<strong class="text-teal-600 dark:text-teal-400 font-bold">$1</strong>')}
-                  </p>
+                  <span class="text-xs text-slate-400 font-normal">(${chap.articles.length} 條)</span>
+                </summary>
+                <div class="p-4 space-y-3 bg-white/40 dark:bg-slate-900/30 divide-y divide-slate-100 dark:divide-slate-800/60 text-xs sm:text-sm">
+                  ${chap.articles.map(art => `
+                    <div class="pt-3 first:pt-0 space-y-1">
+                      <div class="font-bold text-teal-700 dark:text-teal-400">${art.article}</div>
+                      ${art.content.map(p => `<p class="text-slate-700 dark:text-slate-300 leading-relaxed">${p}</p>`).join('')}
+                    </div>
+                  `).join('')}
                 </div>
-              `).join('')}
-            </div>
-          ` : ''}
+              </details>
+            `).join('')}
+          </div>
         </div>
-      `).join('')}
+      ` : ''}
     </div>
   `;
 
@@ -1389,16 +1523,24 @@ function renderVolunteer() {
 
 function renderRightsAndManagement() {
   const data = AppState.studyData.rights_and_management;
+  const footnotes = AppState.studyData.footnotes ? AppState.studyData.footnotes.notes : [];
   const container = document.getElementById('rights-content-body');
   if (!container || !data) return;
 
+  const rightsPoints = data.rights_points_full ? data.rights_points_full.items : [];
+  const mgmtPoints = data.management_points_full ? data.management_points_full.items : [];
+
   container.innerHTML = `
-    <div class="space-y-6">
-      <div class="p-6 bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-2xl space-y-2 shadow">
-        <h3 class="text-xl font-bold flex items-center gap-2 text-blue-300">
-          <i data-lucide="shield" class="w-6 h-6"></i> ${data.title}
+    <div class="space-y-8">
+      <!-- Header Banner -->
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-3xl space-y-3 shadow-lg">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold">
+          <i data-lucide="shield" class="w-4 h-4"></i> 役男權益與服勤法規完全指南
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-black text-white">
+          ${data.title}
         </h3>
-        <p class="text-sm text-slate-300">${data.description}</p>
+        <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">${data.description}</p>
       </div>
 
       <!-- Salary Structure Card -->
@@ -1482,63 +1624,93 @@ function renderRightsAndManagement() {
         </div>
       </div>
 
-      <!-- Rights List -->
-      <div class="glass-panel p-6 rounded-2xl space-y-3 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 dark:text-white border-l-4 border-blue-500 pl-3">
-          役男法定身分權益保障
-        </h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-          ${data.rights.map(r => `
-            <div class="p-3.5 rounded-xl bg-blue-50/30 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              ${r.replace(/\*\*(.*?)\*\*/g, '<strong class="text-blue-700 dark:text-blue-400 font-bold block mb-1">$1</strong>')}
+      <!-- Google Doc Rights Points (53 items) -->
+      ${rightsPoints.length > 0 ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-blue-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-5 h-5 text-blue-500"></i> ${data.rights_points_full.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">完整收錄 Google 雲端文件「權益部分」全 53 條條列內容，包含身分、薪資、撫卹、就醫補助</p>
             </div>
-          `).join('')}
-        </div>
-      </div>
+            <span class="text-xs px-2.5 py-1 bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 font-bold rounded-full">共 53 項</span>
+          </div>
 
-      <!-- Punishments List -->
-      <div class="glass-panel p-6 rounded-2xl space-y-3 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 dark:text-white border-l-4 border-rose-500 pl-3">
-          役男服勤違規懲處基準 (替代役管理法規)
-        </h4>
-        <div class="space-y-2">
-          ${data.punishments.map(p => `
-            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 text-xs sm:text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2">
-              <i data-lucide="alert-octagon" class="w-4 h-4 text-rose-500 shrink-0"></i>
-              <span>${p.replace(/\*\*(.*?)\*\*/g, '<strong class="text-rose-600 dark:text-rose-400 font-bold">$1</strong>')}</span>
-            </div>
-          `).join('')}
+          <div class="space-y-2.5">
+            ${rightsPoints.map((item, idx) => `
+              <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-800/40 flex items-start gap-3 hover:border-blue-400 transition text-xs sm:text-sm leading-relaxed">
+                <span class="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 font-mono font-bold text-xs shrink-0 mt-0.5">
+                  #${idx + 1}
+                </span>
+                <div class="text-slate-800 dark:text-slate-200 flex-1">
+                  ${item.replace(/\b(\d+年|\d+歲|\d+日|\d+個月|\d+週|\d+小時|\d+元|\d+基數|10年)\b/g, '<strong class="text-blue-600 dark:text-blue-400 font-bold">$1</strong>')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
         </div>
-      </div>
+      ` : ''}
+
+      <!-- Google Doc Management Points (40 items) -->
+      ${mgmtPoints.length > 0 ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-indigo-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="clipboard-list" class="w-5 h-5 text-indigo-500"></i> ${data.management_points_full.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">完整收錄 Google 雲端文件「替代役訓練服勤管理部分」全 40 條條列內容，包含請假、獎懲、申訴、管理幹部</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-bold rounded-full">共 40 項</span>
+          </div>
+
+          <div class="space-y-2.5">
+            ${mgmtPoints.map((item, idx) => `
+              <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-800/40 flex items-start gap-3 hover:border-indigo-400 transition text-xs sm:text-sm leading-relaxed">
+                <span class="px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 font-mono font-bold text-xs shrink-0 mt-0.5">
+                  #${idx + 1}
+                </span>
+                <div class="text-slate-800 dark:text-slate-200 flex-1">
+                  ${item.replace(/\b(\d+年|\d+歲|\d+日|\d+個月|\d+週|\d+小時|\d+元|\d+基數|10年)\b/g, '<strong class="text-indigo-600 dark:text-indigo-400 font-bold">$1</strong>')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      <!-- Footnotes [1] to [25] Section -->
+      ${footnotes.length > 0 ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-amber-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-5 h-5 text-amber-500"></i> 歷年新訓學科考題註腳與法規陷阱精解 [1] 至 [25] 全覽
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">完整還原 Google 文件作者學長詳細註解，剖析出題陷阱與最新法條修訂原由</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 font-bold rounded-full">共 25 條註解</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            ${footnotes.map(fn => `
+              <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-amber-50/30 dark:bg-amber-950/10 space-y-1.5 text-xs sm:text-sm">
+                <div class="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+                  <span class="px-2 py-0.5 rounded bg-amber-500 text-white font-mono text-xs">
+                    ${fn.num > 0 ? `[${fn.num}]` : '特別提醒'}
+                  </span>
+                </div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">${fn.text}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
     </div>
   `;
 
   if (window.lucide) window.lucide.createIcons();
-}
-
-function calculateTotalScore() {
-  const acad = parseFloat(document.getElementById('calc-academic')?.value || '0');
-  const run = parseFloat(document.getElementById('calc-run')?.value || '0');
-  const drill = parseFloat(document.getElementById('calc-drill')?.value || '0');
-  const emt = parseFloat(document.getElementById('calc-emt')?.value || '0');
-  const life = parseFloat(document.getElementById('calc-life')?.value || '0');
-
-  // 247T official distribution: Academic 35%, Run 15%, Drill 20%, EMT 20%, Life 10%
-  const total = (acad * 0.35) + (run * 0.15) + (drill * 0.20) + (emt * 0.20) + (life * 0.10);
-  const badge = document.getElementById('calc-result-badge');
-  if (badge) {
-    let rank = '待加強';
-    if (total >= 90) rank = '特優 (選役別第一志願穩)';
-    else if (total >= 85) rank = '優等 (選役別優勢大)';
-    else if (total >= 75) rank = '良好';
-    else if (total >= 60) rank = '及格';
-
-    badge.textContent = `${total.toFixed(2)} 分 (${rank})`;
-  }
-}
-
-function initCalculator() {
-  calculateTotalScore();
 }
 
 function renderShootingGuide() {
@@ -1546,13 +1718,19 @@ function renderShootingGuide() {
   const container = document.getElementById('shooting-content-body');
   if (!container || !data) return;
 
+  const fullText = data.full_text ? data.full_text.items : [];
+
   container.innerHTML = `
-    <div class="space-y-6">
-      <div class="p-6 bg-gradient-to-r from-emerald-900 to-slate-900 text-white rounded-2xl space-y-2 shadow">
-        <h3 class="text-xl font-bold flex items-center gap-2 text-emerald-400">
-          <i data-lucide="crosshair" class="w-6 h-6"></i> ${data.title}
+    <div class="space-y-8">
+      <!-- Header Banner -->
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950 text-white rounded-3xl space-y-3 shadow-lg">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold">
+          <i data-lucide="crosshair" class="w-4 h-4"></i> T65K2步槍射擊與靶場紀律
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-black text-white">
+          ${data.title}
         </h3>
-        <p class="text-sm text-slate-300">${data.description}</p>
+        <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">${data.description}</p>
       </div>
 
       <!-- T65K2 Rifle Specs -->
@@ -1641,18 +1819,32 @@ function renderShootingGuide() {
           `).join('')}
         </div>
       </div>
+
+      <!-- Google Doc Shooting Full Text & 257T Questions -->
+      ${fullText.length > 0 ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-emerald-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="file-text" class="w-5 h-5 text-emerald-500"></i> ${data.full_text.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">完整還原 Google 文件打靶筆記原文與 247T、257T 鑑測真題</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            ${fullText.map(line => `
+              <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-800/40 text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200">
+                ${line.replace(/\*\*(.*?)\*\*/g, '<strong class="text-emerald-600 dark:text-emerald-400 font-bold">$1</strong>')}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
     </div>
   `;
 
   if (window.lucide) window.lucide.createIcons();
-}
-
-/* ==========================================================================
-   PACKING CHECKLIST
-   ========================================================================== */
-
-function initChecklist() {
-  updateChecklistProgress();
 }
 
 function renderChecklist() {
@@ -1660,25 +1852,30 @@ function renderChecklist() {
   const container = document.getElementById('checklist-content-body');
   if (!container || !data) return;
 
+  const fullText = data.full_text ? data.full_text.items : [];
+
   container.innerHTML = `
-    <div class="space-y-6">
+    <div class="space-y-8">
       <!-- Header with Action Buttons -->
-      <div class="p-6 bg-gradient-to-r from-emerald-800 via-teal-900 to-slate-900 text-white rounded-2xl space-y-3 shadow">
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-emerald-800 via-teal-900 to-slate-900 text-white rounded-3xl space-y-4 shadow-lg">
         <div class="flex flex-wrap items-center justify-between gap-4">
           <div class="space-y-1">
-            <h3 class="text-xl font-bold flex items-center gap-2 text-emerald-300">
-              <i data-lucide="clipboard-check" class="w-6 h-6"></i> ${data.title}
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 text-emerald-300 rounded-full text-xs font-semibold">
+              <i data-lucide="clipboard-check" class="w-4 h-4"></i> 2024年8月最新實測整理
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-white">
+              ${data.title}
             </h3>
-            <p class="text-sm text-slate-300">${data.description}</p>
+            <p class="text-sm text-slate-300 max-w-2xl">${data.description}</p>
           </div>
           <div class="flex items-center gap-2 no-print">
-            <button onclick="checkAllChecklist(true)" class="px-3 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-lg text-xs font-semibold transition">
+            <button onclick="checkAllChecklist(true)" class="px-3 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl text-xs font-semibold transition">
               全部勾選
             </button>
-            <button onclick="checkAllChecklist(false)" class="px-3 py-1.5 bg-white/20 hover:bg-white/30 text-white rounded-lg text-xs font-semibold transition">
+            <button onclick="checkAllChecklist(false)" class="px-3 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl text-xs font-semibold transition">
               全部清除
             </button>
-            <button onclick="window.print()" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg text-xs font-semibold transition flex items-center gap-1">
+            <button onclick="window.print()" class="px-3 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1 shadow">
               <i data-lucide="printer" class="w-3.5 h-3.5"></i> 列印清單
             </button>
           </div>
@@ -1697,7 +1894,7 @@ function renderChecklist() {
       </div>
 
       <!-- Categories Accordion / Cards -->
-      <div class="space-y-5">
+      <div class="space-y-6">
         ${data.categories.map(cat => `
           <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm">
             <h4 class="text-base font-bold text-slate-900 dark:text-white flex items-center justify-between">
@@ -1708,7 +1905,7 @@ function renderChecklist() {
               ${cat.items.map(item => {
                 const isChecked = AppState.checkedItems.has(item.id);
                 return `
-                  <label class="p-3 rounded-xl border ${isChecked ? 'border-emerald-500 bg-emerald-50/40 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30'} flex items-start gap-3 cursor-pointer hover:border-emerald-300 transition select-none ${item.is_danger ? 'hover:border-rose-300' : ''}">
+                  <label class="p-3.5 rounded-xl border ${isChecked ? 'border-emerald-500 bg-emerald-50/40 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30'} flex items-start gap-3 cursor-pointer hover:border-emerald-300 transition select-none ${item.is_danger ? 'hover:border-rose-300' : ''}">
                     <input type="checkbox" onchange="toggleChecklistItem('${item.id}')" ${isChecked ? 'checked' : ''} class="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4 mt-0.5 shrink-0">
                     <div class="space-y-0.5 flex-1">
                       <div class="text-xs sm:text-sm font-semibold ${isChecked ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-900 dark:text-slate-100'} ${item.is_danger ? 'text-rose-600 dark:text-rose-400' : ''}">
@@ -1724,11 +1921,46 @@ function renderChecklist() {
           </div>
         `).join('')}
       </div>
+
+      <!-- Google Doc Raw Checklist Full Text & Notes -->
+      ${fullText.length > 0 ? `
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-emerald-500/20">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h4 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="file-text" class="w-5 h-5 text-emerald-500"></i> ${data.full_text.title}
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400">完整列出 Google 雲端文件檢核表原文（含數量、避坑防雷沒用物品、防蚊液法定成分詳細說明）</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+            ${fullText.map(line => {
+              const isDanger = line.includes('[X]') || line.includes('違禁品') || line.includes('沒用的東西');
+              const isWarning = line.includes('防蚊液') || line.includes('重要');
+              return `
+                <div class="p-3 rounded-xl border ${isDanger ? 'border-rose-200 bg-rose-50/40 dark:bg-rose-950/20 text-rose-800 dark:text-rose-300' : isWarning ? 'border-amber-200 bg-amber-50/40 dark:bg-amber-950/20 text-amber-800 dark:text-amber-300' : 'border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-800/40 text-slate-800 dark:text-slate-200'} text-xs sm:text-sm leading-relaxed">
+                  ${line}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      ` : ''}
     </div>
   `;
 
   updateChecklistProgress();
   if (window.lucide) window.lucide.createIcons();
+}
+
+function toggleAllAct(containerId) {
+  const container = document.getElementById(`${containerId}-container`);
+  if (!container) return;
+  const details = container.querySelectorAll('details');
+  if (!details.length) return;
+  const anyOpen = Array.from(details).some(d => d.open);
+  details.forEach(d => { d.open = !anyOpen; });
 }
 
 function toggleChecklistItem(id) {
