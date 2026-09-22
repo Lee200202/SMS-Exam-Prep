@@ -129,7 +129,7 @@ async function loadData() {
 function updateHeaderBadges() {
   const totalCountEl = document.getElementById('stat-total-questions');
   const mistakeCountEl = document.getElementById('stat-mistake-count');
-  if (totalCountEl) totalCountEl.textContent = AppState.questions.length || '239';
+  if (totalCountEl) totalCountEl.textContent = AppState.questions.length || '262';
   if (mistakeCountEl) mistakeCountEl.textContent = AppState.mistakes.size;
 }
 
@@ -306,9 +306,9 @@ function renderQuizSetup() {
             全台最完整的役男期末筆試題庫，支援隨機亂數抽題、倒數計時、選項打亂與錯題複習。助你拿下 95+ 高分，搶佔理想服勤單位！
           </p>
           <div class="flex flex-wrap gap-4 pt-2 text-xs sm:text-sm text-emerald-100">
-            <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-300"></i> 收錄 239 題真題</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-300"></i> 收錄 262 題真題</span>
             <span class="flex items-center gap-1.5"><i data-lucide="shuffle" class="w-4 h-4 text-emerald-300"></i> 隨機抽題與洗牌</span>
-            <span class="flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4 text-emerald-300"></i> 學科佔比 45%</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4 text-emerald-300"></i> 學科佔比 35%</span>
           </div>
         </div>
         <i data-lucide="compass" class="absolute -right-6 -bottom-10 w-48 h-48 text-white/10 pointer-events-none"></i>
