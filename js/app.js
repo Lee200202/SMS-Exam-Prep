@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
   setupEventListeners();
   renderCurrentTab();
-  initChecklist();
+  updateChecklistProgress();
   initCalculator();
   updateHeaderBadges();
   
@@ -1845,6 +1845,30 @@ function renderShootingGuide() {
   `;
 
   if (window.lucide) window.lucide.createIcons();
+}
+
+function calculateTotalScore() {
+  const academic = parseFloat(document.getElementById('calc-academic')?.value || 0);
+  const run = parseFloat(document.getElementById('calc-run')?.value || 0);
+  const drill = parseFloat(document.getElementById('calc-drill')?.value || 0);
+  const emt = parseFloat(document.getElementById('calc-emt')?.value || 0);
+  const life = parseFloat(document.getElementById('calc-life')?.value || 0);
+
+  const total = (academic * 0.35) + (run * 0.15) + (drill * 0.20) + (emt * 0.20) + (life * 0.10);
+  const badge = document.getElementById('calc-result-badge');
+  if (badge) {
+    let rank = '甲等';
+    if (total >= 90) rank = '特優';
+    else if (total >= 80) rank = '優等';
+    else if (total >= 70) rank = '甲等';
+    else if (total >= 60) rank = '乙等';
+    else rank = '待加強';
+    badge.textContent = `${total.toFixed(2)} 分 (${rank})`;
+  }
+}
+
+function initCalculator() {
+  calculateTotalScore();
 }
 
 function renderChecklist() {

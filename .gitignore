@@ -1,0 +1,18 @@
+# Scraping temporary artifacts
+data/*.html
+data/next_data.json
+data/*_History.db
+data/cid_*.txt
+data/*stealth*
+data/test_*.json
+data/dcard_page*.html
+data/dcard_with_cookies_text.txt
+data/dcard_real_chrome_text.txt
+data/dcard_captured_comments.json
+data/captured_*.json
+
+# OS / Python artifacts
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
