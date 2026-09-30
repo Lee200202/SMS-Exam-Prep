@@ -748,6 +748,13 @@ function renderInstantExplanation(q, userAnswer) {
         <span class="text-xs font-normal ml-auto">標準答案：<strong class="font-bold underline">${correctText}</strong></span>
       </div>
       ${q.explanation ? `<p class="text-xs sm:text-sm opacity-90 leading-relaxed"><strong class="font-semibold">【詳解依據】</strong> ${q.explanation}</p>` : ''}
+      ${q.source ? `
+        <div class="text-[11px] pt-1 border-t border-black/10 dark:border-white/10 flex items-center gap-1.5 opacity-85">
+          <i data-lucide="link" class="w-3 h-3 text-emerald-500"></i>
+          <span>出處來源：</span>
+          ${q.source_url ? `<a href="${q.source_url}" target="_blank" rel="noopener noreferrer" class="underline font-semibold hover:text-emerald-600 dark:hover:text-emerald-300 inline-flex items-center gap-1">${q.source} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>` : `<span>${q.source}</span>`}
+        </div>
+      ` : ''}
     </div>
   `;
 }
@@ -986,6 +993,13 @@ function renderQuizResults() {
                   <div>你的作答：<span class="${isCorrect ? 'text-emerald-600 font-bold' : 'text-rose-600 font-bold'}">${userAnsText}</span></div>
                   ${!isCorrect ? `<div>正確答案：<span class="text-emerald-600 font-bold">${correctAnsText}</span></div>` : ''}
                   ${q.explanation ? `<div class="text-slate-600 dark:text-slate-400 pt-1"><strong>【解析】</strong> ${q.explanation}</div>` : ''}
+                  ${q.source ? `
+                    <div class="text-[11px] text-slate-400 pt-0.5 flex items-center gap-1">
+                      <i data-lucide="link" class="w-3 h-3 text-emerald-500"></i>
+                      <span>來源：</span>
+                      ${q.source_url ? `<a href="${q.source_url}" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 underline">${q.source}</a>` : q.source}
+                    </div>
+                  ` : ''}
                 </div>
               </div>
             `;
@@ -1166,6 +1180,13 @@ function renderQuestionBank() {
             ${q.explanation ? `
               <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                 <strong>【解析】</strong> ${highlightText(q.explanation, searchTerm)}
+              </div>
+            ` : ''}
+            ${q.source ? `
+              <div class="text-[11px] text-slate-400 dark:text-slate-500 mt-1.5 pt-1.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5">
+                <i data-lucide="link" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+                <span class="shrink-0 font-medium">出處來源：</span>
+                ${q.source_url ? `<a href="${q.source_url}" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">${q.source} <i data-lucide="external-link" class="w-3 h-3"></i></a>` : `<span>${q.source}</span>`}
               </div>
             ` : ''}
             ${hideAnswers ? `<span class="text-[10px] text-emerald-500 italic block mt-1">（點擊此區塊解除模糊遮罩查看答案）</span>` : ''}

@@ -2,17 +2,14 @@
   "version": "2026.1",
   "updatedAt": "2026-09",
   "stats": {
-    "total": 262,
-    "true_false": 150,
-    "multiple_choice": 112,
+    "total": 272,
     "categories": {
       "regulations": 107,
-      "volunteer": 12,
       "rights": 76,
       "management": 50,
-      "shooting": 17
-    },
-    "shooting": 17
+      "shooting": 27,
+      "volunteer": 12
+    }
   },
   "questions": [
     {
@@ -22,7 +19,9 @@
       "question": "替代役之主管機關為內政部。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【219T考】【257T考】"
+      "exam_tag": "【205T考】【219T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-002",
@@ -31,7 +30,9 @@
       "question": "所謂替代役，係指役齡男子於需用機關擔任輔助性工作，行政府公共事務或是其他社會服務。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【215T考】"
+      "exam_tag": "【219T考】【247T考】【215T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-003",
@@ -40,7 +41,9 @@
       "question": "社會役是屬於替代役社會治安類的役別。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【215T考】"
+      "exam_tag": "【219T考】【247T考】【215T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-004",
@@ -49,7 +52,9 @@
       "question": "文化服務役是屬於替代役社會服務類之役別。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【215T考】"
+      "exam_tag": "【219T考】【247T考】【215T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-005",
@@ -58,7 +63,9 @@
       "question": "警察役之勤務內容為擔任救災及傷病患救助等輔助勤務。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］【257T考】"
+      "exam_tag": "【215T考】［227T考］【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-006",
@@ -67,7 +74,9 @@
       "question": "替代役實施條例所稱需用機關，係指替代役男擔任輔助務處所之管理單位。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］【257T考】"
+      "exam_tag": "【215T考】［227T考］【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-007",
@@ -76,7 +85,9 @@
       "question": "替代役實施條例所稱服勤單位，係指替代役男服勤單位中央各該主管機關。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "［227T考］【215T考】【219T考】"
+      "exam_tag": "［227T考］【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-008",
@@ -85,7 +96,9 @@
       "question": "教育服務役之勤務內容為擔任都會地區國民中小學教育輔助勤務。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【257T考】"
+      "exam_tag": "【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-009",
@@ -94,7 +107,9 @@
       "question": "醫療役之勤務內容為擔任都會地區及醫療資源不缺乏地區醫療保健服務、防疫、公共衛生之稽查等輔助勤務。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-010",
@@ -103,7 +118,9 @@
       "question": "中華民國男子年滿18歲之翌年一月一日起，於徵兵檢查為常備役(甲乙等)體位者，得依志願申請服替代役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-011",
@@ -112,7 +129,9 @@
       "question": "行政院核定常備役(甲乙等)體位，服替代役之役期為兩年。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-012",
@@ -121,7 +140,9 @@
       "question": "常備役體位(甲乙等)因家庭因素服替代役役期為一年10個月。",
       "answer": "X",
       "explanation": "【最新役期標準】83-93年次家庭因素役期為4個月；94年次以後出生役男回復為1年役期（與常備兵相同）。",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-013",
@@ -129,7 +150,9 @@
       "category": "regulations",
       "question": "常備役體位因宗教因素服替代役者役期為兩年兩個月。",
       "answer": "X",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-014",
@@ -138,7 +161,9 @@
       "question": "替代役役男經診斷確定罹患足以危害團體健康及安全之病者，停服替代役，稱為停役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-015",
@@ -147,7 +172,9 @@
       "question": "替代役男停役期間，替代役役期仍可列入計算。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-016",
@@ -156,7 +183,9 @@
       "question": "替代役役男因家庭發生重大變故，須負擔家庭生計主要責任或因其他特殊事故，經內政部核定者，得辦理停役。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-017",
@@ -165,7 +194,9 @@
       "question": "替代役役男因家庭發生重大變故，須負擔家庭生計主要責任或因其他特殊事故，經內政部核定者，得辦理提前退役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-018",
@@ -173,7 +204,9 @@
       "category": "regulations",
       "question": "替代役訓練區分為軍事基礎訓練與專業訓練。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-019",
@@ -181,7 +214,9 @@
       "category": "regulations",
       "question": "替代役役男服役期間，不具有現役軍人身分。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-020",
@@ -189,7 +224,9 @@
       "category": "rights",
       "question": "替代役役男服役期間，享有學生得保留學籍之權利。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-021",
@@ -198,7 +235,9 @@
       "question": "替代役役男參加政府舉辦之考試，服勤單位得給予公假。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】"
+      "exam_tag": "【205T考】【215T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-022",
@@ -207,7 +246,9 @@
       "question": "替代役役男服役期間不得從事兼職、兼差及其他相關營利行為。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-023",
@@ -216,7 +257,9 @@
       "question": "替代役役男均應參加全民健保、替代役役男一般保險及團體意外保險。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-024",
@@ -225,7 +268,9 @@
       "question": "替代役役男之各類保險費，由內政部編列預算支付。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-025",
@@ -234,7 +279,9 @@
       "question": "替代役役男違抗長官之勤務命令者，處一年以下有期徒刑，拘役或科或併科新台幣10萬元以下罰金。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】"
+      "exam_tag": "【219T考】【247T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-026",
@@ -243,7 +290,9 @@
       "question": "替代役役男違反生活及勤務管理者，視情結輕重，予以罰勤、申誡、記過、罰薪或輔導教育。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【215T考】"
+      "exam_tag": "【219T考】【247T考】【215T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-027",
@@ -252,7 +301,9 @@
       "question": "替代役役男違反生活及勤務管理規定，予以罰勤時，平日以兩小時為限，例假日以四小時為限。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【215T考】"
+      "exam_tag": "【219T考】【247T考】【215T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-028",
@@ -261,7 +312,9 @@
       "question": "替代役役男違反生活及勤務管理規定，予以罰薪時，扣除月薪百分之十至百分之三十，以六個月為限。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【215T考】"
+      "exam_tag": "【219T考】【247T考】【215T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-029",
@@ -269,7 +322,9 @@
       "category": "regulations",
       "question": "內政部為辦理需用機關年度實施計劃之審查，宗教信仰申請案件之審議及重大爭議案件處理等事項，得設替代役審議委員會。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-030",
@@ -278,7 +333,9 @@
       "question": "服替代役之警察役役男，於執行勤務時，不得使用必要之警械。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【257T考】"
+      "exam_tag": "【219T考】【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-031",
@@ -287,7 +344,9 @@
       "question": "一般替代役役男無故離去職役已超過五日者，其訓練或服勤單位應發出離役通報，並請警察機關協尋，累計超過七日者，函請司法機關究辦，並副知需用機關。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【257T考】"
+      "exam_tag": "【219T考】【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-032",
@@ -296,7 +355,9 @@
       "question": "經申請保留底缺年資之替代役男，應於退役後半年內，憑退役證明書及職工保留底缺年資證明書，向原機關、學校或公、民營事業機構申請復職。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【257T考】"
+      "exam_tag": "【219T考】【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-033",
@@ -305,7 +366,9 @@
       "question": "四人以上行進：由幹部帶隊，帶隊者行舉手禮，並問長官好，待長官回禮後始可做禮畢動作。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-034",
@@ -313,7 +376,9 @@
       "category": "rights",
       "question": "替代役役男發生死亡或傷殘時，以事故發生月份之保險基數金額，核予一般保險給付。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-035",
@@ -322,7 +387,9 @@
       "question": "與長官行進，應於其左後方一步隨行，遇小徑或出入時間，可請長官先行。遇長官持重物時應主動上前協助。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-036",
@@ -331,7 +398,9 @@
       "question": "替代役役男服役期間，原持用之健保 IC 卡遺失，可逕向中央健康保險局各區業務組或郵局郵寄健保 IC 卡申請表辦理補發。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-037",
@@ -340,7 +409,9 @@
       "question": "於走道等狹窄空間發現有人交談，無法繞道，應先說\"打擾\"或\"對不起\"，表明穿越之意思，允諾後再行通過。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-038",
@@ -349,7 +420,9 @@
       "question": "替代役男軍事基礎訓練期間請假由訓練單位逕行核處。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-039",
@@ -358,7 +431,9 @@
       "question": "替代役男請事假應擇日施以補勤。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-040",
@@ -367,7 +442,9 @@
       "question": "替代役男結婚，得核給結婚假十四日，不可分次申請，但應於一個月內請畢。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-041",
@@ -376,7 +453,9 @@
       "question": "一般替代役男受軍事基礎訓練期間，因未達替代役體位應予驗退者，由主管機關辦理。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【257T考】"
+      "exam_tag": "【219T考】【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-042",
@@ -385,7 +464,9 @@
       "question": "替代役男於一般保險有效期間受傷，而於退役後鑑定傷殘等級者，仍得辦理一般保險保險給付。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】【247T考】【257T考】"
+      "exam_tag": "【219T考】【247T考】【257T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-043",
@@ -394,7 +475,9 @@
       "question": "依替代役實施條例第52條規定：替代役役男無故不就指定之替代役職役、擅離職役累計逾7日者，處2年以下有期徒刑、拘役或科或併科新台幣10萬元以下罰金。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-044",
@@ -403,7 +486,9 @@
       "question": "依替代役實施條例第52條規定： 替代役役男無故不就指定之替代役職役、擅離職役累計逾7日者，處2年以下有期徒刑、拘役或科或併科新臺幣20萬元以下罰金。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-045",
@@ -412,7 +497,9 @@
       "question": "依替代役軍事基礎訓練成績評比規定，軍事基礎訓練成績評比項目為三千公尺徒手跑步、徒手基本教練、引體向上、學科測驗。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】【257T考】【203T考】"
+      "exam_tag": "【205T考】【257T考】【203T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-046",
@@ -421,7 +508,9 @@
       "question": "一般替代役役別包括警察役、消防役、社會役、環保役、醫療役、教育役、農業服務役、其他經行政院指定之役別。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【203T考】【215T考】【219T考】"
+      "exam_tag": "【203T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-047",
@@ -430,7 +519,9 @@
       "question": "一般替代役役別，包括警察役、消防役、社會役、環保役、醫療役、研發替代役、教育服務役、農業服務役及其他經行政院指定之役別。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】【247T考】"
+      "exam_tag": "【215T考】【219T考】【247T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-048",
@@ -439,7 +530,9 @@
       "question": "替代役男家屬不能維持生活時，政府訂有扶助辦法。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-049",
@@ -448,7 +541,9 @@
       "question": "一般替代役役男具有國家考試及格或取得中央目的事業主管機關合於替代役類別專長證照者，或具備相關之學歷、經歷及專業訓練者得優先甄試。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-050",
@@ -457,7 +552,9 @@
       "question": "在辦公室或其他集合場所，遇長官巡視時，應起立問好，離去時起立目送，俟離去後再自行坐下。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】【247T考】"
+      "exam_tag": "【215T考】【219T考】【247T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-051",
@@ -466,7 +563,9 @@
       "question": "未經請假擅離服勤、訓練或指定住宿場所四小時以上，未達一日，施以記過，並得罰勤。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】【247T考】"
+      "exam_tag": "【215T考】【219T考】【247T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-052",
@@ -475,7 +574,9 @@
       "question": "所謂一般替代役，係指役齡男子於需用機關擔任輔助性工作，履行政府公共事務或其他社會服務。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】【219T考】"
+      "exam_tag": "【247T考】【257T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-053",
@@ -484,7 +585,9 @@
       "question": "替代役男於退役或驗退後，已未具替代役男身分，應逕依適當身分向投保單位辦理全民健保加保手續。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】【219T考】"
+      "exam_tag": "【219T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-054",
@@ -493,7 +596,9 @@
       "question": "輔導教育，由主管機關會同相關機關實施；其辦法，由主管機關定之。罰站、罰勤、禁足、 申誡及記過由服勤單位提出，報請需用機關核定，並於一週內送請主管機關備查。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-055",
@@ -502,7 +607,9 @@
       "question": "替代役男因婚、喪、疾病或其他正當事由得向服勤單位請假。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-056",
@@ -511,7 +618,9 @@
       "question": "替代役役男服役期間不得從事兼職、兼差及其他營利行為。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-057",
@@ -520,7 +629,9 @@
       "question": "依替代役實施條例第55條第1項規定：一般替代役役男與第1階段研發替代役役男違反生活、訓練及勤務管理規定者，視情節輕重，予以罰站、罰勤、禁足、申誡、記過、罰薪 或輔導教育。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【257T考】"
+      "exam_tag": "【205T考】【215T考】【257T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-058",
@@ -529,7 +640,9 @@
       "question": "替代役役男經核定傷病停役，其傷病經治療後，均應予以回役，補服未服完之役期。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【257T考】【205T考】［227T考］"
+      "exam_tag": "【257T考】【205T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-059",
@@ -538,7 +651,9 @@
       "question": "各項服裝穿著時機及配戴要求，均需注意是否整潔合身，衣服不外露，衣服不捲袖，配件光亮、儀容修整，需時時自我檢查要求；凡參加會議或洽公者，一路穿著制服，嚴禁制服、便服雜穿",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】［227T考］【205T考】"
+      "exam_tag": "【205T考】［227T考］【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-060",
@@ -547,7 +662,9 @@
       "question": "替代役役男得於懲處核定書送達次日起30日內向原懲處機關申訴。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【219T考】［227T考］"
+      "exam_tag": "【205T考】【219T考】［227T考］",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-061",
@@ -556,7 +673,9 @@
       "question": "服替代役如申請保留學籍或入學資格者，於退役後半年內，憑退役證明書係原學校申請復學或入學；並應依學校通知之報到期間向學校報到，無故逾期1個月未報到者，視為自行放棄。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】［227T考］【215T考】"
+      "exam_tag": "【219T考】［227T考］【215T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-062",
@@ -565,7 +684,9 @@
       "question": "役男分發勤務時，身體發生變化不堪服役時，可以向服勤單位提出傷病停役申請。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "［227T考］【257T考選擇】【203T考】"
+      "exam_tag": "［227T考］【257T考選擇】【203T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-063",
@@ -574,7 +695,9 @@
       "question": "替代役役男傷病於全民健康保險醫事服務機構就醫時，役男不需自行支付掛號費。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【219T考】［227T考］【205T考】"
+      "exam_tag": "【219T考】［227T考］【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-064",
@@ -583,7 +706,9 @@
       "question": "役男接受軍事基礎訓練期間，身體狀況不適服替代役時應向替代役訓練班提出申請驗退複檢。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "［227T考］【205T考】【215T考】"
+      "exam_tag": "［227T考］【205T考】【215T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-065",
@@ -591,7 +716,9 @@
       "category": "rights",
       "question": "撫卹受益人如果經通緝有案尚未結案者，停止其領受撫恤金之權利。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-066",
@@ -599,7 +726,9 @@
       "category": "rights",
       "question": "替代役役男因配偶分娩，得核予陪產假3日。",
       "answer": "X",
-      "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。"
+      "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-067",
@@ -607,7 +736,9 @@
       "category": "management",
       "question": "依替代役役男獎懲辦法第3條規定，替代役役男獎勵種類區分為榮譽假、嘉獎、記功、獎金、獎狀。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-068",
@@ -615,7 +746,9 @@
       "category": "rights",
       "question": "列級貧困征屬發給3節生活扶助金，兄弟同屬役男同戶生活者最高以4口為限，役男之配偶及直系血親不受該項口數計算限制。",
       "answer": "X",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-069",
@@ -623,7 +756,9 @@
       "category": "regulations",
       "question": "列級貧困徵屬發给一次安家費最高以四口為限。兄弟同屬役男者，得分別核定等級，各發给一次安家費。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-070",
@@ -631,7 +766,9 @@
       "category": "management",
       "question": "替代役役男擔任管理幹部，利用職權欺凌屬員，情節重大者，得予輔導教育。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-071",
@@ -640,7 +777,9 @@
       "question": "替代役役男之各類保險費，由內政部編列預算支付，但駐外醫療保險及兵災險，由需用機關編列預算支付。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-072",
@@ -649,7 +788,9 @@
       "question": "依據一般替代役役男訓練服勤管理辦法第7條規定：需用機關辦理一般替代役役男服勤單位分發，應將軍事基礎訓練成績列入分發成績；其所占比例不得低於分發成績計算基準之40%。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-073",
@@ -658,7 +799,9 @@
       "question": "替代役役男受輔導教育期間，停止一切例假及請假，但婚假及陪產假例外。",
       "answer": "X",
       "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。",
-      "exam_tag": "【219T考】【205T考】"
+      "exam_tag": "【219T考】【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-074",
@@ -667,7 +810,9 @@
       "question": "替代役役男服役期滿後，應按其服役類別、專長、年齡、體位納入勤務編組，平時演訓、非常事變或戰時，得視需要召集服勤。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-075",
@@ -676,7 +821,9 @@
       "question": "替代役役男為申請驗退或傷病停役，均須排訂指定體檢醫院檢查鑑定。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-076",
@@ -685,7 +832,9 @@
       "question": "意圖避免替代役之徵集，有使人頂替本人應徵者或頂替他人或介紹他人頂替應徵者，處5年以下有期徒刑，犯前述罪名2次以上者，加重其刑至三分之二。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-077",
@@ -693,7 +842,9 @@
       "category": "regulations",
       "question": "替代役役男經核定傷病停役，經治療痊癒後，均應回役補服未服完之役期。",
       "answer": "X",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-078",
@@ -702,7 +853,9 @@
       "question": "替代役役男服役期間，具有現役軍人身分。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-079",
@@ -711,7 +864,9 @@
       "question": "替代役役男家庭依社會福利救助法核列為低收入戶或中低收入戶，得申請提前退役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-080",
@@ -720,7 +875,9 @@
       "question": "替代役役男服勤期間傷病申請停役是服勤單位核定。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-081",
@@ -729,7 +886,9 @@
       "question": "替代役役男接受訓練期間，體格狀況不適服替代役時應向內政部役政署(訓練組)提出申請驗退複檢。",
       "answer": "O",
       "explanation": "【組改備註】內政部役政署於112年9月20日改制為「內政部替代役訓練及管理中心」與「內政部役政司」。",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-082",
@@ -738,7 +897,9 @@
       "question": "替代役役男入營逾21天，體格不適服替代役者，可申辦傷病停役。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "［227T考］【203T考】【205T考】"
+      "exam_tag": "［227T考］【203T考】【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-083",
@@ -746,7 +907,9 @@
       "category": "rights",
       "question": "領受撫恤金之同一順序遺族有數人無法協議時，應發给之撫卹金應平均分配。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-084",
@@ -755,7 +918,9 @@
       "question": "役男若因故至未參加期末檢測者，其成績評比核算未參加學科測驗者以0分計，未參加術科測驗者每項以40分採計。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-085",
@@ -764,7 +929,9 @@
       "question": "役男若因故至未參加期末檢測者，其成績評比核算未參加學科測驗者以40分計，未參加術科測驗者每項以0分採計。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-086",
@@ -773,7 +940,9 @@
       "question": "替代役役男因配偶分娩，核给陪產假3日，得分次申請，但應於配偶分娩日前後3日內請畢，例假日或輪休日順延之。",
       "answer": "X",
       "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。",
-      "exam_tag": "【247T考】【215T考】［227T考］"
+      "exam_tag": "【247T考】【215T考】［227T考］",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-087",
@@ -782,7 +951,9 @@
       "question": "行政院核定常備役體位服一般替代役之役期較常備兵長1個月。",
       "answer": "X",
       "explanation": "【最新役期標準】83-93年次役期為6個月（較常備兵多2個月）；94年次以後出生役男回復為1年役期。",
-      "exam_tag": "【247T考】【215T考】［227T考］"
+      "exam_tag": "【247T考】【215T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-088",
@@ -791,7 +962,9 @@
       "question": "常備役體位之役男因家庭因素服替代役之役期與常備役相同。",
       "answer": "O",
       "explanation": "【最新役期標準】83-93年次家庭因素役期為4個月；94年次以後出生役男回復為1年役期（與常備兵相同）。",
-      "exam_tag": "【215T考】［227T考］【257T考】"
+      "exam_tag": "【215T考】［227T考］【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-089",
@@ -800,7 +973,9 @@
       "question": "行政院核定82/12/31前出生之常備役體位服替代役之役期較常備役多15日。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "［227T考］【257T考】［227T考］"
+      "exam_tag": "［227T考］【257T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-090",
@@ -809,7 +984,9 @@
       "question": "中華民國男子滿18歲，於徵兵檢查為常備役體位者，得依志願申請服一般替代役。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "［227T考］［227T考］【247T考】"
+      "exam_tag": "［227T考］［227T考］【247T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-091",
@@ -818,7 +995,9 @@
       "question": "替代役役男有未滿12歲之子女2名以上，或未滿12歲之子女1名且配偶懷孕6個月以上，得申請提前退役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "［227T考］【247T考】【257T考】"
+      "exam_tag": "［227T考］【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-092",
@@ -827,7 +1006,9 @@
       "question": "替代役役男保險有效期間自實施訓練或回役之日起，至退役或停役之日止。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】【205T考】"
+      "exam_tag": "【247T考】【257T考】【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-093",
@@ -836,7 +1017,9 @@
       "question": "替代役役男，因特殊事故必須本人親自處理者，得視需要核给事假，並應補服勤；其按時數請假時，應以累計8小時折算1日。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【219T考】"
+      "exam_tag": "【205T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-094",
@@ -845,7 +1028,9 @@
       "question": "基礎訓練體能測驗佔成績22.5%，以3000公尺徒手跑步測驗為原則，若患有痼疾無法受測3000公尺徒手跑步者，經檢附相關醫療證明或體檢資料驗證確認後，得依役男意願自主選擇「仰臥起坐」、「伏地挺身」或「單槓引體向上」其中一個檢測項目替代。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-095",
@@ -854,7 +1039,9 @@
       "question": "依替代役役男請假規則，替代役役男因舅舅死亡，檢附相關證明提出申請，權責單位得核给喪假3日。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】【205T考】"
+      "exam_tag": "【205T考】【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-096",
@@ -863,7 +1050,9 @@
       "question": "役男家屬無法維持生活，中央由主管機關負責，其他有關單位協助；直轄市、縣(市)政府由直轄市、縣(市)政府役政主管機關負責，其他有關單位協助。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【205T考】【247T考選擇】"
+      "exam_tag": "【205T考】【205T考】【247T考選擇】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-097",
@@ -871,7 +1060,9 @@
       "category": "rights",
       "question": "替代役役男應親自填寫保險受益指定書。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-098",
@@ -879,7 +1070,9 @@
       "category": "regulations",
       "question": "因宗教因素服替代役，由主管機關指定專門列次，徵集至需用機關實施基本教練、專業訓練3~13週。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-099",
@@ -888,7 +1081,9 @@
       "question": "替代役役男一般保險及團體保險受益指定書，如需更改給付受益人應親自填寫異動通知書。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】"
+      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-100",
@@ -896,7 +1091,9 @@
       "category": "management",
       "question": "未經請假擅離服勤、訓練或指定場所4小時以上，未達一日，施以記過，並得罰勤。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-101",
@@ -905,7 +1102,9 @@
       "question": "參加役別徵選，若同一順位人數超過，會進行抽籤。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】"
+      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-102",
@@ -914,7 +1113,9 @@
       "question": "替代役役男之傷殘給付，以替代役本人為受益人。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】"
+      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-103",
@@ -923,7 +1124,9 @@
       "question": "替代役役男受益指定書，若有2個以上的受益人，其受益額分配應詳記，若未記，則平分受益額。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】"
+      "exam_tag": "【205T考】【247T考選擇】【257T考選擇】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-104",
@@ -931,7 +1134,9 @@
       "category": "regulations",
       "question": "因犯罪於法院審理中或經判決有罪確定，主管機關得不予許可其中請服一般替代役 或限制其所服一般替代役類(役)別。但少年犯罪、過失犯或受緩刑宣告之而未經撤 銷者，不在此限。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-105",
@@ -939,7 +1144,9 @@
       "category": "regulations",
       "question": "替代役役男結束訓練後，依其所服替代役之類別之法令規定，執行勤務。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-106",
@@ -948,7 +1155,9 @@
       "question": "替代役役男服役期滿後召集服勤實施辦法中規定，備役役男於戶籍地接受編組，進行演訓召集，於平時訓練或演習時實施之，每次1日以內，必要時得延長為3日至5日。演訓召集應於備役役男退役後八年內實施，每年並以一次為限。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-107",
@@ -957,7 +1166,9 @@
       "question": "役男家屬均屬60歲以上、未滿18歲、患有身心障礙或重大傷病，且均無收入，可服家因替代役",
       "answer": "O",
       "explanation": "【113.12.25最新修正】《役男申請服替代役辦法》第11條已將家屬年齡標準由60歲修正提高為「65歲以上」。",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-108",
@@ -965,7 +1176,9 @@
       "category": "regulations",
       "question": "有兄弟同時服役，得申請提前退役時，以最接近退伍時間的人申請為準",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-109",
@@ -973,7 +1186,9 @@
       "category": "regulations",
       "question": "替代役施行準則由89年5月1日開始施行",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-110",
@@ -981,7 +1196,9 @@
       "category": "regulations",
       "question": "農業服務役的主要職責是河川管理、水資源管理等",
       "answer": "X",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-111",
@@ -989,7 +1206,9 @@
       "category": "regulations",
       "question": "育有12歲以下子女或配偶懷孕六個月以上，得申請家庭因素替代役",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-112",
@@ -997,7 +1216,9 @@
       "category": "regulations",
       "question": "符合規定申請提前退役之役男，有兄弟現服替代役或常備兵役時，得由現服替代役中較接近退役日期者提出申請",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-113",
@@ -1006,7 +1227,9 @@
       "question": "役男父、母或配偶患有重大傷病，或家屬2人以上患有輕度身心障礙或重大傷病者，得申請家因替代役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【203T考】"
+      "exam_tag": "【203T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-114",
@@ -1015,7 +1238,9 @@
       "question": "役男身分證遺失者，依替代役役男獎懲辦法第十條規定，由訓練單位或服勤單位予以罰勤或申誡；必要時，得併予懲處，如毀損尚能辨識，且據以繳交換新證者，免予懲處。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【203T考】"
+      "exam_tag": "【203T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-115",
@@ -1024,7 +1249,9 @@
       "question": "公教人員留職停薪應徵服兵役人員、替代役人員，其退伍當月年資如已由國防部或內政部役政署(以下簡稱役政署)採隨退隨發方式結算，則不得再由服務機關併計發給年終工作獎金；至入伍當月破月之年資部分，則得擇優由國防部、役政署或服務機關於不重領、不兼領之原則發給。",
       "answer": "O",
       "explanation": "【組改備註】內政部役政署於112年9月20日改制為「內政部替代役訓練及管理中心」與「內政部役政司」。",
-      "exam_tag": "【205T考】"
+      "exam_tag": "【205T考】",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "TF-116",
@@ -1032,7 +1259,9 @@
       "category": "regulations",
       "question": "若役男於參加徵兵檢查時因某部分傷病正在接受治療或復健，暫時無法予以正確判定體位等級，所以會先核判「難以判定體位」，之後再依體位等級區分標準表項次規定，於6個月（或1年）經治療或復健完成後，再通知補行複檢1次，以確定體位等級，並維護役男健康。",
       "answer": "O",
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-117",
@@ -1041,7 +1270,9 @@
       "question": "替代役役男於服役期間傷病，於全民健康保險醫事服務機構就醫時，依全民健康保險法規定，應自行負擔之醫療費用，由內政部預撥健保局。",
       "answer": "X",
       "explanation": "",
-      "exam_tag": "【205T考】【219T考】"
+      "exam_tag": "【205T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-118",
@@ -1050,7 +1281,9 @@
       "question": "替代役役男於服役期間傷病，屬健保不给付項目：醫療技術費、醫師診察費，手術費及無保險病房時之上一等病房差額，由役男先行支付，內政部得視個案情形酌以補助。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【205T考】【219T考】【247T考】"
+      "exam_tag": "【205T考】【219T考】【247T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-119",
@@ -1059,7 +1292,9 @@
       "question": "替代役役男服役期滿退役，轉任公職時其服替代役年資於退休時併計。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-120",
@@ -1068,7 +1303,9 @@
       "question": "替代役役男對需用機關核定服勤單位所提替代役役男罰薪或輔導教育之懲處不服時，得於懲處核定書送達次日之起30日內，以書面或言詞向需用機關提出申訴；原懲處機關為需用機關者，向主管機關提出申訴。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-121",
@@ -1077,7 +1314,9 @@
       "question": "擔任替代役管理幹部(分隊長)，薪俸比照義務役下士士官。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-122",
@@ -1086,7 +1325,9 @@
       "question": "替代役役男因疾病必須治療或休養，核给病假，一次以30日為限。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-123",
@@ -1095,7 +1336,9 @@
       "question": "替代役役男育有子女或配偶懷孕6個月以上，得申請以家庭因素服替代役。",
       "answer": "O",
       "explanation": "",
-      "exam_tag": "【219T考】"
+      "exam_tag": "【219T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "true_false",
@@ -1103,7 +1346,9 @@
       "question": "我國《志願服務法》所稱志願服務，指民眾出於自由意志，非基於個人義務或法律責任，以知識、體能、勞力等奉獻社會，不以獲取報酬為目的之各項輔助性服務。",
       "answer": "O",
       "explanation": "依《志願服務法》第3條規定：志願服務以不獲取報酬為目的。",
-      "id": "TF-124"
+      "id": "TF-124",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1111,7 +1356,9 @@
       "question": "志工服務年資滿 3 年，服務時數達 300 小時以上者，得向地方主管機關申請核發志願服務榮譽卡。",
       "answer": "O",
       "explanation": "依《志願服務法》第20條規定，志工服務年資滿3年，服務時數達300小時以上，得檢具證明文件申請核發志願服務榮譽卡。",
-      "id": "TF-125"
+      "id": "TF-125",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1119,7 +1366,9 @@
       "question": "志願服務榮譽卡使用期限為5年，期滿後志工可直接自動永久續卡，無須再提出申請。",
       "answer": "X",
       "explanation": "志願服務榮譽卡使用期限為3年，期限屆滿前得檢具相關證明重新申請。",
-      "id": "TF-126"
+      "id": "TF-126",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1127,7 +1376,9 @@
       "question": "志願服務運用單位應為志工辦理意外事故保險，必要時並得補助交通、誤餐及特殊保險等費用。",
       "answer": "O",
       "explanation": "依《志願服務法》第16條規定，辦理意外事故保險為運用單位之法定責任。",
-      "id": "TF-127"
+      "id": "TF-127",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1135,7 +1386,9 @@
       "question": "若志工個人平時已自行購買多份民間商業意外險，志願服務運用單位即可依法免除為其辦理意外事故保險之義務。",
       "answer": "X",
       "explanation": "為志工辦理意外事故保險為法定強制責任，不得因個人已投保而免除。",
-      "id": "TF-128"
+      "id": "TF-128",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1143,7 +1396,9 @@
       "question": "同一位志工若同時於多個不同運用單位服務，每個單位都必須發給該志工一本獨立的志願服務紀錄冊。",
       "answer": "X",
       "explanation": "同一志工僅持有「一本」志願服務紀錄冊，不同單位之服務時數合併登錄於同本紀錄冊。",
-      "id": "TF-129"
+      "id": "TF-129",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1151,7 +1406,9 @@
       "question": "志工必須同時完成基礎訓練及特殊訓練之後，方得由志願服務運用單位檢具相關文件造冊向主管機關申請核發志願服務紀錄冊。",
       "answer": "O",
       "explanation": "依規定志工須完成「基礎訓練」與「特殊訓練」兩階段方得領取服務紀錄冊。",
-      "id": "TF-130"
+      "id": "TF-130",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1159,7 +1416,9 @@
       "question": "法規明定擔任志願服務志工有嚴格的年齡上下限，未滿 12 歲或超過 70 歲者絕對不得擔任志工。",
       "answer": "X",
       "explanation": "《志願服務法》並未硬性限定年齡上限，全民皆可依體能與志趣參與志願服務。",
-      "id": "TF-131"
+      "id": "TF-131",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "true_false",
@@ -1167,7 +1426,9 @@
       "question": "成功嶺實彈射擊時，射擊基本口訣為「托、抵、握、貼、瞄、停、扣、報」八大要領。",
       "answer": "O",
       "explanation": "射擊口訣八大要領：托(托前護木)、抵(槍托抵肩)、握(右手握握把)、貼(右腮緊貼槍面)、瞄(瞄準目標)、停(自然停止呼吸)、扣(食指第一節徐徐扣引扳機)、報(維持姿勢報靶)。",
-      "id": "TF-132"
+      "id": "TF-132",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "true_false",
@@ -1175,7 +1436,9 @@
       "question": "在靶場若遇步槍卡彈或無法擊發時，射手應立即自行拆解槍枝排障，不需舉手報告。",
       "answer": "X",
       "explanation": "靶場鐵律：遇槍枝故障時應維持槍口指向目標方向，立即「舉手」報告教官處理，嚴禁自行擅自轉身或拆解。",
-      "id": "TF-133"
+      "id": "TF-133",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "true_false",
@@ -1183,7 +1446,9 @@
       "question": "步槍射擊瞄準之正確認知為：眼睛、覘孔、準星尖與目標靶心，必須構成「三點一線」之同心圓與平視直線。",
       "answer": "O",
       "explanation": "準星尖平正於覘孔中央，使準星尖對準目標瞄準點中央，維持三點一線。",
-      "id": "TF-134"
+      "id": "TF-134",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "true_false",
@@ -1191,7 +1456,9 @@
       "question": "射擊練習中，步槍故障排除的基本口訣為「拍、拉、看、瞄、射」五步驟。",
       "answer": "O",
       "explanation": "故障排除基本口訣：拍(拍緊彈匣底板)、拉(拉拉柄向後)、看(看進彈口是否有卡彈或雙重進彈)、瞄(重新瞄準目標)、射(扣扳機擊發)。",
-      "id": "TF-135"
+      "id": "TF-135",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "true_false",
@@ -1199,7 +1466,9 @@
       "question": "靶場口令下達「左線預備」時，通常代表要求射手打開步槍保險，由「S（安全）」撥轉至「單發（R/1）」位置。",
       "answer": "O",
       "explanation": "左線預備開保險，右線預備做深呼吸與最後確認，全線預備開保險開始射擊。",
-      "id": "TF-136"
+      "id": "TF-136",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "true_false",
@@ -1207,7 +1476,9 @@
       "question": "在任何情況下（無論有無裝填子彈、有無開保險），槍口絕對不可對人，此為靶場至高無上之安全守則。",
       "answer": "O",
       "explanation": "安全第一，將任何槍枝視為已上膛狀態，槍口嚴禁指向任何人。",
-      "id": "TF-137"
+      "id": "TF-137",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "true_false",
@@ -1215,7 +1486,9 @@
       "question": "替代役役男服役期間，因配偶分娩，依法得檢附相關證明申請「陪產檢及陪產假」合計 7 日，並得於配偶分娩日前後 15 日內請畢。",
       "answer": "O",
       "explanation": "依最新《替代役役男請假規則》規定，陪產檢及陪產假核給7日，分次申請，於配偶分娩當日及其前後合計15日期間內請畢。",
-      "id": "TF-138"
+      "id": "TF-138",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "true_false",
@@ -1223,7 +1496,9 @@
       "question": "替代役役男結婚，依法得核給婚假 14 日，可分次申請，但原則上應於結婚之日起 3 個月內請畢。",
       "answer": "O",
       "explanation": "婚假14日，得自分次申請，但應於結婚登記之日起3個月內請畢。",
-      "id": "TF-139"
+      "id": "TF-139",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "true_false",
@@ -1231,7 +1506,9 @@
       "question": "替代役役男服役期間，若因公傷病經就醫治療，其健保門診掛號費及健保部分負擔均由政府全額負擔。",
       "answer": "O",
       "explanation": "因公傷病就醫之掛號費與全民健康保險自行負擔費用，由內政部全數編列公費補助。",
-      "id": "TF-140"
+      "id": "TF-140",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "true_false",
@@ -1239,7 +1516,9 @@
       "question": "替代役役男對服勤單位所為之罰薪或記過懲處不服時，得於懲處核定書送達之次日起 30 日內提出申訴，受申訴機關應於 30 日內處理完畢。",
       "answer": "O",
       "explanation": "申訴期限為收到處分次日起30日內；受申訴機關處理期限原則為30日內。",
-      "id": "TF-141"
+      "id": "TF-141",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-001",
@@ -1253,7 +1532,9 @@
         "以上皆是"
       ],
       "answer": 3,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-002",
@@ -1267,7 +1548,9 @@
         "以上皆是"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-003",
@@ -1280,7 +1563,9 @@
         "免役"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-004",
@@ -1294,7 +1579,9 @@
         "8口。"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-005",
@@ -1307,7 +1594,9 @@
         "30%"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-006",
@@ -1322,7 +1611,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【205T考】【257T考是非】"
+      "exam_tag": "【205T考】【257T考是非】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-007",
@@ -1337,7 +1628,9 @@
       ],
       "answer": 1,
       "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。",
-      "exam_tag": "【205T考】【257T考是非】"
+      "exam_tag": "【205T考】【257T考是非】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-008",
@@ -1350,7 +1643,9 @@
         "三個月內"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-009",
@@ -1364,7 +1659,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "［227T考］【205T】【219T考】"
+      "exam_tag": "［227T考］【205T】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-010",
@@ -1378,7 +1675,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "［227T考］【205T】【219T考】"
+      "exam_tag": "［227T考］【205T】【219T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-011",
@@ -1393,7 +1692,9 @@
       ],
       "answer": 3,
       "explanation": "",
-      "exam_tag": "【205T考】［227T考］【247T考】"
+      "exam_tag": "【205T考】［227T考］【247T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-012",
@@ -1408,7 +1709,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【205T考】［227T考］【247T考】"
+      "exam_tag": "【205T考】［227T考］【247T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-013",
@@ -1422,7 +1725,9 @@
         "2年　不行使者即喪失領授權。"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-014",
@@ -1435,7 +1740,9 @@
         "內政部與替代役役男平均分擔"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-015",
@@ -1449,7 +1756,9 @@
         "主管機關"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-016",
@@ -1463,7 +1772,9 @@
         "替代役體位"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-017",
@@ -1478,7 +1789,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］"
+      "exam_tag": "【215T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-018",
@@ -1493,7 +1806,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］【205T考】"
+      "exam_tag": "【215T考】［227T考］【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-019",
@@ -1508,7 +1823,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］【205T考】"
+      "exam_tag": "【215T考】［227T考］【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-020",
@@ -1523,7 +1840,9 @@
       ],
       "answer": 3,
       "explanation": "",
-      "exam_tag": "［227T考］"
+      "exam_tag": "［227T考］",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-021",
@@ -1537,7 +1856,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "［227T考］【257T考】"
+      "exam_tag": "［227T考］【257T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-022",
@@ -1552,7 +1873,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【257T考】【205T考】【247T考】"
+      "exam_tag": "【257T考】【205T考】【247T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-023",
@@ -1566,7 +1889,9 @@
       ],
       "answer": 2,
       "explanation": "【最新役期標準】83-93年次家庭因素役期為4個月；94年次以後出生役男回復為1年役期（與常備兵相同）。",
-      "exam_tag": "【257T考】【205T考】【247T考】"
+      "exam_tag": "【257T考】【205T考】【247T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-024",
@@ -1579,7 +1904,9 @@
         "服勤單位"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-025",
@@ -1593,7 +1920,9 @@
         "十五分之一　為原則。"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-026",
@@ -1608,7 +1937,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-027",
@@ -1623,7 +1954,9 @@
       ],
       "answer": 3,
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-028",
@@ -1638,7 +1971,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-029",
@@ -1652,7 +1987,9 @@
         "10日。"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-030",
@@ -1666,7 +2003,9 @@
         "10日"
       ],
       "answer": 3,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-031",
@@ -1680,7 +2019,9 @@
         "10日。"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-032",
@@ -1695,7 +2036,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【219T考】［227T考］"
+      "exam_tag": "【219T考】［227T考］",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-033",
@@ -1710,7 +2053,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-034",
@@ -1725,7 +2070,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【219T考】［227T考］"
+      "exam_tag": "【219T考】［227T考］",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-035",
@@ -1739,7 +2086,9 @@
         "9個月"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-036",
@@ -1753,7 +2102,9 @@
         "10年。"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-037",
@@ -1767,7 +2118,9 @@
         "7年。"
       ],
       "answer": 2,
-      "explanation": "【最新修法】《替代役實施條例》第38條已修正：請卹及請領各期撫卹金權利時效為「10年」（原舊法為5年）。第47條一般保險給付請求權亦為10年。"
+      "explanation": "【最新修法】《替代役實施條例》第38條已修正：請卹及請領各期撫卹金權利時效為「10年」（原舊法為5年）。第47條一般保險給付請求權亦為10年。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-038",
@@ -1781,7 +2134,9 @@
         "7個基數。"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-039",
@@ -1795,7 +2150,9 @@
         "80分　採計。"
       ],
       "answer": 3,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-040",
@@ -1810,7 +2167,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "［227T考］【205T考】【215T考】"
+      "exam_tag": "［227T考］【205T考】【215T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-041",
@@ -1825,7 +2184,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "［227T考］【205T】【219T考】"
+      "exam_tag": "［227T考］【205T】【219T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-042",
@@ -1840,7 +2201,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【219T考】【205T考】"
+      "exam_tag": "【219T考】【205T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-043",
@@ -1855,7 +2218,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-044",
@@ -1870,7 +2235,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【215T考】【219T考】［227T考］"
+      "exam_tag": "【215T考】【219T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-045",
@@ -1884,7 +2251,9 @@
         "退保手續"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-046",
@@ -1899,7 +2268,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【215T考】"
+      "exam_tag": "【215T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-047",
@@ -1913,7 +2284,9 @@
         "較常備兵長15日"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-048",
@@ -1927,7 +2300,9 @@
         "6個月為限。"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-049",
@@ -1942,7 +2317,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-050",
@@ -1957,7 +2334,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-051",
@@ -1972,7 +2351,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【247T考】【257T考】"
+      "exam_tag": "【247T考】【257T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-052",
@@ -1986,7 +2367,9 @@
         "提前退役"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-053",
@@ -2000,7 +2383,9 @@
         "24小時，折算一日。"
       ],
       "answer": 1,
-      "explanation": "【最新修法】舊法規「事假按時數累計8小時折算1日」已於新修正請假規則中刪除！現行規定事假應以例假日或輪休日調整核給並擇日補勤。"
+      "explanation": "【最新修法】舊法規「事假按時數累計8小時折算1日」已於新修正請假規則中刪除！現行規定事假應以例假日或輪休日調整核給並擇日補勤。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-054",
@@ -2014,7 +2399,9 @@
         "嘉獎"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-055",
@@ -2028,7 +2415,9 @@
         "替代役訓練班"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-056",
@@ -2041,7 +2430,9 @@
         "配偶"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-057",
@@ -2055,7 +2446,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］"
+      "exam_tag": "【215T考】［227T考］",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-058",
@@ -2069,7 +2462,9 @@
         "24小時 ，折算一日。"
       ],
       "answer": 1,
-      "explanation": "【最新修法】舊法規「事假按時數累計8小時折算1日」已於新修正請假規則中刪除！現行規定事假應以例假日或輪休日調整核給並擇日補勤。"
+      "explanation": "【最新修法】舊法規「事假按時數累計8小時折算1日」已於新修正請假規則中刪除！現行規定事假應以例假日或輪休日調整核給並擇日補勤。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-059",
@@ -2084,7 +2479,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］【205T考】"
+      "exam_tag": "【215T考】［227T考］【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-060",
@@ -2098,7 +2495,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【205T考】【205T考】"
+      "exam_tag": "【205T考】【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-061",
@@ -2113,7 +2512,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【205T考】【205T考】"
+      "exam_tag": "【205T考】【205T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-062",
@@ -2127,7 +2528,9 @@
         "服勤處所"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-063",
@@ -2142,7 +2545,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【205T考】【205T考】【203T考】"
+      "exam_tag": "【205T考】【205T考】【203T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-064",
@@ -2156,7 +2561,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【205T考】【203T考】【205T考】"
+      "exam_tag": "【205T考】【203T考】【205T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-065",
@@ -2170,7 +2577,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］"
+      "exam_tag": "【215T考】［227T考］",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-066",
@@ -2185,7 +2594,9 @@
       ],
       "answer": 3,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］"
+      "exam_tag": "【215T考】［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-067",
@@ -2199,7 +2610,9 @@
       ],
       "answer": 0,
       "explanation": "",
-      "exam_tag": "【215T考】【205T考】"
+      "exam_tag": "【215T考】【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-068",
@@ -2213,7 +2626,9 @@
         "10日者函送司法機關偵辦"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-069",
@@ -2228,7 +2643,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【205T考】［227T考］【257T考】"
+      "exam_tag": "【205T考】［227T考］【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-070",
@@ -2243,7 +2660,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "［227T考］［227T考］"
+      "exam_tag": "［227T考］［227T考］",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-071",
@@ -2258,7 +2677,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "［227T考］［227T考］"
+      "exam_tag": "［227T考］［227T考］",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-072",
@@ -2273,7 +2694,9 @@
       ],
       "answer": 3,
       "explanation": "",
-      "exam_tag": "［227T考］"
+      "exam_tag": "［227T考］",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-073",
@@ -2287,7 +2710,9 @@
         "以上皆可。"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-074",
@@ -2302,7 +2727,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【215T考】［227T考］【205T考】"
+      "exam_tag": "【215T考】［227T考］【205T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-075",
@@ -2317,7 +2744,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "【219T考】［227T考］【215T考】"
+      "exam_tag": "【219T考】［227T考］【215T考】",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-076",
@@ -2331,7 +2760,9 @@
         "10日。"
       ],
       "answer": 1,
-      "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。"
+      "explanation": "【111.05.30最新請假規則】配偶分娩或產檢核給「陪產檢及陪產假」合計7日，得分次申請，並應於配偶分娩日前後15日內請畢。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-077",
@@ -2345,7 +2776,9 @@
         "以上皆是。前項停役期間，不算入替代役役期。"
       ],
       "answer": 3,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-078",
@@ -2359,7 +2792,9 @@
         "以上皆可。"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-079",
@@ -2373,7 +2808,9 @@
         "以上皆是。"
       ],
       "answer": 3,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-080",
@@ -2387,7 +2824,9 @@
         "罰勤。"
       ],
       "answer": 1,
-      "explanation": ""
+      "explanation": "",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-081",
@@ -2401,7 +2840,9 @@
         "酗酒滋事，情節輕微。"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-082",
@@ -2416,7 +2857,9 @@
       ],
       "answer": 2,
       "explanation": "",
-      "exam_tag": "【205T考】【215T考】【219T考】"
+      "exam_tag": "【205T考】【215T考】【219T考】",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-083",
@@ -2431,7 +2874,9 @@
       ],
       "answer": 1,
       "explanation": "",
-      "exam_tag": "［227T考］【247T考】【257T考】"
+      "exam_tag": "［227T考］【247T考】【257T考】",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-084",
@@ -2445,7 +2890,9 @@
         "35日"
       ],
       "answer": 2,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-085",
@@ -2459,7 +2906,9 @@
         "高中畢業"
       ],
       "answer": 0,
-      "explanation": ""
+      "explanation": "",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "multiple_choice",
@@ -2473,7 +2922,9 @@
       ],
       "answer": 2,
       "explanation": "《志願服務法》中央主管機關現為「衛生福利部」（原為內政部，政府組改後移撥衛福部）。",
-      "id": "MC-086"
+      "id": "MC-086",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "multiple_choice",
@@ -2487,7 +2938,9 @@
       ],
       "answer": 2,
       "explanation": "申請志願服務榮譽卡門檻為：服務年資滿3年，時數達300小時以上。",
-      "id": "MC-087"
+      "id": "MC-087",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "multiple_choice",
@@ -2501,7 +2954,9 @@
       ],
       "answer": 1,
       "explanation": "志願服務榮譽卡享有進入政府機關管理之公立收費風景區、未編定座次之康樂場所及文教設施免費或優待。",
-      "id": "MC-088"
+      "id": "MC-088",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "multiple_choice",
@@ -2515,7 +2970,9 @@
       ],
       "answer": 2,
       "explanation": "志工係輔助性角色，絕不可代行法定公權力或簽署行政處分。",
-      "id": "MC-089"
+      "id": "MC-089",
+      "source": "全國法規資料庫 - 志願服務法",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0050131"
     },
     {
       "type": "multiple_choice",
@@ -2529,7 +2986,9 @@
       ],
       "answer": 1,
       "explanation": "「停」意指在擊發瞄準瞬間自然吐氣後暫停呼吸数秒，使槍身保持最平穩狀態。",
-      "id": "MC-090"
+      "id": "MC-090",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "multiple_choice",
@@ -2543,7 +3002,9 @@
       ],
       "answer": 1,
       "explanation": "拍(拍彈匣底板)是確保彈匣定位卡損確實卡入彈匣井，避免因供彈不良產生不進彈障礙。",
-      "id": "MC-091"
+      "id": "MC-091",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "multiple_choice",
@@ -2557,7 +3018,9 @@
       ],
       "answer": 2,
       "explanation": "扣扳機要領：以食指第一節肉厚處置於扳機上，自然向後均勻正直施力扣引，不可猛扣。",
-      "id": "MC-092"
+      "id": "MC-092",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "multiple_choice",
@@ -2571,7 +3034,9 @@
       ],
       "answer": 1,
       "explanation": "聽聞停止射擊口令，必須立刻停止任何擊發動作，手指離開扳機，槍口仍朝目標區，並依指令關保險。",
-      "id": "MC-093"
+      "id": "MC-093",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "type": "multiple_choice",
@@ -2585,7 +3050,9 @@
       ],
       "answer": 2,
       "explanation": "依請假規則：父母或配偶死亡核給喪假15日；繼父母、配偶之父母或子女死亡核給10日；祖父母等死亡核給5日。",
-      "id": "MC-094"
+      "id": "MC-094",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "multiple_choice",
@@ -2599,7 +3066,9 @@
       ],
       "answer": 0,
       "explanation": "一等殘撫卹為「給與終身」；二等殘給與十年；三等殘給與五年。",
-      "id": "MC-095"
+      "id": "MC-095",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "multiple_choice",
@@ -2613,7 +3082,9 @@
       ],
       "answer": 2,
       "explanation": "擅離職役累計逾3日發出離役通報協尋；累計「逾7日」即觸犯刑法移送司法機關究辦。",
-      "id": "MC-096"
+      "id": "MC-096",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "type": "multiple_choice",
@@ -2627,7 +3098,9 @@
       ],
       "answer": 1,
       "explanation": "罰勤規定：平日以2小時為限，例假日以8小時為限。",
-      "id": "MC-097"
+      "id": "MC-097",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "type": "multiple_choice",
@@ -2641,7 +3114,9 @@
       ],
       "answer": 1,
       "explanation": "罰薪：扣除當月份薪給10%至30%，以3個月為限。",
-      "id": "MC-098"
+      "id": "MC-098",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-257-01",
@@ -2650,7 +3125,9 @@
       "exam_tag": "【257T考】",
       "question": "T65K2步槍避火罩具有減音、滅光、減少後座力之功用。",
       "answer": "X",
-      "explanation": "依國軍步槍教範，T65K2步槍槍口避火罩主要功用僅為「減光」，並無顯著減音或減少後座力之設計。"
+      "explanation": "依國軍步槍教範，T65K2步槍槍口避火罩主要功用僅為「減光」，並無顯著減音或減少後座力之設計。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "TF-257-02",
@@ -2659,7 +3136,9 @@
       "exam_tag": "【257T考】",
       "question": "T65K2步槍覘孔可分為前覘孔與後覘孔，前覘孔為射擊0至300公尺目標，後覘孔為射擊300至800公尺目標。",
       "answer": "O",
-      "explanation": "正確。0-3覘孔為近距離（0-300公尺不含），3-8覘孔為中遠距離（300-800公尺）瞄準使用。"
+      "explanation": "正確。0-3覘孔為近距離（0-300公尺不含），3-8覘孔為中遠距離（300-800公尺）瞄準使用。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "TF-257-03",
@@ -2668,7 +3147,9 @@
       "exam_tag": "【257T考】",
       "question": "為求訓練迅速與方便，T65K2步槍可在草地或砂地上直接實施槍枝分解與結合。",
       "answer": "X",
-      "explanation": "嚴禁在草地、砂地上實施槍枝分解與結合，以避免砂石塵土進入機匣磨損零件，並防細小機件遺失。"
+      "explanation": "嚴禁在草地、砂地上實施槍枝分解與結合，以避免砂石塵土進入機匣磨損零件，並防細小機件遺失。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "TF-257-04",
@@ -2677,7 +3158,9 @@
       "exam_tag": "【257T考】",
       "question": "靶場非操作與射擊時間，嚴禁個人擅自取槍瞄準，槍枝集中放置處應指派槍前哨負責警戒。",
       "answer": "O",
-      "explanation": "靶場安全至上，非射擊時間個人絕不可隨意取槍瞄準把玩，槍枝架放處須有專人哨兵看守。"
+      "explanation": "靶場安全至上，非射擊時間個人絕不可隨意取槍瞄準把玩，槍枝架放處須有專人哨兵看守。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "MC-257-01",
@@ -2692,7 +3175,9 @@
         "實彈射擊役男本人"
       ],
       "answer": 2,
-      "explanation": "槍械到達射擊場地由「中隊長」親自統一指揮驗槍，確認無彈無虞後始得展開後續操課。"
+      "explanation": "槍械到達射擊場地由「中隊長」親自統一指揮驗槍，確認無彈無虞後始得展開後續操課。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "MC-257-02",
@@ -2707,7 +3192,9 @@
         "無時間限制畫出同心圓即可"
       ],
       "answer": 1,
-      "explanation": "箱上瞄準測驗要求：5分鐘內在標靶紙上連續完成3個三角形瞄準點，三點連線構成之三角形越小表示瞄準線越穩定一致。"
+      "explanation": "箱上瞄準測驗要求：5分鐘內在標靶紙上連續完成3個三角形瞄準點，三點連線構成之三角形越小表示瞄準線越穩定一致。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     },
     {
       "id": "MC-257-03",
@@ -2722,7 +3209,9 @@
         "直轄市、縣(市)政府"
       ],
       "answer": 0,
-      "explanation": "《替代役實施條例》第2條明定：本條例所稱主管機關為內政部（替代役業務由內政部役政署承辦）。"
+      "explanation": "《替代役實施條例》第2條明定：本條例所稱主管機關為內政部（替代役業務由內政部役政署承辦）。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-257-04",
@@ -2737,7 +3226,9 @@
         "8小時"
       ],
       "answer": 3,
-      "explanation": "平日罰勤以2小時為限；例假日罰勤以8小時為限。榮譽假1日可抵銷罰勤8小時。"
+      "explanation": "平日罰勤以2小時為限；例假日罰勤以8小時為限。榮譽假1日可抵銷罰勤8小時。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-257-05",
@@ -2752,7 +3243,9 @@
         "45天"
       ],
       "answer": 2,
-      "explanation": "《替代役實施條例》第10條及施行細則規定：入營後30天內因體格不適服替代役者辦理驗退。"
+      "explanation": "《替代役實施條例》第10條及施行細則規定：入營後30天內因體格不適服替代役者辦理驗退。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-DOC2-01",
@@ -2761,7 +3254,9 @@
       "exam_tag": "【203T/205T/215T/227T考】",
       "question": "替代役役男入營逾30天，因傷病不堪服替代役者，可申辦傷病停役。",
       "answer": "O",
-      "explanation": "入營30天內體格不適服者辦理「驗退」；入營逾30天不堪服役者申辦「傷病停役」。"
+      "explanation": "入營30天內體格不適服者辦理「驗退」；入營逾30天不堪服役者申辦「傷病停役」。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-DOC2-02",
@@ -2770,7 +3265,9 @@
       "exam_tag": "【205T考】",
       "question": "役男服勤時，應隨身攜帶役男身分證；身分證除為證明役男現役身分外，不得轉為其他用途，役男停役、提前退役或服役期滿時應繳回服勤單位。",
       "answer": "O",
-      "explanation": "依役男身分證管理規範，役男身分證限現役證明，離役時應繳回服勤單位繳銷。"
+      "explanation": "依役男身分證管理規範，役男身分證限現役證明，離役時應繳回服勤單位繳銷。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-DOC2-01",
@@ -2785,7 +3282,9 @@
         "25日"
       ],
       "answer": 2,
-      "explanation": "依役政署規定，一般替代役退役年終工作獎金採隨退隨發方式辦理，且於退役當月15日逕入役男帳戶。"
+      "explanation": "依役政署規定，一般替代役退役年終工作獎金採隨退隨發方式辦理，且於退役當月15日逕入役男帳戶。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-DOC2-02",
@@ -2800,7 +3299,9 @@
         "6個月以上"
       ],
       "answer": 1,
-      "explanation": "依《一般替代役役男優先分發及特殊困難請調原則》，同戶兄弟姊妹2人以上同時在營且剩餘役期均在「2個月以上」，得申請調返戶籍地。"
+      "explanation": "依《一般替代役役男優先分發及特殊困難請調原則》，同戶兄弟姊妹2人以上同時在營且剩餘役期均在「2個月以上」，得申請調返戶籍地。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-DOC2-03",
@@ -2815,7 +3316,9 @@
         "服勤單位"
       ],
       "answer": 2,
-      "explanation": "《替代役實施條例》第10條：因家庭發生重大變故等提前退役，經「內政部」核定後辦理。"
+      "explanation": "《替代役實施條例》第10條：因家庭發生重大變故等提前退役，經「內政部」核定後辦理。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-DOC2-04",
@@ -2830,7 +3333,9 @@
         "直轄市、縣(市)政府"
       ],
       "answer": 0,
-      "explanation": "依《一般替代役役男訓練服勤管理辦法》，管理幹部由「需用機關」甄選並實施在職訓練合格後核定擔任。"
+      "explanation": "依《一般替代役役男訓練服勤管理辦法》，管理幹部由「需用機關」甄選並實施在職訓練合格後核定擔任。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-DOC2-05",
@@ -2845,7 +3350,9 @@
         "較常備兵軍事訓練役期長4個月(共8個月)"
       ],
       "answer": 2,
-      "explanation": "83年次以後常備役體位服一般替代役役期為6個月，較常備兵軍事訓練役（4個月）多2個月。"
+      "explanation": "83年次以後常備役體位服一般替代役役期為6個月，較常備兵軍事訓練役（4個月）多2個月。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-DOC2-03",
@@ -2854,7 +3361,9 @@
       "exam_tag": "【205T考】",
       "question": "依國民年金法規定，年滿25歲未參加軍、公教、勞、農保者為國民年金加保範圍。替代役男服役期間無現役軍人身分，未參加軍人保險，參加替代役一般保險，因此依法為國民年金保險加保對象，其國保保費由內政部編列預算支付。",
       "answer": "O",
-      "explanation": "正確。替代役實施條例第50條明定：替代役男各類保險費、國民年金保險費由主管機關編列預算支付。"
+      "explanation": "正確。替代役實施條例第50條明定：替代役男各類保險費、國民年金保險費由主管機關編列預算支付。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-DOC2-06",
@@ -2869,7 +3378,9 @@
         "演訓召集"
       ],
       "answer": 3,
-      "explanation": "備役役男平時演練接受「演訓召集」，每次1日以內，必要時得延長為3至5日。"
+      "explanation": "備役役男平時演練接受「演訓召集」，每次1日以內，必要時得延長為3至5日。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-DOC2-07",
@@ -2884,7 +3395,9 @@
         "由役男自行租屋個別住宿"
       ],
       "answer": 2,
-      "explanation": "《替代役役男服勤管理辦法》規定：住宿採「集中或個別住宿」；符合家庭因素者得申請返家住宿。"
+      "explanation": "《替代役役男服勤管理辦法》規定：住宿採「集中或個別住宿」；符合家庭因素者得申請返家住宿。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "TF-DOC2-04",
@@ -2893,7 +3406,9 @@
       "exam_tag": "【219T/227T考】",
       "question": "替代役役男於軍事基礎訓練及專業訓練成績表現優異者，服勤單位「應」一律遴選擔任管理幹部。",
       "answer": "X",
-      "explanation": "法規條文為「得」遴選，非「應」遴選。幹部員額以不超過需用機關役男總人數十分之一為限。"
+      "explanation": "法規條文為「得」遴選，非「應」遴選。幹部員額以不超過需用機關役男總人數十分之一為限。",
+      "source": "替代役役男訓練服勤管理辦法與獎懲規定",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040020"
     },
     {
       "id": "MC-DOC2-09",
@@ -2908,7 +3423,9 @@
         "環保役"
       ],
       "answer": 0,
-      "explanation": "社會役之主要勤務內容為擔任社福機構、兒少老弱、榮民及身心障礙者之生活照顧輔助勤務。"
+      "explanation": "社會役之主要勤務內容為擔任社福機構、兒少老弱、榮民及身心障礙者之生活照顧輔助勤務。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "MC-DOC2-10",
@@ -2923,7 +3440,9 @@
         "役男所屬服勤單位負擔"
       ],
       "answer": 1,
-      "explanation": "特別注意常考陷阱題：至「國軍醫院」就醫掛號費由內政部支付；若至「民間健保特約醫療機構」就醫，非因公之掛號費則由役男自付。"
+      "explanation": "特別注意常考陷阱題：至「國軍醫院」就醫掛號費由內政部支付；若至「民間健保特約醫療機構」就醫，非因公之掛號費則由役男自付。",
+      "source": "替代役實施條例第20~24條(役男權益/保險/撫卹)",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
     },
     {
       "id": "TF-DOC2-05",
@@ -2932,7 +3451,145 @@
       "exam_tag": "【202T考】",
       "question": "替代役役男經診斷確定罹患危害健康安全之疾病或傷病不堪服役而核定停役者，其傷病於停役期間經治療痊癒後，均應強制回役補服未服完之役期。",
       "answer": "X",
-      "explanation": "依《停役替代役役男免予回役作業規定》，罹患足以危害團體健康安全之疾病或不堪服役停役者，經審查均核定「免予回役」。"
+      "explanation": "依《停役替代役役男免予回役作業規定》，罹患足以危害團體健康安全之疾病或不堪服役停役者，經審查均核定「免予回役」。",
+      "source": "全國法規資料庫 - 替代役實施條例",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040018"
+    },
+    {
+      "id": "MC-257-06",
+      "category": "shooting",
+      "type": "multiple_choice",
+      "question": "國軍T65K2步槍槍口「避火罩」之主要功用為何？【257T新增題目 原文】",
+      "options": [
+        "主要功用為「減光」，無減音或減少後座力之功用",
+        "主要功用為「減音」，可做微聲射擊",
+        "主要功用為「減少後座力」，增進連發穩定度",
+        "同時具備減音、滅光及減少後座力三種功能"
+      ],
+      "answer": 0,
+      "explanation": "【257T新增題目 原文】避火罩功能：T65K2步槍避火罩有減音、滅光、減少後座力之公用→錯誤，正確為「減光」。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "MC-257-07",
+      "category": "shooting",
+      "type": "multiple_choice",
+      "question": "T65K2步槍之「0至3覘孔」與「3至8覘孔」，其適用之射擊目標距離分別為何？【247T、257T期末考 原文】",
+      "options": [
+        "0至3覘孔為0至300(不含)公尺；3至8覘孔為300(含)至800公尺",
+        "0至3覘孔為0至30公尺；3至8覘孔為30至80公尺",
+        "0至3覘孔為300至800公尺；3至8覘孔為0至300公尺",
+        "兩者射程相同，僅區分為夜間射擊與日間射擊"
+      ],
+      "answer": 0,
+      "explanation": "【打靶筆記原文】有兩個覘孔作為兩個不同距離射擊瞄準用：0至3覘孔為0至300(不含)公尺目標射擊使用；3至8覘孔為300(含)至800公尺目標射擊使用。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "MC-257-08",
+      "category": "shooting",
+      "type": "multiple_choice",
+      "question": "關於T65K2步槍實施槍枝分解與結合之場地規定，下列敘述何者正確？【257T新增題目 原文】",
+      "options": [
+        "可在草地、砂地上實施分解與結合",
+        "嚴禁在草地、砂地上實施分解與結合，以防沙土雜物進入槍機",
+        "只要鋪上雨衣即可在泥濘砂地上分解結合",
+        "役男可自行在走廊或草地上練習拆解槍機"
+      ],
+      "answer": 1,
+      "explanation": "【257T新增題目 原文】T65K2步槍可在草地、砂地上實施分解與結合→錯誤(X)。嚴禁在草地、砂地上分解結合！",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "MC-257-09",
+      "category": "shooting",
+      "type": "multiple_choice",
+      "question": "依射擊訓練安全規定，非操作時間之槍枝管制規定為何？【257T新增題目 原文】",
+      "options": [
+        "非操作時間，嚴禁個人取槍瞄準，槍枝集放處應派出槍前哨",
+        "非操作時間，役男可自行取槍加強箱上瞄準練習",
+        "槍枝集放處無須派哨，由靶場安全軍官一人總管即可",
+        "非操作時間役男可互相借槍檢查彼此槍機"
+      ],
+      "answer": 0,
+      "explanation": "【257T新增題目 原文】非操作時間，嚴禁個人取槍瞄準，槍枝集放處應派出槍前哨→正確(O)。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "MC-257-10",
+      "category": "shooting",
+      "type": "multiple_choice",
+      "question": "射擊口訣八大要領為何？【257T考選擇 原文】",
+      "options": [
+        "托抵握貼瞄停扣報",
+        "托握貼瞄抵扣報停",
+        "抵托握貼瞄停報扣",
+        "瞄貼握抵托停扣報"
+      ],
+      "answer": 0,
+      "explanation": "【257T考選擇 原文】* 射擊口訣：托、抵、握、貼、瞄、停、扣、報。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "TF-257-05",
+      "category": "shooting",
+      "type": "true_false",
+      "question": "射擊口訣為「托、抵、握、貼、瞄、停、扣、報」八大要領。【257T考選擇 原文考點】",
+      "answer": "O",
+      "explanation": "【257T考選擇 原文】正確。射擊口訣：托抵握貼瞄停扣報。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "TF-257-06",
+      "category": "shooting",
+      "type": "true_false",
+      "question": "步槍「箱上瞄準」鑑測訓練之合格標準為「5分鐘內畫3個三角形」。【257T考選擇 原文考點】",
+      "answer": "O",
+      "explanation": "【257T考選擇 原文】正確。箱上瞄準合格標準：5分鐘畫3個三角形。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "MC-257-11",
+      "category": "shooting",
+      "type": "multiple_choice",
+      "question": "關於成功嶺新訓打靶使用槍枝「T65K2突擊步槍」之開發與設計諸元，下列敘述何者正確？【247、257T 期末考 原文】",
+      "options": [
+        "由高雄聯勤205廠於1987年開發，參考美製M16A2與AR-18步槍優點並針對T65與T65K1缺失改進，同年4月量產",
+        "由聯勤202廠開發，主要仿製蘇聯AK-47步槍機構",
+        "為水冷式、重型機槍，只具備單發半自動射擊模式",
+        "採用彈鏈給彈，重量達7公斤以上之班用機槍"
+      ],
+      "answer": 0,
+      "explanation": "【打靶筆記原文】由高雄的聯勤205廠於1987年開發的，參考了美製M16A2步槍、AR-18步槍的優點，並針對原T65式步槍、T65K1步槍的缺失進行改進，於該年4月量產。本槍是一種重量輕、空氣冷卻、氣體傳動、彈匣給彈、可做半自動，三發連放、全自動射擊之肩射武器。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "TF-257-07",
+      "category": "shooting",
+      "type": "true_false",
+      "question": "T65K2突擊步槍是一種重量輕、空氣冷卻、氣體傳動、彈匣給彈、可做半自動、三發連放、全自動射擊之肩射武器。【247T、257T 原文】",
+      "answer": "O",
+      "explanation": "【打靶筆記原文】正確。本槍是一種重量輕、空氣冷卻、氣體傳動、彈匣給彈、可做半自動，三發連放、全自動射擊之肩射武器。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
+    },
+    {
+      "id": "TF-257-08",
+      "category": "shooting",
+      "type": "true_false",
+      "question": "槍械到達場地由中隊長統一指揮驗槍。【257T新增題目 原文考點】",
+      "answer": "O",
+      "explanation": "【257T新增題目 原文】槍械到達場地由誰統一指揮驗槍? (1)分隊長 (2)區隊長 (3)中隊長 (4)役男。答案為 (3)中隊長。",
+      "source": "Google文件打靶筆記原文與247T、257T鑑測真題",
+      "source_url": "https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r"
     }
   ]
 }
