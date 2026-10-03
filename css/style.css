@@ -261,6 +261,7 @@ progress::-moz-progress-bar { background: var(--primary); }
 /* ---------- 題庫 ---------- */
 .toolbar { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); align-items: end; }
 .toolbar .field { grid-column: span 12; }
+.toolbar .field-select { grid-column: span 6; }
 .toolbar-checks { grid-column: span 12; display: flex; flex-wrap: wrap; gap: 4px 24px; }
 .qcard { padding: 20px 24px; }
 .qcard + .qcard { margin-top: 16px; }

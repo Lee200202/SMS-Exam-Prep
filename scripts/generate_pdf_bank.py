@@ -36,7 +36,10 @@ def build_rows(q_list, start_num, is_tf_section=False):
         # Source link (compact sub-part under explanation)
         source_name = q.get('source', '全國法規資料庫')
         source_url = q.get('source_url', 'https://law.moj.gov.tw/')
-        source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">參考：{source_name}</a>'
+        if source_url:
+            source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">參考：{source_name}</a>'
+        else:
+            source_link_html = f'<span class="source-link">來源：{source_name}</span>'
         
         # Options & Explanation (neutral text colors, NO green spoiler)
         if is_tf_section:

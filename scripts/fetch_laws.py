@@ -39,6 +39,8 @@ LAWS = [
     ("D0040022", "recruit"),  # 替代役役籍管理辦法
     ("D0040026", "recruit"),  # 替代役役男提前退役辦法
     ("D0040032", "recruit"),  # 服兵役役男家屬生活扶助實施辦法
+    ("D0040033", "recruit"),  # 替代役役男服役期滿後召集服勤實施辦法
+    ("D0040038", "recruit"),  # 替代役役男出境管理辦法
     ("D0050131", "recruit"),  # 志願服務法
     ("L0020045", "emt"),      # 緊急醫療救護法
     ("L0020141", "emt"),      # 救護技術員管理辦法
@@ -46,7 +48,7 @@ LAWS = [
 
 TOKEN = re.compile(
     r'<div class="h3 char-(\d)">(.*?)</div>'                       # 章節標題
-    r'|<div class="col-no">\s*<a[^>]*name="([^"]+)"[^>]*>(.*?)</a>'  # 條號
+    r'|<div class="col-no">((?:(?!</div>).)*?)<a[^>]*name="([^"]+)"[^>]*>(.*?)</a>'  # 條號（有附件的條文前面多一個圖示）
     r'|<div class="line-(\d{4})[^"]*">(.*?)</div>'                  # 條文行
     r'|<pre[^>]*>(.*?)</pre>',                                      # 附表或公式
     re.S,
@@ -63,14 +65,18 @@ def download(pcode):
     os.makedirs(CACHE, exist_ok=True)
     path = os.path.join(CACHE, pcode + ".html")
     url = "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=" + pcode
-    for attempt in range(3):
+    if "--cached" in sys.argv and os.path.exists(path):
+        # 只重新解析今天已下載的頁面，不再連線
+        with open(path, encoding="utf-8", errors="replace") as f:
+            return f.read(), url
+    for attempt in range(6):
         result = subprocess.run(
             ["curl", "-sS", "-L", "--max-time", "60", "-A", UA, "-o", path, url],
             capture_output=True,
         )
         if result.returncode == 0 and os.path.getsize(path) > 5000:
             break
-        time.sleep(3)
+        time.sleep(5 * (attempt + 1))  # 官方網站會暫時擋下連續請求，逐次拉長等待
     else:
         raise RuntimeError("下載失敗：" + pcode)
     with open(path, encoding="utf-8", errors="replace") as f:
@@ -99,23 +105,26 @@ def parse(page, pcode, url, group):
                 chapters.append(current)
             current = {"title": re.sub(r"\s+", " ", clean(m.group(2))), "articles": []}
             article = None
-        elif m.group(3) is not None:
-            article = {"no": m.group(3), "label": re.sub(r"\s+", " ", clean(m.group(4))), "lines": []}
+        elif m.group(4) is not None:
+            article = {"no": m.group(4), "label": re.sub(r"\s+", " ", clean(m.group(5))), "lines": []}
+            if "附件" in m.group(3):
+                article["attachment"] = True  # 附表、附件只在官方網站提供
             current["articles"].append(article)
-        elif m.group(5) is not None and article is not None:
-            text = clean(m.group(6))
-            if text:
-                article["lines"].append([int(m.group(5)) // 2, text])
-        elif m.group(7) is not None and article is not None:
+        elif m.group(6) is not None and article is not None:
             text = clean(m.group(7))
+            if text:
+                article["lines"].append([int(m.group(6)) // 2, text])
+        elif m.group(8) is not None and article is not None:
+            text = clean(m.group(8))
             if text:
                 article["lines"].append([0, text])
     if current["articles"] or current["title"]:
         chapters.append(current)
 
     count = sum(len(c["articles"]) for c in chapters)
-    if count == 0:
-        raise RuntimeError("沒有解析到條文：" + pcode)
+    expected = len(re.findall(r"第 [\d\-]+ 條</a>", body))
+    if count == 0 or count != expected:
+        raise RuntimeError("%s 解析出 %d 條，但頁面上有 %d 條" % (pcode, count, expected))
     empty = [a["label"] for c in chapters for a in c["articles"] if not a["lines"]]
     if empty:
         raise RuntimeError("%s 有條文沒有內容：%s" % (pcode, empty))
@@ -138,7 +147,7 @@ def main():
         law = parse(page, pcode, url, group)
         laws.append(law)
         print("%s %s｜%s %s｜%d 條" % (pcode, law["name"], law["date_label"], law["date"], law["article_count"]))
-        time.sleep(1)
+        time.sleep(2)
     data = {
         "source": "全國法規資料庫 https://law.moj.gov.tw/",
         "fetched_at": datetime.date.today().isoformat(),

@@ -40,7 +40,7 @@ def check_bank(name, data, categories, law_names):
         if qid in seen:
             errors.append("%s 題號重複：%s" % (name, qid))
         seen.add(qid)
-        for key in ("id", "type", "category", "question", "answer", "source", "source_url"):
+        for key in ("id", "type", "category", "question", "answer", "source", "review"):
             if q.get(key) in (None, ""):
                 errors.append("%s %s 缺少欄位 %s" % (name, qid, key))
         if categories and q.get("category") not in categories:
@@ -57,7 +57,11 @@ def check_bank(name, data, categories, law_names):
         else:
             errors.append("%s %s 題型不明：%s" % (name, qid, q["type"]))
         url = q.get("source_url", "")
-        if not url.startswith(("https://", "http://")):
+        if q.get("review") == "law" and "LawSingle.aspx" not in url:
+            errors.append("%s %s 標為有條文依據，但連結不是單一條文" % (name, qid))
+        if url == "" and q.get("source_kind") == "past":
+            pass  # 查無法規依據的歷屆題沒有來源連結
+        elif not url.startswith(("https://", "http://")):
             errors.append("%s %s 來源連結格式錯誤" % (name, qid))
         pcode = re.search(r"law\.moj\.gov\.tw.*pcode=([A-Z]\d+)", url, re.I)
         if pcode:

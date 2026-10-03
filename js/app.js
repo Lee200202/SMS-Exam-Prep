@@ -179,6 +179,7 @@
       source: q.source || '',
       sourceUrl: q.source_url || '',
       sourceKind: q.source_kind || (/law\.moj\.gov\.tw/.test(q.source_url || '') ? 'law' : 'other'),
+      review: q.review || '',
       outdated: q.status === 'outdated',
       statusNote: q.status_note || '',
       revised: q.revised || '',
@@ -231,7 +232,7 @@
     if (!lawsPromise) {
       lawsPromise = new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = 'data/laws_bundle.js?v=20261003';
+        script.src = 'data/laws_bundle.js?v=20261003b';
         script.onload = () => (window.APP_LAWS ? resolve(window.APP_LAWS) : reject(new Error('laws bundle empty')));
         script.onerror = () => reject(new Error('laws bundle failed'));
         document.head.appendChild(script);
@@ -439,7 +440,7 @@
 
   function sourceLine(q) {
     if (!q.source && !q.sourceUrl) return '';
-    const label = q.sourceKind === 'law' ? '參考法規' : q.sourceKind === 'experience' ? '經驗來源' : '參考資料';
+    const label = { law: '法規依據', experience: '經驗來源', textbook: '參考教材', past: '來源' }[q.sourceKind] || '參考資料';
     return `<p class="small muted">${label}：${ext(q.sourceUrl, q.source || q.sourceUrl)}</p>`;
   }
 
@@ -463,6 +464,14 @@
       return `<li class="${isAnswer ? 'is-answer' : ''}"><span aria-hidden="true">${key}</span><span>${hl(q.options[orig], kw)}</span>${marks.length ? `<span class="tick">${marks.join('・')}</span>` : ''}</li>`;
     }).join('')}</ul>`;
   }
+
+  const REVIEW_CHIP = {
+    law: ['chip-ok', '已對照法條'],
+    unverified: ['chip-amber', '未能以法規查核'],
+    experience: ['', '經驗題'],
+  };
+  const reviewChip = (q) => (REVIEW_CHIP[q.review]
+    ? `<span class="chip ${REVIEW_CHIP[q.review][0]}">${REVIEW_CHIP[q.review][1]}</span>` : '');
 
   const tagText = (q) => {
     const tags = (q.tag.match(/【(.+?)】/g) || []).map((t) => t.slice(1, -1).replace(/考$/, ''));
@@ -489,7 +498,7 @@
     const tf = r.questions.filter((q) => q.type === 'tf').length;
     return `
     <section class="hero stack-sm">
-      <h1>替代役新訓學科與 EMT-1 題庫練習</h1>
+      <h1>替代役新訓學科與 <span style="white-space:nowrap">EMT-1</span> 題庫練習</h1>
       <p>歷屆役男整理的考古題，可以模擬考、快速練習、查題與複習錯題，並附官方法規全文。這不是官方網站。</p>
       <div class="row">
         <a class="btn btn-primary btn-lg" href="#quiz">開始新訓學科測驗</a>
@@ -530,7 +539,8 @@
         <summary>資料來源與使用限制</summary>
         <div class="details-body read">
           <p>題目來自歷屆役男公開分享的考古題與筆記，不是主管機關公布的題庫。法規條文直接取自全國法規資料庫，取得日期標示在「法規全文」頁。</p>
-          <p>考古題可能依當時的舊法出題。與現行法規不一致的題目，已依現行條文改寫並在題目上標示；尚未逐題核對條號的題目，來源只會標示參考的法規名稱。</p>
+          <p>考古題可能依當時的舊法出題。新訓每一題都對照過收錄的現行法規：有條文依據的題目標示「已對照法條」，解析就是條文原文；與現行法規牴觸的題目已改寫並註明原因；現行法規已無對應規定的題目標為「舊法題」，不列入測驗；查無明文的題目標示「未能以法規查核」，保留歷屆答案。</p>
+          <p>EMT-1 的法規題已對照現行條文；醫學題依消防署教材與歷屆整理，沒有對照比教材更新的國際急救指引，請以訓練單位教學為準。</p>
           <p>用品清單、成績配分與薪給等內容屬於歷屆經驗，實際以徵集令、當梯次營區通知與主管機關公告為準。</p>
         </div>
       </details>
@@ -793,6 +803,7 @@
     return `<article class="card qcard" id="q-${esc(q.id)}" data-id="${esc(q.id)}">
       <div class="qcard-head">
         <span class="id">${esc(q.id)}</span><span class="chip chip-primary">${typeLabel(q)}</span><span class="chip">${esc(bank.cfg.cats[q.cat] || q.cat)}</span>
+        ${reviewChip(q)}
         ${bank.mistakes.has(q.id) ? '<span class="chip chip-red">錯題</span>' : ''}
         ${starButton(bank, q)}
       </div>
@@ -824,7 +835,7 @@
   }
 
   /* ------------------------------------------------------------ 講義共用 */
-  const listBlock = (items) => `<ul>${items.map((t) => `<li>${rich(String(t).replace(/^\s*[*＊•]\s*/, ''))}</li>`).join('')}</ul>`;
+  const listBlock = (items) => `<ul>${items.map((t) => `<li>${rich(String(t).replace(/^\s*[*＊•]\s+/, ''))}</li>`).join('')}</ul>`;
   const tableBlock = (headers, rows) => `<div class="table-wrap"><table class="responsive">
     <thead><tr>${headers.map((h) => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>
     <tbody>${rows.map((row) => `<tr>${row.map((cell, i) => (i === 0 ? `<th scope="row">${rich(cell)}</th>` : `<td data-label="${esc(headers[i])}">${rich(cell)}</td>`)).join('')}</tr>`).join('')}</tbody>
@@ -888,12 +899,10 @@
     const d = state.emtStudy;
     const v = d.vital_signs, g = d.gcs_table, c = d.cpr_aed_guide, o = d.oxygen_therapy, t = d.trauma_care, s = d.start_triage;
     return `<div class="prose stack-sm"><h2>${esc(d.title)}</h2><p class="muted read">${esc(d.description)}</p>${lawsHint('emt-laws')}
-      <h3>法規條文與考點</h3>
+      <h3>常考條文</h3>
       ${d.statutory_articles.map((a) => fold(`${a.law} ${a.article}　${a.title}`, `
-        <p><strong>條文：</strong>${rich(a.official_text)}</p><p><strong>重點：</strong>${rich(a.key_point)}</p>
-        <p><strong>罰則：</strong>${rich(a.penalty)}</p><p class="small">${ext(a.url, '在全國法規資料庫查看')}</p>`)).join('')}
-      <h3>法規重點歸納</h3>
-      ${d.laws_summary.map((l) => fold(`${l.title}（${l.article}）`, listBlock(l.points))).join('')}
+        <p><strong>重點：</strong>${rich(a.key_point)}</p><p><strong>條文：</strong>${rich(a.official_text)}</p>
+        <p class="small">${ext(a.url, '在全國法規資料庫查看')}</p>`)).join('')}
       <h3>${esc(v.title)}</h3><p class="muted">${esc(v.description)}</p>
       ${tableBlock(['項目', '成人', '兒童', '嬰兒', '危急數值'], v.table.map((x) => [x.item, x.adult, x.child, x.infant, x.critical]))}
       <h3>${esc(g.title)}</h3><p class="muted">${esc(g.description)}</p>
@@ -922,14 +931,17 @@
   }
 
   /* ------------------------------------------------------------ 法規全文 */
-  function lawArticle(a, kw) {
+  function lawArticle(law, a, kw) {
+    // 附表、附件只在官方網站提供
+    const note = a.attachment
+      ? `<p class="small muted">本條有附件（附表），內容請看${ext(`https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=${law.pcode}&flno=${a.no}`, '全國法規資料庫')}。</p>` : '';
     return `<div class="law-article"><h4>${esc(a.label)}</h4>${a.lines.map(([indent, text]) =>
-      `<p class="in-${Math.min(indent, 3)}">${hl(text, kw).replace(/\n/g, '<br>')}</p>`).join('')}</div>`;
+      `<p class="in-${Math.min(indent, 3)}">${hl(text, kw).replace(/\n/g, '<br>')}</p>`).join('')}${note}</div>`;
   }
 
   function lawBody(law) {
     return `<p class="small muted">${esc(law.date_label)}：${esc(law.date)}　${ext(law.url, '全國法規資料庫原文')}</p>
-      ${law.chapters.map((ch) => `${ch.title ? `<h3 class="law-chapter">${esc(ch.title)}</h3>` : ''}${ch.articles.map((a) => lawArticle(a)).join('')}`).join('')}`;
+      ${law.chapters.map((ch) => `${ch.title ? `<h3 class="law-chapter">${esc(ch.title)}</h3>` : ''}${ch.articles.map((a) => lawArticle(law, a)).join('')}`).join('')}`;
   }
 
   function viewLaws(group) {
@@ -960,7 +972,7 @@
         if (a.lines.some(([, text]) => text.toLowerCase().includes(lower))) hits.push(a);
       }));
       total += hits.length;
-      return hits.length ? `<section class="card"><h3>${esc(l.name)}（${hits.length} 條）</h3>${hits.map((a) => lawArticle(a, kw)).join('')}</section>` : '';
+      return hits.length ? `<section class="card"><h3>${esc(l.name)}（${hits.length} 條）</h3>${hits.map((a) => lawArticle(l, a, kw)).join('')}</section>` : '';
     }).join('');
     $('#law-count').textContent = `找到 ${total} 條條文`;
     list.innerHTML = total ? `<div class="stack-sm">${html}</div>` : '<div class="card empty"><p>沒有符合的條文，試試其他關鍵字。</p></div>';
