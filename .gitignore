@@ -16,3 +16,12 @@ __pycache__/
 *.py[cod]
 .DS_Store
 Thumbs.db
+
+# Raw official law pages downloaded by scripts/fetch_laws.py
+data/.law_cache/
+
+# 整理資料時抓下來的第三方原文（Dcard 留言、他人文件），不需要也不應公開散布
+data/all_comments_formatted.txt
+data/all_dcard_comments.json
+data/dcard_article_text.txt
+data/gdoc1_full.txt

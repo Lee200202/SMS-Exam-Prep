@@ -36,7 +36,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
         # Source link (compact sub-part under explanation)
         source_name = q.get('source', '全國法規資料庫')
         source_url = q.get('source_url', 'https://law.moj.gov.tw/')
-        source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">🔗 出處：{source_name}</a>'
+        source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">參考：{source_name}</a>'
         
         # Options & Explanation (neutral text colors, NO green spoiler)
         if is_tf_section:
@@ -50,8 +50,13 @@ def build_rows(q_list, start_num, is_tf_section=False):
             opt_ans_html = '<div class="opt-list">' + ''.join(opts) + '</div>'
             ans_str = labels[q['answer']] if q['answer'] < len(labels) else f'({q["answer"]+1})'
 
-        if q.get('explanation'):
-            opt_ans_html += f'<div class="expl-box"><strong>【解析】</strong>{q["explanation"]}<div class="source-sub">{source_link_html}</div></div>'
+        if q.get('status') == 'outdated':
+            # 舊法題不提供答案，只保留說明供對照
+            ans_str = '舊法題'
+            opt_ans_html += f'<div class="expl-box"><strong>【舊法題】</strong>{q.get("status_note", "")}<div class="source-sub">{source_link_html}</div></div>'
+        elif q.get('explanation'):
+            revised = f'<br><strong>【改寫說明】</strong>{q["revised"]}' if q.get('revised') else ''
+            opt_ans_html += f'<div class="expl-box"><strong>【解析】</strong>{q["explanation"]}{revised}<div class="source-sub">{source_link_html}</div></div>'
         else:
             opt_ans_html += f'<div class="source-sub">{source_link_html}</div>'
 
@@ -90,6 +95,8 @@ html_content = f"""<!DOCTYPE html>
 <meta charset="utf-8">
 <title>成功嶺替代役新訓題庫全集彙編</title>
 <style>
+  /* 標楷體沒有粗體字重，合成粗體會被輸出成 Type3 字型而讓 PDF 膨脹 */
+  strong, b, th {{ font-weight: normal; }}
   @page {{
     size: A4 portrait;
     margin: 8mm 8mm 10mm 8mm;
@@ -100,7 +107,7 @@ html_content = f"""<!DOCTYPE html>
       color: #555;
     }}
     @bottom-left {{
-      content: "成功嶺替代役新訓題庫全集彙編 ｜ 最新法規校訂與鑑測真題";
+      content: "成功嶺替代役新訓學科考古題彙編 ｜ 非官方整理，以主管機關公告為準";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
       font-size: 8pt;
       color: #555;
@@ -125,13 +132,13 @@ html_content = f"""<!DOCTYPE html>
   }}
   .doc-title {{
     font-size: 15pt;
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 1px;
     margin: 0 0 2px 0;
   }}
   .doc-subtitle {{
     font-size: 9.5pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #2b4c7e;
     margin: 0 0 2px 0;
   }}
@@ -143,7 +150,7 @@ html_content = f"""<!DOCTYPE html>
   /* Section Banners */
   .section-banner {{
     font-size: 10pt;
-    font-weight: bold;
+    font-weight: normal;
     padding: 4px 8px;
     margin-top: 8px;
     margin-bottom: 4px;
@@ -181,7 +188,7 @@ html_content = f"""<!DOCTYPE html>
     border: 1px solid #4a6b82;
     padding: 4px 4px;
     font-size: 8.2pt;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
   }}
   td {{
@@ -209,7 +216,7 @@ html_content = f"""<!DOCTYPE html>
     padding: 0 3px;
     border-radius: 2px;
     font-size: 7.2pt;
-    font-weight: bold;
+    font-weight: normal;
     margin-right: 2px;
     vertical-align: baseline;
     line-height: 1.25;
@@ -221,7 +228,7 @@ html_content = f"""<!DOCTYPE html>
     color: #92400e;
     border: 1px solid #fcd34d;
     font-size: 7.2pt;
-    font-weight: bold;
+    font-weight: normal;
   }}
 
   /* Options list (clean neutral text color, NO green spoilers) */
@@ -258,7 +265,7 @@ html_content = f"""<!DOCTYPE html>
   /* Rightmost Answer Column (easy to cover with a bookmark/ruler) */
   .ans-cell {{
     font-size: 9pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #0f172a;
     padding-top: 2px;
   }}
@@ -268,10 +275,10 @@ html_content = f"""<!DOCTYPE html>
 
   <!-- Header -->
   <div class="doc-header">
-    <div class="doc-title">內政部替代役訓練班成功嶺新訓學科鑑測考古題與完整題庫彙編</div>
-    <div class="doc-subtitle">涵蓋：替代役實施條例全文、志願服務法、役男權益與保險撫卹、服勤管理獎懲辦法、國防射擊打靶訓練全攻略</div>
+    <div class="doc-title">成功嶺替代役新訓學科考古題彙編（非官方整理）</div>
+    <div class="doc-subtitle">涵蓋：替代役實施條例、志願服務法、役男權益與保險撫卹、訓練服勤管理、射擊</div>
     <div class="doc-meta">
-      收錄梯次：包含 247T、257T、277T 鑑測真題與 2024–2026 最新法規條列對齊版 ｜ 總題數：{len(questions)} 題 (是非題 {len(tf_questions)} 題 · 選擇題 {len(mc_questions)} 題)
+      題目來自歷屆役男分享；與現行法規牴觸者已依全國法規資料庫條文改寫並標示 ｜ 資料整理日：{data.get('updatedAt', '')} ｜ 總題數：{len(questions)} 題 (是非題 {len(tf_questions)} 題 · 選擇題 {len(mc_questions)} 題)
     </div>
   </div>
 

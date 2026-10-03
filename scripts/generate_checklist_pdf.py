@@ -11,60 +11,55 @@ with open('data/study_data.json', 'r', encoding='utf-8') as f:
 packing_list = data['packing_list']
 categories = packing_list['categories']
 
-total_items = sum(len(c['items']) for c in categories)
-must_items = sum(sum(1 for it in c['items'] if it.get('must')) for c in categories)
+pack_items = [it for c in categories if c['kind'] == 'pack' for it in c['items']]
+total_items = len(pack_items)
+must_items = sum(1 for it in pack_items if it.get('must'))
 
-# Build HTML sections
+# Build HTML sections：pack 類別是要準備的物品（有勾選框）；info 類別是說明，不提供勾選
 sections_html = []
 
-for c_idx, cat in enumerate(categories):
-    cat_name = cat['name']
-    items = cat['items']
-    
+for cat in categories:
+    is_pack = cat['kind'] == 'pack'
     rows = []
-    for it_idx, item in enumerate(items):
-        item_id = item.get('id', f'item_{c_idx}_{it_idx}')
-        name = item['name']
-        is_must = item.get('must', False)
-        is_danger = item.get('is_danger', False)
+    for item in cat['items']:
         tip = item.get('tip', '')
-        
-        # Determine badge
-        if is_danger or '違禁' in name or '禁' in name:
-            attr_badge = '<span class="badge badge-danger">🚫 嚴禁 / 避坑</span>'
-            row_class = 'row-danger'
-        elif is_must:
-            attr_badge = '<span class="badge badge-must">★ 必備</span>'
-            row_class = 'row-must'
-        elif '管制' in cat_name or '管制' in name:
-            attr_badge = '<span class="badge badge-control">⚠️ 管制品</span>'
-            row_class = 'row-control'
+        if item.get('source'):
+            tip += f"（{item['source']}）"
+        if is_pack:
+            check = '<span class="checkbox-box"></span>'
+            if item.get('must'):
+                badge, row_class = '<span class="badge badge-must">必帶</span>', 'row-must'
+            else:
+                badge, row_class = '<span class="badge badge-rec">選帶</span>', 'row-rec'
         else:
-            attr_badge = '<span class="badge badge-rec">建議攜帶</span>'
-            row_class = 'row-rec'
-            
-        row = f"""
+            check = '—'
+            if item.get('level'):
+                badge, row_class = f'<span class="badge badge-control">{item["level"]}</span>', 'row-control'
+            elif cat['id'] == 'avoid':
+                badge, row_class = '<span class="badge badge-danger">不用帶</span>', 'row-danger'
+            else:
+                badge, row_class = '<span class="badge badge-rec">提醒</span>', 'row-rec'
+        rows.append(f"""
         <tr class="{row_class}">
-          <td class="col-check text-center"><span class="checkbox-box">☐</span></td>
-          <td class="col-name">
-            <strong>{name}</strong>
-          </td>
-          <td class="col-attr text-center">{attr_badge}</td>
+          <td class="col-check text-center">{check}</td>
+          <td class="col-name"><strong>{item['name']}</strong></td>
+          <td class="col-attr text-center">{badge}</td>
           <td class="col-tip">{tip}</td>
         </tr>
-        """
-        rows.append(row)
-        
-    sec_html = f"""
+        """)
+
+    note = f'<div style="font-size:9pt;margin:2px 0 4px">{cat["note"]}</div>' if cat.get('note') else ''
+    sections_html.append(f"""
     <div class="cat-section">
-      <div class="cat-title">{cat_name} <span class="cat-count">（共 {len(items)} 項）</span></div>
+      <div class="cat-title">{cat['name']} <span class="cat-count">（共 {len(cat['items'])} 項）</span></div>
+      {note}
       <table class="item-table">
         <thead>
           <tr>
-            <th class="col-check">勾選</th>
-            <th class="col-name">物品名稱</th>
-            <th class="col-attr">重要度</th>
-            <th class="col-tip">攜帶說明、準備數量與防雷實測提醒</th>
+            <th class="col-check">{'勾選' if is_pack else ''}</th>
+            <th class="col-name">{'物品名稱' if is_pack else '項目'}</th>
+            <th class="col-attr">類別</th>
+            <th class="col-tip">說明</th>
           </tr>
         </thead>
         <tbody>
@@ -72,15 +67,14 @@ for c_idx, cat in enumerate(categories):
         </tbody>
       </table>
     </div>
-    """
-    sections_html.append(sec_html)
+    """)
 
 # Complete HTML document
 html_content = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8">
-<title>成功嶺替代役新訓 必備入營用品建議檢核表</title>
+<title>成功嶺替代役新訓用品清單</title>
 <style>
   @page {{
     size: A4 portrait;
@@ -92,7 +86,7 @@ html_content = f"""<!DOCTYPE html>
       color: #555;
     }}
     @bottom-left {{
-      content: "成功嶺替代役新訓 必備用品建議檢核表 ｜ 2024–2026 最新入營實測整理";
+      content: "成功嶺替代役新訓用品清單 ｜ 歷屆役男分享整理，非官方清單";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
       font-size: 8.5pt;
       color: #555;
@@ -117,14 +111,14 @@ html_content = f"""<!DOCTYPE html>
   }}
   .doc-title {{
     font-size: 16pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #065f46;
     letter-spacing: 1px;
     margin: 0 0 3px 0;
   }}
   .doc-subtitle {{
     font-size: 10pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #047857;
     margin: 0 0 3px 0;
   }}
@@ -142,7 +136,7 @@ html_content = f"""<!DOCTYPE html>
     background-color: #065f46;
     color: #ffffff;
     font-size: 9.5pt;
-    font-weight: bold;
+    font-weight: normal;
     padding: 4px 8px;
     border-radius: 3px 3px 0 0;
     margin-top: 8px;
@@ -174,7 +168,7 @@ html_content = f"""<!DOCTYPE html>
     border: 1px solid #059669;
     padding: 4px 4px;
     font-size: 8.2pt;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
   }}
   td {{
@@ -205,11 +199,14 @@ html_content = f"""<!DOCTYPE html>
   .text-center {{ text-align: center; }}
 
   /* Checkbox Box */
+  strong, b, th {{ font-weight: normal; }}
   .checkbox-box {{
-    font-size: 11pt;
-    color: #334155;
-    font-weight: bold;
     display: inline-block;
+    width: 11pt;
+    height: 11pt;
+    border: 1.2pt solid #111;
+    border-radius: 1.5pt;
+    vertical-align: middle;
   }}
 
   /* Badges */
@@ -218,7 +215,7 @@ html_content = f"""<!DOCTYPE html>
     padding: 1px 4px;
     border-radius: 3px;
     font-size: 7.2pt;
-    font-weight: bold;
+    font-weight: normal;
     white-space: nowrap;
   }}
   .badge-must {{
@@ -247,10 +244,10 @@ html_content = f"""<!DOCTYPE html>
 
   <!-- Header -->
   <div class="doc-header">
-    <div class="doc-title">成功嶺替代役新訓 必備入營用品建議檢核表</div>
-    <div class="doc-subtitle">彙整 247T、257T、277T、137研替最新學長實測與替代役官方群組精華</div>
+    <div class="doc-title">成功嶺替代役新訓用品清單（非官方整理）</div>
+    <div class="doc-subtitle">{packing_list['description']}</div>
     <div class="doc-meta">
-      適用梯次：2024–2026 最新各梯次役男 ｜ 項目總數：{total_items} 項（法定與必備項目 {must_items} 項） ｜ 編修日期：2026 年 10 月
+      要準備的物品：{total_items} 項（必帶 {must_items} 項） ｜ 資料整理日：{packing_list.get('reviewed_at', '')}
     </div>
   </div>
 

@@ -33,7 +33,7 @@ for idx, q in enumerate(questions):
     # Source link (compact sub-part under explanation)
     source_name = q.get('source', '消防署初級救護技術員教材')
     source_url = q.get('source_url', 'http://ebook.nfa.gov.tw/1080503/')
-    source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">🔗 出處：{source_name}</a>'
+    source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">參考：{source_name}</a>'
 
     # Options (A)(B)(C)(D) with identical text colors (NO green spoiler)
     opts = []
@@ -76,8 +76,10 @@ html_content = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8">
-<title>成功嶺替代役 EMT-1 初級救護技術員 全真題庫全集彙編</title>
+<title>成功嶺替代役 EMT-1 初級救護技術員學科題庫彙編</title>
 <style>
+  /* 標楷體沒有粗體字重，合成粗體會被輸出成 Type3 字型而讓 PDF 膨脹 */
+  strong, b, th {{ font-weight: normal; }}
   @page {{
     size: A4 portrait;
     margin: 8mm 8mm 10mm 8mm;
@@ -88,7 +90,7 @@ html_content = f"""<!DOCTYPE html>
       color: #555;
     }}
     @bottom-left {{
-      content: "成功嶺替代役 EMT-1 全真題庫全集彙編 ｜ 衛福部與消防署教材最新修訂";
+      content: "成功嶺替代役 EMT-1 學科題庫彙編 ｜ 非官方整理，以主管機關公告為準";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
       font-size: 8pt;
       color: #555;
@@ -113,14 +115,14 @@ html_content = f"""<!DOCTYPE html>
   }}
   .doc-title {{
     font-size: 15pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #065f46;
     letter-spacing: 1px;
     margin: 0 0 2px 0;
   }}
   .doc-subtitle {{
     font-size: 9.5pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #0f766e;
     margin: 0 0 2px 0;
   }}
@@ -149,7 +151,7 @@ html_content = f"""<!DOCTYPE html>
     border: 1px solid #059669;
     padding: 4px 4px;
     font-size: 8.2pt;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
   }}
   td {{
@@ -177,7 +179,7 @@ html_content = f"""<!DOCTYPE html>
     padding: 0 3px;
     border-radius: 2px;
     font-size: 7.2pt;
-    font-weight: bold;
+    font-weight: normal;
     margin-right: 2px;
     vertical-align: baseline;
     line-height: 1.25;
@@ -214,7 +216,7 @@ html_content = f"""<!DOCTYPE html>
   /* Rightmost Answer Column (easy to cover with a bookmark/ruler) */
   .ans-cell {{
     font-size: 9pt;
-    font-weight: bold;
+    font-weight: normal;
     color: #0f172a;
     padding-top: 2px;
   }}
@@ -223,10 +225,10 @@ html_content = f"""<!DOCTYPE html>
 <body>
 
   <div class="doc-header">
-    <div class="doc-title">成功嶺替代役 EMT-1 初級救護技術員 全真題庫全集彙編</div>
-    <div class="doc-subtitle">衛生福利部與內政部消防署 40 小時訓練教材 · 替代役 EMT-1 鑑測真題全集 ｜ 總題數：{len(questions)} 題</div>
+    <div class="doc-title">成功嶺替代役 EMT-1 初級救護技術員學科題庫彙編（非官方整理）</div>
+    <div class="doc-subtitle">依消防署初級救護技術員教材與歷屆役男分享整理 ｜ 總題數：{len(questions)} 題</div>
     <div class="doc-meta">
-      適用梯次：2024–2026 最新各梯次役男 ｜ 及格標準：學科測驗 70 分 ｜ 編修日期：2026 年 10 月
+      及格標準：學科測驗 70 分 ｜ 資料整理日：{data.get('updatedAt', '')}
     </div>
   </div>
 

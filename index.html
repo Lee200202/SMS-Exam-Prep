@@ -1,327 +1,68 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
+<html lang="zh-Hant-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>成功嶺替代役新訓考古題與通關備考系統 | 模擬測驗、題庫速查、EMT-1救護特區、用品檢核表</title>
-  <meta name="description" content="全方位成功嶺替代役新訓通關攻略，收錄是非題、選擇題、替代役實施條例、志願服務法、役男權益保障、步槍打靶射擊攻略、EMT-1初級救護技術員題庫與必備用品檢核表。">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>成功嶺替代役新訓備考｜學科題庫、EMT-1 題庫、法規全文與用品清單</title>
+  <meta name="description" content="替代役新訓學科與 EMT-1 題庫練習、模擬考、錯題複習，附全國法規資料庫條文全文與入營用品清單。非官方整理，內容以主管機關公告為準。">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#14213d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314213d'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' fill='none' stroke='%232dd4bf' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-              900: '#064e3b'
-            },
-            military: {
-              olive: '#4b5320',
-              gold: '#d4af37',
-              slate: '#1e293b'
-            }
-          }
-        }
-      }
-    }
+    // 在首次繪製前套用外觀，避免深色模式閃白
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('sms_theme'); } catch (e) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    })();
   </script>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Canvas Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261003">
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo & Title -->
-        <a href="#home" class="flex items-center gap-3 group" onclick="switchTab('home')">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
-            <i data-lucide="shield-check" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-black text-base sm:text-lg tracking-tight text-slate-900 dark:text-white">成功嶺替代役新訓</span>
-              <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-200 dark:border-emerald-800 hidden sm:inline-block">2026 最新版</span>
-            </div>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">全方位題庫測驗與通關必備指南</p>
-          </div>
-        </a>
-
-        <!-- Header Actions -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <!-- Total Questions Counter Badge -->
-          <div class="hidden md:flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300" title="總題庫收錄數 (新訓 272 + EMT-1 96)">
-            <i data-lucide="database" class="w-3.5 h-3.5 text-emerald-500"></i>
-            <span>全站題庫: <strong id="stat-total-questions" class="text-emerald-600 dark:text-emerald-400">368</strong> 題</span>
-          </div>
-
-          <!-- Quick Portal: Recruit Training -->
-          <button onclick="switchTab('recruit')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 rounded-lg text-xs font-semibold hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition" title="前往成功嶺新訓特區">
-            <i data-lucide="award" class="w-3.5 h-3.5 text-emerald-500"></i>
-            <span>新訓特區 (272題)</span>
-          </button>
-
-          <!-- Quick Portal: EMT-1 -->
-          <button onclick="switchTab('emt')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 rounded-lg text-xs font-semibold hover:bg-teal-100 dark:hover:bg-teal-900/50 transition" title="前往 EMT-1 初級救護技術員題庫專區">
-            <i data-lucide="heart-pulse" class="w-3.5 h-3.5 text-teal-500"></i>
-            <span>EMT-1 (96題)</span>
-          </button>
-
-          <!-- Mistakes Badge Link -->
-          <button onclick="handleHeaderMistakesClick()" class="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900 rounded-lg text-xs font-semibold hover:bg-rose-100 transition" title="前往錯題複習">
-            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
-            <span class="hidden sm:inline">錯題本</span>
-            <span id="stat-mistake-count" class="px-1.5 py-0.2 bg-rose-500 text-white rounded-full text-[10px] font-bold">0</span>
-          </button>
-
-          <!-- Dark Mode Toggle Button -->
-          <button id="btn-theme-toggle" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="切換深色/淺色外觀">
-            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-            <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Primary Navigation Tabs (4 Tabs Architecture) -->
-      <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto py-1 no-scrollbar border-t border-slate-100 dark:border-slate-800/60 text-xs sm:text-sm font-semibold">
-        <button class="nav-tab active px-4 py-2.5 rounded-xl flex items-center gap-2 whitespace-nowrap transition" data-tab="home">
-          <i data-lucide="home" class="w-4 h-4"></i>
-          <span>🏠 首頁導覽 / 專案緣起</span>
-        </button>
-        <button class="nav-tab px-4 py-2.5 rounded-xl flex items-center gap-2 whitespace-nowrap transition" data-tab="recruit">
-          <i data-lucide="award" class="w-4 h-4"></i>
-          <span>🎖️ 成功嶺新訓特區</span>
-        </button>
-        <button class="nav-tab px-4 py-2.5 rounded-xl flex items-center gap-2 whitespace-nowrap transition text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/60 bg-teal-50/50 dark:bg-teal-950/20" data-tab="emt">
-          <i data-lucide="heart-pulse" class="w-4 h-4 text-teal-600 dark:text-teal-400"></i>
-          <span>🚑 EMT-1 初級救護特區</span>
-        </button>
-        <button class="nav-tab px-4 py-2.5 rounded-xl flex items-center gap-2 whitespace-nowrap transition" data-tab="checklist">
-          <i data-lucide="clipboard-check" class="w-4 h-4"></i>
-          <span>🎒 新訓用品檢核表</span>
-        </button>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor" opacity=".16"/><path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>成功嶺新訓備考</span>
+      </a>
+      <nav class="main-nav" aria-label="主選單">
+        <a href="#home" data-nav="home">首頁</a>
+        <a href="#quiz" data-nav="recruit">新訓學科</a>
+        <a href="#emt" data-nav="emt">EMT-1</a>
+        <a href="#checklist" data-nav="checklist">用品清單</a>
       </nav>
+      <button type="button" class="icon-btn" id="theme-toggle" data-action="toggle-theme" aria-label="切換深色或淺色外觀">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
-  <!-- Main Content Area -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-
-    <!-- Tab 1: Home / Guide Content -->
-    <section id="tab-home-content" class="tab-content">
-      <div id="home-content-body" class="max-w-5xl mx-auto space-y-10"></div>
-    </section>
-
-    <!-- Tab 2: Recruit Training Content (Mirrors EMT presentation architecture) -->
-    <section id="tab-recruit-content" class="tab-content hidden space-y-6">
-      <div id="recruit-content-body" class="max-w-5xl mx-auto space-y-6">
-        <!-- Recruit Hero Banner -->
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 p-6 sm:p-8 text-white shadow-xl border border-emerald-500/20">
-          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-            <div class="space-y-3">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold tracking-wide">
-                <i data-lucide="shield" class="w-4 h-4"></i> 成功嶺替代役 · 基礎訓練新訓特區
-              </div>
-              <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2">
-                🎖️ 成功嶺新訓全真題庫與法規備考特區
-              </h2>
-              <p class="text-xs sm:text-sm text-emerald-100/90 max-w-2xl leading-relaxed">
-                完整收錄 272 題真題（是非題、選擇題）、替代役實施條例、志願服務法、役男權益與服勤、打靶射擊全攻略，支援全真期末鑑測模擬考（60分及格）、選項隨機打亂、遮蔽答案背題模式與標楷體 PDF 下載。
-              </p>
-            </div>
-
-            <!-- Hero Stats & Action Badges -->
-            <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
-              <div class="px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
-                <div class="text-xs text-emerald-200">題庫總數</div>
-                <div class="text-lg font-black text-white">272 <span class="text-xs font-normal">題</span></div>
-              </div>
-              <div class="px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
-                <div class="text-xs text-emerald-200">及格門檻</div>
-                <div class="text-lg font-black text-emerald-300">60 <span class="text-xs font-normal">分</span></div>
-              </div>
-              <div class="px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
-                <div class="text-xs text-rose-200">錯題累積</div>
-                <div class="text-lg font-black text-rose-300" id="recruit-stat-mistakes">0 <span class="text-xs font-normal">題</span></div>
-              </div>
-              <a href="pdf/替代役新訓題庫_全集彙編_標楷體版.pdf" download class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center gap-2" title="下載新訓題庫 PDF">
-                <i data-lucide="file-down" class="w-4 h-4"></i>
-                <span>下載新訓題庫 PDF</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recruit Sub-Navigation Tabs (Unified Sub-tab Presentation) -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 dark:border-slate-800 no-scrollbar text-xs sm:text-sm font-semibold">
-          <button onclick="switchRecruitSubTab('quiz')" class="recruit-subtab-btn px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap bg-emerald-600 text-white shadow-md font-semibold text-xs sm:text-sm" data-subtab="quiz">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            <span>⚡ 隨機測驗 / 模擬考</span>
-          </button>
-          <button onclick="switchRecruitSubTab('bank')" class="recruit-subtab-btn px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs sm:text-sm" data-subtab="bank">
-            <i data-lucide="book-open" class="w-4 h-4"></i>
-            <span>🔍 全真題庫速查 (272題)</span>
-          </button>
-          <button onclick="switchRecruitSubTab('regulations')" class="recruit-subtab-btn px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs sm:text-sm" data-subtab="regulations">
-            <i data-lucide="scale" class="w-4 h-4"></i>
-            <span>⚖️ 替代役實施條例</span>
-          </button>
-          <button onclick="switchRecruitSubTab('volunteer')" class="recruit-subtab-btn px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs sm:text-sm" data-subtab="volunteer">
-            <i data-lucide="hand-heart" class="w-4 h-4"></i>
-            <span>🤝 志願服務法</span>
-          </button>
-          <button onclick="switchRecruitSubTab('rights')" class="recruit-subtab-btn px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs sm:text-sm" data-subtab="rights">
-            <i data-lucide="shield" class="w-4 h-4"></i>
-            <span>🛡️ 役男權益與服勤</span>
-          </button>
-          <button onclick="switchRecruitSubTab('shooting')" class="recruit-subtab-btn px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs sm:text-sm" data-subtab="shooting">
-            <i data-lucide="crosshair" class="w-4 h-4"></i>
-            <span>🎯 打靶射擊全攻略</span>
-          </button>
-        </div>
-
-        <!-- Recruit Sub-tab Views Container -->
-        <div id="recruit-subtab-container" class="pt-2">
-          <!-- Sub-view 1: Quiz -->
-          <div id="recruit-sub-quiz" class="recruit-sub-view">
-            <div id="tab-quiz-content"></div>
-          </div>
-
-          <!-- Sub-view 2: Bank -->
-          <div id="recruit-sub-bank" class="recruit-sub-view hidden space-y-6">
-            <!-- Search & Filters Header Card -->
-            <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <i data-lucide="search" class="w-5 h-5 text-emerald-500"></i> 全真題庫速查與背題模式
-                  </h3>
-                  <p class="text-xs text-slate-500 dark:text-slate-400">
-                    即時搜尋題目關鍵字、按章節題型精準篩選，支援遮蔽答案背題翻牌模式。
-                  </p>
-                </div>
-                <div class="flex items-center gap-2 self-start sm:self-auto flex-wrap">
-                  <a href="pdf/替代役新訓題庫_全集彙編_標楷體版.pdf" download class="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-xl text-xs font-semibold shadow transition" title="下載新訓題庫 PDF">
-                    <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
-                    <span>下載新訓題庫 PDF</span>
-                  </a>
-                  <!-- Flashcard Mode Toggle -->
-                  <label class="flex items-center gap-2 cursor-pointer select-none bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-800 text-xs font-semibold text-emerald-800 dark:text-emerald-300">
-                    <input type="checkbox" id="bank-hide-answers" class="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4">
-                    <span class="flex items-center gap-1"><i data-lucide="eye-off" class="w-3.5 h-3.5"></i> 遮蔽答案 (背題模式)</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Filter Controls -->
-              <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-1">
-                <div class="sm:col-span-6 relative">
-                  <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                  <input type="text" id="bank-search" placeholder="搜尋題目關鍵字（如：陪產假、撫卹、300小時、罰薪...）" class="w-full pl-9 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-emerald-500 transition">
-                </div>
-
-                <div class="sm:col-span-3">
-                  <select id="bank-type-filter" class="w-full px-3 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-emerald-500">
-                    <option value="all">題型：全部 (是非 + 選擇)</option>
-                    <option value="true_false">僅是非題 (O/X)</option>
-                    <option value="multiple_choice">僅選擇題 (四選一)</option>
-                  </select>
-                </div>
-
-                <div class="sm:col-span-3">
-                  <select id="bank-cat-filter" class="w-full px-3 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-emerald-500">
-                    <option value="all">分類：全部分類</option>
-                    <option value="regulations">⚖️ 替代役實施條例</option>
-                    <option value="volunteer">🤝 志願服務法</option>
-                    <option value="rights">🎖️ 役男權益與撫卹</option>
-                    <option value="management">📋 服勤生活獎懲</option>
-                    <option value="shooting">🎯 射擊打靶國防</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Filtered Count -->
-              <div class="flex items-center justify-between text-xs text-slate-500 pt-1 border-t border-slate-100 dark:border-slate-800">
-                <span>共篩選出 <strong id="bank-filtered-count" class="text-emerald-600 dark:text-emerald-400 font-bold">272</strong> 題</span>
-                <span class="text-[11px] text-slate-400">點擊卡片星號可收藏題目</span>
-              </div>
-            </div>
-
-            <!-- Question Cards Container -->
-            <div id="bank-list-container" class="space-y-4"></div>
-
-            <!-- Pagination -->
-            <div id="bank-pagination" class="glass-panel p-4 rounded-2xl shadow-sm"></div>
-          </div>
-
-          <!-- Sub-view 3: Regulations -->
-          <div id="recruit-sub-regulations" class="recruit-sub-view hidden">
-            <div id="regulations-content-body" class="max-w-4xl mx-auto"></div>
-          </div>
-
-          <!-- Sub-view 4: Volunteer -->
-          <div id="recruit-sub-volunteer" class="recruit-sub-view hidden">
-            <div id="volunteer-content-body" class="max-w-4xl mx-auto"></div>
-          </div>
-
-          <!-- Sub-view 5: Rights -->
-          <div id="recruit-sub-rights" class="recruit-sub-view hidden">
-            <div id="rights-content-body" class="max-w-4xl mx-auto"></div>
-          </div>
-
-          <!-- Sub-view 6: Shooting -->
-          <div id="recruit-sub-shooting" class="recruit-sub-view hidden">
-            <div id="shooting-content-body" class="max-w-4xl mx-auto"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tab 3: EMT-1 專屬特區 (初級救護技術員) -->
-    <section id="tab-emt-content" class="tab-content hidden space-y-6">
-      <div id="emt-content-body" class="max-w-5xl mx-auto space-y-8"></div>
-    </section>
-
-    <!-- Tab 4: Checklist Content -->
-    <section id="tab-checklist-content" class="tab-content hidden">
-      <div id="checklist-content-body" class="max-w-4xl mx-auto"></div>
-    </section>
-
+  <main id="main" class="wrap" tabindex="-1">
+    <noscript><p class="notice notice-warn">這個網站需要啟用 JavaScript 才能練習題目。三份 PDF 可直接在 <a href="pdf/">pdf 資料夾</a>下載。</p></noscript>
+    <div id="app"><p class="muted">題庫載入中…</p></div>
   </main>
 
-  <!-- Footer -->
-  <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 py-6 text-xs text-slate-500 text-center transition-colors">
-    <div class="max-w-7xl mx-auto px-4 space-y-2">
-      <p class="font-medium text-slate-600 dark:text-slate-400">
-        🇹🇼 成功嶺替代役新訓 考古題題庫與備考系統 · 祝福全體役男新訓順利、高分過關！
-      </p>
-      <p class="text-slate-400 text-[11px]">
-        資料來源整理自歷年役男考古題分享、內政部替代役訓練及管理中心法規、衛生福利部法規與消防署EMT-1訓練教材 · 支援離線瀏覽與 GitHub Pages 靜態部署
-      </p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>非官方整理。題目來自歷屆役男分享，法規條文取自全國法規資料庫；內容如與主管機關公告不同，以公告為準。</p>
+      <p><a href="https://github.com/Lee200202/SMS-Exam-Prep" target="_blank" rel="noopener noreferrer">GitHub 原始碼與問題回報</a></p>
     </div>
   </footer>
 
-  <!-- Bundled Application Data -->
-  <script src="data/data_bundle.js"></script>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <form method="dialog">
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-body"></div>
+      <div id="dialog-actions" class="dialog-actions"></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- Main Application Logic -->
-  <script src="js/app.js"></script>
+  <script src="data/data_bundle.js?v=20261003"></script>
+  <script src="js/app.js?v=20261003"></script>
 </body>
 </html>

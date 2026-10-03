@@ -1,7 +1,7 @@
 {
   "version": "2026-10",
-  "title": "成功嶺替代役 EMT-1 初級救護技術員 全真學科題庫 (114-115年最新教材對照版)",
-  "subtitle": "依據衛福部、消防署最新40小時訓練教材與成功嶺替代役歷屆鑑測真題嚴格編修",
+  "title": "EMT-1 初級救護技術員學科題庫",
+  "subtitle": "依消防署初級救護技術員教材與歷屆役男分享整理，非官方題庫",
   "total": 96,
   "stats": {
     "total": 96,
@@ -32,7 +32,7 @@
       "answer": 1,
       "explanation": "依《救護技術員管理辦法》第2條第1款規定，初級救護技術員之初訓課程時數至少應為「四十小時」；中級為二百八十小時；高級為一千二百八十小時以上。成功嶺替代役基礎訓練即配合此法定40小時模組實施並辦理鑑測認證。",
       "source": "全國法規資料庫 - 救護技術員管理辦法 第2條",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020048&flno=2"
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=2"
     },
     {
       "id": "EMT-LAW-02",
@@ -49,7 +49,7 @@
       "answer": 2,
       "explanation": "依《救護技術員管理辦法》第7條第1項規定，各級救護技術員證書之有效期限均為「三年」。",
       "source": "全國法規資料庫 - 救護技術員管理辦法 第7條",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020048&flno=7"
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=7"
     },
     {
       "id": "EMT-LAW-03",
@@ -66,7 +66,7 @@
       "answer": 1,
       "explanation": "依《救護技術員管理辦法》第7條第2項第1款規定，初級救護技術員於證書效期3年內，應完成「二十四小時以上之繼續教育，且每年均應至少接受八小時」，得申請展延三年證書效期。",
       "source": "全國法規資料庫 - 救護技術員管理辦法 第7條",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020048&flno=7"
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=7"
     },
     {
       "id": "EMT-LAW-04",
@@ -83,7 +83,7 @@
       "answer": 3,
       "explanation": "依《救護技術員管理辦法》第3條，初級救護技術員得施行之救護項目包含：體外心臟去顫器 (AED) 之使用、口咽/鼻咽呼吸道、抽吸、氧氣治療、止血包紮固定、頸圈長背板、搬運、生命徵象測量、檢傷分類等。靜脈注射與口服藥物為 EMT-2 以上項目；氣管插管為 EMT-P (高級) 項目。",
       "source": "全國法規資料庫 - 救護技術員管理辦法 第3條",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020048&flno=3"
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=3"
     },
     {
       "id": "EMT-LAW-05",
@@ -719,7 +719,7 @@
       "type": "multiple_choice",
       "category": "emt_cpr",
       "category_name": "心肺復甦術與AED",
-      "question": "成人「院外心臟停止 (OHCA)」生存之鏈 (Chain of Survival) 最新六大環節依序為何？",
+      "question": "成人「院外心臟停止 (OHCA)」生存之鏈 (Chain of Survival) 六大環節依序為何？",
       "options": [
         "(A) 快速送醫 ➜ 醫師診斷 ➜ 開刀 ➜ 服藥 ➜ 復健 ➜ 出院",
         "(B) 早期辨識與求救 (119) ➜ 高品質 CPR ➜ 快速去顫 (AED) ➜ 高級救命術 (ACLS) ➜ 心臟驟停後照護 ➜ 復原 (Recovery)",
@@ -727,7 +727,7 @@
         "(D) 測量血壓 ➜ 抽血 ➜ 胸外按壓 ➜ 氣管插管 ➜ 保溫 ➜ 送醫"
       ],
       "answer": 1,
-      "explanation": "AHA 與台灣急診醫學會最新院外生存之鏈六環：1. 早期辨識與啟動緊急醫療系統；2. 即時高品質心肺復甦術 (CPR)；3. 快速體外去顫 (AED)；4. 高級救命術與運送；5. 心臟驟停後整合照護；6. 生理與心理全面復原 (Recovery)。",
+      "explanation": "AHA 與台灣急診醫學會院外生存之鏈六環：1. 早期辨識與啟動緊急醫療系統；2. 即時高品質心肺復甦術 (CPR)；3. 快速體外去顫 (AED)；4. 高級救命術與運送；5. 心臟驟停後整合照護；6. 生理與心理全面復原 (Recovery)。",
       "source": "台灣急診醫學會 - 2020 CPR指引生存之鏈",
       "source_url": "https://www.sem.org.tw/"
     },
@@ -974,7 +974,7 @@
       "type": "multiple_choice",
       "category": "emt_trauma",
       "category_name": "創傷評估止血固定",
-      "question": "創傷病患初評流程中，國際與台灣急救最新指引強調「XABCDE」架構，其中字首「X」代表何項最優先處置項目？",
+      "question": "創傷病患初評流程中，國際與台灣急救指引強調「XABCDE」架構，其中字首「X」代表何項最優先處置項目？",
       "options": [
         "(A) X光攝影 (X-ray)",
         "(B) 控制致命性大出血 (eXsanguinating hemorrhage)",
@@ -1649,5 +1649,6 @@
       "source": "全國法規資料庫 - 緊急醫療救護法 第26-28條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=26"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-03"
 }
