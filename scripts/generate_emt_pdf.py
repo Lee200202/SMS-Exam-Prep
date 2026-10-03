@@ -11,25 +11,24 @@ with open('data/emt_questions.json', 'r', encoding='utf-8') as f:
 questions = data['questions']
 stats = data.get('stats', {})
 
-category_names = {
-    'emt_laws': '緊急醫療救護法規與倫理',
-    'emt_anatomy': '基礎解剖與生命徵象',
-    'emt_airway': '呼吸道處置與氧氣治療',
-    'emt_cpr': '心肺復甦術與AED',
-    'emt_trauma': '創傷評估止血固定',
-    'emt_medical': '急症評估處置與休克',
-    'emt_mci': '大量傷病患檢傷搬運'
+category_tags = {
+    'emt_laws': '法規',
+    'emt_anatomy': '解剖',
+    'emt_airway': '呼吸',
+    'emt_cpr': 'CPR/AED',
+    'emt_trauma': '創傷',
+    'emt_medical': '急症',
+    'emt_mci': '檢傷'
 }
 
-# Build table rows
+# Build table rows (4 columns: 題號, 題目內容, 選項與解析, 連結出處)
 rows_html = []
 labels = ['(A)', '(B)', '(C)', '(D)']
 
 for idx, q in enumerate(questions):
     q_num = idx + 1
-    q_type_str = "選擇題"
-    q_type_badge = '<span class="badge badge-mc">選擇題</span>'
-    cat_str = category_names.get(q['category'], q['category'])
+    cat_str = category_tags.get(q['category'], '急救')
+    type_badge = f'<span class="badge badge-mc">【{cat_str}】</span>'
     
     # Options (A)(B)(C)(D) with bolded answer
     opts = []
@@ -62,8 +61,7 @@ for idx, q in enumerate(questions):
     row = f"""
     <tr>
       <td class="col-num text-center"><strong>{q_num}</strong></td>
-      <td class="col-type text-center">{q_type_badge}<br><span class="cat-tag">{cat_str}</span></td>
-      <td class="col-q">{q['question']}</td>
+      <td class="col-q">{type_badge} {q['question']}</td>
       <td class="col-ans-opt">{opt_ans_html}</td>
       <td class="col-src">{source_html}</td>
     </tr>
@@ -79,25 +77,25 @@ html_content = f"""<!DOCTYPE html>
 <style>
   @page {{
     size: A4 portrait;
-    margin: 12mm 10mm 15mm 10mm;
+    margin: 8mm 8mm 10mm 8mm;
     @bottom-right {{
       content: "第 " counter(page) " 頁，共 " counter(pages) " 頁";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: #555;
     }}
     @bottom-left {{
       content: "成功嶺替代役 EMT-1 全真題庫全集彙編 ｜ 衛福部與消防署教材最新修訂";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: #555;
     }}
   }}
 
   body {{
     font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
-    font-size: 8.8pt;
-    line-height: 1.4;
+    font-size: 8.5pt;
+    line-height: 1.32;
     color: #111;
     margin: 0;
     padding: 0;
@@ -107,24 +105,24 @@ html_content = f"""<!DOCTYPE html>
   .doc-header {{
     text-align: center;
     border-bottom: 2px solid #047857;
-    padding-bottom: 6px;
-    margin-bottom: 10px;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
   }}
   .doc-title {{
-    font-size: 16pt;
+    font-size: 15pt;
     font-weight: bold;
     color: #065f46;
     letter-spacing: 1px;
-    margin: 0 0 3px 0;
+    margin: 0 0 2px 0;
   }}
   .doc-subtitle {{
-    font-size: 10.5pt;
+    font-size: 9.5pt;
     font-weight: bold;
     color: #0f766e;
-    margin: 0 0 3px 0;
+    margin: 0 0 2px 0;
   }}
   .doc-meta {{
-    font-size: 8.5pt;
+    font-size: 8pt;
     color: #444;
   }}
 
@@ -146,27 +144,26 @@ html_content = f"""<!DOCTYPE html>
     background-color: #ecfdf5;
     color: #064e3b;
     border: 1px solid #059669;
-    padding: 5px 4px;
-    font-size: 8.5pt;
+    padding: 4px 4px;
+    font-size: 8.2pt;
     font-weight: bold;
     text-align: center;
   }}
   td {{
     border: 1px solid #94a3b8;
-    padding: 4px 6px;
+    padding: 2.5px 4.5px;
     vertical-align: top;
-    font-size: 8.5pt;
+    font-size: 8.2pt;
     word-break: break-word;
   }}
   tr:nth-child(even) {{
     background-color: #f8fafc;
   }}
 
-  /* Column Widths (more space for question and source) */
-  .col-num {{ width: 4%; }}
-  .col-type {{ width: 11%; }}
-  .col-q {{ width: 41%; }}
-  .col-ans-opt {{ width: 29%; }}
+  /* Column Widths (4 columns) */
+  .col-num {{ width: 3.5%; }}
+  .col-q {{ width: 48.5%; }}
+  .col-ans-opt {{ width: 33%; }}
   .col-src {{ width: 15%; }}
 
   .text-center {{ text-align: center; }}
@@ -174,38 +171,40 @@ html_content = f"""<!DOCTYPE html>
   /* Badges & Tags */
   .badge {{
     display: inline-block;
-    padding: 1px 4px;
-    border-radius: 3px;
-    font-size: 7.5pt;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: 7.2pt;
     font-weight: bold;
+    margin-right: 2px;
+    vertical-align: baseline;
+    line-height: 1.25;
   }}
   .badge-mc {{ background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }}
-  .cat-tag {{ font-size: 7.5pt; color: #334155; display: block; margin-top: 2px; line-height: 1.2; font-weight: bold; }}
 
   /* Merged Options & Answer & Explanation */
-  .opt-list {{ font-size: 8.2pt; line-height: 1.35; margin-bottom: 2px; }}
-  .opt-item {{ margin-bottom: 1.5px; color: #1e293b; }}
+  .opt-list {{ font-size: 8pt; line-height: 1.3; margin-bottom: 1px; }}
+  .opt-item {{ margin-bottom: 0.5px; color: #1e293b; }}
   .opt-correct strong {{
     color: #047857;
     background-color: #d1fae5;
-    padding: 0 3px;
+    padding: 0 2px;
     border-radius: 2px;
     border: 1px solid #6ee7b7;
   }}
 
   .expl-box {{
-    font-size: 7.8pt;
+    font-size: 7.4pt;
     color: #475569;
-    line-height: 1.3;
+    line-height: 1.24;
     border-top: 1px dashed #cbd5e1;
-    padding-top: 3px;
-    margin-top: 2px;
+    padding-top: 2px;
+    margin-top: 1px;
   }}
 
   .source-link {{
     color: #0d9488;
     text-decoration: underline;
-    font-size: 7.5pt;
+    font-size: 7.4pt;
     word-break: break-all;
     line-height: 1.2;
     display: inline-block;
@@ -226,7 +225,6 @@ html_content = f"""<!DOCTYPE html>
     <thead>
       <tr>
         <th class="col-num">題號</th>
-        <th class="col-type">題型 / 類別</th>
         <th class="col-q">題目內容</th>
         <th class="col-ans-opt">選項、參考答案與法規解析</th>
         <th class="col-src">連結來源 / 出處</th>
@@ -263,10 +261,10 @@ with sync_playwright() as p:
         format='A4',
         print_background=True,
         margin={
-            'top': '12mm',
-            'bottom': '15mm',
-            'left': '10mm',
-            'right': '10mm'
+            'top': '8mm',
+            'bottom': '10mm',
+            'left': '8mm',
+            'right': '8mm'
         }
     )
     browser.close()

@@ -618,7 +618,7 @@ function renderHomeSection() {
             </div>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white">📄 離線必備 PDF 專區</h3>
             <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              標準公文排版，答案粗體高亮、法條解析與出處完備。含新訓題庫 (24頁)、EMT-1 題庫 (19頁) 與新訓用品檢核表 (6頁)，可直接下載帶入成功嶺自修。
+              標準公文排版，答案粗體高亮、法條解析與出處完備。含新訓題庫 (19頁)、EMT-1 題庫 (13頁) 與新訓用品檢核表 (6頁)，可直接下載帶入成功嶺自修。
             </p>
           </div>
           <div class="mt-5 grid grid-cols-3 gap-1.5">
