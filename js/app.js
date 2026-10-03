@@ -607,7 +607,7 @@ function renderHomeSection() {
           </button>
         </div>
 
-        <!-- Module Card 4: 標楷體題庫 PDF -->
+        <!-- Module Card 4: 離線必備 PDF 專區 -->
         <div class="glass-panel p-5 sm:p-6 rounded-2xl flex flex-col justify-between hover:border-cyan-500 transition shadow-sm group border border-cyan-500/20">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
@@ -616,17 +616,20 @@ function renderHomeSection() {
               </span>
               <span class="text-xs px-2.5 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold rounded-full">離線紙本</span>
             </div>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white">📄 標楷體題庫 PDF</h3>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">📄 離線必備 PDF 專區</h3>
             <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              雙欄 A4 公文標楷體排版，答案粗體高亮、法條解析與超連結完備。新訓題庫 (30頁) + EMT-1 題庫 (23頁)，可直接下載帶入成功嶺自修。
+              標準公文排版，答案粗體高亮、法條解析與出處完備。含新訓題庫 (28頁)、EMT-1 題庫 (17頁) 與新訓用品檢核表 (6頁)，可直接下載帶入成功嶺自修。
             </p>
           </div>
-          <div class="mt-5 grid grid-cols-2 gap-2">
-            <a href="pdf/替代役新訓題庫_全集彙編_標楷體版.pdf" download class="py-2 px-2 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold rounded-xl transition text-center shadow-sm">
-              新訓 PDF
+          <div class="mt-5 grid grid-cols-3 gap-1.5">
+            <a href="pdf/替代役新訓題庫_全集彙編_標楷體版.pdf" download class="py-2 px-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold rounded-xl transition text-center shadow-sm" title="下載新訓題庫 PDF">
+              新訓題庫
             </a>
-            <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="py-2 px-2 bg-teal-600 hover:bg-teal-700 text-white text-[11px] font-bold rounded-xl transition text-center shadow-sm">
-              EMT-1 PDF
+            <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="py-2 px-1 bg-teal-600 hover:bg-teal-700 text-white text-[11px] font-bold rounded-xl transition text-center shadow-sm" title="下載 EMT-1 題庫 PDF">
+              EMT-1
+            </a>
+            <a href="pdf/成功嶺替代役新訓_必備用品建議檢核表_標楷體版.pdf" download class="py-2 px-1 bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-bold rounded-xl transition text-center shadow-sm" title="下載新訓用品建議檢核表 PDF">
+              用品檢核
             </a>
           </div>
         </div>
@@ -2392,9 +2395,9 @@ function renderChecklist() {
             <button onclick="checkAllChecklist(false)" class="px-3 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl text-xs font-semibold transition">
               全部清除
             </button>
-            <button onclick="window.print()" class="px-3 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1 shadow">
-              <i data-lucide="printer" class="w-3.5 h-3.5"></i> 列印清單
-            </button>
+            <a href="pdf/成功嶺替代役新訓_必備用品建議檢核表_標楷體版.pdf" download class="px-3.5 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1.5 shadow" title="下載新訓用品建議檢核表 PDF">
+              <i data-lucide="file-down" class="w-3.5 h-3.5"></i> 下載用品清單 PDF
+            </a>
           </div>
         </div>
 
@@ -2572,9 +2575,9 @@ function renderEmtSection() {
             <div class="text-xs text-rose-200">錯題累積</div>
             <div class="text-lg font-black text-rose-300">${mistakeCount} <span class="text-xs font-normal">題</span></div>
           </div>
-          <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center gap-2" title="下載 EMT-1 題庫 PDF (標楷體版)">
+          <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center gap-2" title="下載 EMT-1 題庫 PDF">
             <i data-lucide="file-down" class="w-4 h-4"></i>
-            <span>下載標楷體 PDF</span>
+            <span>下載 EMT-1 題庫 PDF</span>
           </a>
         </div>
       </div>
@@ -3383,9 +3386,9 @@ function renderEmtBank() {
             </p>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white px-3.5 py-2 rounded-xl text-xs font-semibold shadow transition" title="下載完整 EMT-1 題庫 PDF (標楷體版)">
+            <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white px-3.5 py-2 rounded-xl text-xs font-semibold shadow transition" title="下載 EMT-1 題庫 PDF">
               <i data-lucide="file-down" class="w-4 h-4"></i>
-              <span>下載題庫 PDF (標楷體)</span>
+              <span>下載 EMT-1 題庫 PDF</span>
             </a>
             <label class="flex items-center gap-2 cursor-pointer select-none bg-teal-50 dark:bg-teal-950/50 px-3.5 py-2 rounded-xl border border-teal-200 dark:border-teal-800 text-xs font-semibold text-teal-800 dark:text-teal-300">
               <input type="checkbox" id="emt-bank-hide-answers" ${bank.hideAnswers ? 'checked' : ''} onchange="toggleEmtHideAnswers(this.checked)" class="rounded text-teal-600 focus:ring-teal-500 w-4 h-4">
