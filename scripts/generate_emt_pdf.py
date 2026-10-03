@@ -45,7 +45,7 @@ for idx, q in enumerate(questions):
             
         is_ans = (o_idx == q['answer'])
         if is_ans:
-            opts.append(f'<div class="opt-item opt-correct"><strong>{lbl} {opt_text} 【✔ 答案】</strong></div>')
+            opts.append(f'<div class="opt-item opt-correct"><strong>{lbl} {opt_text}</strong></div>')
         else:
             opts.append(f'<div class="opt-item">{lbl} {opt_text}</div>')
     
@@ -162,12 +162,12 @@ html_content = f"""<!DOCTYPE html>
     background-color: #f8fafc;
   }}
 
-  /* Column Widths */
-  .col-num {{ width: 4.5%; }}
-  .col-type {{ width: 13.5%; }}
-  .col-q {{ width: 36%; }}
-  .col-ans-opt {{ width: 36%; }}
-  .col-src {{ width: 10%; }}
+  /* Column Widths (more space for question and source) */
+  .col-num {{ width: 4%; }}
+  .col-type {{ width: 11%; }}
+  .col-q {{ width: 41%; }}
+  .col-ans-opt {{ width: 29%; }}
+  .col-src {{ width: 15%; }}
 
   .text-center {{ text-align: center; }}
 

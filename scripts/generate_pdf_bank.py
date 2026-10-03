@@ -32,19 +32,19 @@ for idx, q in enumerate(questions):
     q_type_badge = f'<span class="badge badge-{"tf" if q["type"] == "true_false" else "mc"}">{q_type_str}</span>'
     cat_str = category_names.get(q['category'], q['category'])
     
-    # Options, Answer in bold, and Explanation merged
+    # Options, Answer in bold, and Explanation merged (NO "【✔ 答案】" to save space)
     if q['type'] == 'true_false':
         if q['answer'] == 'O':
-            opt_ans_html = '<div class="tf-line"><strong class="opt-correct">⭕ 正確 (O) 【✔ 答案】</strong> &nbsp;｜&nbsp; <span class="opt-incorrect">❌ 錯誤 (X)</span></div>'
+            opt_ans_html = '<div class="tf-line"><strong class="opt-correct">⭕ 正確 (O)</strong> &nbsp;｜&nbsp; <span class="opt-incorrect">❌ 錯誤 (X)</span></div>'
         else:
-            opt_ans_html = '<div class="tf-line"><span class="opt-incorrect">⭕ 正確 (O)</span> &nbsp;｜&nbsp; <strong class="opt-correct">❌ 錯誤 (X) 【✔ 答案】</strong></div>'
+            opt_ans_html = '<div class="tf-line"><span class="opt-incorrect">⭕ 正確 (O)</span> &nbsp;｜&nbsp; <strong class="opt-correct">❌ 錯誤 (X)</strong></div>'
     else:
         opts = []
         for o_idx, opt in enumerate(q.get('options', [])):
             lbl = labels[o_idx] if o_idx < len(labels) else f'({o_idx+1})'
             is_ans = (o_idx == q['answer'])
             if is_ans:
-                opts.append(f'<div class="opt-item opt-correct"><strong>{lbl} {opt} 【✔ 答案】</strong></div>')
+                opts.append(f'<div class="opt-item opt-correct"><strong>{lbl} {opt}</strong></div>')
             else:
                 opts.append(f'<div class="opt-item">{lbl} {opt}</div>')
         opt_ans_html = '<div class="opt-list">' + ''.join(opts) + '</div>'
@@ -161,12 +161,12 @@ html_content = f"""<!DOCTYPE html>
     background-color: #fbfcfd;
   }}
 
-  /* Column Widths */
-  .col-num {{ width: 4.5%; }}
-  .col-type {{ width: 12.5%; }}
-  .col-q {{ width: 37%; }}
-  .col-ans-opt {{ width: 36%; }}
-  .col-src {{ width: 10%; }}
+  /* Column Widths (more space for question and source) */
+  .col-num {{ width: 4%; }}
+  .col-type {{ width: 10%; }}
+  .col-q {{ width: 42%; }}
+  .col-ans-opt {{ width: 29%; }}
+  .col-src {{ width: 15%; }}
 
   .text-center {{ text-align: center; }}
 

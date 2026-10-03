@@ -27,8 +27,8 @@ def run_tests():
         page.on("console", lambda msg: print(f"[{msg.type}] {msg.text}") if msg.type == 'error' else None)
 
         print(f"Navigating to {url}...")
-        page.goto(url)
-        page.wait_for_timeout(1000)
+        page.goto(url, wait_until='domcontentloaded', timeout=60000)
+        page.wait_for_timeout(2000)
 
         # 1. Test Home Tab
         print("Checking Home tab...")
