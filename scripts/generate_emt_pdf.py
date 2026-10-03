@@ -21,7 +21,7 @@ category_tags = {
     'emt_mci': '檢傷'
 }
 
-# Build table rows (4 columns: 題號, 題目內容, 選項與解析, 連結出處)
+# Build table rows (4 columns: 題號, 題目內容, 選項與解析, 答案)
 rows_html = []
 labels = ['(A)', '(B)', '(C)', '(D)']
 
@@ -30,7 +30,12 @@ for idx, q in enumerate(questions):
     cat_str = category_tags.get(q['category'], '急救')
     type_badge = f'<span class="badge badge-mc">【{cat_str}】</span>'
     
-    # Options (A)(B)(C)(D) with bolded answer
+    # Source link (compact sub-part under explanation)
+    source_name = q.get('source', '消防署初級救護技術員教材')
+    source_url = q.get('source_url', 'http://ebook.nfa.gov.tw/1080503/')
+    source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">🔗 出處：{source_name}</a>'
+
+    # Options (A)(B)(C)(D) with identical text colors (NO green spoiler)
     opts = []
     for o_idx, opt in enumerate(q.get('options', [])):
         # Normalize prefix if already has (A)
@@ -42,28 +47,26 @@ for idx, q in enumerate(questions):
             lbl = labels[o_idx] if o_idx < len(labels) else f'({o_idx+1})'
             opt_text = clean_opt
             
-        is_ans = (o_idx == q['answer'])
-        if is_ans:
-            opts.append(f'<div class="opt-item opt-correct"><strong>{lbl} {opt_text}</strong></div>')
-        else:
-            opts.append(f'<div class="opt-item">{lbl} {opt_text}</div>')
+        opts.append(f'<div class="opt-item">{lbl} {opt_text}</div>')
     
     opt_ans_html = '<div class="opt-list">' + ''.join(opts) + '</div>'
     
     if q.get('explanation'):
-        opt_ans_html += f'<div class="expl-box"><strong>【解析】</strong>{q["explanation"]}</div>'
+        opt_ans_html += f'<div class="expl-box"><strong>【解析】</strong>{q["explanation"]}<div class="source-sub">{source_link_html}</div></div>'
+    else:
+        opt_ans_html += f'<div class="source-sub">{source_link_html}</div>'
 
-    # Source link
-    source_name = q.get('source', '消防署初級救護技術員教材')
-    source_url = q.get('source_url', 'http://ebook.nfa.gov.tw/1080503/')
-    source_html = f'<a href="{source_url}" target="_blank" class="source-link">{source_name}</a>'
+    # Answer cell in rightmost column (for cover-and-test)
+    ans_idx = q['answer']
+    ans_lbl = labels[ans_idx] if ans_idx < len(labels) else f'({ans_idx+1})'
+    ans_html = f'<div class="ans-cell"><strong>{ans_lbl}</strong></div>'
 
     row = f"""
     <tr>
       <td class="col-num text-center"><strong>{q_num}</strong></td>
       <td class="col-q">{type_badge} {q['question']}</td>
-      <td class="col-ans-opt">{opt_ans_html}</td>
-      <td class="col-src">{source_html}</td>
+      <td class="col-opt">{opt_ans_html}</td>
+      <td class="col-ans text-center">{ans_html}</td>
     </tr>
     """
     rows_html.append(row)
@@ -160,11 +163,11 @@ html_content = f"""<!DOCTYPE html>
     background-color: #f8fafc;
   }}
 
-  /* Column Widths (4 columns) */
+  /* Column Widths (4 columns: 題號, 題目內容, 選項與解析, 答案) */
   .col-num {{ width: 3.5%; }}
-  .col-q {{ width: 48.5%; }}
-  .col-ans-opt {{ width: 33%; }}
-  .col-src {{ width: 15%; }}
+  .col-q {{ width: 53.5%; }}
+  .col-opt {{ width: 36%; }}
+  .col-ans {{ width: 7%; }}
 
   .text-center {{ text-align: center; }}
 
@@ -181,17 +184,11 @@ html_content = f"""<!DOCTYPE html>
   }}
   .badge-mc {{ background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }}
 
-  /* Merged Options & Answer & Explanation */
+  /* Options list (clean neutral text color, NO green spoilers) */
   .opt-list {{ font-size: 8pt; line-height: 1.3; margin-bottom: 1px; }}
   .opt-item {{ margin-bottom: 0.5px; color: #1e293b; }}
-  .opt-correct strong {{
-    color: #047857;
-    background-color: #d1fae5;
-    padding: 0 2px;
-    border-radius: 2px;
-    border: 1px solid #6ee7b7;
-  }}
 
+  /* Legal explanation & compact source citation */
   .expl-box {{
     font-size: 7.4pt;
     color: #475569;
@@ -200,14 +197,26 @@ html_content = f"""<!DOCTYPE html>
     padding-top: 2px;
     margin-top: 1px;
   }}
-
+  .source-sub {{
+    font-size: 7.2pt;
+    margin-top: 1.5px;
+    color: #0d9488;
+  }}
   .source-link {{
     color: #0d9488;
     text-decoration: underline;
-    font-size: 7.4pt;
+    font-size: 7.2pt;
     word-break: break-all;
     line-height: 1.2;
     display: inline-block;
+  }}
+
+  /* Rightmost Answer Column (easy to cover with a bookmark/ruler) */
+  .ans-cell {{
+    font-size: 9pt;
+    font-weight: bold;
+    color: #0f172a;
+    padding-top: 2px;
   }}
 </style>
 </head>
@@ -225,9 +234,9 @@ html_content = f"""<!DOCTYPE html>
     <thead>
       <tr>
         <th class="col-num">題號</th>
-        <th class="col-q">題目內容</th>
-        <th class="col-ans-opt">選項、參考答案與法規解析</th>
-        <th class="col-src">連結來源 / 出處</th>
+        <th class="col-q">題目內容 (含章節)</th>
+        <th class="col-opt">選項與法規解析</th>
+        <th class="col-ans">答案</th>
       </tr>
     </thead>
     <tbody>

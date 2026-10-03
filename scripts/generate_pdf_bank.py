@@ -31,40 +31,39 @@ def build_rows(q_list, start_num, is_tf_section=False):
         q_num = start_num + idx
         cat_str = category_names.get(q['category'], q['category'])
         cat_badge = f'<span class="badge badge-{"tf" if is_tf_section else "mc"}">{cat_str}</span>'
+        exam_badge = f'<span class="badge badge-exam">{q["exam_tag"]}</span>' if q.get('exam_tag') else ''
         
-        # Options, Answer in bold, and Explanation merged
+        # Source link (compact sub-part under explanation)
+        source_name = q.get('source', '全國法規資料庫')
+        source_url = q.get('source_url', 'https://law.moj.gov.tw/')
+        source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">🔗 出處：{source_name}</a>'
+        
+        # Options & Explanation (neutral text colors, NO green spoiler)
         if is_tf_section:
-            if q['answer'] == 'O':
-                opt_ans_html = '<div class="tf-line"><strong class="opt-correct">⭕ 正確 (O)</strong> &nbsp;｜&nbsp; <span class="opt-incorrect">❌ 錯誤 (X)</span></div>'
-            else:
-                opt_ans_html = '<div class="tf-line"><span class="opt-incorrect">⭕ 正確 (O)</span> &nbsp;｜&nbsp; <strong class="opt-correct">❌ 錯誤 (X)</strong></div>'
+            opt_ans_html = '<div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div>'
+            ans_str = '⭕ (O)' if q['answer'] == 'O' else '❌ (X)'
         else:
             opts = []
             for o_idx, opt in enumerate(q.get('options', [])):
                 lbl = labels[o_idx] if o_idx < len(labels) else f'({o_idx+1})'
-                is_ans = (o_idx == q['answer'])
-                if is_ans:
-                    opts.append(f'<div class="opt-item opt-correct"><strong>{lbl} {opt}</strong></div>')
-                else:
-                    opts.append(f'<div class="opt-item">{lbl} {opt}</div>')
+                opts.append(f'<div class="opt-item">{lbl} {opt}</div>')
             opt_ans_html = '<div class="opt-list">' + ''.join(opts) + '</div>'
+            ans_str = labels[q['answer']] if q['answer'] < len(labels) else f'({q["answer"]+1})'
 
         if q.get('explanation'):
-            opt_ans_html += f'<div class="expl-box"><strong>【解析】</strong>{q["explanation"]}</div>'
+            opt_ans_html += f'<div class="expl-box"><strong>【解析】</strong>{q["explanation"]}<div class="source-sub">{source_link_html}</div></div>'
+        else:
+            opt_ans_html += f'<div class="source-sub">{source_link_html}</div>'
 
-        # Source link
-        source_name = q.get('source', '全國法規資料庫')
-        source_url = q.get('source_url', 'https://law.moj.gov.tw/')
-        source_html = f'<a href="{source_url}" target="_blank" class="source-link">{source_name}</a>'
-        if q.get('exam_tag'):
-            source_html += f'<br><span class="exam-tag">{q["exam_tag"]}</span>'
+        # Answer cell (in right column, ready for cover/slide self-testing)
+        ans_html = f'<div class="ans-cell"><strong>{ans_str}</strong></div>'
 
         row = f"""
         <tr>
           <td class="col-num text-center"><strong>{q_num}</strong></td>
-          <td class="col-q">{cat_badge} {q['question']}</td>
-          <td class="col-ans-opt">{opt_ans_html}</td>
-          <td class="col-src">{source_html}</td>
+          <td class="col-q">{cat_badge} {exam_badge} {q['question']}</td>
+          <td class="col-opt">{opt_ans_html}</td>
+          <td class="col-ans text-center">{ans_html}</td>
         </tr>
         """
         rows.append(row)
@@ -77,9 +76,9 @@ table_header_html = """
     <thead>
       <tr>
         <th class="col-num">題號</th>
-        <th class="col-q">題目內容</th>
-        <th class="col-ans-opt">選項、參考答案與法規解析</th>
-        <th class="col-src">連結來源 / 出處</th>
+        <th class="col-q">題目內容 (含梯次與章節)</th>
+        <th class="col-opt">選項與法規解析</th>
+        <th class="col-ans">答案</th>
       </tr>
     </thead>
 """
@@ -196,11 +195,11 @@ html_content = f"""<!DOCTYPE html>
     background-color: #fbfcfd;
   }}
 
-  /* Column Widths (4 columns) */
+  /* Column Widths (4 columns: 題號, 題目內容, 選項與解析, 答案) */
   .col-num {{ width: 3.5%; }}
-  .col-q {{ width: 48.5%; }}
-  .col-ans-opt {{ width: 33%; }}
-  .col-src {{ width: 15%; }}
+  .col-q {{ width: 53.5%; }}
+  .col-opt {{ width: 36%; }}
+  .col-ans {{ width: 7%; }}
 
   .text-center {{ text-align: center; }}
 
@@ -217,32 +216,24 @@ html_content = f"""<!DOCTYPE html>
   }}
   .badge-tf {{ background-color: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }}
   .badge-mc {{ background-color: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }}
-  .exam-tag {{ font-size: 7pt; color: #b45309; background: #fef3c7; border: 1px solid #fcd34d; padding: 0 2px; border-radius: 2px; display: inline-block; margin-top: 1px; }}
-
-  /* Merged Options & Answer & Explanation */
-  .opt-list {{ font-size: 8pt; line-height: 1.3; margin-bottom: 1px; }}
-  .opt-item {{ margin-bottom: 0.5px; }}
-  .opt-correct strong {{
-    color: #047857;
-    background-color: #ecfdf5;
-    padding: 0 2px;
-    border-radius: 2px;
-    border: 1px solid #a7f3d0;
+  .badge-exam {{
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    font-size: 7.2pt;
+    font-weight: bold;
   }}
+
+  /* Options list (clean neutral text color, NO green spoilers) */
+  .opt-list {{ font-size: 8pt; line-height: 1.3; margin-bottom: 1px; }}
+  .opt-item {{ margin-bottom: 0.5px; color: #1e293b; }}
   .tf-line {{
     font-size: 8.2pt;
     margin-bottom: 1px;
+    color: #1e293b;
   }}
-  .tf-line .opt-correct strong {{
-    color: #047857;
-    background-color: #ecfdf5;
-    padding: 0 3px;
-    border-radius: 2px;
-    border: 1px solid #a7f3d0;
-  }}
-  .tf-line .opt-incorrect {{
-    color: #64748b;
-  }}
+
+  /* Legal explanation & compact source citation */
   .expl-box {{
     font-size: 7.4pt;
     color: #334155;
@@ -251,12 +242,25 @@ html_content = f"""<!DOCTYPE html>
     padding-top: 2px;
     margin-top: 1px;
   }}
+  .source-sub {{
+    font-size: 7.2pt;
+    margin-top: 1.5px;
+    color: #2563eb;
+  }}
   .source-link {{
-    font-size: 7.4pt;
+    font-size: 7.2pt;
     color: #1d4ed8;
     text-decoration: underline;
     line-height: 1.2;
     word-break: break-all;
+  }}
+
+  /* Rightmost Answer Column (easy to cover with a bookmark/ruler) */
+  .ans-cell {{
+    font-size: 9pt;
+    font-weight: bold;
+    color: #0f172a;
+    padding-top: 2px;
   }}
 </style>
 </head>
