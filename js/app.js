@@ -37,7 +37,39 @@ const AppState = {
     pageSize: 20
   },
   // Checklist State
-  checkedItems: new Set()
+  checkedItems: new Set(),
+  // EMT-1 Module State (完全獨立於替代役法規題庫，零重疊)
+  emt: {
+    activeSubTab: 'quiz', // 'quiz', 'bank', 'study', 'resources'
+    questions: [],
+    studyData: null,
+    mistakes: new Set(),
+    bookmarks: new Set(),
+    quiz: {
+      active: false,
+      mode: 'practice20', // 'mock50', 'practice20', 'category', 'mistakes'
+      selectedCategory: 'all',
+      questions: [],
+      currentIndex: 0,
+      answers: {},
+      flags: new Set(),
+      instantFeedback: true,
+      timer: null,
+      timeRemaining: 3000,
+      totalTime: 3000,
+      startTime: null,
+      isSubmitted: false,
+      shuffleQuestions: true,
+      shuffleOptions: true
+    },
+    bank: {
+      searchTerm: '',
+      categoryFilter: 'all',
+      hideAnswers: false,
+      currentPage: 1,
+      pageSize: 15
+    }
+  }
 };
 
 // Initialize Application
@@ -92,9 +124,25 @@ function loadStoredPreferences() {
     AppState.checkedItems = new Set();
   }
 
+  // EMT-1 Mistakes
+  try {
+    const savedEmtMistakes = JSON.parse(localStorage.getItem('sms_emt_mistakes') || '[]');
+    AppState.emt.mistakes = new Set(savedEmtMistakes);
+  } catch (e) {
+    AppState.emt.mistakes = new Set();
+  }
+
+  // EMT-1 Bookmarks
+  try {
+    const savedEmtBookmarks = JSON.parse(localStorage.getItem('sms_emt_bookmarks') || '[]');
+    AppState.emt.bookmarks = new Set(savedEmtBookmarks);
+  } catch (e) {
+    AppState.emt.bookmarks = new Set();
+  }
+
   // URL Hash routing
   const hash = window.location.hash.replace('#', '');
-  if (['quiz', 'bank', 'regulations', 'volunteer', 'rights', 'shooting', 'checklist'].includes(hash)) {
+  if (['quiz', 'bank', 'emt', 'regulations', 'volunteer', 'rights', 'shooting', 'checklist'].includes(hash)) {
     AppState.activeTab = hash;
   }
 }
@@ -106,20 +154,38 @@ async function loadData() {
       AppState.questions = window.APP_QUESTIONS.questions;
       AppState.stats = window.APP_QUESTIONS.stats;
       AppState.studyData = window.APP_STUDY_DATA;
-      return;
+    } else {
+      // Fallback to fetch
+      const [qRes, sRes] = await Promise.all([
+        fetch('./data/questions.json'),
+        fetch('./data/study_data.json')
+      ]);
+      const qData = await qRes.json();
+      const sData = await sRes.json();
+
+      AppState.questions = qData.questions;
+      AppState.stats = qData.stats;
+      AppState.studyData = sData;
     }
 
-    // Fallback to fetch
-    const [qRes, sRes] = await Promise.all([
-      fetch('./data/questions.json'),
-      fetch('./data/study_data.json')
-    ]);
-    const qData = await qRes.json();
-    const sData = await sRes.json();
-
-    AppState.questions = qData.questions;
-    AppState.stats = qData.stats;
-    AppState.studyData = sData;
+    // Load EMT-1 Module Data (完全獨立於替代役新訓題庫)
+    if (window.APP_EMT_QUESTIONS && window.APP_EMT_STUDY_DATA) {
+      AppState.emt.questions = window.APP_EMT_QUESTIONS.questions;
+      AppState.emt.studyData = window.APP_EMT_STUDY_DATA;
+    } else {
+      try {
+        const [eqRes, esRes] = await Promise.all([
+          fetch('./data/emt_questions.json'),
+          fetch('./data/emt_study_data.json')
+        ]);
+        const eqData = await eqRes.json();
+        const esData = await esRes.json();
+        AppState.emt.questions = eqData.questions;
+        AppState.emt.studyData = esData;
+      } catch (err) {
+        console.warn('Fallback loading EMT data failed:', err);
+      }
+    }
   } catch (err) {
     console.error('Error loading data:', err);
   }
@@ -129,7 +195,7 @@ async function loadData() {
 function updateHeaderBadges() {
   const totalCountEl = document.getElementById('stat-total-questions');
   const mistakeCountEl = document.getElementById('stat-mistake-count');
-  if (totalCountEl) totalCountEl.textContent = AppState.questions.length || '262';
+  if (totalCountEl) totalCountEl.textContent = AppState.questions.length || '272';
   if (mistakeCountEl) mistakeCountEl.textContent = AppState.mistakes.size;
 }
 
@@ -188,7 +254,7 @@ function setupEventListeners() {
   // Listen to hash change
   window.addEventListener('hashchange', () => {
     const hash = window.location.hash.replace('#', '');
-    if (['quiz', 'bank', 'regulations', 'volunteer', 'rights', 'shooting', 'checklist'].includes(hash)) {
+    if (['quiz', 'bank', 'emt', 'regulations', 'volunteer', 'rights', 'shooting', 'checklist'].includes(hash)) {
       if (AppState.activeTab !== hash) {
         switchTab(hash, false);
       }
@@ -250,6 +316,9 @@ function renderCurrentTab() {
       break;
     case 'bank':
       renderQuestionBank();
+      break;
+    case 'emt':
+      renderEmtSection();
       break;
     case 'regulations':
       renderRegulations();
@@ -2056,3 +2125,1331 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+
+/* ==========================================================================
+   EMT-1 (初級救護技術員) 獨立專區模組
+   與既有替代役法規題庫 100% 分開，具備專屬測驗引擎、選項隨機分配、
+   全真題庫速查、十大學習資源清單與急救核心法規講義
+   ========================================================================== */
+
+function renderEmtSection() {
+  const container = document.getElementById('emt-content-body');
+  if (!container) return;
+
+  const totalQuestions = AppState.emt.questions.length || 96;
+  const mistakeCount = AppState.emt.mistakes.size;
+  const activeSubTab = AppState.emt.activeSubTab || 'quiz';
+
+  container.innerHTML = `
+    <!-- EMT Hero Banner -->
+    <div class="p-6 sm:p-8 bg-gradient-to-r from-teal-900 via-emerald-900 to-slate-900 text-white rounded-3xl shadow-xl space-y-4 border border-teal-500/30 relative overflow-hidden">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs font-bold border border-teal-500/30">
+            <i data-lucide="shield-plus" class="w-4 h-4"></i> 成功嶺替代役 · 初級救護技術員 (EMT-1) 專區
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2">
+            🚑 EMT-1 全真題庫與法規備考特區
+          </h2>
+          <p class="text-xs sm:text-sm text-teal-100/90 max-w-2xl leading-relaxed">
+            依法定 40 小時訓練教材與歷屆鑑測真題編修，收錄 7 大章節、96 題單選選擇題，支援選項隨機分配、即時詳解、背題翻牌及標楷體 PDF 下載。
+          </p>
+        </div>
+
+        <!-- Hero Stats & Action Badges -->
+        <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+          <div class="px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
+            <div class="text-xs text-teal-200">題庫總數</div>
+            <div class="text-lg font-black text-white">${totalQuestions} <span class="text-xs font-normal">題</span></div>
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
+            <div class="text-xs text-teal-200">合格門檻</div>
+            <div class="text-lg font-black text-emerald-300">70 <span class="text-xs font-normal">分</span></div>
+          </div>
+          <div class="px-3.5 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
+            <div class="text-xs text-rose-200">錯題累積</div>
+            <div class="text-lg font-black text-rose-300">${mistakeCount} <span class="text-xs font-normal">題</span></div>
+          </div>
+          <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center gap-2" title="下載 EMT-1 題庫 PDF (標楷體版)">
+            <i data-lucide="file-down" class="w-4 h-4"></i>
+            <span>下載標楷體 PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMT Sub-Navigation Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 dark:border-slate-800 no-scrollbar text-xs sm:text-sm font-semibold">
+      <button onclick="switchEmtSubTab('quiz')" class="px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap ${activeSubTab === 'quiz' ? 'bg-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">
+        <i data-lucide="zap" class="w-4 h-4"></i>
+        <span>⚡ 專屬隨機測驗 / 模擬考</span>
+      </button>
+      <button onclick="switchEmtSubTab('bank')" class="px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap ${activeSubTab === 'bank' ? 'bg-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>🔍 全真題庫速查 (${totalQuestions}題)</span>
+      </button>
+      <button onclick="switchEmtSubTab('study')" class="px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap ${activeSubTab === 'study' ? 'bg-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">
+        <i data-lucide="file-text" class="w-4 h-4"></i>
+        <span>📖 核心法規與急救精華</span>
+      </button>
+      <button onclick="switchEmtSubTab('resources')" class="px-4 py-2 rounded-xl transition flex items-center gap-2 whitespace-nowrap ${activeSubTab === 'resources' ? 'bg-teal-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}">
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+        <span>🌐 十大學習資源清單</span>
+      </button>
+    </div>
+
+    <!-- EMT Sub-tab Content Container -->
+    <div id="emt-subtab-container" class="pt-2"></div>
+  `;
+
+  renderEmtCurrentSubTab();
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function switchEmtSubTab(subTab) {
+  AppState.emt.activeSubTab = subTab;
+  renderEmtSection();
+}
+
+function renderEmtCurrentSubTab() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container) return;
+
+  switch (AppState.emt.activeSubTab) {
+    case 'quiz':
+      renderEmtQuizView();
+      break;
+    case 'bank':
+      renderEmtBank();
+      break;
+    case 'study':
+      renderEmtStudy();
+      break;
+    case 'resources':
+      renderEmtResources();
+      break;
+  }
+}
+
+/* ==========================================================================
+   EMT-1 QUIZ ENGINE (完全獨立於替代役法規題庫，選項隨機分配)
+   ========================================================================== */
+
+function renderEmtQuizView() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container) return;
+
+  if (AppState.emt.quiz.active) {
+    if (AppState.emt.quiz.isSubmitted) {
+      renderEmtQuizResults();
+    } else {
+      renderActiveEmtQuiz();
+    }
+  } else {
+    renderEmtQuizSetup();
+  }
+}
+
+function renderEmtQuizSetup() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container) return;
+
+  const totalCount = AppState.emt.questions.length || 96;
+  const mistakeCount = AppState.emt.mistakes.size;
+
+  container.innerHTML = `
+    <div class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Mode 1: 50 Questions Full Mock Exam -->
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl flex flex-col justify-between hover:border-teal-500 transition cursor-pointer shadow-sm group border border-teal-500/20" onclick="startEmtQuiz('mock50')">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2.5 bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 rounded-xl group-hover:scale-110 transition">
+                <i data-lucide="award" class="w-6 h-6"></i>
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-400 font-bold rounded-full">全真鑑測</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">50題 期末全真模擬考</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+              完全比照成功嶺期末鑑測標準：隨機抽取 50 題選擇題，限時 50 分鐘，70 分及格，選項隨機打亂分配。
+            </p>
+          </div>
+          <button class="mt-6 w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-sm text-xs sm:text-sm">
+            <span>開始全真鑑測 (50題)</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Mode 2: 20 Questions Quick Practice -->
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl flex flex-col justify-between hover:border-emerald-500 transition cursor-pointer shadow-sm group border border-emerald-500/20" onclick="startEmtQuiz('practice20')">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-xl group-hover:scale-110 transition">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold rounded-full">即做即批</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">20題 高頻速測練習</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+              隨機抽取 20 題核心精華題，做一題立即顯示答案、詳細解析與法規出處，答錯自動加入專屬錯題本。
+            </p>
+          </div>
+          <button class="mt-6 w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-sm text-xs sm:text-sm">
+            <span>開始精選速刷 (20題)</span>
+            <i data-lucide="play" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Mode 3: Mistakes Review -->
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl flex flex-col justify-between hover:border-rose-500 transition cursor-pointer shadow-sm group border border-rose-500/20 ${mistakeCount === 0 ? 'opacity-60 cursor-not-allowed' : ''}" ${mistakeCount > 0 ? 'onclick="startEmtQuiz(\'mistakes\')"' : ''}>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2.5 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 rounded-xl group-hover:scale-110 transition">
+                <i data-lucide="alert-circle" class="w-6 h-6"></i>
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-rose-500/10 text-rose-600 dark:text-rose-400 font-bold rounded-full">累積 ${mistakeCount} 題</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">EMT-1 專屬錯題重測</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+              針對 EMT-1 測驗中答錯的題目進行加強特訓，答對自動移出錯題本，直到所有救護考點全部融會貫通。
+            </p>
+          </div>
+          <button class="mt-6 w-full py-2.5 ${mistakeCount > 0 ? 'bg-rose-600 hover:bg-rose-700' : 'bg-slate-400'} text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-sm text-xs sm:text-sm" ${mistakeCount === 0 ? 'disabled' : ''}>
+            <span>${mistakeCount > 0 ? '重測所有錯題' : '尚無錯題記錄'}</span>
+            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Mode 4: Category Specific -->
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl flex flex-col justify-between hover:border-amber-500 transition shadow-sm border border-amber-500/20">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="p-2.5 bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 rounded-xl">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+              </span>
+              <span class="text-xs px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold rounded-full">章節專精</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">救護章節專題測驗</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs">挑選較弱的救護單元進行單元突破：</p>
+            <select id="emt-cat-select" class="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-amber-500">
+              <option value="emt_laws">⚖️ 緊急醫療救護法規與倫理 (12題)</option>
+              <option value="emt_anatomy">🫀 基礎解剖與八大生命徵象 (14題)</option>
+              <option value="emt_airway">🫁 呼吸道處置與氧氣治療 (15題)</option>
+              <option value="emt_cpr">⚡ 心肺復甦術與AED (15題)</option>
+              <option value="emt_trauma">🩸 創傷評估止血固定搬運 (15題)</option>
+              <option value="emt_medical">🏥 急症評估處置與休克 (15題)</option>
+              <option value="emt_mci">🚨 大量傷病患START檢傷 (10題)</option>
+            </select>
+          </div>
+          <button onclick="startEmtCategoryQuiz()" class="mt-6 w-full py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-sm text-xs sm:text-sm">
+            <span>開始章節刷題</span>
+            <i data-lucide="play" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Custom Setup Box -->
+      <div class="glass-panel p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+        <div class="flex items-center gap-4 flex-wrap">
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" id="emt-opt-shuffle-q" checked class="rounded text-teal-600 focus:ring-teal-500 w-4 h-4">
+            <span class="font-medium">隨機打亂題目順序</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" id="emt-opt-shuffle-opt" checked class="rounded text-teal-600 focus:ring-teal-500 w-4 h-4">
+            <span class="font-medium">隨機打亂選項 (A)(B)(C)(D) 分配</span>
+          </label>
+        </div>
+        <button onclick="resetAllEmtMistakes()" class="text-rose-500 hover:text-rose-600 transition flex items-center gap-1 font-medium text-xs">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> 清空 EMT 錯題記錄
+        </button>
+      </div>
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function startEmtCategoryQuiz() {
+  const cat = document.getElementById('emt-cat-select')?.value || 'emt_laws';
+  startEmtQuiz('category', cat);
+}
+
+function shuffleEmtQuestionOptions(q) {
+  const origAnswer = q.answer;
+  const rawOpts = q.options.map((opt, idx) => {
+    let cleanText = opt;
+    if (cleanText.match(/^\([A-D1-4]\)\s*/)) {
+      cleanText = cleanText.replace(/^\([A-D1-4]\)\s*/, '');
+    }
+    return { text: cleanText, isCorrect: idx === origAnswer };
+  });
+
+  const shuffledOpts = [...rawOpts];
+  shuffleArray(shuffledOpts);
+
+  const labels = ['(A)', '(B)', '(C)', '(D)'];
+  const newOptions = shuffledOpts.map((o, idx) => `${labels[idx]} ${o.text}`);
+  const newAnswer = shuffledOpts.findIndex(o => o.isCorrect);
+
+  return {
+    ...q,
+    options: newOptions,
+    answer: newAnswer
+  };
+}
+
+function startEmtQuiz(mode, category = 'all') {
+  const shuffleQ = document.getElementById('emt-opt-shuffle-q')?.checked ?? true;
+  const shuffleOpt = document.getElementById('emt-opt-shuffle-opt')?.checked ?? true;
+
+  let pool = [...AppState.emt.questions];
+  if (pool.length === 0) {
+    alert('EMT 題庫載入中，請稍候重試！');
+    return;
+  }
+
+  let selected = [];
+  let isInstant = (mode === 'practice20' || mode === 'category');
+  let timeLimit = 3000; // 50 mins
+
+  if (mode === 'mock50') {
+    selected = pickRandom(pool, 50);
+    isInstant = false;
+  } else if (mode === 'practice20') {
+    selected = pickRandom(pool, 20);
+    isInstant = true;
+  } else if (mode === 'category') {
+    selected = pool.filter(q => q.category === category);
+    if (shuffleQ) shuffleArray(selected);
+    isInstant = true;
+  } else if (mode === 'mistakes') {
+    selected = pool.filter(q => AppState.emt.mistakes.has(q.id));
+    if (shuffleQ) shuffleArray(selected);
+    isInstant = true;
+  }
+
+  if (selected.length === 0) {
+    alert('此分類目前沒有題目可供測驗！');
+    return;
+  }
+
+  // Shuffle options if requested
+  if (shuffleOpt) {
+    selected = selected.map(q => shuffleEmtQuestionOptions(q));
+  } else if (shuffleQ) {
+    shuffleArray(selected);
+  }
+
+  AppState.emt.quiz = {
+    active: true,
+    mode: mode,
+    selectedCategory: category,
+    questions: selected,
+    currentIndex: 0,
+    answers: {},
+    flags: new Set(),
+    instantFeedback: isInstant,
+    timer: null,
+    timeRemaining: timeLimit,
+    totalTime: timeLimit,
+    startTime: Date.now(),
+    isSubmitted: false,
+    shuffleQuestions: shuffleQ,
+    shuffleOptions: shuffleOpt
+  };
+
+  if (!isInstant) {
+    startEmtTimer();
+  }
+
+  renderActiveEmtQuiz();
+}
+
+function startEmtTimer() {
+  if (AppState.emt.quiz.timer) clearInterval(AppState.emt.quiz.timer);
+  AppState.emt.quiz.timer = setInterval(() => {
+    if (!AppState.emt.quiz.active || AppState.emt.quiz.isSubmitted) {
+      clearInterval(AppState.emt.quiz.timer);
+      return;
+    }
+    AppState.emt.quiz.timeRemaining--;
+    updateEmtTimerDisplay();
+    if (AppState.emt.quiz.timeRemaining <= 0) {
+      clearInterval(AppState.emt.quiz.timer);
+      alert('⏰ 測驗時間截止！系統將自動交卷計分。');
+      submitEmtQuiz();
+    }
+  }, 1000);
+}
+
+function updateEmtTimerDisplay() {
+  const timerEl = document.getElementById('emt-quiz-timer');
+  if (!timerEl) return;
+  const rem = AppState.emt.quiz.timeRemaining;
+  const mins = Math.floor(rem / 60);
+  const secs = rem % 60;
+  timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  if (rem < 300) {
+    timerEl.classList.add('text-rose-500', 'animate-pulse');
+  }
+}
+
+function renderActiveEmtQuiz() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container || !AppState.emt.quiz.active) return;
+
+  const quiz = AppState.emt.quiz;
+  const q = quiz.questions[quiz.currentIndex];
+  if (!q) return;
+
+  const total = quiz.questions.length;
+  const curr = quiz.currentIndex + 1;
+  const percent = Math.round((curr / total) * 100);
+  const userAns = quiz.answers[quiz.currentIndex];
+  const isAnswered = (userAns !== undefined);
+  const isFlagged = quiz.flags.has(quiz.currentIndex);
+
+  const mins = Math.floor(quiz.timeRemaining / 60);
+  const secs = quiz.timeRemaining % 60;
+  const timeFormatted = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+  container.innerHTML = `
+    <div class="space-y-6">
+      <!-- Quiz Progress Header -->
+      <div class="glass-panel p-4 sm:p-5 rounded-2xl space-y-3 shadow-sm border border-teal-500/20">
+        <div class="flex items-center justify-between flex-wrap gap-2 text-xs sm:text-sm font-semibold">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 bg-teal-600 text-white rounded-lg text-xs font-bold">
+              第 ${curr} / ${total} 題
+            </span>
+            <span class="text-slate-500 dark:text-slate-400">
+              進度：${percent}%
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            ${!quiz.instantFeedback ? `
+              <div class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-mono font-bold text-xs sm:text-sm">
+                <i data-lucide="clock" class="w-4 h-4 text-teal-500"></i>
+                <span id="emt-quiz-timer">${timeFormatted}</span>
+              </div>
+            ` : ''}
+
+            <button onclick="toggleEmtFlag(${quiz.currentIndex})" class="px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 border transition ${isFlagged ? 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-transparent'}">
+              <i data-lucide="flag" class="w-3.5 h-3.5 ${isFlagged ? 'fill-current text-amber-500' : ''}"></i>
+              <span>${isFlagged ? '已標記' : '標記此題'}</span>
+            </button>
+
+            <button onclick="confirmExitEmtQuiz()" class="text-rose-500 hover:text-rose-600 text-xs font-semibold flex items-center gap-1">
+              <i data-lucide="x-circle" class="w-4 h-4"></i>
+              <span>結束測驗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+          <div class="bg-gradient-to-r from-teal-500 to-emerald-500 h-full transition-all duration-300" style="width: ${percent}%;"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
+              選擇題
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+              ${q.category_name || q.category}
+            </span>
+            <span class="text-[11px] text-slate-400">編號: ${q.id}</span>
+          </div>
+
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-relaxed">
+            ${q.question}
+          </h3>
+        </div>
+
+        <!-- Options Container (A)(B)(C)(D) -->
+        <div class="space-y-3 pt-2">
+          ${q.options.map((opt, oIdx) => {
+            let btnClass = "border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/40 text-slate-800 dark:text-slate-200 hover:border-teal-500 hover:bg-teal-50/30";
+            let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-xs font-bold shrink-0">${String.fromCharCode(65 + oIdx)}</span>`;
+
+            if (isAnswered) {
+              if (quiz.instantFeedback) {
+                // Instant Feedback Mode
+                if (oIdx === q.answer) {
+                  btnClass = "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold";
+                  iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>`;
+                } else if (oIdx === userAns) {
+                  btnClass = "border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 font-bold";
+                  iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold shrink-0"><i data-lucide="x" class="w-3.5 h-3.5"></i></span>`;
+                } else {
+                  btnClass = "opacity-50 border-slate-200 dark:border-slate-800 text-slate-400";
+                }
+              } else {
+                // Mock Exam Mode
+                if (oIdx === userAns) {
+                  btnClass = "border-teal-500 bg-teal-50 dark:bg-teal-950/50 text-teal-900 dark:text-teal-200 font-bold shadow-sm";
+                  iconHtml = `<span class="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs font-bold shrink-0">${String.fromCharCode(65 + oIdx)}</span>`;
+                }
+              }
+            }
+
+            return `
+              <button onclick="selectEmtAnswer(${oIdx})" ${isAnswered && quiz.instantFeedback ? 'disabled' : ''} class="w-full text-left p-4 rounded-2xl border transition flex items-center gap-3 text-sm leading-relaxed ${btnClass}">
+                ${iconHtml}
+                <span class="flex-1">${opt}</span>
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Instant Feedback Explanation Box -->
+        ${isAnswered && quiz.instantFeedback ? `
+          <div class="mt-6 p-5 rounded-2xl border ${userAns === q.answer ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-300 dark:border-emerald-800/60' : 'bg-rose-50/50 dark:bg-rose-950/20 border-rose-300 dark:border-rose-800/60'} space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-black ${userAns === q.answer ? 'text-emerald-700 dark:text-emerald-300' : 'text-rose-600 dark:text-rose-400'}">
+                ${userAns === q.answer ? '✅ 答對了！' : '❌ 答錯了！'}
+              </span>
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300">
+                正確答案：<strong class="text-emerald-600 dark:text-emerald-400 font-black">${q.options[q.answer]}</strong>
+              </span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              <strong>【法規與救護解析】</strong> ${q.explanation}
+            </p>
+
+            ${q.source ? `
+              <div class="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>出處依據：<strong>${q.source}</strong></span>
+                ${q.source_url ? `
+                  <a href="${q.source_url}" target="_blank" class="text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1 font-semibold">
+                    <span>查驗最新條文</span>
+                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                  </a>
+                ` : ''}
+              </div>
+            ` : ''}
+          </div>
+        ` : ''}
+      </div>
+
+      <!-- Navigation & Action Buttons -->
+      <div class="flex items-center justify-between gap-3">
+        <button onclick="prevEmtQuestion()" ${quiz.currentIndex === 0 ? 'disabled' : ''} class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs sm:text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          <span>上一題</span>
+        </button>
+
+        ${curr === total ? `
+          <button onclick="submitEmtQuiz()" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg transition flex items-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>完成交卷評分</span>
+          </button>
+        ` : `
+          <button onclick="nextEmtQuestion()" class="px-6 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition flex items-center gap-2">
+            <span>下一題</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        `}
+      </div>
+
+      <!-- Question Jump Grid Drawer / Overview -->
+      <div class="glass-panel p-4 sm:p-5 rounded-2xl space-y-3 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-400">
+          <span>題目跳轉清單 (已作答 ${Object.keys(quiz.answers).length} / ${total} 題)</span>
+          <span class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-teal-600"></span> 已答
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-200 dark:bg-slate-700"></span> 未答
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400"></span> 標記
+          </span>
+        </div>
+        <div class="grid grid-cols-10 sm:grid-cols-15 md:grid-cols-20 gap-1.5 pt-1">
+          ${quiz.questions.map((_, idx) => {
+            const answered = (quiz.answers[idx] !== undefined);
+            const flagged = quiz.flags.has(idx);
+            const isCurrent = (idx === quiz.currentIndex);
+
+            let bgClass = "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300";
+            if (isCurrent) {
+              bgClass = "ring-2 ring-teal-500 font-black";
+            }
+            if (flagged) {
+              bgClass = "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 border border-amber-400";
+            } else if (answered) {
+              bgClass = "bg-teal-600 text-white";
+            }
+
+            return `
+              <button onclick="jumpToEmtQuestion(${idx})" class="w-8 h-8 rounded-lg text-xs font-semibold transition flex items-center justify-center ${bgClass}">
+                ${idx + 1}
+              </button>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function selectEmtAnswer(optIdx) {
+  const quiz = AppState.emt.quiz;
+  if (!quiz.active || quiz.isSubmitted) return;
+
+  const q = quiz.questions[quiz.currentIndex];
+  quiz.answers[quiz.currentIndex] = optIdx;
+
+  if (quiz.instantFeedback) {
+    if (optIdx !== q.answer) {
+      AppState.emt.mistakes.add(q.id);
+    } else {
+      if (AppState.emt.mistakes.has(q.id)) {
+        AppState.emt.mistakes.delete(q.id);
+      }
+    }
+    localStorage.setItem('sms_emt_mistakes', JSON.stringify(Array.from(AppState.emt.mistakes)));
+  }
+
+  renderActiveEmtQuiz();
+}
+
+function nextEmtQuestion() {
+  const quiz = AppState.emt.quiz;
+  if (quiz.currentIndex < quiz.questions.length - 1) {
+    quiz.currentIndex++;
+    renderActiveEmtQuiz();
+  }
+}
+
+function prevEmtQuestion() {
+  const quiz = AppState.emt.quiz;
+  if (quiz.currentIndex > 0) {
+    quiz.currentIndex--;
+    renderActiveEmtQuiz();
+  }
+}
+
+function jumpToEmtQuestion(idx) {
+  const quiz = AppState.emt.quiz;
+  if (idx >= 0 && idx < quiz.questions.length) {
+    quiz.currentIndex = idx;
+    renderActiveEmtQuiz();
+  }
+}
+
+function toggleEmtFlag(idx) {
+  const quiz = AppState.emt.quiz;
+  if (quiz.flags.has(idx)) {
+    quiz.flags.delete(idx);
+  } else {
+    quiz.flags.add(idx);
+  }
+  renderActiveEmtQuiz();
+}
+
+function confirmExitEmtQuiz() {
+  if (confirm('確定要提前結束本次 EMT-1 測驗嗎？未儲存的答題進度將會遺失。')) {
+    if (AppState.emt.quiz.timer) clearInterval(AppState.emt.quiz.timer);
+    AppState.emt.quiz.active = false;
+    renderEmtQuizSetup();
+  }
+}
+
+function submitEmtQuiz() {
+  const quiz = AppState.emt.quiz;
+  if (!quiz.active) return;
+
+  if (quiz.timer) clearInterval(quiz.timer);
+
+  let correctCount = 0;
+  quiz.questions.forEach((q, idx) => {
+    const userAns = quiz.answers[idx];
+    if (userAns === q.answer) {
+      correctCount++;
+      if (AppState.emt.mistakes.has(q.id)) {
+        AppState.emt.mistakes.delete(q.id);
+      }
+    } else {
+      AppState.emt.mistakes.add(q.id);
+    }
+  });
+
+  localStorage.setItem('sms_emt_mistakes', JSON.stringify(Array.from(AppState.emt.mistakes)));
+
+  quiz.isSubmitted = true;
+  quiz.score = Math.round((correctCount / quiz.questions.length) * 100);
+  renderEmtQuizResults();
+}
+
+function renderEmtQuizResults() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container || !AppState.emt.quiz.active) return;
+
+  const quiz = AppState.emt.quiz;
+  const total = quiz.questions.length;
+  let correctCount = 0;
+  quiz.questions.forEach((q, idx) => {
+    if (quiz.answers[idx] === q.answer) correctCount++;
+  });
+
+  const score = quiz.score;
+  const isPassed = (score >= 70);
+
+  container.innerHTML = `
+    <div class="space-y-6">
+      <!-- Score Hero Box -->
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl text-center space-y-4 shadow-lg border ${isPassed ? 'border-emerald-500/40 bg-emerald-50/20 dark:bg-emerald-950/20' : 'border-rose-500/40 bg-rose-50/20 dark:bg-rose-950/20'}">
+        <div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-white shadow-lg ${isPassed ? 'bg-emerald-500' : 'bg-rose-500'}">
+          <i data-lucide="${isPassed ? 'check-circle' : 'alert-triangle'}" class="w-8 h-8"></i>
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+          ${isPassed ? '🎉 測驗合格！恭喜通過 EMT-1 學科門檻' : '⚠️ 測驗未及格，請加強複習再戰！'}
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          成功嶺初級救護技術員 (EMT-1) 期末學科測驗及格標準為 <strong>70 分</strong>
+        </p>
+
+        <div class="text-5xl sm:text-6xl font-black tracking-tight ${isPassed ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}">
+          ${score} <span class="text-xl sm:text-2xl font-bold text-slate-500">分</span>
+        </div>
+
+        <div class="flex items-center justify-center gap-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium pt-2">
+          <span>總題數：<strong>${total}</strong> 題</span>
+          <span>答對：<strong class="text-emerald-600">${correctCount}</strong> 題</span>
+          <span>答錯：<strong class="text-rose-600">${total - correctCount}</strong> 題</span>
+          <span>正確率：<strong>${Math.round((correctCount / total) * 100)}%</strong></span>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 pt-4 flex-wrap">
+          <button onclick="startEmtQuiz('${quiz.mode}', '${quiz.selectedCategory}')" class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow-md transition flex items-center gap-2">
+            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+            <span>再次重測</span>
+          </button>
+          ${AppState.emt.mistakes.size > 0 ? `
+            <button onclick="startEmtQuiz('mistakes')" class="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs sm:text-sm shadow-md transition flex items-center gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4"></i>
+              <span>複習所有錯題 (${AppState.emt.mistakes.size})</span>
+            </button>
+          ` : ''}
+          <button onclick="AppState.emt.quiz.active = false; renderEmtQuizSetup();" class="px-5 py-2.5 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl font-bold text-xs sm:text-sm hover:bg-slate-300 transition flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>返回測驗選單</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Question Review Section -->
+      <div class="space-y-4">
+        <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="clipboard-list" class="w-5 h-5 text-teal-500"></i> 本次測驗試題完整解析與檢討
+        </h4>
+
+        <div class="space-y-4">
+          ${quiz.questions.map((q, idx) => {
+            const userAns = quiz.answers[idx];
+            const isCorrect = (userAns === q.answer);
+
+            return `
+              <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-3 shadow-sm border ${isCorrect ? 'border-slate-200 dark:border-slate-800' : 'border-rose-300 dark:border-rose-900/60 bg-rose-50/20 dark:bg-rose-950/10'}">
+                <div class="flex items-center justify-between gap-2 flex-wrap text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-white ${isCorrect ? 'bg-emerald-500' : 'bg-rose-500'}">
+                      ${idx + 1}
+                    </span>
+                    <span class="font-bold ${isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}">
+                      ${isCorrect ? '答對' : '答錯'}
+                    </span>
+                    <span class="text-slate-500">${q.category_name}</span>
+                  </div>
+                  <span class="text-slate-400">題號: ${q.id}</span>
+                </div>
+
+                <h5 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-relaxed">
+                  ${q.question}
+                </h5>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm pt-1">
+                  ${q.options.map((opt, oIdx) => {
+                    let optStyle = "p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300";
+                    if (oIdx === q.answer) {
+                      optStyle = "p-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold";
+                    } else if (oIdx === userAns && !isCorrect) {
+                      optStyle = "p-2.5 rounded-xl border-2 border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 font-bold";
+                    }
+                    return `<div class="${optStyle}">${opt}</div>`;
+                  }).join('')}
+                </div>
+
+                <div class="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-1.5 text-xs text-slate-700 dark:text-slate-300 leading-relaxed border border-slate-200/60 dark:border-slate-700/60">
+                  <div class="font-bold text-emerald-600 dark:text-emerald-400">
+                    <strong>【正確答案】</strong> ${q.options[q.answer]}
+                  </div>
+                  <div>
+                    <strong>【詳解依據】</strong> ${q.explanation}
+                  </div>
+                  ${q.source ? `
+                    <div class="pt-1 flex items-center justify-between text-slate-500">
+                      <span>來源：${q.source}</span>
+                      ${q.source_url ? `
+                        <a href="${q.source_url}" target="_blank" class="text-teal-600 hover:underline flex items-center gap-1 font-semibold">
+                          <span>查看官方條文</span>
+                          <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                      ` : ''}
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function resetAllEmtMistakes() {
+  if (AppState.emt.mistakes.size === 0) {
+    alert('目前沒有 EMT 錯題記錄！');
+    return;
+  }
+  if (confirm('確定要清空所有的 EMT-1 錯題記錄嗎？')) {
+    AppState.emt.mistakes.clear();
+    localStorage.removeItem('sms_emt_mistakes');
+    renderEmtQuizSetup();
+  }
+}
+
+/* ==========================================================================
+   EMT-1 QUESTION BANK BROWSER (題庫速查與背題模式)
+   ========================================================================== */
+
+function renderEmtBank() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container) return;
+
+  const bank = AppState.emt.bank;
+  let filtered = [...AppState.emt.questions];
+
+  // Category filter
+  if (bank.categoryFilter !== 'all') {
+    filtered = filtered.filter(q => q.category === bank.categoryFilter);
+  }
+
+  // Keyword search
+  if (bank.searchTerm) {
+    const term = bank.searchTerm.toLowerCase();
+    filtered = filtered.filter(q => {
+      const qText = q.question.toLowerCase();
+      const explText = (q.explanation || '').toLowerCase();
+      const optsText = (q.options || []).join(' ').toLowerCase();
+      const srcText = (q.source || '').toLowerCase();
+      return qText.includes(term) || explText.includes(term) || optsText.includes(term) || srcText.includes(term);
+    });
+  }
+
+  const totalFiltered = filtered.length;
+  const pageSize = bank.pageSize || 15;
+  const totalPages = Math.ceil(totalFiltered / pageSize) || 1;
+  if (bank.currentPage > totalPages) bank.currentPage = totalPages;
+  if (bank.currentPage < 1) bank.currentPage = 1;
+
+  const startIndex = (bank.currentPage - 1) * pageSize;
+  const pageQuestions = filtered.slice(startIndex, startIndex + pageSize);
+
+  container.innerHTML = `
+    <div class="space-y-6">
+      <!-- Search & Filters Header Card -->
+      <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-teal-500/20">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <i data-lucide="search" class="w-5 h-5 text-teal-500"></i> EMT-1 全真題庫速查與背題模式
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+              即時搜尋題目關鍵字、按 7 大急救章節精準篩選，支援遮蔽答案背題翻牌模式。
+            </p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <a href="pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf" download class="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white px-3.5 py-2 rounded-xl text-xs font-semibold shadow transition" title="下載完整 EMT-1 題庫 PDF (標楷體版)">
+              <i data-lucide="file-down" class="w-4 h-4"></i>
+              <span>下載題庫 PDF (標楷體)</span>
+            </a>
+            <label class="flex items-center gap-2 cursor-pointer select-none bg-teal-50 dark:bg-teal-950/50 px-3.5 py-2 rounded-xl border border-teal-200 dark:border-teal-800 text-xs font-semibold text-teal-800 dark:text-teal-300">
+              <input type="checkbox" id="emt-bank-hide-answers" ${bank.hideAnswers ? 'checked' : ''} onchange="toggleEmtHideAnswers(this.checked)" class="rounded text-teal-600 focus:ring-teal-500 w-4 h-4">
+              <span class="flex items-center gap-1"><i data-lucide="eye-off" class="w-3.5 h-3.5"></i> 遮蔽答案 (背題翻牌)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-1">
+          <!-- Keyword Input -->
+          <div class="sm:col-span-7 relative">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="emt-bank-search" value="${bank.searchTerm}" oninput="handleEmtSearch(this.value)" placeholder="搜尋題目、解析關鍵字（如：GCS、抽吸時間、止血帶、VF、START、管理辦法...）" class="w-full pl-9 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 transition">
+          </div>
+
+          <!-- Chapter Select -->
+          <div class="sm:col-span-5">
+            <select id="emt-bank-cat" onchange="handleEmtCatFilter(this.value)" class="w-full px-3 py-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500">
+              <option value="all" ${bank.categoryFilter === 'all' ? 'selected' : ''}>分類：全部分類 (${AppState.emt.questions.length}題)</option>
+              <option value="emt_laws" ${bank.categoryFilter === 'emt_laws' ? 'selected' : ''}>⚖️ 緊急醫療救護法規與倫理 (12題)</option>
+              <option value="emt_anatomy" ${bank.categoryFilter === 'emt_anatomy' ? 'selected' : ''}>🫀 基礎解剖與八大生命徵象 (14題)</option>
+              <option value="emt_airway" ${bank.categoryFilter === 'emt_airway' ? 'selected' : ''}>🫁 呼吸道處置與氧氣治療 (15題)</option>
+              <option value="emt_cpr" ${bank.categoryFilter === 'emt_cpr' ? 'selected' : ''}>⚡ 心肺復甦術與AED (15題)</option>
+              <option value="emt_trauma" ${bank.categoryFilter === 'emt_trauma' ? 'selected' : ''}>🩸 創傷評估止血固定搬運 (15題)</option>
+              <option value="emt_medical" ${bank.categoryFilter === 'emt_medical' ? 'selected' : ''}>🏥 急症評估處置與休克 (15題)</option>
+              <option value="emt_mci" ${bank.categoryFilter === 'emt_mci' ? 'selected' : ''}>🚨 大量傷病患START檢傷 (10題)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Filtered Count Bar -->
+        <div class="flex items-center justify-between text-xs text-slate-500 pt-1 border-t border-slate-100 dark:border-slate-800">
+          <span>共篩選出 <strong class="text-teal-600 dark:text-teal-400 font-bold">${totalFiltered}</strong> 題 ｜ 目前第 ${bank.currentPage} / ${totalPages} 頁</span>
+          <span class="text-[11px] text-slate-400">點擊卡片星號可收藏題目</span>
+        </div>
+      </div>
+
+      <!-- Question Cards List -->
+      <div class="space-y-4">
+        ${pageQuestions.map((q, idx) => {
+          const isBookmarked = AppState.emt.bookmarks.has(q.id);
+          const qIndexGlobal = startIndex + idx + 1;
+
+          return `
+            <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-slate-200/80 dark:border-slate-800 hover:border-teal-500/40 transition">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-0.5 rounded-lg text-xs font-bold bg-teal-600 text-white">
+                    #${qIndexGlobal}
+                  </span>
+                  <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
+                    選擇題
+                  </span>
+                  <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    ${q.category_name}
+                  </span>
+                  <span class="text-[11px] text-slate-400">${q.id}</span>
+                </div>
+
+                <button onclick="toggleEmtBookmark('${q.id}')" class="text-slate-400 hover:text-amber-500 transition p-1" title="收藏題目">
+                  <i data-lucide="star" class="w-4 h-4 ${isBookmarked ? 'fill-amber-400 text-amber-500' : ''}"></i>
+                </button>
+              </div>
+
+              <!-- Question Text -->
+              <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-relaxed">
+                ${q.question}
+              </h4>
+
+              <!-- Options List (A)(B)(C)(D) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm pt-1">
+                ${q.options.map((opt, oIdx) => {
+                  const isAnswer = (oIdx === q.answer);
+                  let optClass = "p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-800/30";
+                  if (!bank.hideAnswers && isAnswer) {
+                    optClass = "p-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold shadow-sm";
+                  }
+                  return `
+                    <div class="${optClass}">
+                      ${opt}
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Answer & Explanation -->
+              ${bank.hideAnswers ? `
+                <div class="pt-2">
+                  <button onclick="this.nextElementSibling.classList.toggle('hidden');" class="text-xs font-semibold text-teal-600 dark:text-teal-400 flex items-center gap-1 hover:underline">
+                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                    <span>點擊查看答案與解析</span>
+                  </button>
+                  <div class="hidden mt-3 p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2 text-xs text-slate-700 dark:text-slate-300 leading-relaxed border border-slate-200/80 dark:border-slate-700">
+                    <div class="font-bold text-emerald-600 dark:text-emerald-400">
+                      <strong>【參考答案】</strong> ${q.options[q.answer]}
+                    </div>
+                    <div>
+                      <strong>【解析依據】</strong> ${q.explanation}
+                    </div>
+                    ${q.source ? `
+                      <div class="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between text-slate-500">
+                        <span>出處：${q.source}</span>
+                        ${q.source_url ? `
+                          <a href="${q.source_url}" target="_blank" class="text-teal-600 hover:underline flex items-center gap-1 font-semibold">
+                            <span>官方法規直連</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                          </a>
+                        ` : ''}
+                      </div>
+                    ` : ''}
+                  </div>
+                </div>
+              ` : `
+                <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2 text-xs text-slate-700 dark:text-slate-300 leading-relaxed border border-slate-200/80 dark:border-slate-700">
+                  <div class="font-bold text-emerald-600 dark:text-emerald-400">
+                    <strong>【參考答案】</strong> ${q.options[q.answer]}
+                  </div>
+                  <div>
+                    <strong>【解析依據】</strong> ${q.explanation}
+                  </div>
+                  ${q.source ? `
+                    <div class="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between text-slate-500">
+                      <span>出處：<strong>${q.source}</strong></span>
+                      ${q.source_url ? `
+                        <a href="${q.source_url}" target="_blank" class="text-teal-600 hover:underline flex items-center gap-1 font-semibold">
+                          <span>官方法規直連</span>
+                          <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                      ` : ''}
+                    </div>
+                  ` : ''}
+                </div>
+              `}
+            </div>
+          `;
+        }).join('')}
+      </div>
+
+      <!-- Pagination Controls -->
+      ${totalPages > 1 ? `
+        <div class="glass-panel p-4 rounded-2xl flex items-center justify-between text-xs font-semibold">
+          <button onclick="changeEmtBankPage(${bank.currentPage - 1})" ${bank.currentPage <= 1 ? 'disabled' : ''} class="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 transition">
+            上一頁
+          </button>
+          <span>第 ${bank.currentPage} / ${totalPages} 頁</span>
+          <button onclick="changeEmtBankPage(${bank.currentPage + 1})" ${bank.currentPage >= totalPages ? 'disabled' : ''} class="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 transition">
+            下一頁
+          </button>
+        </div>
+      ` : ''}
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function handleEmtSearch(val) {
+  AppState.emt.bank.searchTerm = val.trim();
+  AppState.emt.bank.currentPage = 1;
+  renderEmtBank();
+}
+
+function handleEmtCatFilter(val) {
+  AppState.emt.bank.categoryFilter = val;
+  AppState.emt.bank.currentPage = 1;
+  renderEmtBank();
+}
+
+function toggleEmtHideAnswers(checked) {
+  AppState.emt.bank.hideAnswers = checked;
+  renderEmtBank();
+}
+
+function changeEmtBankPage(page) {
+  AppState.emt.bank.currentPage = page;
+  renderEmtBank();
+  window.scrollTo({ top: 300, behavior: 'smooth' });
+}
+
+function toggleEmtBookmark(qId) {
+  if (AppState.emt.bookmarks.has(qId)) {
+    AppState.emt.bookmarks.delete(qId);
+  } else {
+    AppState.emt.bookmarks.add(qId);
+  }
+  localStorage.setItem('sms_emt_bookmarks', JSON.stringify(Array.from(AppState.emt.bookmarks)));
+  renderEmtBank();
+}
+
+/* ==========================================================================
+   EMT-1 CORE STUDY GUIDE & PROTOCOLS (法規與急救精華講義)
+   ========================================================================== */
+
+function renderEmtStudy() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container) return;
+
+  const data = AppState.emt.studyData;
+  if (!data) {
+    container.innerHTML = `<div class="p-8 text-center text-slate-400">講義載入中...</div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="space-y-8">
+      <!-- 1. 法規與管理辦法重點卡片 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-teal-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">一、緊急醫療救護法規與救護技術員管理辦法重點</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${data.laws_summary.map(law => `
+            <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-3 shadow-sm border border-teal-500/20">
+              <div class="flex items-center justify-between">
+                <h4 class="text-base font-bold text-teal-700 dark:text-teal-300">${law.title}</h4>
+                <span class="px-2 py-0.5 bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 text-xs font-bold rounded">
+                  ${law.article}
+                </span>
+              </div>
+              <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                ${law.points.map(pt => `
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-teal-500 font-bold shrink-0">•</span>
+                    <span>${pt}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- 2. 八大生命徵象正常值與危急標準表 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-emerald-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">二、八大生命徵象 (Vital Signs) 正常範圍與危急數值</h3>
+        </div>
+
+        <div class="glass-panel p-4 sm:p-6 rounded-2xl shadow-sm border border-emerald-500/20 overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold bg-emerald-50/50 dark:bg-emerald-950/30">
+                <th class="p-3">評估項目</th>
+                <th class="p-3">成人正常值</th>
+                <th class="p-3">小兒 / 嬰兒</th>
+                <th class="p-3 text-rose-600 dark:text-rose-400">危急標準與異常指標</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+              ${data.vital_signs.table.map(row => `
+                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20">
+                  <td class="p-3 font-bold text-slate-900 dark:text-white">${row.item}</td>
+                  <td class="p-3 text-slate-700 dark:text-slate-300">${row.adult}</td>
+                  <td class="p-3 text-slate-600 dark:text-slate-400">${row.child || row.infant}</td>
+                  <td class="p-3 font-semibold text-rose-600 dark:text-rose-400">${row.critical}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3. GCS 昏迷指數速查表 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-amber-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">三、格拉斯哥昏迷指數 (Glasgow Coma Scale, GCS) 評分表</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          ${data.gcs_table.categories.map(cat => `
+            <div class="glass-panel p-5 rounded-2xl space-y-3 shadow-sm border border-amber-500/20">
+              <h4 class="font-bold text-sm text-amber-700 dark:text-amber-300 border-b border-slate-200 dark:border-slate-800 pb-2">
+                ${cat.category}
+              </h4>
+              <div class="space-y-2 text-xs">
+                ${cat.items.map(it => `
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 dark:bg-slate-800/40">
+                    <span class="text-slate-700 dark:text-slate-300">${it.desc}</span>
+                    <span class="px-2 py-0.5 rounded bg-amber-500 text-white font-bold">${it.score}分</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- GCS Severity Levels -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+          ${data.gcs_table.clinical_meaning.map(lvl => `
+            <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-800/40 text-xs space-y-1">
+              <span class="font-bold text-teal-600 dark:text-teal-400">${lvl.range}</span>
+              <div class="font-bold text-slate-900 dark:text-white">${lvl.severity}</div>
+              <p class="text-slate-500 text-[11px]">${lvl.desc}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- 4. 成人生存之鏈與高品質 CPR+AED 五大黃金指標 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-rose-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">四、成人生存之鏈與高品質 CPR+AED 五大黃金指標</h3>
+        </div>
+
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl space-y-4 shadow-sm border border-rose-500/20">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            ${data.cpr_aed_guide.indicators.map(ind => `
+              <div class="p-4 rounded-xl border border-rose-100 dark:border-rose-900/60 bg-rose-50/30 dark:bg-rose-950/20 space-y-1.5">
+                <span class="font-bold text-rose-700 dark:text-rose-400 text-xs sm:text-sm block">${ind.rule}</span>
+                <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">${ind.detail}</p>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800">
+            <h4 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-2">【AED 標準五大步驟流程】</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 text-xs">
+              ${data.cpr_aed_guide.aed_protocol.map((stp, idx) => `
+                <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1">
+                  <span class="font-bold text-teal-600 block">${stp.step}</span>
+                  <p class="text-[11px] text-slate-600 dark:text-slate-400">${stp.desc}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 呼吸道設備與氧氣鋼瓶可用時間計算公式 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-cyan-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">五、常用氧氣治療設備與鋼瓶計算公式</h3>
+        </div>
+
+        <div class="glass-panel p-5 rounded-2xl shadow-sm border border-cyan-500/20 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            ${data.oxygen_therapy.table.map(ox => `
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-1.5">
+                <div class="font-bold text-cyan-700 dark:text-cyan-300 text-xs sm:text-sm">${ox.device}</div>
+                <div class="text-xs font-semibold text-teal-600">流量: ${ox.flow} ｜ 濃度: ${ox.fio2}</div>
+                <p class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">${ox.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Formula Box -->
+          <div class="p-4 rounded-xl bg-cyan-50/60 dark:bg-cyan-950/30 border border-cyan-200 dark:border-cyan-800 space-y-2 text-xs sm:text-sm">
+            <div class="font-bold text-cyan-900 dark:text-cyan-200 flex items-center gap-2">
+              <i data-lucide="calculator" class="w-4 h-4 text-cyan-600"></i> ${data.oxygen_therapy.formula.title}
+            </div>
+            <div class="p-2.5 bg-white dark:bg-slate-900 rounded-lg font-mono font-bold text-center text-cyan-700 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-700">
+              ${data.oxygen_therapy.formula.equation}
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs pt-1">
+              ${data.oxygen_therapy.formula.constants.map(c => `
+                <div class="p-2 bg-white/70 dark:bg-slate-800 rounded border border-cyan-200/60 dark:border-cyan-800">
+                  <strong>${c.cylinder}</strong>：常數 <strong>${c.constant}</strong> (安全存量 ${c.safety})
+                </div>
+              `).join('')}
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 italic">
+              <strong>${data.oxygen_therapy.formula.example}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 創傷評估 XABCDE -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-indigo-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">六、創傷評估 XABCDE 處置要領</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          ${data.trauma_care.steps.map(s => `
+            <div class="glass-panel p-4 rounded-xl space-y-2 shadow-sm border border-indigo-500/20">
+              <span class="px-2 py-0.5 bg-indigo-600 text-white rounded text-xs font-bold inline-block">${s.step}</span>
+              <h4 class="font-bold text-sm text-slate-900 dark:text-white">${s.name}</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${s.action}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- 7. START 大量傷病患檢傷分類 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 border-l-4 border-emerald-500 pl-3">
+          <h3 class="text-lg font-black text-slate-900 dark:text-white">七、大量傷病患 START 檢傷分類決策流程 (RPM 法)</h3>
+        </div>
+
+        <div class="glass-panel p-5 rounded-2xl shadow-sm border border-emerald-500/20 space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            ${data.start_triage.flowchart.map(st => `
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-2">
+                <span class="font-bold text-xs text-teal-600">${st.stage}</span>
+                <div class="font-bold text-sm text-slate-900 dark:text-white">${st.condition}</div>
+                <div class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-700 font-bold text-xs inline-block">${st.result}</div>
+                <p class="text-xs text-slate-600 dark:text-slate-400">${st.action}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+/* ==========================================================================
+   EMT-1 TEN+ LEARNING RESOURCES (十大學習資源清單與直連)
+   ========================================================================== */
+
+function renderEmtResources() {
+  const container = document.getElementById('emt-subtab-container');
+  if (!container) return;
+
+  const data = AppState.emt.studyData;
+  const list = data ? data.resources : [];
+
+  container.innerHTML = `
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl space-y-2 border border-teal-500/20 shadow-sm">
+        <h3 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="book-marked" class="w-5 h-5 text-teal-500"></i> EMT-1 十大學習資源清單與官方直連彙整
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          全網蒐集消防署官方電子書教材、全國法規資料庫官方條文、歷屆替代役學長 Google Drive 神手冊、Dcard 真題分享與阿摩線上題庫，一鍵點擊直連。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        ${list.map(res => `
+          <div class="glass-panel p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-3 shadow-sm border border-slate-200 dark:border-slate-800 hover:border-teal-500 transition">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+                  ${res.category}
+                </span>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                  ${res.type}
+                </span>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">
+                ${res.name}
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                ${res.desc}
+              </p>
+            </div>
+
+            <div class="pt-2">
+              <a href="${res.url}" target="_blank" class="w-full py-2.5 px-4 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                <span>前往資源連結</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  if (window.lucide) window.lucide.createIcons();
+}
+

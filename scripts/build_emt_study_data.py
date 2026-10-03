@@ -1,0 +1,423 @@
+# -*- coding: utf-8 -*-
+"""
+Build EMT-1 Study Data JSON for SMS (Success Mountain)
+Contains 10+ learning resources, legal articles, formula sheets, and study cards.
+"""
+import json
+import os
+
+study_data = {
+    "title": "成功嶺替代役 EMT-1 初級救護技術員 考照必通關指南與法規講義全集",
+    "version": "114-115年最新教材對照版",
+    "updated_at": "2026-10",
+    "description": "完整涵蓋緊急醫療救護法、救護技術員管理辦法、40小時訓練標準教材、Dcard 歷屆學長神手冊與阿摩考古題重點整理。",
+    
+    # 1. 十大學習資源清單 (包含點擊直連、說明與格式)
+    "resources": [
+        {
+            "id": "res-1",
+            "name": "內政部消防署《初級救護技術員訓練教材》電子書",
+            "category": "官方教材",
+            "type": "官方線上電子書",
+            "badge": "官方正版權威",
+            "url": "http://ebook.nfa.gov.tw/1080503/",
+            "desc": "內政部消防署官方編印之 EMT-1 40小時初訓標準教科書，包含人體解剖生理、八大生命徵象、呼吸道處置、CPR+AED、創傷止血包紮與急症處理全章節。"
+        },
+        {
+            "id": "res-2",
+            "name": "全國法規資料庫《緊急醫療救護法》最新完整條文",
+            "category": "中央法規",
+            "type": "全國法規資料庫",
+            "badge": "法定母法",
+            "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020045",
+            "desc": "緊急醫療救護之母法。重要考點：救護紀錄表法定保存7年（第23條）、救人免責善良撒瑪利亞人條款（第14-2條）、出勤人員配置（第17條）、洩密罰則二至十萬元（第37, 44條）。"
+        },
+        {
+            "id": "res-3",
+            "name": "全國法規資料庫《救護技術員管理辦法》最新法規",
+            "category": "中央法規",
+            "type": "全國法規資料庫",
+            "badge": "必考核心規章",
+            "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020048",
+            "desc": "主管救護技術員資格。必考：EMT-1初訓40小時、證書效期3年、展延繼續教育24小時（每年至少8小時），及第3條EMT-1得施行之12項救護項目（嚴禁侵入性給藥與插管）。"
+        },
+        {
+            "id": "res-4",
+            "name": "全國法規資料庫《緊急救護辦法》",
+            "category": "中央法規",
+            "type": "全國法規資料庫",
+            "badge": "行政命令",
+            "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0120015",
+            "desc": "內政部會同衛生福利部訂定，規範消防與醫療機關執行緊急救護服務範圍、救護車通訊派遣與紀錄傳遞作業。"
+        },
+        {
+            "id": "res-5",
+            "name": "Dcard 265T 學長彙編《EMT-1 快速參考手冊二版》",
+            "category": "學長神講義",
+            "type": "Google Drive PDF",
+            "badge": "高分通關神書",
+            "url": "https://drive.google.com/file/d/1X7HXDpSaryZcTXkAJJF3TAe8QrnFcdG-/view",
+            "desc": "替代役 265 梯學長根據最新教材修訂整理，濃縮法規、生命徵象、抽吸時間、氧氣鋼瓶計算公式、START檢傷與期末筆試滿分精華。"
+        },
+        {
+            "id": "res-6",
+            "name": "Dcard 264T 替代役《EMT-1 快速參考手冊初版》",
+            "category": "學長神講義",
+            "type": "Google Drive PDF",
+            "badge": "經典傳承講義",
+            "url": "https://drive.google.com/file/d/1ioA26RuqjGuNNg2EKZJ-t8zrgcrBizKr/view",
+            "desc": "廣受多梯替代役役男印出帶入成功嶺自修之口袋講義，條理分明歸納呼吸道、包紮與休克急救流程。"
+        },
+        {
+            "id": "res-7",
+            "name": "Dcard 軍旅板 #經驗分享《替代役新訓 270T EMT 考古題分享》",
+            "category": "社群真題",
+            "type": "Dcard 實戰心得",
+            "badge": "114年教材更新對照",
+            "url": "https://www.dcard.tw/f/military/p/257321890",
+            "desc": "270 梯成功嶺役男實測分享，詳細對照 114 年新版教材異動觀念與易錯題，提醒考前教官總複習必背考點。"
+        },
+        {
+            "id": "res-8",
+            "name": "Dcard 軍旅板 #經驗分享《257梯替代役基礎訓練 EMT 考題整理》",
+            "category": "社群真題",
+            "type": "Dcard 實戰心得",
+            "badge": "成功嶺期末考點",
+            "url": "https://www.dcard.tw/f/military/p/255871234",
+            "desc": "真實還原消防教官在成功嶺中隊教室強調的洩題重點、術科 CPR+AED 與止血包紮考官扣分盲點。"
+        },
+        {
+            "id": "res-9",
+            "name": "阿摩線上測驗 (Yamol)《初級救護技術員 EMT-1》題庫專區",
+            "category": "線上題庫",
+            "type": "互動測驗平台",
+            "badge": "全台最大題庫社群",
+            "url": "https://yamol.tw/cat-%E5%88%9D%E7%B4%9A%E6%95%91%E8%AD%B7%E6%8A%80%E8%A1%93%E5%93%A1+EMT-1-2983.htm",
+            "desc": "收錄台灣各大訓練機構與歷屆 EMT-1 學科試卷，包含上千題單選題、詳細網友討論筆記與錯題智能統計。"
+        },
+        {
+            "id": "res-10",
+            "name": "Quizlet《EMT-1 初級救護技術員》字卡複習集",
+            "category": "記憶字卡",
+            "type": "線上記憶字卡",
+            "badge": "背題速記利器",
+            "url": "https://quizlet.com/search?query=EMT-1%20%E5%88%9D%E7%B4%9A%E6%95%91%E8%AD%B7%E6%8A%80%E8%A1%93%E5%93%A1&type=sets",
+            "desc": "包含 GCS 指數、正常呼吸心跳脈搏、抽吸時間上限、氧氣濃度等數字型考點的翻牌記憶測驗。"
+        },
+        {
+            "id": "res-11",
+            "name": "內政部替代役暨社會韌性訓練執行中心 官方網站",
+            "category": "主管機關",
+            "type": "政府官方網站",
+            "badge": "替代役政策中心",
+            "url": "https://www.moi.gov.tw/",
+            "desc": "發布替代役基礎訓練課程規範、EMT-1 與防災士雙證照政策及役男受訓權益規定。"
+        },
+        {
+            "id": "res-12",
+            "name": "台灣急診醫學會 (TSEM)《心肺復甦術與緊急心臟照護指引》",
+            "category": "學術指引",
+            "type": "醫學會指引",
+            "badge": "最新醫療規範",
+            "url": "https://www.sem.org.tw/",
+            "desc": "台灣急重症醫學權威指引，同步 AHA 最新規範，確立高品質 CPR 30:2、深度 5~6cm、速率 100~120次/分及去顫電擊心律原則。"
+        }
+    ],
+
+    # 2. 核心法規與條文對照
+    "laws_summary": [
+        {
+            "title": "救護技術員管理辦法 - 分級與訓練時數",
+            "article": "第 2 條",
+            "points": [
+                "初級救護技術員 (EMT-1)：訓練時數至少 40 小時（成功嶺新訓標準）。",
+                "中級救護技術員 (EMT-2)：初訓時數至少 280 小時。",
+                "高級救護技術員 (EMT-P)：初訓時數至少 1280 小時以上。"
+            ]
+        },
+        {
+            "title": "救護技術員管理辦法 - 證書效期與繼續教育 (展延規定)",
+            "article": "第 7 條",
+            "points": [
+                "證書效期：各級救護技術員合格證書效期均為「三年」。",
+                "EMT-1 展延要件：三年效期內必須完成「24 小時以上之繼續教育，且每年均應至少接受 8 小時」。",
+                "逾期未完成繼續教育者，證書自動失效，依法必須重新參加 40 小時初訓測驗合格後始得領證。"
+            ]
+        },
+        {
+            "title": "救護技術員管理辦法 - EMT-1 得施行之 12 項法定救護項目",
+            "article": "第 3 條",
+            "points": [
+                "1. 檢傷分類及檢傷標籤之運用。",
+                "2. 傷病患生命徵象之測量（八大生命徵象）。",
+                "3. 基本心肺復甦術 (CPR) 及清除呼吸道異物（哈姆立克法）。",
+                "4. 使用口咽呼吸道 (OPA)、鼻咽呼吸道 (NPA)。",
+                "5. 抽吸（成人≦15秒、小兒≦10秒、嬰兒≦5秒）。",
+                "6. 氧氣治療（鼻導管、面罩、非再吸入型面罩 NRM）。",
+                "7. 止血、包紮及固定（含戰術止血帶 CAT、夾板）。",
+                "8. 頸圈 (C-collar) 及長背板之使用。",
+                "9. 傷病患之搬運（徒手搬運、搬運椅、擔架床）。",
+                "10. 心理支持及諮詢。",
+                "11. 自動體外心臟電擊去顫器 (AED) 之使用。",
+                "12. 其他經中央主管機關公告之項目。",
+                "⚠️ 重要考點：EMT-1 嚴禁施行靜脈注射、不可給予未處方口服藥物、不可插氣管內管！"
+            ]
+        },
+        {
+            "title": "緊急醫療救護法 - 關鍵罰則與責任豁免",
+            "article": "第 14-2, 17, 23, 37, 44 條",
+            "points": [
+                "第 14-2 條（善良撒瑪利亞人條款）：救護人員以外之人，使用緊急救護設備或施予急救措施者，適用民法、刑法緊急避難免責之規定。",
+                "第 17 條（救護車人員配置）：救護車出勤時，應有「救護人員至少二名」，或「救護人員一名及駕駛人一名」以上出勤。",
+                "第 23 條（救護紀錄表）：施行救護應填具救護紀錄表，指派單位至少應「保存七年」。",
+                "第 29 條（送醫原則）：救護人員應依病患病情及意願，送達「就近適當之醫療機構」。",
+                "第 37 條與第 44 條（保密義務）：救護人員因業務知悉之秘密不得無故洩漏，違反者處「新臺幣二萬元以上十萬元以下罰鍰」。"
+            ]
+        }
+    ],
+
+    # 3. 八大生命徵象 (Vital Signs) 數值表
+    "vital_signs": {
+        "title": "八大生命徵象 (Vital Signs) 正常與危急數值速查",
+        "description": "涵蓋成人、小兒與嬰兒正常生理範圍，以及初級救護現場必須立即處置的危急門檻。",
+        "table": [
+            {
+                "item": "意識狀態 (Consciousness)",
+                "adult": "清醒警覺 (Alert), GCS 15分",
+                "child": "對外界人事物有主動互動",
+                "infant": "對父母有眼神注視、哭聲響亮",
+                "critical": "AVPU 為 P (痛) 或 U (無反應)；GCS < 14分 (尤其是 ≦ 8分)"
+            },
+            {
+                "item": "呼吸頻率 (Respiration)",
+                "adult": "12 ～ 20 次/分",
+                "child": "15 ～ 30 次/分",
+                "infant": "25 ～ 50 次/分",
+                "critical": "成人 > 30 次/分 或 < 10 次/分（嚴重換氣異常）"
+            },
+            {
+                "item": "脈搏心跳 (Pulse)",
+                "adult": "60 ～ 100 次/分 (測橈動脈)",
+                "child": "80 ～ 120 次/分",
+                "infant": "100 ～ 160 次/分 (測肱動脈)",
+                "critical": "成人 > 120 次/分 或 < 50 次/分；頸動脈觸摸不到脈搏"
+            },
+            {
+                "item": "血壓 (Blood Pressure)",
+                "adult": "收縮壓 90~120 / 舒張壓 60~80 mmHg",
+                "child": "收縮壓約 80 + (年齡×2) mmHg",
+                "infant": "收縮壓約 70 mmHg 以上",
+                "critical": "成人收縮壓 < 90 mmHg (休克警訊) 或 > 180 mmHg (高血壓急症)"
+            },
+            {
+                "item": "體溫 (Body Temp)",
+                "adult": "耳溫/口溫約 36.5 ～ 37.5 °C",
+                "child": "同成人",
+                "infant": "同成人 (核心肛溫最準)",
+                "critical": "> 40 °C (熱中暑高危) 或 < 35 °C (嚴重低體溫)"
+            },
+            {
+                "item": "瞳孔 (Pupil)",
+                "adult": "直徑 2 ～ 4 mm，雙側等大且對光反射迅速靈敏",
+                "child": "同成人",
+                "infant": "同成人",
+                "critical": "雙側大小不一 (>1mm差異)、單側擴大無反應 (腦疝/IICP)、雙側針尖樣 (鴉片中毒)"
+            },
+            {
+                "item": "膚色與溫濕度",
+                "adult": "粉紅、溫暖、乾燥",
+                "child": "同成人",
+                "infant": "同成人",
+                "critical": "蒼白、濕冷、發紺 (Cyanosis/青紫缺氧)、黃疸、皮膚大理石斑紋"
+            },
+            {
+                "item": "微血管充填 (CRT) / 血氧",
+                "adult": "CRT < 2 秒；SpO2 95% ～ 100%",
+                "child": "CRT < 2 秒；SpO2 ≧ 95%",
+                "infant": "CRT < 2 秒；SpO2 ≧ 95%",
+                "critical": "CRT > 2 秒 (周邊微循環不良)；SpO2 < 90% (嚴重低血氧危急)"
+            }
+        ]
+    },
+
+    # 4. GCS 昏迷指數評分表
+    "gcs_table": {
+        "title": "格拉斯哥昏迷指數 (Glasgow Coma Scale, GCS) 滿分 15 分，最低 3 分",
+        "description": "計算公式：GCS = E (睜眼反應) + V (語言反應) + M (動作反應)",
+        "categories": [
+            {
+                "category": "睜眼反應 (Eye Opening, E) - 最高 4 分",
+                "items": [
+                    {"score": 4, "desc": "自然主動睜眼 (Spontaneous)"},
+                    {"score": 3, "desc": "對口頭聲音呼喚會睜眼 (To speech / sound)"},
+                    {"score": 2, "desc": "對疼痛刺激才會睜眼 (To pressure / pain)"},
+                    {"score": 1, "desc": "施予任何刺激均無睜眼反應 (None)"}
+                ]
+            },
+            {
+                "category": "語言反應 (Verbal Response, V) - 最高 5 分",
+                "items": [
+                    {"score": 5, "desc": "說話清晰且定向感正常（清楚知道人、時、地）(Oriented)"},
+                    {"score": 4, "desc": "能回答但定向感混淆（答非所問或時空錯置）(Confused)"},
+                    {"score": 3, "desc": "胡言亂語、文字不連貫、單字零碎 (Inappropriate words)"},
+                    {"score": 2, "desc": "僅能發出無意義聲音、呻吟咕噥聲 (Incomprehensible sounds)"},
+                    {"score": 1, "desc": "完全發不出聲音、無語言反應 (None)（插管記為 Vt）"}
+                ]
+            },
+            {
+                "category": "動作反應 (Motor Response, M) - 最高 6 分",
+                "items": [
+                    {"score": 6, "desc": "能依口頭指令做出正確動作（如舉手、握手、吐舌頭）(Obeys commands)"},
+                    {"score": 5, "desc": "對疼痛刺激能準確「定位並撥開痛源」 (Localizes pain)"},
+                    {"score": 4, "desc": "對疼痛刺激僅有「肢體縮回退縮避痛」反應 (Normal flexion / withdrawal)"},
+                    {"score": 3, "desc": "對疼痛刺激呈「異常屈曲」（去大腦皮質僵直，雙手內縮）(Abnormal flexion)"},
+                    {"score": 2, "desc": "對疼痛刺激呈「異常伸展」（去大腦僵直，雙手外旋僵直）(Extension)"},
+                    {"score": 1, "desc": "對疼痛刺激完全無任何肢體動作 (None)"}
+                ]
+            }
+        ],
+        "clinical_meaning": [
+            {"range": "GCS 13 ～ 15 分", "severity": "輕度腦部創傷 (Mild TBI)", "desc": "意識多清醒，但需持續監測是否惡化。"},
+            {"range": "GCS 9 ～ 12 分", "severity": "中度腦部創傷 (Moderate TBI)", "desc": "意識明顯混亂或嗜睡，需密切維持呼吸道與生命徵象。"},
+            {"range": "GCS 3 ～ 8 分", "severity": "重度昏迷 / 嚴重腦傷 (Severe TBI)", "desc": "舌根極易下墜阻塞呼吸道，常需高級呼吸道介入保護。"}
+        ]
+    },
+
+    # 5. 成人高品質 CPR+AED 五大黃金指標
+    "cpr_aed_guide": {
+        "title": "成人生存之鏈與高品質 CPR + AED 五大黃金指標",
+        "description": "遵循台灣急診醫學會與 AHA 最新心肺復甦術指引標準。",
+        "indicators": [
+            {"rule": "1. 用力壓 (Push Hard)", "detail": "成人胸外按壓深度維持在 5 ～ 6 公分（約胸廓厚度 1/3），不可超過 6 公分避免骨折內傷。"},
+            {"rule": "2. 快快壓 (Push Fast)", "detail": "按壓速率穩定維持在每分鐘 100 ～ 120 次（可隨《Stayin' Alive》節奏按壓）。"},
+            {"rule": "3. 完全胸回彈 (Full Recoil)", "detail": "每次向下按壓後，施救者雙手放鬆讓病患胸壁完全彈回原位，心臟才能充分充血。"},
+            {"rule": "4. 莫中斷 (Minimize Interruptions)", "detail": "盡量減少胸外按壓之中斷時間，每次中斷（如通氣或AED分析）必須小於 10 秒。"},
+            {"rule": "5. 避免過度通氣 (Avoid Hyperventilation)", "detail": "吹氣時間約 1 秒，看到胸廓微微隆起即可；猛烈灌氣會導致胃部脹氣逆流嘔吐並降低心輸出量。"}
+        ],
+        "aed_protocol": [
+            {"step": "Step 1: 開啟電源", "desc": "抵達現場第一動作立刻開啟 AED 電源開關，依語音指示操作。"},
+            {"step": "Step 2: 裸胸貼上貼片", "desc": "撕開貼片背面襯紙，右側貼於「右胸鎖骨下緣」，左側貼於「左乳頭外下側腋中線」。若有水應先擦乾，避開心臟節律器硬塊（距2.5cm以上）。"},
+            {"step": "Step 3: 心律分析，離病患", "desc": "AED 發出「正在分析心律，請不要觸碰病患」時，大聲呼喊「大家離開！」，嚴禁任何人接觸病患。"},
+            {"step": "Step 4: 電擊去顫 (若建議)", "desc": "建議電擊心律：心室纖維顫動 (VF)、無脈性心室頻脈 (pVT)。充電完畢，大聲喊「我離開、你離開、大家都離開」，確認全場無人觸碰後按下電擊鈕。"},
+            {"step": "Step 5: 電擊後立即接續 CPR", "desc": "電擊後完全不摸脈搏，立刻重回胸外按壓 30:2 循環連續 2 分鐘（約5個循環），靜待 AED 下一次心律分析。"}
+        ]
+    },
+
+    # 6. 呼吸道與氧氣設備濃度流量對照表
+    "oxygen_therapy": {
+        "title": "常用氧氣治療設備與濃度流量對照表",
+        "description": "初級救護技術員得施行之四大供氧器材設定標準。",
+        "table": [
+            {
+                "device": "鼻導管 (Nasal Cannula)",
+                "flow": "1 ～ 6 L/min",
+                "fio2": "24% ～ 44%",
+                "desc": "適用於輕中度缺氧、呼吸平穩且能配合之清醒病患。每提升 1 L/min 氧氣濃度約增加 4%。流量超過 6 L/min 易使鼻黏膜乾燥流血。"
+            },
+            {
+                "device": "簡單面罩 (Simple Face Mask)",
+                "flow": "6 ～ 10 L/min",
+                "fio2": "40% ～ 60%",
+                "desc": "適用於張口呼吸或鼻孔阻塞病患。流量不可低於 6 L/min，以防止二氧化碳在面罩內蓄積再吸入。"
+            },
+            {
+                "device": "非再吸入型面罩 (NRM / Non-Rebreathing)",
+                "flow": "10 ～ 15 L/min",
+                "fio2": "80% ～ 90% 以上 (高濃度)",
+                "desc": "嚴重創傷、大失血休克、嚴重低血氧或一氧化碳中毒之首選。使用前必須先用手堵住瓣膜將儲氣袋充飽 2/3 以上再戴上。"
+            },
+            {
+                "device": "袋瓣罩甦醒球 (BVM / Bag-Valve-Mask)",
+                "flow": "15 L/min (接儲氣袋)",
+                "fio2": "90% ～ 100% (最高純氧)",
+                "desc": "適用於無呼吸或換氣嚴重不足病患。施救者以左手「EC 手勢」緊扣面罩與下巴，壓球提供正壓通氣（每5-6秒一次）。"
+            }
+        ],
+        "formula": {
+            "title": "高壓氧氣鋼瓶可用時間計算公式",
+            "equation": "可用時間（分鐘）= (目前壓力表讀數 psi - 安全存量 psi) × 鋼瓶常數 ÷ 氧氣流量 (L/min)",
+            "constants": [
+                {"cylinder": "D 型鋼瓶（可攜式）", "constant": "0.16", "safety": "200 psi (或 500 psi)"},
+                {"cylinder": "E 型鋼瓶（擔架床攜帶）", "constant": "0.28", "safety": "200 psi"},
+                {"cylinder": "M 型鋼瓶（救護車車裝大鋼瓶）", "constant": "1.56", "safety": "500 psi"}
+            ],
+            "example": "例題：D 瓶壓力表顯示 1200 psi，安全存量 200 psi，NRM 流量 10 L/min。可用時間 = (1200 - 200) × 0.16 ÷ 10 = 1000 × 0.16 ÷ 10 = 16 分鐘！"
+        }
+    },
+
+    # 7. 創傷急救 XABCDE 與重大處置要領
+    "trauma_care": {
+        "title": "創傷評估 XABCDE 與救命處置原則",
+        "description": "遵循現代國際創傷生命支持 (ITLS / PHTLS) 與戰傷急救 (TCCC) 核心流程。",
+        "steps": [
+            {
+                "step": "X (eXsanguinating Hemorrhage)",
+                "name": "控制致命性外出血",
+                "action": "四肢噴射性動脈大出血優先使用「戰術止血帶 (CAT)」，於傷口近心端 5~7cm 施打旋緊直至止血，標記上帶時間，到院前嚴禁自行鬆開。"
+            },
+            {
+                "step": "A (Airway with C-spine)",
+                "name": "呼吸道暢通與頸椎限制",
+                "action": "懷疑脊椎創傷使用「推下顎法 (Jaw-thrust)」暢通呼吸道，雙手進行頭頸中立固定 (MILS)，適時量測並穿戴硬頸圈。"
+            },
+            {
+                "step": "B (Breathing & Ventilation)",
+                "name": "呼吸與胸廓評估",
+                "action": "看胸廓起伏與對稱性。吮吸性胸部傷口（開放性氣胸）立即使用不透氣敷料施作「三邊貼緊、留下一邊」單向活瓣包紮。"
+            },
+            {
+                "step": "C (Circulation)",
+                "name": "循環與灌流評估",
+                "action": "評估橈動脈/頸動脈搏動、CRT (<2秒)、膚色體溫。骨盆骨折慎防大出血，腹部臟器脫出用濕無菌紗布覆蓋保溫（嚴禁推回）。斷肢隔水冷藏。"
+            },
+            {
+                "step": "D (Disability)",
+                "name": "神經學功能評估",
+                "action": "評估 GCS 昏迷指數或 AVPU 意識量表，檢查雙側瞳孔大小及對光反射反應，檢查四肢末端 CMS/PMS 運動感覺循環。"
+            },
+            {
+                "step": "E (Exposure & Environment)",
+                "name": "暴露檢查與環境保溫",
+                "action": "剪開衣物檢查隱藏外傷，隨後立即覆蓋救護毯保溫，預防致命創傷三聯徵（低體溫、酸中毒、凝血功能障礙）。"
+            }
+        ]
+    },
+
+    # 8. START 大量傷病患檢傷分類法
+    "start_triage": {
+        "title": "大量傷病患 START 檢傷分類決策流程 (RPM 法)",
+        "description": "Simple Triage And Rapid Treatment：每位傷患評估控制在 30 秒至 1 分鐘內完成。",
+        "flowchart": [
+            {
+                "stage": "Step 1: 走動傷患分流",
+                "condition": "凡是能聽懂廣播並自己走動的人員",
+                "result": "綠色標籤 (Minor / 輕傷)",
+                "action": "引導至綠區安置，待後續檢傷。"
+            },
+            {
+                "stage": "Step 2: 呼吸評估 (Respiration)",
+                "condition": "無呼吸 ➜ 暢通呼吸道後：若仍無呼吸 ➜ 黑色；若恢復呼吸 ➜ 紅色。<br>若呼吸速率 > 30 次/分 或 < 10 次/分 ➜ 紅色。",
+                "result": "黑色 (死亡) / 紅色 (極重傷)",
+                "action": "黑色不予急救；紅色立即維持呼吸道並列第一優先後送。"
+            },
+            {
+                "stage": "Step 3: 循環灌流 (Perfusion)",
+                "condition": "呼吸 10~30 次/分 ➜ 檢查循環：摸不到橈動脈 或 CRT > 2 秒 ➜ 紅色。",
+                "result": "紅色標籤 (Immediate / 極重傷)",
+                "action": "立即控制活動性大出血，抬高下肢。"
+            },
+            {
+                "stage": "Step 4: 意識狀態 (Mental Status)",
+                "condition": "呼吸循環皆正常 ➜ 測試簡單口頭指令（如眨眼、握手）：無法聽從指令 ➜ 紅色；能聽從簡單指令 ➜ 黃色。",
+                "result": "黃色標籤 (Delayed / 中傷)",
+                "action": "黃色無立即生命危險，第二優先後送。"
+            }
+        ]
+    }
+}
+
+# Write study data to data/emt_study_data.json
+with open("data/emt_study_data.json", "w", encoding="utf-8") as f:
+    json.dump(study_data, f, ensure_ascii=False, indent=2)
+
+print("Successfully generated data/emt_study_data.json!")
