@@ -16,6 +16,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 Thumbs.db
+tmp/
 
 # Raw official law pages downloaded by scripts/fetch_laws.py
 data/.law_cache/
