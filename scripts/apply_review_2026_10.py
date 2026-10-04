@@ -18,7 +18,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-REVIEWED_AT = "2026-10-03"
+REVIEWED_AT = "2026-10-04"
 
 
 def load(name):
@@ -75,7 +75,7 @@ APPLY, MANAGE, LEAVE = "D0040016", "D0040020", "D0040021"
 REWARD, COUNSEL, RIGHTS = "D0040028", "D0040019", "D0040024"
 INSURE, PENSION, PAY = "D0040027", "D0040025", "D0040029"
 ROSTER, EARLY, FAMILY, RECALL = "D0040022", "D0040026", "D0040032", "D0040033"
-VOLUNTEER, EMS, EMT = "D0050131", "L0020045", "L0020141"
+VOLUNTEER, EMS, EMT, TRAFFIC = "D0050131", "L0020045", "L0020141", "K0040013"
 
 # 題號 -> (法規, 條號, 用來定位該行的關鍵字)
 LAW_BASIS = {
@@ -188,8 +188,55 @@ FIXES = {
         "answer": "O",
         "revised": "原考古題為「每次1日以內，必要時得延長為3日至5日」（舊規定），已依現行第3條改寫。",
     },
+    # ---- 2026-10-04 第二輪：題幹的限制詞必須出現在所引條文裡
+    "TF-018": {
+        "question": "替代役訓練區分為基礎訓練及專業訓練。",
+        "revised": "原題幹為「軍事基礎訓練」；現行第13條的用語是「基礎訓練」，已依條文更新。",
+    },
+    "TF-038": {
+        "question": "替代役役男基礎訓練期間請假，由訓練單位依相關准假權責核處。",
+        "revised": "原題幹為「軍事基礎訓練期間請假由訓練單位逕行核處」，已依現行第10條文字更新。",
+    },
+    "TF-041": {
+        "question": "一般替代役役男受基礎訓練期間，因未達替代役體位應予驗退者，由主管機關辦理。",
+        "revised": "原題幹為「軍事基礎訓練」；現行第3條的用語是「基礎訓練」，已依條文更新。",
+    },
+    "TF-072": {
+        "question": "依《一般替代役役男訓練服勤管理辦法》第7條規定：需用機關辦理一般替代役役男服勤單位分發，應將基礎訓練成績列入分發成績；其所占比率不得低於分發成績計算基準之百分之四十。",
+        "revised": "原題幹為「軍事基礎訓練成績」；現行第7條的用語是「基礎訓練成績」，已依條文更新。",
+    },
+    "TF-054": {
+        "question": "罰站、罰勤、禁足、申誡及記過，由服勤、訓練單位核處；罰薪、輔導教育，由服勤單位提出，報請需用機關核定，並於一週內送請主管機關備查。",
+        "revised": "原題幹漏字，讀起來變成「罰站、罰勤、禁足、申誡及記過由服勤單位提出，報請需用機關核定」，與第55條不符；已依條文補全。",
+    },
+    "TF-111": {
+        "question": "役男育有子女或配偶懷孕，符合因家庭因素申請服替代役之情形。",
+        "revised": "原題幹為「育有12歲以下子女或配偶懷孕六個月以上」（舊規定）；現行第11條已無年齡與月數限制，已依條文改寫。",
+    },
+    "MC-095": {
+        "options": ["一等給與終身", "二等給與20年", "三等給與15年", "重度機能障礙給與20年"], "answer": 0,
+        "revised": "原選項「二等殘給與10年」「三等殘給與5年」依第34條也是正確敘述，不是唯一正解；已改寫干擾選項。",
+    },
+    "MC-DOC2-03": {
+        "options": ["直轄市、縣（市）政府", "鄉鎮市區公所", "主管機關（內政部）", "服勤單位"], "answer": 2,
+        "revised": "原選項寫「內政部（役政署）」；役政署已改制，條文用語為主管機關。",
+    },
 }
 BASIS_OVERRIDE = {"MC-013": (A, 47, "逾十年")}
+
+# 所引條文只支持題幹的一部分，或選項不是唯一正解：保留歷屆答案、標示「條文只支持一部分」，不列入模擬考
+PARTIAL = {
+    "TF-114": "第10條第5款只規定遺失識別證得予罰勤、禁足或申誡；題幹後段「如毀損尚能辨識，且據以繳交換新證者，免予懲處」不在條文內。",
+    "TF-119": "第21條只規定服替代役之年資「依相關法令規定辦理」，沒有寫明於退休時併計。",
+    "TF-DOC2-03": "第50條只規定國民年金保險費由主管機關編列預算支付；題幹關於《國民年金法》加保範圍的敘述，不在本站收錄的法規內。",
+    "MC-071": "第20條規定向需用機關提出申訴（原懲處機關為需用機關者向主管機關提出）。選項中的「需用機關」也符合條文文字，本題選項有歧義。",
+}
+
+# 判定為核實、但信心為「中」的題目（條文用語與題幹不完全相同，或需要推論）
+MEDIUM = {
+    "TF-003", "TF-004", "TF-010", "TF-012", "TF-026", "TF-046", "TF-055", "TF-063", "TF-087", "TF-097", "TF-099",
+    "TF-101", "TF-141", "MC-009", "MC-016", "MC-019", "MC-065", "MC-067", "MC-069", "MC-088", "MC-096",
+}
 
 # 條文原文之外需要補一句說明的題目
 SUFFIX = {
@@ -199,8 +246,13 @@ SUFFIX = {
     "MC-069": "與職務無關的活動不符合公假要件，依第7條只能請事假並擇日補勤。",
     "TF-095": "舅舅不在第6條所列親屬之內。",
     "TF-111": "現行條文為「役男育有子女或配偶懷孕」，已無子女年齡與懷孕月數的限制。",
-    "TF-123": "現行條文為「役男育有子女或配偶懷孕」，已無懷孕月數的限制。",
     "TF-117": "題目中的「健保局」現為衛生福利部中央健康保險署。",
+    "TF-099": "條文只就一般保險規定，團體意外保險不在本條範圍。",
+    "MC-009": "條文只就一般保險規定，團體意外保險不在本條範圍。",
+    "MC-067": "條文只就一般保險規定，團體意外保險不在本條範圍。",
+    "TF-026": "題幹只列出部分懲處種類。",
+    "TF-046": "題幹只列出部分役別。",
+    "TF-010": "條文用語是「一般替代役」。",
     "TF-141": "受理申訴機關應自收受申訴書之日起三十日內以書面答覆，必要時得延長十日（第21條）。",
     "TF-073": "例外是喪假與病假，不是婚假與陪產假。",
 }
@@ -213,10 +265,11 @@ OUTDATED = {
     "TF-113": "現行《役男申請服替代役辦法》第11條所列家庭因素，已無「父、母或配偶患有重大傷病，或家屬二人以上患有輕度身心障礙」這一項。",
     "MC-053": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。",
     "MC-058": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。",
+    "TF-123": "現行《役男申請服替代役辦法》第11條為「役男育有子女或配偶懷孕」，已無「懷孕6個月以上」的限制；同一考點已由 TF-111 依現行條文改寫。",
 }
 OUTDATED_SOURCE = {
     "TF-029": (A, 56), "TF-060": (REWARD, 20), "TF-079": (EARLY, 2), "TF-093": (LEAVE, 7),
-    "TF-113": (APPLY, 11), "MC-053": (LEAVE, 7), "MC-058": (LEAVE, 7),
+    "TF-113": (APPLY, 11), "MC-053": (LEAVE, 7), "MC-058": (LEAVE, 7), "TF-123": (APPLY, 11),
 }
 
 # 條文只有部分依據、或題目涉及未收錄的規定：保留歷屆答案並附上說明
@@ -249,7 +302,7 @@ UNVERIFIED_NOTE = "收錄的現行法規中查無對應條文，這題的答案�
 
 def review_recruit():
     data = load("questions.json")
-    summary = {"law": 0, "unverified": 0, "experience": 0, "outdated": 0}
+    summary = {"law": 0, "partial": 0, "unverified": 0, "experience": 0, "outdated": 0}
     for q in data["questions"]:
         qid = q["id"]
         if qid in FIXES:
@@ -257,6 +310,7 @@ def review_recruit():
         q.pop("status", None)
         q.pop("status_note", None)
         q["reviewed_at"] = REVIEWED_AT
+        q["confidence"] = "中" if qid in MEDIUM else "高"
         if qid in OUTDATED:
             pcode, no = OUTDATED_SOURCE[qid]
             q.update({
@@ -266,11 +320,17 @@ def review_recruit():
             })
         elif qid in LAW_BASIS or qid in BASIS_OVERRIDE:
             basis(q, *BASIS_OVERRIDE.get(qid, LAW_BASIS.get(qid)))
+            if qid in PARTIAL:
+                q["review"] = "partial"
+                q["confidence"] = "低"
+                q["explanation"] += "\n" + PARTIAL[qid] + "本題保留歷屆答案，不列入模擬考。"
         elif q["category"] == "shooting":
             q["review"] = "experience"
             q["source_kind"] = "experience"
+            q["confidence"] = "低"
         else:
             q["review"] = "unverified"
+            q["confidence"] = "低"
             q["explanation"] = NOTES.get(qid, UNVERIFIED_NOTE)
             if qid not in NOTES or "條" not in q["source"]:
                 q["source_kind"] = "past"
@@ -363,24 +423,45 @@ EMT_FIXES = {
         "explanation": "《緊急醫療救護法》第32條：直轄市、縣（市）政府遇大量傷病患或野外緊急救護，應依災害規模及種類，建立現場指揮協調系統，施行救護有關工作。第33條並規定參與現場急救的救護人員及救護運輸工具設置機關（構），均應依現場指揮協調系統之指揮施行救護。",
         "basis": (EMS, 32), "revised": "原題引用第26至28條，實際條文在第32、33條。",
     },
+    "EMT-LAW-11": {
+        "explanation": "《道路交通安全規則》第93條第2項：消防車、救護車、警備車、工程救險車及毒性化學物質災害事故應變車執行任務時，得不受前項行車速度之限制，且於開啟警示燈及警鳴器執行緊急任務時，得不受標誌、標線及號誌指示之限制。\n條文只免除速限與標誌、標線、號誌的限制，沒有免除肇事責任的規定，所以「完全免除刑事與民事責任」的敘述沒有依據。選項 (D) 所說的注意義務不在這一條的文字裡，本題保留歷屆答案，不列入模擬考。",
+        "basis": (TRAFFIC, 93), "partial": True,
+        "revised": "原解析引用「法院判例」但沒有可查的出處，已刪除，改為只引用第93條條文。",
+    },
+}
+
+# 教材題中，作法與較新的急救指引不完全一致的題目：保留教材答案並加註
+EMT_CAUTION = {
+    "EMT-CPR-11": "各指引對清醒成人嚴重哽塞的第一步作法不同：歐洲復甦委員會（ERC）建議先拍背 5 下，無效再做腹部推擠。考試以訓練單位教材為準。",
+    "EMT-AIR-15": "2020 年版美國心臟協會（AHA）指引對有脈搏、呼吸不足的成人，建議每 6 秒給一口氣（每分鐘約 10 次）。考試以訓練單位教材為準。",
+    "EMT-MED-08": "抬高下肢對休克的效果證據有限，部分急救指引只建議讓傷患平躺。考試以訓練單位教材為準。",
 }
 
 
 def review_emt():
     data = load("emt_questions.json")
-    summary = {"law": 0, "textbook": 0}
+    summary = {"law": 0, "partial": 0, "textbook": 0}
     for q in data["questions"]:
         q["reviewed_at"] = REVIEWED_AT
+        q["confidence"] = "高"
+        q.pop("caution", None)
         fix = EMT_FIXES.get(q["id"])
         if fix:
             fix = dict(fix)
             pcode, no = fix.pop("basis")
+            partial = fix.pop("partial", False)
             q.update(fix)
             q["source"] = "%s 第%s條" % (LAWS[pcode]["name"], no)
             q["source_url"] = single_url(pcode, no)
             q["source_kind"] = "law"
-            q["review"] = "law"
+            q["review"] = "partial" if partial else "law"
+            if partial:
+                q["confidence"] = "低"
         else:
+            q["confidence"] = "中"
+            if q["id"] in EMT_CAUTION:
+                q["caution"] = EMT_CAUTION[q["id"]]
+                q["confidence"] = "低"
             q["review"] = "textbook"
             q["source_kind"] = "law" if "law.moj.gov.tw" in q["source_url"] else "textbook"
             q["source"] = q["source"].replace("全國法規資料庫 - ", "")
@@ -514,46 +595,138 @@ def review_study():
     save("study_data.json", study)
 
 
-# ---------------------------------------------------------------- 查核紀錄
-def write_report(recruit, emt, r_sum, e_sum):
+# ---------------------------------------------------------------- 查核紀錄與逐題審核表
+REVIEWER = "Claude（AI）；尚無人工複核"
+STATUS = {
+    "law": "核實", "partial": "待補證（條文只支持一部分）", "unverified": "待補證（查無條文）",
+    "experience": "待補證（經驗題）", "outdated": "舊法停用", "textbook": "待補證（教材題，未對照現行教材原文）",
+}
+METHOD = {
+    "law": "題幹、選項與所引條文逐字比對，列出不見於條文的片段後逐題裁定",
+    "partial": "題幹、選項與所引條文逐字比對；條文只支持一部分",
+    "unverified": "在收錄的 20 部法規中檢索，查無對應條文",
+    "experience": "出自役男筆記，無官方來源可對照",
+    "outdated": "與現行條文比對，確認現行法規已無對應規定",
+    "textbook": "檢查題目、答案與解析是否一致；未取得現行教材原文，未逐題對照",
+}
+SUPPORT = {
+    "law": "是", "partial": "部分", "unverified": "無條文可對照", "experience": "無條文可對照",
+    "outdated": "否（舊法）", "textbook": "未對照教材原文",
+}
+AMBIGUOUS = {"MC-071", "MC-002"}
+
+
+def original_answers():
+    """改版前（提交 84f23d3）的題目與答案，用來記錄每一題是否被更動。"""
+    import subprocess
+    out = {}
+    for name in ("questions.json", "emt_questions.json"):
+        raw = subprocess.run(["git", "-C", ROOT, "show", "84f23d3:data/" + name], capture_output=True).stdout
+        for q in json.loads(raw.decode("utf-8"))["questions"]:
+            out[q["id"]] = q
+    return out
+
+
+def answer_text(q):
+    return q["answer"] if q["type"] == "true_false" else q["options"][q["answer"]]
+
+
+def law_date(q):
+    m = re.search(r"pcode=([A-Z]\d+)", q.get("source_url", ""))
+    if m and m.group(1) in LAWS:
+        law = LAWS[m.group(1)]
+        return "%s %s" % (law["date_label"], law["date"])
+    return "108 年版教材" if "ebook.nfa.gov.tw" in q.get("source_url", "") else ""
+
+
+def write_csv(recruit, emt):
+    import csv
+    before = original_answers()
+    verified = {"recruit": ("law",), "emt": ("law", "textbook")}
+    rows = []
+    for bank, data in (("recruit", recruit), ("emt", emt)):
+        for q in data["questions"]:
+            old = before.get(q["id"])
+            old_answer = answer_text(old) if old else ""
+            changed = bool(old) and (old_answer != answer_text(q) or old["question"] != q["question"]
+                                     or old.get("options") != q.get("options"))
+            review = q["review"]
+            if q["id"] in AMBIGUOUS:
+                status, unique = "有歧義", "否（有歧義）"
+            else:
+                status = STATUS[review]
+                unique = "是" if review == "law" else "未裁定" if review != "outdated" else "不適用"
+            rows.append({
+                "題號": q["id"], "題庫": "新訓" if bank == "recruit" else "EMT-1",
+                "題型": "是非" if q["type"] == "true_false" else "選擇", "分類": q["category"],
+                "出題梯次": q.get("exam_tag", ""), "題幹": q["question"],
+                "選項": " ／ ".join(q.get("options", [])),
+                "原始答案（改版前）": old_answer, "核定答案": answer_text(q),
+                "題目或答案是否更動": "是" if changed else "否",
+                "來源": q["source"], "來源連結": q.get("source_url", ""), "來源日期": law_date(q),
+                "所引來源是否支持題幹的關鍵限制詞": SUPPORT[review], "是否唯一正解": unique,
+                "處理狀態": status,
+                "列入模擬考": "是" if review in verified[bank] else "否",
+                "信心": q.get("confidence", ""), "解析": q.get("explanation", "") or q.get("status_note", ""),
+                "改動原因或備註": " ".join(x for x in (q.get("revised", ""), q.get("caution", "")) if x),
+                "審核者": REVIEWER, "審核日期": q["reviewed_at"], "審核方式": METHOD[review],
+            })
+    path = os.path.join(ROOT, "docs", "逐題審核_%s.csv" % REVIEWED_AT)
+    with open(path, "w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    return rows
+
+
+def write_report(recruit, emt, r_sum, e_sum, rows):
     laws = load("laws.json")
+    articles = sum(l["article_count"] for l in laws["laws"])
+    files = [(l, a) for l in laws["laws"] for a in l.get("attachments", [])]
     out = ["# 資料查核紀錄", "", "最後更新：%s" % REVIEWED_AT, "",
-           "本檔由 `scripts/apply_review_2026_10.py` 產生。法規條文於 %s 取自全國法規資料庫。" % laws["fetched_at"], "",
-           "## 一、法規版本", "", "| 法規 | 代碼 | 官方頁面標示 | 條數 |", "| --- | --- | --- | --- |"]
+           "本檔由 `scripts/apply_review_2026_10.py` 產生。逐題明細在 `docs/逐題審核_%s.csv`（%d 列，每題一列）。" % (REVIEWED_AT, len(rows)), "",
+           "審核者是 AI，目前沒有人工複核。「核實」的意思是：題幹與選項已和所引的現行條文逐字比對，條文支持題幹的每個限制詞，而且只有一個正解。", "",
+           "## 一、法規版本（%d 部、%d 條、附件 %d 件）" % (len(laws["laws"]), articles, len(files)), "",
+           "條文於 %s 取自全國法規資料庫。`python scripts/fetch_laws.py --check` 會重新下載並逐條比對，列出差異與受影響題號。" % laws["fetched_at"], "",
+           "| 法規 | 代碼 | 官方頁面標示 | 條數 | 附件 |", "| --- | --- | --- | --- | --- |"]
     for law in laws["laws"]:
-        out.append("| [%s](%s) | %s | %s %s | %d |" % (law["name"], law["url"], law["pcode"], law["date_label"], law["date"], law["article_count"]))
-    out += ["", "《救護技術員管理辦法》第3條附表一（初級救護技術員訓練課程基準）總時數為 56 小時，取自官方附件 PDF。", "",
-            "## 二、新訓題庫（%d 題）" % len(recruit["questions"]), "",
-            "| 查核結果 | 題數 | 說明 |", "| --- | --- | --- |",
-            "| 有條文依據 | %d | 來源已改為對應條文，解析為條文原文 |" % r_sum["law"],
-            "| 未能以法規查核 | %d | 營區規定、行政作業或成績配分等，收錄的法規中查無明文；保留歷屆答案並標示 |" % r_sum["unverified"],
-            "| 經驗來源 | %d | 射擊類，出自役男筆記 |" % r_sum["experience"],
-            "| 舊法題 | %d | 現行法規已無對應規定，不列入測驗 |" % r_sum["outdated"], "",
-            "### 依現行法規改寫或更正答案的題目", "", "| 題號 | 處理 |", "| --- | --- |"]
-    for q in recruit["questions"]:
-        if q.get("revised"):
-            out.append("| %s | %s |" % (q["id"], q["revised"]))
-    out += ["", "### 舊法題（不列入測驗）", "", "| 題號 | 原因 |", "| --- | --- |"]
-    for q in recruit["questions"]:
-        if q.get("status") == "outdated":
-            out.append("| %s | %s |" % (q["id"], q["status_note"]))
-    out += ["", "### 逐題結果", "", "| 題號 | 答案 | 結果 | 依據 |", "| --- | --- | --- | --- |"]
-    label = {"law": "有條文依據", "unverified": "未能以法規查核", "experience": "經驗來源", "outdated": "舊法題"}
-    for q in recruit["questions"]:
-        ans = q["answer"] if q["type"] == "true_false" else q["options"][q["answer"]]
-        out.append("| %s | %s | %s | %s |" % (q["id"], str(ans).replace("|", "／")[:24], label[q["review"]], q["source"]))
+        out.append("| [%s](%s) | %s | %s %s | %d | %d |" % (
+            law["name"], law["url"], law["pcode"], law["date_label"], law["date"], law["article_count"], len(law.get("attachments", []))))
+    out += ["", "### 附件清單", "",
+            "附件由官方以檔案提供。站內顯示的是從 PDF 擷取的文字，表格與圖片的排版以官方原件為準；沒有文字的附件只提供官方連結。", "",
+            "| 法規 | 附件 | 格式 | 取得 | 頁數 | 站內文字 |", "| --- | --- | --- | --- | --- | --- |"]
+    for law, a in files:
+        out.append("| %s | [%s](%s) | %s | %s | %s | %s |" % (
+            law["name"], a["name"], a["url"], a["format"], "成功" if a["fetched"] else "失敗",
+            a.get("pages", "") or "", "有" if a.get("text") else "無（看官方原件）"))
+    out += ["", "## 二、新訓題庫（%d 題）" % len(recruit["questions"]), "",
+            "| 處理狀態 | 題數 | 列入模擬考 | 說明 |", "| --- | --- | --- | --- |",
+            "| 核實 | %d | 是 | 來源為對應條文，解析為條文原文 |" % r_sum["law"],
+            "| 待補證（條文只支持一部分）或有歧義 | %d | 否 | 所引條文不支持題幹全部內容，或選項不是唯一正解 |" % r_sum["partial"],
+            "| 待補證（查無條文） | %d | 否 | 營區規定、行政作業、成績配分等，收錄的法規中查無明文；保留歷屆答案 |" % r_sum["unverified"],
+            "| 待補證（經驗題） | %d | 否 | 射擊類，出自役男筆記 |" % r_sum["experience"],
+            "| 舊法停用 | %d | 否 | 現行法規已無對應規定，保留題號與原因供追溯 |" % r_sum["outdated"], "",
+            "### 改寫或更正答案的題目", "", "| 題號 | 處理 |", "| --- | --- |"]
+    out += ["| %s | %s |" % (q["id"], q["revised"]) for q in recruit["questions"] if q.get("revised")]
+    out += ["", "### 舊法題", "", "| 題號 | 原因 |", "| --- | --- |"]
+    out += ["| %s | %s |" % (q["id"], q["status_note"]) for q in recruit["questions"] if q.get("status") == "outdated"]
+    out += ["", "### 條文只支持一部分或有歧義", "", "| 題號 | 說明 |", "| --- | --- |"]
+    out += ["| %s | %s |" % (qid, text) for qid, text in PARTIAL.items()]
+    out += ["| MC-002 | %s |" % NOTES["MC-002"]]
     out += ["", "## 三、EMT-1 題庫（%d 題）" % len(emt["questions"]), "",
-            "- 法規題 %d 題已對照現行《緊急醫療救護法》與《救護技術員管理辦法》，來源改為正確條號。" % e_sum["law"],
-            "- 其餘 %d 題為醫學與操作內容，依消防署教材與歷屆整理，已逐題檢查題目、答案與解析是否一致，但沒有對照比教材更新的國際急救指引。訓練單位教學若有不同，以訓練單位為準。" % e_sum["textbook"],
-            "", "### 更正的題目", "", "| 題號 | 處理 |", "| --- | --- |"]
-    for q in emt["questions"]:
-        if q.get("revised"):
-            out.append("| %s | %s |" % (q["id"], q["revised"]))
+            "- 法規題 %d 題已對照現行《緊急醫療救護法》與《救護技術員管理辦法》（含附表一）；另有 %d 題條文只支持一部分。" % (e_sum["law"], e_sum["partial"]),
+            "- 其餘 %d 題是醫學與操作內容，依消防署 108 年版教材與歷屆整理。已檢查題目、答案與解析是否一致，但沒有取得現行（56 小時課程）教材原文，不能視為已核實；不適合作為現場醫療決策的依據。" % e_sum["textbook"],
+            "- 因為教材題佔絕大多數，EMT-1 模擬考仍會抽教材題，測驗頁有說明。", "",
+            "### 更正的題目", "", "| 題號 | 處理 |", "| --- | --- |"]
+    out += ["| %s | %s |" % (q["id"], q["revised"]) for q in emt["questions"] if q.get("revised")]
+    out += ["", "### 與較新急救指引不完全一致、已加註的教材題", "", "| 題號 | 加註 |", "| --- | --- |"]
+    out += ["| %s | %s |" % (qid, text) for qid, text in EMT_CAUTION.items()]
     out += ["", "## 四、尚未查核的內容", "",
+            "- 新訓 %d 題待補證題、%d 題射擊經驗題：需要當梯次教材或主管機關文件才能核定。" % (r_sum["unverified"] + r_sum["partial"], r_sum["experience"]),
+            "- EMT-1 %d 題教材題：需要現行教材原文逐題對照。" % e_sum["textbook"],
             "- 役期月數、薪給金額、成績配分：由行政院或訓練單位核定，不在收錄的法規條文中，頁面已標示為歷屆整理。",
-            "- 「歷屆役男重點筆記」「歷屆考題註解」共約 200 則筆記沒有逐條核對，頁面標題已註明可能含舊法內容。",
-            "- 用品清單為 2024 年梯次役男分享，非官方清單。",
-            "- 射擊類題目與打靶重點出自役男筆記。", ""]
+            "- 「歷屆役男重點筆記」「歷屆考題註解」約 200 則筆記沒有逐條核對，頁面標題已註明可能含舊法內容。",
+            "- 用品清單為 2024 年梯次役男分享，非官方清單。", ""]
     os.makedirs(os.path.join(ROOT, "docs"), exist_ok=True)
     with open(os.path.join(ROOT, "docs", "資料查核紀錄.md"), "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(out))
@@ -564,6 +737,8 @@ if __name__ == "__main__":
     emt, e_sum = review_emt()
     review_emt_study()
     review_study()
-    write_report(recruit, emt, r_sum, e_sum)
+    rows = write_csv(recruit, emt)
+    write_report(recruit, emt, r_sum, e_sum, rows)
     print("新訓：", r_sum)
     print("EMT：", e_sum)
+    print("逐題審核表：%d 列" % len(rows))

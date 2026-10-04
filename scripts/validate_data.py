@@ -92,11 +92,19 @@ def near_duplicates(questions):
 def main():
     laws = load("laws.json")
     law_names = {l["pcode"]: l["name"] for l in laws["laws"]}
-    # 有被題目引用、但條文太長而沒有收錄全文的法規
-    law_names["K0040013"] = "道路交通安全規則"
     for law in laws["laws"]:
         if not law["date"] or law["article_count"] < 1:
             errors.append("法規資料不完整：%s" % law["pcode"])
+        flagged = sum(1 for c in law["chapters"] for a in c["articles"] if a.get("attachment"))
+        if flagged and not law.get("attachments"):
+            errors.append("%s 有條文標示附件，但附件清單是空的" % law["name"])
+        for att in law.get("attachments", []):
+            if not att["fetched"]:
+                errors.append("%s 的附件「%s」沒有取得成功" % (law["name"], att["name"]))
+        path = os.path.join(ROOT, "data", "laws", law["pcode"] + ".js")
+        expected = json.dumps(law, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+        if not os.path.exists(path) or expected not in open(path, encoding="utf-8").read():
+            errors.append("data/laws/%s.js 與 laws.json 不一致，請重跑 generate_bundle.py" % law["pcode"])
 
     recruit = load("questions.json")
     emt = load("emt_questions.json")
@@ -142,6 +150,54 @@ def main():
         expected = "window.%s = %s;" % (var, json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         if expected not in bundle:
             errors.append("data_bundle.js 的 %s 與 JSON 不一致，請重跑 generate_bundle.py" % var)
+
+    # 逐題審核表必須涵蓋每一題，而且核定答案與題庫一致
+    import csv
+    import glob
+    import hashlib
+    audits = sorted(glob.glob(os.path.join(ROOT, "docs", "逐題審核_*.csv")))
+    if not audits:
+        errors.append("找不到 docs/逐題審核_*.csv")
+    else:
+        with open(audits[-1], encoding="utf-8-sig", newline="") as f:
+            rows = {row["題號"]: row for row in csv.DictReader(f)}
+        for q in recruit["questions"] + emt["questions"]:
+            row = rows.get(q["id"])
+            answer = q["answer"] if q["type"] == "true_false" else q["options"][q["answer"]]
+            if not row:
+                errors.append("逐題審核表缺少 %s" % q["id"])
+            elif row["核定答案"] != str(answer) or row["題幹"] != q["question"]:
+                errors.append("逐題審核表的 %s 與題庫不一致，請重跑 apply_review" % q["id"])
+        if len(rows) != len(recruit["questions"]) + len(emt["questions"]):
+            errors.append("逐題審核表列數 %d 與題數不符" % len(rows))
+
+    # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
+    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook"}
+    for name, data, pool, need in (("新訓", recruit, {"law"}, 50), ("EMT", emt, {"law", "textbook"}, 50)):
+        for q in data["questions"]:
+            if q.get("review") not in allowed:
+                errors.append("%s %s 的查核狀態不明：%s" % (name, q["id"], q.get("review")))
+            if (q.get("status") == "outdated") != (q.get("review") == "outdated"):
+                errors.append("%s %s 的舊法標記不一致" % (name, q["id"]))
+        count = sum(q.get("review") in pool for q in data["questions"])
+        if count < need:
+            errors.append("%s 可列入模擬考的題目只有 %d 題，不足 %d 題" % (name, count, need))
+
+    # PDF 必須在資料最後一次修改之後重新產生（scripts/build_all.py 會寫入 pdf/manifest.json）
+    manifest_path = os.path.join(ROOT, "pdf", "manifest.json")
+    digest = lambda name: hashlib.sha1(open(os.path.join(ROOT, "data", name), "rb").read().replace(b"\r\n", b"\n")).hexdigest()
+    if not os.path.exists(manifest_path):
+        errors.append("找不到 pdf/manifest.json，請執行 scripts/build_all.py")
+    else:
+        manifest = json.load(open(manifest_path, encoding="utf-8"))
+        for name in ("questions.json", "emt_questions.json", "study_data.json"):
+            if manifest.get("sources", {}).get(name) != digest(name):
+                errors.append("PDF 不是用目前的 %s 產生的，請執行 scripts/build_all.py" % name)
+    for html_name, data in (("questions_biaukai.html", recruit), ("emt_questions_biaukai.html", emt)):
+        page = open(os.path.join(ROOT, "pdf", html_name), encoding="utf-8").read()
+        missing = [q["id"] for q in data["questions"] if q["question"] not in page]
+        if missing:
+            errors.append("%s 缺少或未更新的題目：%s" % (html_name, missing[:5]))
 
     dups = near_duplicates(recruit["questions"])
     print("新訓 %d 題（是非 %d、選擇 %d），EMT %d 題，法規 %d 部" % (

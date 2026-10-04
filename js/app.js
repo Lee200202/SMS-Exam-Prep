@@ -122,12 +122,19 @@
         regulations: '替代役實施條例', rights: '權益、撫卹與保險', management: '訓練服勤與獎懲',
         volunteer: '志願服務法', shooting: '射擊與國防',
       },
+      // 模擬考只從這些查核狀態的題目出題
+      verified: ['law'],
+      verifiedLabel: '已對照法條',
+      otherLabel: '未能以法規查核的題目與經驗題',
     },
     emt: {
       id: 'emt', label: 'EMT-1', pass: 70, mockCount: 50, mockMinutes: 50, quickCount: 20,
       mistakesKey: 'sms_emt_mistakes', bookmarksKey: 'sms_emt_bookmarks', sessionKey: 'sms_session_v2_emt',
       quizRoute: 'emt', bankRoute: 'emt-bank',
       cats: {},
+      verified: ['law', 'textbook'],
+      verifiedLabel: '法規題與教材題',
+      otherLabel: '其他題目',
     },
   };
 
@@ -180,6 +187,7 @@
       sourceUrl: q.source_url || '',
       sourceKind: q.source_kind || (/law\.moj\.gov\.tw/.test(q.source_url || '') ? 'law' : 'other'),
       review: q.review || '',
+      caution: q.caution || '',
       outdated: q.status === 'outdated',
       statusNote: q.status_note || '',
       revised: q.revised || '',
@@ -197,6 +205,8 @@
     const bank = {
       cfg, questions, byId,
       pool: questions.filter((q) => !q.outdated),
+      verified: questions.filter((q) => !q.outdated && cfg.verified.includes(q.review)),
+      keep,
       mistakes: keep(loadSet(cfg.mistakesKey)),
       bookmarks: keep(loadSet(cfg.bookmarksKey)),
       session: null,
@@ -226,20 +236,42 @@
     state.checked = loadSet('sms_checklist');
   }
 
+  const ASSET_VERSION = '20261004';
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = `${src}?v=${ASSET_VERSION}`;
+      script.onload = resolve;
+      script.onerror = () => { script.remove(); reject(new Error(`${src} 載入失敗`)); };
+      document.head.appendChild(script);
+    });
+  }
+
+  // 法規清單先載入；各法規的全文與附件文字在展開或搜尋時才載入
   let lawsPromise = null;
   function loadLaws() {
     if (state.laws) return Promise.resolve(state.laws);
     if (!lawsPromise) {
-      lawsPromise = new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = 'data/laws_bundle.js?v=20261003b';
-        script.onload = () => (window.APP_LAWS ? resolve(window.APP_LAWS) : reject(new Error('laws bundle empty')));
-        script.onerror = () => reject(new Error('laws bundle failed'));
-        document.head.appendChild(script);
-      }).then((laws) => { state.laws = laws; return laws; })
-        .catch((err) => { lawsPromise = null; throw err; });
+      lawsPromise = loadScript('data/laws_index.js').then(() => {
+        if (!window.APP_LAWS_INDEX) throw new Error('laws index empty');
+        state.laws = window.APP_LAWS_INDEX;
+        return state.laws;
+      }).catch((err) => { lawsPromise = null; throw err; });
     }
     return lawsPromise;
+  }
+
+  const lawPromises = {};
+  function loadLaw(pcode) {
+    const have = () => window.APP_LAW_DATA && window.APP_LAW_DATA[pcode];
+    if (have()) return Promise.resolve(have());
+    if (!lawPromises[pcode]) {
+      lawPromises[pcode] = loadScript(`data/laws/${pcode}.js`).then(() => {
+        if (!have()) throw new Error('law empty');
+        return have();
+      }).catch((err) => { delete lawPromises[pcode]; throw err; });
+    }
+    return lawPromises[pcode];
   }
 
   /* ------------------------------------------------------------ 測驗狀態機 */
@@ -294,17 +326,21 @@
     const shuffleOptions = !($('#opt-shuffle') && !$('#opt-shuffle').checked);
     let ids = [];
     let opts = { shuffleOptions };
+    // 模擬考一律只抽已核實的題目；練習可由使用者勾選納入其餘題目
+    const practice = $('#opt-unverified') && $('#opt-unverified').checked ? bank.pool : bank.verified;
+    let emptyMessage = '沒有可以出題的題目。';
     if (mode === 'mock') {
-      ids = shuffle(bank.pool).slice(0, cfg.mockCount).map((q) => q.id);
+      ids = shuffle(bank.verified).slice(0, cfg.mockCount).map((q) => q.id);
       opts = { ...opts, label: '模擬考', minutes: cfg.mockMinutes, instant: false };
     } else if (mode === 'quick') {
-      ids = shuffle(bank.pool).slice(0, cfg.quickCount).map((q) => q.id);
+      ids = shuffle(practice).slice(0, cfg.quickCount).map((q) => q.id);
       opts = { ...opts, label: '快速練習', instant: true };
     } else if (mode === 'category') {
       const cat = $('#opt-cat') ? $('#opt-cat').value : Object.keys(cfg.cats)[0];
       const count = Number($('#opt-count') ? $('#opt-count').value : 20) || Infinity;
-      ids = shuffle(bank.pool.filter((q) => q.cat === cat)).slice(0, count).map((q) => q.id);
+      ids = shuffle(practice.filter((q) => q.cat === cat)).slice(0, count).map((q) => q.id);
       opts = { ...opts, label: `章節練習：${cfg.cats[cat]}`, instant: true };
+      emptyMessage = `這個章節沒有${cfg.verifiedLabel}的題目。勾選下方「納入${cfg.otherLabel}」後可以練習。`;
     } else if (mode === 'mistakes') {
       ids = shuffle(bank.pool.filter((q) => bank.mistakes.has(q.id))).slice(0, 50).map((q) => q.id);
       opts = { ...opts, label: '錯題重測', instant: true };
@@ -313,7 +349,7 @@
       opts = { ...opts, label: '本次錯題重測', instant: true };
     }
     if (!ids.length) {
-      toast(mode === 'mistakes' ? '錯題本目前是空的。' : '沒有可以出題的題目。');
+      toast(mode === 'mistakes' ? '錯題本目前是空的。' : emptyMessage);
       return;
     }
     if (bank.session && bank.session.status === 'paused') {
@@ -448,6 +484,7 @@
     const parts = [];
     if (q.explanation) parts.push(`<p>${rich(q.explanation)}</p>`);
     else parts.push('<p class="muted">這一題目前沒有解析。</p>');
+    if (q.caution) parts.push(`<p class="notice notice-warn small">${esc(q.caution)}</p>`);
     if (q.revised) parts.push(`<p class="small"><span class="chip chip-amber">已依現行法規改寫</span> ${esc(q.revised)}</p>`);
     parts.push(sourceLine(q));
     return parts.join('');
@@ -467,8 +504,10 @@
 
   const REVIEW_CHIP = {
     law: ['chip-ok', '已對照法條'],
+    partial: ['chip-amber', '條文只支持一部分'],
     unverified: ['chip-amber', '未能以法規查核'],
     experience: ['', '經驗題'],
+    textbook: ['', '教材題'],
   };
   const reviewChip = (q) => (REVIEW_CHIP[q.review]
     ? `<span class="chip ${REVIEW_CHIP[q.review][0]}">${REVIEW_CHIP[q.review][1]}</span>` : '');
@@ -504,7 +543,7 @@
         <a class="btn btn-primary btn-lg" href="#quiz">開始新訓學科測驗</a>
         <a class="btn btn-primary btn-lg" href="#emt">開始 EMT-1 測驗</a>
       </div>
-      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 ${e.questions.length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
+      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}），其中 ${r.verified.length} 題已對照法條・EMT-1 ${e.questions.length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
     </section>
     <div class="stack">
       ${resumeBanner(r)}${resumeBanner(e)}
@@ -528,7 +567,13 @@
           <div class="stat"><b>${e.bookmarks.size}</b><span>EMT-1 收藏</span></div>
         </div>
         <p class="small muted" style="margin-top:16px">紀錄只存在這台裝置的瀏覽器裡，不會上傳。</p>
-        <button type="button" class="btn btn-danger" data-action="clear-all">清除這台裝置上的所有紀錄</button>
+        <div class="row">
+          <button type="button" class="btn" data-action="export-data">匯出紀錄</button>
+          <button type="button" class="btn" data-action="import-data">匯入紀錄</button>
+          <input type="file" id="import-file" accept="application/json,.json" class="sr-only" tabindex="-1" aria-hidden="true">
+          <button type="button" class="btn btn-danger" data-action="clear-all">清除這台裝置上的所有紀錄</button>
+        </div>
+        <p class="small muted" style="margin-top:12px">匯出檔只包含錯題、收藏與用品清單勾選，可以在另一台裝置匯入合併。</p>
       </section>
       <section class="card" aria-labelledby="home-pdf">
         <h2 id="home-pdf">下載 PDF</h2>
@@ -550,15 +595,22 @@
   /* ------------------------------------------------------------ 測驗畫面 */
   function viewQuizSetup(bank) {
     const cfg = bank.cfg;
-    const catOptions = Object.entries(cfg.cats).map(([id, name]) =>
-      `<option value="${esc(id)}">${esc(name)}（${bank.pool.filter((q) => q.cat === id).length} 題）</option>`).join('');
+    const count = (list, cat) => list.filter((q) => q.cat === cat).length;
+    const catOptions = Object.entries(cfg.cats).map(([id, name]) => {
+      const a = count(bank.verified, id), b = count(bank.pool, id);
+      return `<option value="${esc(id)}">${esc(name)}（${a} 題${b > a ? `，另 ${b - a} 題待核實` : ''}）</option>`;
+    }).join('');
+    const others = bank.pool.length - bank.verified.length;
+    const scope = cfg.id === 'recruit'
+      ? `只從${cfg.verifiedLabel}的 ${bank.verified.length} 題出題。`
+      : `從 ${bank.verified.length} 題出題，其中醫學題依消防署教材整理，尚未對照新版教材。`;
     return `
     <div class="stack">
       ${resumeBanner(bank)}
       <div class="mode-list">
         <section class="card mode">
           <h2>模擬考</h2>
-          <p>隨機 ${cfg.mockCount} 題，限時 ${cfg.mockMinutes} 分鐘，${cfg.pass} 分及格。交卷後才看答案。</p>
+          <p>隨機 ${cfg.mockCount} 題，限時 ${cfg.mockMinutes} 分鐘，${cfg.pass} 分及格。交卷後才看答案。<span id="mock-scope">${scope}</span></p>
           <button type="button" class="btn btn-primary" data-action="quiz-start" data-mode="mock">開始模擬考</button>
         </section>
         <section class="card mode">
@@ -584,6 +636,9 @@
         </section>
       </div>
       <div class="card stack-sm">
+        <h2>出題設定</h2>
+        ${others ? `<label class="check"><input type="checkbox" id="opt-unverified"> 快速練習與章節練習納入${cfg.otherLabel}（${others} 題）</label>
+        <p class="small muted">這些題目的答案來自歷屆考古題或役男筆記，沒有法規條文可以對照，作答時題目上會有標示。模擬考不會抽到它們。</p>` : ''}
         <label class="check"><input type="checkbox" id="opt-shuffle" checked> 選擇題的選項隨機排列</label>
         <p class="small muted">含「以上皆是」這類選項的題目不會打亂。未作答的題目不計分，也不會加入錯題本。模擬考計時以實際時間計算，切到其他 App 時不會停；離開測驗頁或重新整理會自動暫停，可以回來繼續。</p>
         <div class="row">${pdfLink(cfg.id)}</div>
@@ -652,6 +707,7 @@
         <div class="question-meta">
           <span class="chip chip-primary">${typeLabel(q)}</span>
           <span class="chip">${esc(bank.cfg.cats[q.cat] || q.cat)}</span>
+          ${bank.cfg.verified.includes(q.review) ? '' : reviewChip(q)}
           ${flagged ? '<span class="chip chip-amber">已標記</span>' : ''}
         </div>
         <h1 class="question-text" id="question-text" tabindex="-1">${esc(q.text)}</h1>
@@ -793,13 +849,16 @@
     const kw = bank.filter.q.trim();
     const hidden = bank.filter.hide && !bank.revealed.has(q.id);
     const order = q.options.map((_, i) => i);
+    const inExplanation = kw && q.explanation.toLowerCase().includes(kw.toLowerCase());
     const body = hidden
       ? `<ul class="answers">${order.map((orig, pos) => `<li><span aria-hidden="true">${q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCD'[pos]}</span><span>${hl(q.options[orig], kw)}</span></li>`).join('')}</ul>
          <button type="button" class="btn" data-action="bank-reveal" data-id="${esc(q.id)}">顯示答案與解析</button>`
       : `${answerList(q, order, undefined, kw)}
-         <div class="explain">${q.explanation ? `<p>${hl(q.explanation, kw).replace(/\n/g, '<br>')}</p>` : '<p class="muted">這一題目前沒有解析。</p>'}
-           ${q.revised ? `<p class="small"><span class="chip chip-amber">已依現行法規改寫</span> ${esc(q.revised)}</p>` : ''}
-           ${sourceLine(q)}</div>`;
+         ${q.caution ? `<p class="notice notice-warn small">${esc(q.caution)}</p>` : ''}
+         ${q.revised ? `<p class="small"><span class="chip chip-amber">已依現行法規改寫</span> ${esc(q.revised)}</p>` : ''}
+         ${sourceLine(q)}
+         ${q.explanation ? `<details class="explain-fold" ${inExplanation ? 'open' : ''}><summary>看解析</summary>
+           <div class="details-body"><p>${hl(q.explanation, kw).replace(/\n/g, '<br>')}</p></div></details>` : ''}`;
     return `<article class="card qcard" id="q-${esc(q.id)}" data-id="${esc(q.id)}">
       <div class="qcard-head">
         <span class="id">${esc(q.id)}</span><span class="chip chip-primary">${typeLabel(q)}</span><span class="chip">${esc(bank.cfg.cats[q.cat] || q.cat)}</span>
@@ -931,57 +990,93 @@
   }
 
   /* ------------------------------------------------------------ 法規全文 */
+  const OFFICIAL = ext('https://law.moj.gov.tw/', '全國法規資料庫');
+
   function lawArticle(law, a, kw) {
-    // 附表、附件只在官方網站提供
     const note = a.attachment
-      ? `<p class="small muted">本條有附件（附表），內容請看${ext(`https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=${law.pcode}&flno=${a.no}`, '全國法規資料庫')}。</p>` : '';
+      ? `<p class="small muted">本條有附件，列在這部法規最下方的「附件」；也可以看${ext(`https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=${law.pcode}&flno=${a.no}`, '官方條文頁')}。</p>` : '';
     return `<div class="law-article"><h4>${esc(a.label)}</h4>${a.lines.map(([indent, text]) =>
       `<p class="in-${Math.min(indent, 3)}">${hl(text, kw).replace(/\n/g, '<br>')}</p>`).join('')}${note}</div>`;
   }
 
+  function attachmentList(law) {
+    const items = law.attachments || [];
+    if (!items.length) return '';
+    return `<h3 class="law-chapter">附件（${items.length} 件）</h3>
+      <p class="small muted">附件由官方以檔案提供。PDF 已擷取文字方便閱讀與搜尋；表格、圖片的排版請以官方原件為準。</p>
+      ${items.map((a) => {
+        const origin = ext(a.url, `官方原件（${a.format || '檔案'}）`);
+        if (!a.fetched) return `<div class="law-article"><h4>${esc(a.name)}</h4><p class="notice notice-warn small">這份附件沒有取得成功，本站內容不完整，請看${origin}。</p></div>`;
+        if (!a.text) return `<div class="law-article"><h4>${esc(a.name)}</h4><p class="small">本站沒有這份附件的文字（${a.format === 'PDF' ? '掃描或圖片檔' : '非 PDF 格式'}），請看${origin}。</p></div>`;
+        return `<details class="attachment"><summary><span>${esc(a.name)}<br><span class="small muted">${a.pages} 頁・已擷取文字</span></span></summary>
+          <div class="details-body"><p class="small">${origin}</p><pre class="attachment-text">${esc(a.text)}</pre></div></details>`;
+      }).join('')}`;
+  }
+
   function lawBody(law) {
     return `<p class="small muted">${esc(law.date_label)}：${esc(law.date)}　${ext(law.url, '全國法規資料庫原文')}</p>
-      ${law.chapters.map((ch) => `${ch.title ? `<h3 class="law-chapter">${esc(ch.title)}</h3>` : ''}${ch.articles.map((a) => lawArticle(law, a)).join('')}`).join('')}`;
+      ${law.chapters.map((ch) => `${ch.title ? `<h3 class="law-chapter">${esc(ch.title)}</h3>` : ''}${ch.articles.map((a) => lawArticle(law, a)).join('')}`).join('')}
+      ${attachmentList(law)}`;
   }
 
   function viewLaws(group) {
     return `<div class="stack-sm"><h2>法規全文</h2>
       <p class="muted read" id="law-meta">法規載入中…</p>
-      <div class="card"><div class="field"><label for="law-search">搜尋條文</label>
+      <div class="card"><div class="field"><label for="law-search">搜尋條文與附件</label>
         <input type="search" id="law-search" data-group="${group}" placeholder="輸入關鍵字，例如：${group === 'emt' ? '救護紀錄表' : '撫卹、請假'}" autocomplete="off"></div></div>
       <p id="law-count" class="muted" role="status" aria-live="polite"></p>
       <div id="law-list"></div></div>`;
   }
 
+  const snippet = (text, kw) => {
+    const at = text.toLowerCase().indexOf(kw.toLowerCase());
+    const from = Math.max(0, at - 60);
+    return `${from > 0 ? '…' : ''}${hl(text.slice(from, at + kw.length + 80), kw)}…`;
+  };
+
+  let lawSearchSeq = 0;
   function updateLaws(group) {
     const list = $('#law-list');
     if (!list || !state.laws) return;
     const laws = state.laws.laws.filter((l) => l.group === group);
     const kw = ($('#law-search').value || '').trim();
-    $('#law-meta').innerHTML = `共 ${laws.length} 部法規，條文於 ${esc(state.laws.fetched_at)} 取自${ext('https://law.moj.gov.tw/', '全國法規資料庫')}，未經改寫。之後如有修正，請以官方網站為準。`;
+    const articles = laws.reduce((n, l) => n + l.article_count, 0);
+    const files = laws.reduce((n, l) => n + l.attachments.length, 0);
+    $('#law-meta').innerHTML = `共 ${laws.length} 部法規、${articles} 條、附件 ${files} 件，於 ${esc(state.laws.fetched_at)} 取自${OFFICIAL}，條文未經改寫。之後如有修正，請以官方網站為準。`;
+    const seq = ++lawSearchSeq;
     if (!kw) {
       $('#law-count').textContent = '';
-      list.innerHTML = laws.map((l) => `<details data-law="${esc(l.pcode)}"><summary><span>${esc(l.name)}<br><span class="small muted">${esc(l.date_label)} ${esc(l.date)}・${l.article_count} 條</span></span></summary><div class="details-body"></div></details>`).join('');
+      list.innerHTML = laws.map((l) => `<details data-law="${esc(l.pcode)}"><summary><span>${esc(l.name)}<br><span class="small muted">${esc(l.date_label)} ${esc(l.date)}・${l.article_count} 條${l.attachments.length ? `・附件 ${l.attachments.length} 件` : ''}</span></span></summary><div class="details-body"><p class="muted">條文載入中…</p></div></details>`).join('');
       return;
     }
-    const lower = kw.toLowerCase();
-    let total = 0;
-    const html = laws.map((l) => {
-      const hits = [];
-      l.chapters.forEach((ch) => ch.articles.forEach((a) => {
-        if (a.lines.some(([, text]) => text.toLowerCase().includes(lower))) hits.push(a);
-      }));
-      total += hits.length;
-      return hits.length ? `<section class="card"><h3>${esc(l.name)}（${hits.length} 條）</h3>${hits.map((a) => lawArticle(l, a, kw)).join('')}</section>` : '';
-    }).join('');
-    $('#law-count').textContent = `找到 ${total} 條條文`;
-    list.innerHTML = total ? `<div class="stack-sm">${html}</div>` : '<div class="card empty"><p>沒有符合的條文，試試其他關鍵字。</p></div>';
+    $('#law-count').textContent = '搜尋中…';
+    Promise.all(laws.map((l) => loadLaw(l.pcode))).then((full) => {
+      if (seq !== lawSearchSeq || !$('#law-list')) return; // 使用者已改了關鍵字或離開頁面
+      const lower = kw.toLowerCase();
+      let total = 0;
+      const html = full.map((l) => {
+        const hits = [];
+        l.chapters.forEach((ch) => ch.articles.forEach((a) => {
+          if (a.lines.some(([, text]) => text.toLowerCase().includes(lower))) hits.push(a);
+        }));
+        const docs = (l.attachments || []).filter((a) => a.text && a.text.toLowerCase().includes(lower));
+        total += hits.length + docs.length;
+        if (!hits.length && !docs.length) return '';
+        return `<section class="card"><h3>${esc(l.name)}（${hits.length} 條${docs.length ? `、附件 ${docs.length} 件` : ''}）</h3>
+          ${hits.map((a) => lawArticle(l, a, kw)).join('')}
+          ${docs.map((a) => `<div class="law-article"><h4>${esc(a.name)}</h4><p>${snippet(a.text, kw)}</p><p class="small">${ext(a.url, '官方原件')}</p></div>`).join('')}</section>`;
+      }).join('');
+      $('#law-count').textContent = `找到 ${total} 筆（條文與附件）`;
+      $('#law-list').innerHTML = total ? `<div class="stack-sm">${html}</div>` : '<div class="card empty"><p>沒有符合的條文，試試其他關鍵字。</p></div>';
+    }).catch(() => {
+      if (seq === lawSearchSeq && $('#law-count')) $('#law-count').textContent = '法規載入失敗，請重新整理後再試。';
+    });
   }
 
   function initLaws(group) {
     loadLaws().then(() => updateLaws(group)).catch(() => {
       const meta = $('#law-meta');
-      if (meta) meta.innerHTML = `法規資料載入失敗。請重新整理，或直接到${ext('https://law.moj.gov.tw/', '全國法規資料庫')}查詢。`;
+      if (meta) meta.innerHTML = `法規資料載入失敗。請重新整理，或直接到${OFFICIAL}查詢。`;
     });
   }
 
@@ -1084,6 +1179,13 @@
     if (view === 'bank') updateBank(state.banks[section]);
     if (view === 'laws') initLaws(section);
     if (section === 'checklist') updateChecklistProgress();
+    const currentSub = $('.sub-nav a[aria-current="page"]');
+    if (currentSub) {
+      // 不用 scrollIntoView：它會改變鍵盤 Tab 的起點，讓第一個焦點跳過「跳到主要內容」
+      const bar = currentSub.closest('.sub-nav');
+      const left = currentSub.getBoundingClientRect().left - bar.getBoundingClientRect().left + bar.scrollLeft;
+      bar.scrollLeft = Math.max(0, left - (bar.clientWidth - currentSub.offsetWidth) / 2);
+    }
     document.title = `${section === 'home' ? '首頁' : section === 'checklist' ? '用品清單' : SECTION_HEAD[section][0]}｜成功嶺新訓備考`;
     if (state.focusAfterRender) {
       const el = $(state.focusAfterRender);
@@ -1226,6 +1328,24 @@
       toast('已移出錯題本');
     },
     print() { window.print(); },
+    'export-data'() {
+      const data = {
+        app: 'sms-exam-prep', version: 1, exported_at: new Date().toISOString(),
+        recruit: { mistakes: [...state.banks.recruit.mistakes], bookmarks: [...state.banks.recruit.bookmarks] },
+        emt: { mistakes: [...state.banks.emt.mistakes], bookmarks: [...state.banks.emt.bookmarks] },
+        checklist: [...state.checked],
+      };
+      const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `sms-exam-prep-紀錄-${data.exported_at.slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      toast('已匯出紀錄檔。');
+    },
+    'import-data'() { $('#import-file').click(); },
     async 'check-reset'() {
       const ok = await ask({ title: '清除所有勾選？', body: '用品清單的勾選紀錄會全部清除。',
         actions: [{ label: '取消', value: false }, { label: '清除', value: true, kind: 'danger' }] });
@@ -1245,6 +1365,68 @@
       toast('已清除這台裝置上的紀錄。');
     },
   };
+
+  /** 匯入的檔案只接受本站匯出的格式：字串陣列，且只留下題庫或清單裡存在的 id。 */
+  async function importData(file) {
+    const ids = (value) => (Array.isArray(value) ? value.filter((x) => typeof x === 'string').slice(0, 2000) : null);
+    let data = null;
+    try {
+      if (file.size > 1024 * 1024) throw new Error('too large');
+      data = JSON.parse(await file.text());
+    } catch (e) {
+      data = null;
+    }
+    const lists = data && data.app === 'sms-exam-prep' && data.version === 1 && data.recruit && data.emt ? {
+      rm: ids(data.recruit.mistakes), rb: ids(data.recruit.bookmarks),
+      em: ids(data.emt.mistakes), eb: ids(data.emt.bookmarks), ck: ids(data.checklist),
+    } : null;
+    if (!lists || Object.values(lists).some((v) => v === null)) {
+      toast('這不是本站匯出的紀錄檔，沒有匯入任何資料。');
+      return;
+    }
+    const r = state.banks.recruit, e = state.banks.emt;
+    const valid = new Set(packItems().map((it) => it.id));
+    const incoming = {
+      rm: r.keep(lists.rm), rb: r.keep(lists.rb), em: e.keep(lists.em), eb: e.keep(lists.eb),
+      ck: new Set(lists.ck.filter((id) => valid.has(id))),
+    };
+    const total = Object.values(incoming).reduce((n, set) => n + set.size, 0);
+    const ok = await ask({
+      title: '匯入紀錄？',
+      body: `檔案裡有 ${incoming.rm.size + incoming.em.size} 題錯題、${incoming.rb.size + incoming.eb.size} 題收藏、${incoming.ck.size} 項清單勾選（共 ${total} 筆）。會合併到這台裝置現有的紀錄，不會刪除任何資料。`,
+      actions: [{ label: '取消', value: false }, { label: '合併匯入', value: true, kind: 'primary' }],
+    });
+    if (!ok) return;
+    incoming.rm.forEach((id) => r.mistakes.add(id));
+    incoming.rb.forEach((id) => r.bookmarks.add(id));
+    incoming.em.forEach((id) => e.mistakes.add(id));
+    incoming.eb.forEach((id) => e.bookmarks.add(id));
+    incoming.ck.forEach((id) => state.checked.add(id));
+    [r, e].forEach((bank) => { saveSet(bank.cfg.mistakesKey, bank.mistakes); saveSet(bank.cfg.bookmarksKey, bank.bookmarks); });
+    saveSet('sms_checklist', state.checked);
+    render();
+    toast('已合併匯入紀錄。');
+  }
+
+  /** 其他分頁改了紀錄：改用最新資料，作答中的測驗先暫停，避免兩邊互相覆寫。 */
+  function onStorage(e) {
+    if (!e.key || !e.key.startsWith('sms_')) return;
+    let paused = false;
+    Object.values(state.banks).forEach((bank) => {
+      if (e.key === bank.cfg.sessionKey) {
+        paused = paused || !!(bank.session && bank.session.status === 'active');
+        bank.session = restoreSession(bank);
+      } else if (e.key === bank.cfg.mistakesKey) {
+        bank.mistakes = bank.keep(loadSet(bank.cfg.mistakesKey));
+      } else if (e.key === bank.cfg.bookmarksKey) {
+        bank.bookmarks = bank.keep(loadSet(bank.cfg.bookmarksKey));
+      }
+    });
+    if (e.key === 'sms_checklist') state.checked = loadSet('sms_checklist');
+    if ($('#dialog').open || document.activeElement && document.activeElement.matches('input[type="search"]')) return;
+    render();
+    if (paused) toast('另一個分頁更新了這份測驗，本分頁已暫停。按「繼續作答」會從最新進度接續。');
+  }
 
   function gotoQuestion(index) {
     const bank = currentBank(), s = bank && bank.session;
@@ -1312,6 +1494,9 @@
         if (el.checked) state.checked.add(el.dataset.check); else state.checked.delete(el.dataset.check);
         saveSet('sms_checklist', state.checked);
         updateChecklistProgress();
+      } else if (el.id === 'import-file') {
+        if (el.files && el.files[0]) importData(el.files[0]);
+        el.value = '';
       } else if (el.id === 'check-only-todo') {
         state.checklistOnlyTodo = el.checked;
         state.focusAfterRender = '#check-only-todo';
@@ -1322,9 +1507,14 @@
     document.addEventListener('toggle', (e) => {
       const el = e.target;
       if (el.id === 'palette') state.paletteOpen = el.open;
-      if (el.dataset && el.dataset.law && el.open && state.laws) {
+      if (el.dataset && el.dataset.law && el.open && !el.dataset.loaded) {
         const body = $('.details-body', el);
-        if (!body.childElementCount) body.innerHTML = lawBody(state.laws.laws.find((l) => l.pcode === el.dataset.law));
+        loadLaw(el.dataset.law).then((law) => {
+          el.dataset.loaded = '1';
+          body.innerHTML = lawBody(law);
+        }).catch(() => {
+          body.innerHTML = `<p class="notice notice-danger">這部法規載入失敗。請重新整理，或直接到${OFFICIAL}查詢。</p>`;
+        });
       }
     }, true);
 
@@ -1341,6 +1531,7 @@
     });
 
     window.addEventListener('hashchange', () => onRoute(false));
+    window.addEventListener('storage', onStorage);
     setInterval(tick, 500);
     const stamp = () => {
       const bank = activeBank(), s = bank && bank.session;
