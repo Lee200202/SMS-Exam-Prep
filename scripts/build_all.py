@@ -2,7 +2,7 @@
 """
 一次重建所有由 data/*.json 衍生的檔案，確保網站、PDF 與稽核表用的是同一份資料。
 
-順序：套用逐題查核 → 逐題溯源 → 資料包 → 五份分冊 PDF → 寫入 pdf/manifest.json → 資料檢查。
+順序：套用逐題查核 → 逐題溯源 → 資料包 → 有解析與無解析 PDF → 寫入 pdf/manifest.json → 資料檢查。
 任何一步失敗就停止。
 
 用法：python scripts/build_all.py
@@ -24,6 +24,7 @@ STEPS = [
     "generate_pdf_bank.py",
     "generate_emt_pdf.py",
     "generate_checklist_pdf.py",
+    "generate_pdf_plain.py",
 ]
 
 

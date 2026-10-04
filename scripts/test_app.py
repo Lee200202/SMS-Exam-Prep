@@ -474,6 +474,9 @@ def run(base):
         page.reload()
         page.wait_for_selector("#app > *")
         check("localStorage 壞資料不影響載入", page.locator("#home-stats").count() == 1)
+        check("四類題庫各有有解析與無解析下載按鈕", page.locator(".pdf-card").count() == 4
+              and page.locator('.pdf-card a[download]').count() == 8
+              and page.locator('.pdf-card a:has-text("下載無解析版")').count() == 4)
         for path in page.evaluate("Array.from(document.querySelectorAll('a[download]')).map(a => a.getAttribute('href'))"):
             check("PDF 可下載 …" + path[-16:], page.request.head(base + path).status == 200)
         check("沒有載入外部資源", not external, external[:3])

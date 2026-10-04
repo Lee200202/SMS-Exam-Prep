@@ -230,7 +230,10 @@ def main():
         for name in ("questions.json", "emt_questions.json", "emt_practice_questions.json", "study_data.json"):
             if manifest.get("sources", {}).get(name) != digest(name):
                 errors.append("PDF 不是用目前的 %s 產生的，請執行 scripts/build_all.py" % name)
-    for html_name, data in (("questions_biaukai.html", recruit), ("questions_authored_biaukai.html", recruit), ("emt_questions_biaukai.html", emt), ("emt_practice_biaukai.html", practice)):
+    for html_name, data in (("questions_biaukai.html", recruit), ("questions_authored_biaukai.html", recruit),
+                            ("questions_plain.html", recruit), ("questions_authored_plain.html", recruit),
+                            ("emt_questions_biaukai.html", emt), ("emt_practice_biaukai.html", practice),
+                            ("emt_questions_plain.html", emt), ("emt_practice_plain.html", practice)):
         page = open(os.path.join(ROOT, "pdf", html_name), encoding="utf-8").read()
         # EMT 的 PDF 不印回憶者註明已過時的題目
         skip = lambda q: html_name.startswith("emt") and q.get("status") == "outdated"
@@ -241,6 +244,14 @@ def main():
         unexpected = [q["id"] for q in data["questions"] if q not in subset and ('data-qid="%s"' % q["id"]) in page]
         if unexpected:
             errors.append("%s 混入另一冊的題目：%s" % (html_name, unexpected[:5]))
+        if html_name.endswith("_plain.html") and ("【解析】" in page or 'class="key"' not in page):
+            errors.append("%s 必須隱藏逐題解析，並把答案集中於末節" % html_name)
+        if html_name.endswith("_plain.html") and 'class="key-item"' in page.split('<main id="questions">', 1)[-1].split('</main>', 1)[0]:
+            errors.append("%s 題目頁混入答案速查" % html_name)
+        if html_name.endswith("_plain.html"):
+            expected = sum(not skip(q) for q in subset)
+            if page.count('data-qid="') != expected or page.count('class="key-item"') != expected:
+                errors.append("%s 題目與末頁答案筆數不一致" % html_name)
 
     dups = near_duplicates(recruit["questions"])
     print("新訓 %d 題（是非 %d、選擇 %d），EMT %d 題，法規 %d 部" % (

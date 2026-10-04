@@ -94,6 +94,12 @@ main:focus { outline: none; }
 .stack-sm > * + * { margin-top: 12px; }
 .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .row-between { justify-content: space-between; }
+.pdf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+.pdf-card { min-width: 0; border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: var(--surface-2); }
+.pdf-card h3 { margin: 0 0 6px; font-size: 1.0625rem; }
+.pdf-card p { margin: 0 0 12px; }
+.pdf-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.pdf-actions .btn { flex: 1 1 150px; padding-inline: 10px; text-align: center; }
 /* 文字一律排到容器全寬才換行；容器寬度由 .wrap 控制 */
 .read { max-width: none; }
 
@@ -339,6 +345,7 @@ dialog::backdrop { background: rgba(10, 18, 32, .6); }
 }
 
 @media (max-width: 719px) {
+  .pdf-grid { grid-template-columns: 1fr; }
   .card { padding: 20px; }
   .responsive thead { display: none; }
   .responsive tr { display: block; padding: 12px 16px; border-bottom: 1px solid var(--border); }

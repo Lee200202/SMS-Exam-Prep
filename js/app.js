@@ -107,13 +107,21 @@
   /* ------------------------------------------------------------ 設定與狀態 */
   const PDFS = {
     recruit: ['pdf/新訓_民間彙編來源題_非官方原卷.pdf', '新訓彙編來源題 PDF'],
+    recruitPlain: ['pdf/新訓_歷屆來源題_無解析版.pdf', '新訓來源題無解析版 PDF'],
     recruitPractice: ['pdf/新訓_自編概念練習_非考古題.pdf', '新訓自編練習 PDF'],
+    recruitPracticePlain: ['pdf/新訓_自編概念練習_無解析版.pdf', '新訓自編練習無解析版 PDF'],
     emt: ['pdf/EMT1_考生回憶考點_非原卷.pdf', 'EMT-1 回憶考點 PDF'],
+    emtPlain: ['pdf/EMT1_來源題_無解析版.pdf', 'EMT-1 來源題無解析版 PDF'],
     emtPractice: ['pdf/EMT1_自編教材概念練習_非考古題.pdf', 'EMT-1 自編練習 PDF'],
+    emtPracticePlain: ['pdf/EMT1_自編概念練習_無解析版.pdf', 'EMT-1 自編練習無解析版 PDF'],
     checklist: ['pdf/成功嶺替代役新訓_必備用品建議檢核表_標楷體版.pdf', '用品清單 PDF'],
   };
-  const pdfLink = (key, cls = 'btn') =>
-    `<a class="${cls}" href="${encodeURI(PDFS[key][0])}" download>下載${PDFS[key][1]}</a>`;
+  const pdfLink = (key, cls = 'btn', label = `下載${PDFS[key][1]}`) =>
+    `<a class="${cls}" href="${encodeURI(PDFS[key][0])}" download>${label}</a>`;
+  const pdfCard = (key, title, description) => `<div class="pdf-card">
+    <h3>${title}</h3><p class="small muted">${description}</p>
+    <div class="pdf-actions">${pdfLink(`${key}Plain`, 'btn btn-primary', '下載無解析版')}${pdfLink(key, 'btn', '下載有解析版')}</div>
+  </div>`;
 
   const BANKS = {
     recruit: {
@@ -636,8 +644,14 @@
       </section>
       <section class="card" aria-labelledby="home-pdf">
         <h2 id="home-pdf">下載 PDF</h2>
-        <p class="muted">入營後手機會被管制，可以先印出來。</p>
-        <div class="row">${pdfLink('recruit')}${pdfLink('recruitPractice')}${pdfLink('emt')}${pdfLink('emtPractice')}${pdfLink('checklist')}</div>
+        <p class="muted">無解析版的題目頁不顯示答案，答案集中在最後；列印時可只印題目頁，方便帶進營區練習。</p>
+        <div class="pdf-grid">
+          ${pdfCard('recruit', '新訓歷屆來源題', '含 205T A 卷來源；與自編題分開。')}
+          ${pdfCard('recruitPractice', '新訓自編概念練習', '自編題沒有考過的證據。')}
+          ${pdfCard('emt', 'EMT-1 來源題', '收錄回憶考點與來源文件題。')}
+          ${pdfCard('emtPractice', 'EMT-1 自編概念練習', '請搭配當梯教材複習。')}
+        </div>
+        <div class="row" style="margin-top:16px">${pdfLink('checklist')}</div>
       </section>
       <details>
         <summary>資料來源與使用限制</summary>
@@ -709,7 +723,10 @@
         <p class="small muted">自編題沒有在成功嶺考過的證據。${cfg.id === 'emt' ? '這 96 題尚未逐題對照 114 年教材，正解常是最長或唯一含英文的選項，請勿用來推測正式考試的出題方式。' : '它們不屬於 257T 彙編。'}模擬考不會抽到自編題。</p>` : ''}
         <label class="check"><input type="checkbox" id="opt-shuffle" checked> 選擇題的選項隨機排列</label>
         <p class="small muted">含「以上皆是」這類選項的題目不會打亂。未作答的題目不計分，也不會加入錯題本。模擬考計時以實際時間計算，切到其他 App 時不會停；離開測驗頁或重新整理會自動暫停，可以回來繼續。</p>
-        <div class="row">${pdfLink(cfg.id)}${pdfLink(cfg.id === 'emt' ? 'emtPractice' : 'recruitPractice')}</div>
+        <div class="pdf-grid">
+          ${pdfCard(cfg.id, `${cfg.label}來源題`, '無解析版適合列印；有解析版可核對依據。')}
+          ${pdfCard(cfg.id === 'emt' ? 'emtPractice' : 'recruitPractice', `${cfg.label}自編練習`, '與來源題分開下載。')}
+        </div>
       </div>
     </div>`;
   }
