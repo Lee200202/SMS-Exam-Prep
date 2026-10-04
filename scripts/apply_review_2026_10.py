@@ -273,7 +273,7 @@ SUFFIX = {
 }
 
 OUTDATED = {
-    "TF-081": "題幹仍稱內政部役政署（訓練組），但該機關已改制；205T 回憶只能用於歷史對照。現行訓練及驗退流程見內政部替代役暨社會韌性訓練執行中心公告。",
+    "TF-081": "題幹仍稱內政部役政署（訓練組），但該機關已改制；205T A 卷此題只能用於歷史對照。現行訓練及驗退流程見內政部替代役暨社會韌性訓練執行中心公告。",
     "MC-DOC2-05": "題幹只寫「83年次以後」，現行 83–93 年次與 94 年次以後役期不同，沒有唯一選項；須加出生年次區間後重新出題。",
     "TF-029": "現行《替代役實施條例》第56條已改為「得邀請民間團體代表、學者及專家」辦理審查，條文中已無「替代役審議委員會」。",
     "TF-060": "現行《替代役役男獎懲辦法》第20條規定向「需用機關」提出申訴（原懲處機關為需用機關者，向主管機關提出），與題目所稱向原懲處機關申訴不同。",
@@ -357,8 +357,8 @@ NEW_QUESTIONS = [
          ["較常備兵役長2個月", "較常備兵役長4個月", "與常備兵役同", "較常備兵役長15日"]),
     _new("MC-101", "multiple_choice", "management", "替代役役男懲處種類包含哪些？", 3, "【219T考】【227T考】",
          ["罰勤、禁足、罰站", "申誡、記過", "罰薪、輔導教育", "以上皆是"]),
-    _new("TF-154", "true_false", "rights", "替代役役男因公死亡，遺族年撫卹金給與十五年；年限屆滿而子女尚未成年者，得繼續給卹至成年。", "O", "【205T A卷回憶】"),
-    _new("MC-102", "multiple_choice", "management", "需用機關對服勤單位提出的罰薪或輔導教育懲處案件，應於幾日內核定？", 3, "【205T A卷回憶】",
+    _new("TF-154", "true_false", "rights", "替代役役男因公死亡，遺族年撫卹金給與十五年；年限屆滿而子女尚未成年者，得繼續給卹至成年。", "O", "【205T A卷】"),
+    _new("MC-102", "multiple_choice", "management", "需用機關對服勤單位提出的罰薪或輔導教育懲處案件，應於幾日內核定？", 3, "【205T A卷】",
          ["三日", "五日", "七日", "十日"]),
 ]
 
@@ -370,6 +370,8 @@ def review_recruit():
     summary = {"law": 0, "partial": 0, "unverified": 0, "experience": 0, "outdated": 0}
     for q in data["questions"]:
         qid = q["id"]
+        if qid in {"TF-154", "MC-102"}:
+            q["exam_tag"] = "【205T A卷】"
         if qid in FIXES:
             q.update(FIXES[qid])
         q.pop("status", None)
@@ -837,7 +839,7 @@ def write_csv(recruit, emt):
         if q.get("status") == "outdated":
             return False
         if bank == "recruit":
-            return cls.startswith(("compiled", "recalled_verbatim")) and q["review"] == "law"
+            return cls.startswith(("compiled", "paper_", "recalled_")) and q["review"] == "law"
         return cls in ("recalled", "uploaded") and q.get("review") not in ("recalled_conflict", "imported_conflict")
     rows = []
     practice = load("emt_practice_questions.json")

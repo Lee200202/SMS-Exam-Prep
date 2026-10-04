@@ -19,8 +19,8 @@
       "compiled_minor": 25,
       "compiled_adapted": 30,
       "site_authored": 49,
-      "recalled_adapted": 1,
-      "recalled_verbatim": 2
+      "paper_adapted": 1,
+      "paper_verbatim": 2
     }
   },
   "questions": [
@@ -1934,7 +1934,7 @@
         }
       ],
       "status": "outdated",
-      "status_note": "題幹仍稱內政部役政署（訓練組），但該機關已改制；205T 回憶只能用於歷史對照。現行訓練及驗退流程見內政部替代役暨社會韌性訓練執行中心公告。本題依舊規定出題，不列入測驗。"
+      "status_note": "題幹仍稱內政部役政署（訓練組），但該機關已改制；205T A 卷此題只能用於歷史對照。現行訓練及驗退流程見內政部替代役暨社會韌性訓練執行中心公告。本題依舊規定出題，不列入測驗。"
     },
     {
       "id": "TF-082",
@@ -6272,11 +6272,11 @@
       "review": "law",
       "confidence": "高",
       "provenance": {
-        "class": "recalled_adapted",
-        "label": "205T A 卷考生回憶考點（本站改寫）",
+        "class": "paper_adapted",
+        "label": "205T A 卷來源題（本站改寫）",
         "source_id": "P10",
         "source_item": "選擇 6",
-        "tags": "【205T A卷回憶】"
+        "tags": "【205T A卷】"
       },
       "exam_evidence": [
         {
@@ -7357,7 +7357,7 @@
       "category": "rights",
       "question": "替代役役男因公死亡，遺族年撫卹金給與十五年；年限屆滿而子女尚未成年者，得繼續給卹至成年。",
       "answer": "O",
-      "exam_tag": "【205T A卷回憶】",
+      "exam_tag": "【205T A卷】",
       "explanation": "《替代役實施條例》第32條：替代役役男死亡時，除依下列規定給與一次撫卹金外，每年給與五個基數之年撫卹金：一、因公死亡：給與十五年。但因冒險犯難殉職者，加給五年。同條並規定：給與年限屆滿而子女尚未成年者，得繼續給卹至成年；若已成年而學校教育未中斷，還有延至大學畢業的條件。",
       "source": "替代役實施條例 第32條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=32",
@@ -7373,11 +7373,11 @@
       "reviewed_at": "2026-10-04",
       "confidence": "高",
       "provenance": {
-        "class": "recalled_verbatim",
-        "label": "205T A 卷考生回憶題（依現行法校字）",
+        "class": "paper_verbatim",
+        "label": "205T A 卷來源題（依現行法校字）",
         "source_id": "P10",
         "source_item": "是非 20",
-        "tags": "【205T A卷回憶】"
+        "tags": "【205T A卷】"
       }
     },
     {
@@ -7392,7 +7392,7 @@
         "十日"
       ],
       "answer": 3,
-      "exam_tag": "【205T A卷回憶】",
+      "exam_tag": "【205T A卷】",
       "explanation": "《替代役役男獎懲辦法》第19條：需用機關對於服勤單位所提替代役役男罰薪或輔導教育之懲處案件，應於十日內核定。",
       "source": "替代役役男獎懲辦法 第19條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040028&flno=19",
@@ -7408,11 +7408,11 @@
       "reviewed_at": "2026-10-04",
       "confidence": "高",
       "provenance": {
-        "class": "recalled_verbatim",
-        "label": "205T A 卷考生回憶題（依現行法校字）",
+        "class": "paper_verbatim",
+        "label": "205T A 卷來源題（依現行法校字）",
         "source_id": "P10",
         "source_item": "選擇 8",
-        "tags": "【205T A卷回憶】"
+        "tags": "【205T A卷】"
       }
     }
   ]

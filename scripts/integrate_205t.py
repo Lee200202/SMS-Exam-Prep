@@ -1,4 +1,4 @@
-"""Record the 205T A-paper recollection without duplicating existing practice items.
+"""Merge the 205T A-paper source without duplicating existing practice items.
 
 The original author supplied questions but no answer key. The mappings and
 proposed answers below are manual editorial decisions; the output keeps that
@@ -83,7 +83,7 @@ NEW_ITEMS = {
     "TF-154": {
         "id": "TF-154", "type": "true_false", "category": "rights",
         "question": "替代役役男因公死亡，遺族年撫卹金給與十五年；年限屆滿而子女尚未成年者，得繼續給卹至成年。",
-        "answer": "O", "exam_tag": "【205T A卷回憶】", "explanation": "",
+        "answer": "O", "exam_tag": "【205T A卷】", "explanation": "",
         "source": "替代役實施條例 第32條",
         "source_url": LAW.format("D0040017", 32), "source_kind": "law", "review": "law",
     },
@@ -91,7 +91,7 @@ NEW_ITEMS = {
         "id": "MC-102", "type": "multiple_choice", "category": "management",
         "question": "需用機關對服勤單位提出的罰薪或輔導教育懲處案件，應於幾日內核定？",
         "options": ["三日", "五日", "七日", "十日"], "answer": 3,
-        "exam_tag": "【205T A卷回憶】", "explanation": "",
+        "exam_tag": "【205T A卷】", "explanation": "",
         "source": "替代役役男獎懲辦法 第19條",
         "source_url": LAW.format("D0040028", 19), "source_kind": "law", "review": "law",
     },

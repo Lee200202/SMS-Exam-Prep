@@ -43,7 +43,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
             source_link_html = f'<span class="source-link">來源：{source_name}</span>'
         p10 = [e['source_item'] for e in q.get('exam_evidence', []) if e.get('source_id') == 'P10']
         if p10:
-            source_link_html += ' <span class="source-link">205T A 卷考生回憶：' + '、'.join(p10) + '（原作者未附答案）</span>'
+            source_link_html += ' <span class="source-link">205T A 卷來源：' + '、'.join(p10) + '（來源未附答案）</span>'
         
         # Options & Explanation (neutral text colors, NO green spoiler)
         if is_tf_section:
@@ -283,7 +283,7 @@ html_content = f"""<!DOCTYPE html>
   <!-- Header -->
   <div class="doc-header">
     <div class="doc-title">{'新訓自編概念練習（非考古題）' if authored else '新訓歷屆來源題（非官方原卷）'}</div>
-    <div class="doc-subtitle">{'本站自行編寫，257T 彙編裡找不到；答案仍須逐條核對，請勿當作正式歷屆題。' if authored else '對照 257T 民間彙編與 205T A 卷考生回憶；部分題目已依法改寫，逐題標示來源等級。'}</div>
+    <div class="doc-subtitle">{'本站自行編寫，257T 彙編裡找不到；答案仍須逐條核對，請勿當作正式歷屆題。' if authored else '對照 257T 民間彙編與 205T A 卷來源文件；部分題目已依法改寫，逐題標示來源等級。'}</div>
     <div class="doc-meta">
       {'自編題沒有曾在成功嶺考過的證據' if authored else '考生回憶與民間彙編皆非考試單位原卷；現行法規改寫另有標示'} ｜ 資料整理日：{data.get('updatedAt', '')} ｜ 總題數：{len(questions)} 題 (是非題 {len(tf_questions)} 題 · 選擇題 {len(mc_questions)} 題)
     </div>

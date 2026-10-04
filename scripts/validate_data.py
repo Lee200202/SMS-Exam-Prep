@@ -181,13 +181,22 @@ def main():
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
     allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "textbook114", "recalled", "recalled_conflict", "imported", "imported_conflict"}
-    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled_verbatim", "recalled_adapted", "recalled", "uploaded", "site_authored"}
+    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "paper_verbatim", "paper_adapted", "recalled", "uploaded", "site_authored"}
 
     def in_exam(name, q):
         cls = q.get("provenance", {}).get("class", "")
         if q.get("status") == "outdated":
             return False
-        return (cls.startswith("compiled") and q.get("review") == "law") if name == "新訓" else cls in ("recalled", "uploaded") and q.get("review") not in ("recalled_conflict", "imported_conflict")
+        return (cls.startswith(("compiled", "paper_")) and q.get("review") == "law") if name == "新訓" else cls in ("recalled", "uploaded") and q.get("review") not in ("recalled_conflict", "imported_conflict")
+
+    # 205T A 卷 50 題各對應一筆站內題，不製造重複題；展示標籤不再使用「回憶」。
+    p10 = [(q, e["source_item"]) for q in recruit["questions"]
+           for e in q.get("exam_evidence", []) if e.get("source_id") == "P10"]
+    if len(p10) != 50 or len({item for _, item in p10}) != 50 or len({q["id"] for q, _ in p10}) != 50:
+        errors.append("205T A 卷應逐題對應 50 個不同卷內題號及 50 個不同站內題 ID")
+    if any("回憶" in q.get("exam_tag", "") or "回憶" in q.get("provenance", {}).get("label", "")
+           for q, _ in p10):
+        errors.append("205T A 卷題仍顯示回憶標籤")
 
     for name, data, need in (("新訓", recruit, 50), ("EMT", emt, 40)):
         for q in data["questions"]:

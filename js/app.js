@@ -124,7 +124,7 @@
         regulations: '替代役實施條例', rights: '權益、撫卹與保險', management: '訓練服勤與獎懲',
         volunteer: '志願服務法', shooting: '射擊與國防',
       },
-      // 模擬考題池：彙編或 205T A 卷回憶收錄，且答案已對照現行條文
+      // 模擬考題池：彙編或 205T A 卷收錄，且答案已對照現行條文
       inExam: (q) => q.fromSource && q.review === 'law',
       examLabel: '歷屆來源且已對照法條',
       otherLabel: '答案待補證的彙編題、射擊經驗題與站方自編題',
@@ -191,7 +191,7 @@
       sourceKind: q.source_kind || (/law\.moj\.gov\.tw/.test(q.source_url || '') ? 'law' : 'other'),
       review: q.review || '',
       provenance: (q.provenance && q.provenance.class) || '',
-      fromSource: /^(compiled|recalled_)/.test((q.provenance && q.provenance.class) || ''),
+      fromSource: /^(compiled|paper_)/.test((q.provenance && q.provenance.class) || ''),
       examEvidence: q.exam_evidence || [],
       sourceItem: (q.provenance && q.provenance.source_item) || '',
       upstream: (q.provenance && q.provenance.upstream) || [],
@@ -540,8 +540,8 @@
     compiled_verbatim: ['chip-primary', '彙編原題'],
     compiled_minor: ['chip-primary', '彙編原題（用字微調）'],
     compiled_adapted: ['chip-amber', '彙編題，已依現行法改寫'],
-    recalled_verbatim: ['chip-primary', '205T A 卷考生回憶'],
-    recalled_adapted: ['chip-amber', '205T A 卷考點，本站改寫'],
+    paper_verbatim: ['chip-primary', '205T A 卷來源題'],
+    paper_adapted: ['chip-amber', '205T A 卷來源題，本站改寫'],
     recalled: ['chip-primary', '考生回憶考點'],
     uploaded: ['chip-primary', '2022 年考古題文件'],
     site_authored: ['chip-amber', '站方自編，非考古題'],
@@ -549,8 +549,8 @@
   const originChip = (q) => (ORIGIN_CHIP[q.provenance]
     ? `<span class="chip ${ORIGIN_CHIP[q.provenance][0]}">${ORIGIN_CHIP[q.provenance][1]}</span>` : '');
   const originLine = (q) => {
-    if (q.provenance === 'recalled_verbatim') return `<p class="small muted">題目來自${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T 考生記錄的 A 卷')}${esc(q.sourceItem)}；原作者沒有附答案，本站依現行法條判定。</p>`;
-    if (q.provenance === 'recalled_adapted') return `<p class="small muted">本題依${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷考生回憶')}的${esc(q.sourceItem)}考點改寫，並非逐字原題；原作者未附答案。</p>`;
+    if (q.provenance === 'paper_verbatim') return `<p class="small muted">題目收錄於${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}${esc(q.sourceItem)}；來源未附答案，本站依現行法條判定。</p>`;
+    if (q.provenance === 'paper_adapted') return `<p class="small muted">本題依${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}的${esc(q.sourceItem)}考點改寫，並非逐字原題；來源未附答案。</p>`;
     if (q.provenance === 'uploaded') {
       return `<p class="small muted">來源：〈2022 EMT-1 筆試考古題〉文件${esc(q.sourceItem)}，題幹、選項與答案照文件轉錄。文件沒有標示考試單位或梯次，內容沒有核實。</p>`;
     }
@@ -566,8 +566,8 @@
   };
   const examEvidenceLine = (q) => {
     const items = q.examEvidence.filter((e) => e.source_id === 'P10').map((e) => e.source_item);
-    if (!items.length || /^recalled_/.test(q.provenance)) return '';
-    return `<p class="small muted">${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷考生回憶')}的${esc(items.join('、'))}亦見此題或同一考點。原作者未附答案；請以本題顯示的現行查核狀態判斷能否計分。</p>`;
+    if (!items.length || /^paper_/.test(q.provenance)) return '';
+    return `<p class="small muted">${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}的${esc(items.join('、'))}亦見此題或同一考點。來源未附答案；請以本題顯示的現行查核狀態判斷能否計分。</p>`;
   };
 
   const tagText = (q) => {
@@ -602,7 +602,7 @@
         <a class="btn btn-primary btn-lg" href="#emt">開始 EMT-1 測驗</a>
       </div>
       <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 有來源題 ${e.questions.filter(q => q.provenance !== 'site_authored').length} 題（回憶考點 ${e.questions.filter(q => q.provenance === 'recalled').length}、2022 年考古題文件 ${e.questions.filter(q => q.provenance === 'uploaded').length}）、自編練習 ${e.questions.filter(q => q.provenance === 'site_authored').length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
-      <p class="small muted" id="home-origin">模擬考只出指定來源的題目：新訓 ${r.verified.length} 題（民間彙編或 205T A 卷考生回憶，並已對照現行法條）、EMT-1 ${e.verified.length} 題（Dcard 270T 文章的回憶考點、274T 考古題整理檔、2022 年考古題文件；後兩者為直接匯入，未核實）。自編題須在練習時自行勾選。</p>
+      <p class="small muted" id="home-origin">模擬考只出指定來源的題目：新訓 ${r.verified.length} 題（民間彙編或 205T A 卷來源文件，並已對照現行法條）、EMT-1 ${e.verified.length} 題（Dcard 270T 文章的回憶考點、274T 考古題整理檔、2022 年考古題文件；後兩者為直接匯入，未核實）。自編題須在練習時自行勾選。</p>
     </section>
     <div class="stack">
       ${resumeBanner(r)}${resumeBanner(e)}
@@ -664,7 +664,7 @@
     const authored = bank.pool.filter((q) => q.provenance === 'site_authored').length;
     const others = bank.pool.length - bank.verified.length - authored;
     const scope = cfg.id === 'recruit'
-      ? `只從歷屆來源（民間彙編及 205T A 卷考生回憶）收錄、而且答案已對照現行法條的 ${bank.verified.length} 題出題。205T 原作者未附答案。`
+      ? `只從歷屆來源（民間彙編及 205T A 卷來源文件）收錄、而且答案已對照現行法條的 ${bank.verified.length} 題出題。205T 來源文件未附答案。`
       : `從 ${bank.verified.length} 題出題：Dcard 270T 文章的回憶考點、274T 考古題整理檔，以及〈2022 EMT-1 筆試考古題〉文件。後兩者是依使用者提供的資料直接匯入，沒有核實。`;
     return `
     <div class="stack">

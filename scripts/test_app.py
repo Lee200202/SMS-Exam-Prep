@@ -270,20 +270,21 @@ def run(base):
         check("TF-117 依現行條文更正為「正確」", "正確" in page.inner_text("#bank-list .is-answer"))
         page.fill("#bank-search", "TF-154")
         page.wait_for_timeout(300)
-        check("205T 新增撫卹題標示來源與現行法條", "205T A 卷考生回憶" in page.inner_text("#bank-list")
+        check("205T 新增撫卹題標示來源與現行法條", "205T A 卷來源題" in page.inner_text("#bank-list")
               and "第32條" in page.inner_text("#bank-list")
-              and page.locator('#bank-list a[href*="M.1570117334.A.953.html"]').count() >= 1)
+              and page.locator('#bank-list a[href*="M.1570117334.A.953.html"]').count() >= 1
+              and "回憶" not in page.inner_text("#bank-list"))
         page.fill("#bank-search", "MC-102")
         page.wait_for_timeout(300)
         check("205T 新增懲處期限題答案為十日", "十日" in page.inner_text("#bank-list .is-answer")
-              and "205T A 卷考生回憶" in page.inner_text("#bank-list"))
+              and "205T A 卷來源題" in page.inner_text("#bank-list"))
         page.fill("#bank-search", "TF-032")
         page.wait_for_timeout(300)
-        check("205T 已有題只加來源不重複出題", "205T A 卷考生回憶" in page.inner_text("#bank-list")
+        check("205T 已有題只加來源不重複出題", "205T A 卷來源文件" in page.inner_text("#bank-list")
               and page.locator("#bank-list .qcard").count() == 1)
         page.fill("#bank-search", "MC-257-03")
         page.wait_for_timeout(300)
-        check("205T 既有自編考點改列來源題且註明改寫", "205T A 卷考點，本站改寫" in page.inner_text("#bank-list")
+        check("205T 既有自編考點改列來源題且註明改寫", "205T A 卷來源題，本站改寫" in page.inner_text("#bank-list")
               and "並非逐字原題" in page.inner_text("#bank-list"))
         go("emt-bank")
         page.select_option("#bank-scope", "authored")
@@ -306,7 +307,7 @@ def run(base):
 
         print("出題範圍")
         verified = {q["id"] for q in recruit.values() if q.get("review") == "law"
-                    and q["provenance"]["class"].startswith(("compiled", "recalled_")) and q.get("status") != "outdated"}
+                    and q["provenance"]["class"].startswith(("compiled", "paper_")) and q.get("status") != "outdated"}
         outdated = {q["id"] for q in recruit.values() if q.get("status") == "outdated"}
         page.evaluate("localStorage.clear()")
         go("quiz")
