@@ -50,6 +50,7 @@ def main():
         "window.APP_QUESTIONS = %s;" % dump(load("questions.json")),
         "window.APP_STUDY_DATA = %s;" % dump(load("study_data.json")),
         "window.APP_EMT_QUESTIONS = %s;" % dump(load("emt_questions.json")),
+        "window.APP_EMT_PRACTICE_QUESTIONS = %s;" % dump(load("emt_practice_questions.json")),
         "window.APP_EMT_STUDY_DATA = %s;" % dump(load("emt_study_data.json")),
     ]))
     print("data_bundle.js %.0f KB" % (size / 1024))

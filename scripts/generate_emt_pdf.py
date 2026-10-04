@@ -4,8 +4,9 @@ import json
 sys.stdout.reconfigure(encoding='utf-8')
 from playwright.sync_api import sync_playwright
 
-# 1. Load EMT questions
-with open('data/emt_questions.json', 'r', encoding='utf-8') as f:
+# 1. The recalled bank and the authored practice bank are printed separately.
+practice = '--practice' in sys.argv
+with open('data/emt_practice_questions.json' if practice else 'data/emt_questions.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 questions = data['questions']
@@ -64,7 +65,7 @@ for idx, q in enumerate(questions):
     ans_html = f'<div class="ans-cell"><strong>{ans_lbl}</strong></div>'
 
     row = f"""
-    <tr>
+    <tr data-qid="{q['id']}">
       <td class="col-num text-center"><strong>{q_num}</strong></td>
       <td class="col-q">{type_badge} <span class="badge badge-mc">{q.get('provenance', {}).get('label', '')}</span> {q['question']}</td>
       <td class="col-opt">{opt_ans_html}</td>
@@ -78,7 +79,7 @@ html_content = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8">
-<title>成功嶺替代役 EMT-1 初級救護技術員學科題庫彙編</title>
+<title>{'EMT-1 教材概念自編練習（非考古題）' if practice else 'EMT-1 考生回憶考點（非逐字原題）'}</title>
 <style>
   /* 標楷體沒有粗體字重，合成粗體會被輸出成 Type3 字型而讓 PDF 膨脹 */
   strong, b, th {{ font-weight: normal; }}
@@ -92,7 +93,7 @@ html_content = f"""<!DOCTYPE html>
       color: #555;
     }}
     @bottom-left {{
-      content: "成功嶺替代役 EMT-1 學科題庫彙編 ｜ 非官方整理，以主管機關公告為準";
+      content: "{'EMT-1 自編練習 ｜ 非考古題，教材內容待複核' if practice else 'EMT-1 回憶考點 ｜ 非正式原卷，以主管機關公告為準'}";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
       font-size: 8pt;
       color: #555;
@@ -101,8 +102,8 @@ html_content = f"""<!DOCTYPE html>
 
   body {{
     font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
-    font-size: 8.5pt;
-    line-height: 1.32;
+    font-size: 9.3pt;
+    line-height: 1.44;
     color: #111;
     margin: 0;
     padding: 0;
@@ -151,16 +152,16 @@ html_content = f"""<!DOCTYPE html>
     background-color: #ecfdf5;
     color: #064e3b;
     border: 1px solid #059669;
-    padding: 4px 4px;
-    font-size: 8.2pt;
+    padding: 5px 5px;
+    font-size: 8.8pt;
     font-weight: normal;
     text-align: center;
   }}
   td {{
     border: 1px solid #94a3b8;
-    padding: 2.5px 4.5px;
+    padding: 5px 5px;
     vertical-align: top;
-    font-size: 8.2pt;
+    font-size: 9pt;
     word-break: break-word;
   }}
   tr:nth-child(even) {{
@@ -180,7 +181,7 @@ html_content = f"""<!DOCTYPE html>
     display: inline-block;
     padding: 0 3px;
     border-radius: 2px;
-    font-size: 7.2pt;
+    font-size: 7.8pt;
     font-weight: normal;
     margin-right: 2px;
     vertical-align: baseline;
@@ -189,27 +190,27 @@ html_content = f"""<!DOCTYPE html>
   .badge-mc {{ background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }}
 
   /* Options list (clean neutral text color, NO green spoilers) */
-  .opt-list {{ font-size: 8pt; line-height: 1.3; margin-bottom: 1px; }}
-  .opt-item {{ margin-bottom: 0.5px; color: #1e293b; }}
+  .opt-list {{ font-size: 8.8pt; line-height: 1.42; margin-bottom: 3px; }}
+  .opt-item {{ margin-bottom: 2px; color: #1e293b; }}
 
   /* Legal explanation & compact source citation */
   .expl-box {{
-    font-size: 7.4pt;
+    font-size: 8.2pt;
     color: #475569;
-    line-height: 1.24;
+    line-height: 1.38;
     border-top: 1px dashed #cbd5e1;
-    padding-top: 2px;
-    margin-top: 1px;
+    padding-top: 4px;
+    margin-top: 3px;
   }}
   .source-sub {{
-    font-size: 7.2pt;
-    margin-top: 1.5px;
+    font-size: 7.8pt;
+    margin-top: 3px;
     color: #0d9488;
   }}
   .source-link {{
     color: #0d9488;
     text-decoration: underline;
-    font-size: 7.2pt;
+    font-size: 7.8pt;
     word-break: break-all;
     line-height: 1.2;
     display: inline-block;
@@ -227,8 +228,8 @@ html_content = f"""<!DOCTYPE html>
 <body>
 
   <div class="doc-header">
-    <div class="doc-title">成功嶺替代役 EMT-1 初級救護技術員學科題庫彙編（非官方整理）</div>
-    <div class="doc-subtitle">前 45 題為 270T 考生回憶的考點（題文為站方重寫）；其後為站方依教材自編的練習題，不是考古題 ｜ 總題數：{len(questions)} 題</div>
+    <div class="doc-title">{'EMT-1 教材概念自編練習（非考古題）' if practice else 'EMT-1 考生回憶考點（非逐字原題）'}</div>
+    <div class="doc-subtitle">{'本站先前由 AI 依教材編寫；尚未逐題核對 114 年教材，選項有可猜規律。請勿當作歷屆試卷。' if practice else 'Dcard 270T 文章的 Part 1 是梯次不明的舊考點，Part 2 為作者記下的六道當梯新題；題幹為本站重寫，多數選項為本站補寫。'} ｜ 總題數：{len(questions)} 題</div>
     <div class="doc-meta">
       及格標準：學科測驗 70 分 ｜ 資料整理日：{data.get('updatedAt', '')}
     </div>
@@ -254,11 +255,11 @@ html_content = f"""<!DOCTYPE html>
 
 # Save HTML file
 os.makedirs('pdf', exist_ok=True)
-html_file_path = 'pdf/emt_questions_biaukai.html'
-output_pdf = 'pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf'
+html_file_path = 'pdf/emt_practice_biaukai.html' if practice else 'pdf/emt_questions_biaukai.html'
+output_pdf = 'pdf/EMT1_自編教材概念練習_非考古題.pdf' if practice else 'pdf/EMT1_考生回憶考點_非原卷.pdf'
 
 with open(html_file_path, 'w', encoding='utf-8') as f:
-    f.write(html_content)
+    f.write('\n'.join(line.rstrip() for line in html_content.splitlines()) + '\n')
 
 print(f"Saved HTML template to {html_file_path}, size: {len(html_content)} bytes")
 

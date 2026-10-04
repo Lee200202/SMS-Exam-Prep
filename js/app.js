@@ -106,8 +106,10 @@
 
   /* ------------------------------------------------------------ 設定與狀態 */
   const PDFS = {
-    recruit: ['pdf/替代役新訓題庫_全集彙編_標楷體版.pdf', '新訓學科題庫 PDF'],
-    emt: ['pdf/替代役EMT1初級救護技術員_全真題庫_標楷體版.pdf', 'EMT-1 題庫 PDF'],
+    recruit: ['pdf/新訓_民間彙編來源題_非官方原卷.pdf', '新訓彙編來源題 PDF'],
+    recruitPractice: ['pdf/新訓_自編概念練習_非考古題.pdf', '新訓自編練習 PDF'],
+    emt: ['pdf/EMT1_考生回憶考點_非原卷.pdf', 'EMT-1 回憶考點 PDF'],
+    emtPractice: ['pdf/EMT1_自編教材概念練習_非考古題.pdf', 'EMT-1 自編練習 PDF'],
     checklist: ['pdf/成功嶺替代役新訓_必備用品建議檢核表_標楷體版.pdf', '用品清單 PDF'],
   };
   const pdfLink = (key, cls = 'btn') =>
@@ -133,7 +135,7 @@
       quizRoute: 'emt', bankRoute: 'emt-bank',
       cats: {},
       // 模擬考題池：270T 考生回憶的考點題
-      inExam: (q) => q.provenance === 'recalled',
+      inExam: (q) => q.provenance === 'recalled' && q.review !== 'recalled_conflict',
       examLabel: '考生回憶考點',
       otherLabel: '站方依教材自編的練習題',
     },
@@ -216,7 +218,7 @@
       mistakes: keep(loadSet(cfg.mistakesKey)),
       bookmarks: keep(loadSet(cfg.bookmarksKey)),
       session: null,
-      filter: { q: '', type: 'all', cat: 'all', scope: 'all', hide: false, limit: 20 },
+      filter: { q: '', type: 'all', cat: 'all', scope: 'sourced', hide: false, limit: 20 },
       revealed: new Set(),
       resultFilter: 'all',
     };
@@ -225,24 +227,25 @@
   }
 
   async function loadData() {
-    if (!(window.APP_QUESTIONS && window.APP_STUDY_DATA && window.APP_EMT_QUESTIONS && window.APP_EMT_STUDY_DATA)) {
+    if (!(window.APP_QUESTIONS && window.APP_STUDY_DATA && window.APP_EMT_QUESTIONS && window.APP_EMT_PRACTICE_QUESTIONS && window.APP_EMT_STUDY_DATA)) {
       // 資料包不存在時改抓個別 JSON（需以 http 伺服器開啟）
-      const names = ['questions', 'study_data', 'emt_questions', 'emt_study_data'];
-      const [q, s, eq, es] = await Promise.all(names.map((n) => fetch(`data/${n}.json`).then((r) => {
+      const names = ['questions', 'study_data', 'emt_questions', 'emt_practice_questions', 'emt_study_data'];
+      const [q, s, eq, ep, es] = await Promise.all(names.map((n) => fetch(`data/${n}.json`).then((r) => {
         if (!r.ok) throw new Error(`${n}.json ${r.status}`);
         return r.json();
       })));
-      window.APP_QUESTIONS = q; window.APP_STUDY_DATA = s; window.APP_EMT_QUESTIONS = eq; window.APP_EMT_STUDY_DATA = es;
+      window.APP_QUESTIONS = q; window.APP_STUDY_DATA = s; window.APP_EMT_QUESTIONS = eq;
+      window.APP_EMT_PRACTICE_QUESTIONS = ep; window.APP_EMT_STUDY_DATA = es;
     }
     state.study = window.APP_STUDY_DATA;
     state.emtStudy = window.APP_EMT_STUDY_DATA;
     state.meta = { updatedAt: window.APP_QUESTIONS.updatedAt || '' };
     setupBank('recruit', window.APP_QUESTIONS);
-    setupBank('emt', window.APP_EMT_QUESTIONS);
+    setupBank('emt', { questions: [...window.APP_EMT_QUESTIONS.questions, ...window.APP_EMT_PRACTICE_QUESTIONS.questions] });
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004c';
+  const ASSET_VERSION = '20261004d';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -333,14 +336,17 @@
     let ids = [];
     let opts = { shuffleOptions };
     // 模擬考一律只抽已核實的題目；練習可由使用者勾選納入其餘題目
-    const practice = $('#opt-unverified') && $('#opt-unverified').checked ? bank.pool : bank.verified;
+    const includeOther = !!($('#opt-unverified') && $('#opt-unverified').checked);
+    const includeAuthored = !!($('#opt-authored') && $('#opt-authored').checked);
+    const practice = bank.pool.filter((q) => q.provenance === 'site_authored' ? includeAuthored : (cfg.inExam(q) || includeOther));
     let emptyMessage = '沒有可以出題的題目。';
     if (mode === 'mock') {
       ids = shuffle(bank.verified).slice(0, cfg.mockCount).map((q) => q.id);
       opts = { ...opts, label: '模擬考', minutes: cfg.mockMinutes, instant: false };
-    } else if (mode === 'quick') {
-      ids = shuffle(practice).slice(0, cfg.quickCount).map((q) => q.id);
-      opts = { ...opts, label: '快速練習', instant: true };
+    } else if (mode === 'quick' || mode === 'authored') {
+      const quickPool = mode === 'authored' ? bank.pool.filter((q) => q.provenance === 'site_authored') : bank.verified;
+      ids = shuffle(quickPool).slice(0, cfg.quickCount).map((q) => q.id);
+      opts = { ...opts, label: mode === 'authored' ? '自編題隨機練習' : '來源題快速練習', instant: true };
     } else if (mode === 'category') {
       const cat = $('#opt-cat') ? $('#opt-cat').value : Object.keys(cfg.cats)[0];
       const count = Number($('#opt-count') ? $('#opt-count').value : 20) || Infinity;
@@ -516,6 +522,7 @@
     experience: ['', '經驗題'],
     textbook: ['', '教材題'],
     recalled: ['', '答案照回憶者所記'],
+    recalled_conflict: ['chip-amber', '回憶題幹與教材條件不符'],
   };
   const reviewChip = (q) => (REVIEW_CHIP[q.review]
     ? `<span class="chip ${REVIEW_CHIP[q.review][0]}">${REVIEW_CHIP[q.review][1]}</span>` : '');
@@ -532,7 +539,7 @@
     ? `<span class="chip ${ORIGIN_CHIP[q.provenance][0]}">${ORIGIN_CHIP[q.provenance][1]}</span>` : '');
   const originLine = (q) => {
     if (q.provenance === 'recalled') {
-      return `<p class="small muted">考點來源：270T 考生回憶（${esc(q.sourceItem)}，${esc(q.sourceRound)}）。題幹為站方重寫${q.optionsBy === 'site' ? '，回憶者沒有記下選項，選項是站方自編' : ''}。</p>`;
+      return `<p class="small muted">考點來源：Dcard 270T 文章（${esc(q.sourceItem)}，${esc(q.sourceRound)}）。題幹為站方重寫${q.optionsBy === 'site' ? '，回憶者沒有記下選項，選項是站方自編' : ''}。</p>`;
     }
     if (q.fromSource) return `<p class="small muted">考古題來源：成功嶺新訓考古題彙編（增補至 257T）${esc(q.sourceItem)} 題。</p>`;
     if (q.provenance === 'site_authored') return '<p class="small muted">這一題在歷屆彙編與考生回憶裡都找不到，是站方編寫的練習題，沒有考過的證據。</p>';
@@ -570,8 +577,8 @@
         <a class="btn btn-primary btn-lg" href="#quiz">開始新訓學科測驗</a>
         <a class="btn btn-primary btn-lg" href="#emt">開始 EMT-1 測驗</a>
       </div>
-      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 ${e.questions.length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
-      <p class="small muted" id="home-origin">模擬考只出有來源的題目：新訓 ${r.verified.length} 題（歷屆彙編收錄並已對照現行法條）、EMT-1 ${e.verified.length} 題（270T 考生回憶的考點）。其餘題目要在練習時自己勾選才會出現。</p>
+      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 回憶考點 ${e.questions.filter(q => q.provenance === 'recalled').length} 題、自編練習 ${e.questions.filter(q => q.provenance === 'site_authored').length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
+      <p class="small muted" id="home-origin">模擬考只出指定來源的題目：新訓 ${r.verified.length} 題（民間彙編收錄並已對照現行法條）、EMT-1 ${e.verified.length} 題（Dcard 文章中的舊考點與 270T 回憶新題）。自編題須在練習時自行勾選。</p>
     </section>
     <div class="stack">
       ${resumeBanner(r)}${resumeBanner(e)}
@@ -606,14 +613,14 @@
       <section class="card" aria-labelledby="home-pdf">
         <h2 id="home-pdf">下載 PDF</h2>
         <p class="muted">入營後手機會被管制，可以先印出來。</p>
-        <div class="row">${pdfLink('recruit')}${pdfLink('emt')}${pdfLink('checklist')}</div>
+        <div class="row">${pdfLink('recruit')}${pdfLink('recruitPractice')}${pdfLink('emt')}${pdfLink('emtPractice')}${pdfLink('checklist')}</div>
       </section>
       <details>
         <summary>資料來源與使用限制</summary>
         <div class="details-body read">
           <p>「有沒有考過」和「答案對不對」是分開標示的。</p>
           <p>新訓題庫對照的是〈成功嶺新訓考古題〉彙編（增補至 257T）。每一題會標示「彙編原題」「彙編題，已依現行法改寫」或「站方自編，非考古題」；彙編是役男整理的民間資料，不是考試單位的原卷。答案另外對照全國法規資料庫的現行條文。</p>
-          <p>EMT-1 目前唯一能確認替代役考過的來源，是一位 270T 役男在 Dcard 記下的 46 個考點。這些題目的題幹由站方重寫、部分選項為站方自編，答案照回憶者所記，不是逐字原題。其餘 96 題是先前由 AI 依教材編寫的練習題，沒有考過的證據。</p>
+          <p>EMT-1 的 46 題取自 270T 役男文章：Part 1 是梯次不明的舊考點，只有 Part 2 六題是作者記下的當梯新題。題幹由本站重寫，多數選項由本站補寫，均非正式原卷。另有 96 題由 AI 依教材編寫，獨立放在自編練習區，預設不出題；尚未逐題對照 114 年教材。</p>
           <p>醫學內容沒有逐題對照現行教材原文，請以訓練單位教學為準，不適合作為現場急救的依據。</p>
           <p>用品清單、成績配分與薪給等內容屬於歷屆經驗，實際以徵集令、當梯次營區通知與主管機關公告為準。</p>
         </div>
@@ -627,12 +634,13 @@
     const count = (list, cat) => list.filter((q) => q.cat === cat).length;
     const catOptions = Object.entries(cfg.cats).map(([id, name]) => {
       const a = count(bank.verified, id), b = count(bank.pool, id);
-      return `<option value="${esc(id)}">${esc(name)}（${a} 題${b > a ? `，另 ${b - a} 題需勾選` : ''}）</option>`;
+      return `<option value="${esc(id)}">${esc(name)}（預設 ${a} 題${b > a ? `，另 ${b - a} 題可選` : ''}）</option>`;
     }).join('');
-    const others = bank.pool.length - bank.verified.length;
+    const authored = bank.pool.filter((q) => q.provenance === 'site_authored').length;
+    const others = bank.pool.length - bank.verified.length - authored;
     const scope = cfg.id === 'recruit'
       ? `只從歷屆彙編（增補至 257T）收錄、而且答案已對照現行法條的 ${bank.verified.length} 題出題。`
-      : `只從 270T 考生回憶的 ${bank.verified.length} 題考點出題（回憶者記錄當梯考試是 40 題單選）。題幹由站方重寫，不是逐字原題。`;
+      : `只從 Dcard 文章的 ${bank.verified.length} 題回憶考點出題；Part 1 是梯次不明的舊考點，Part 2 六題是 270T 當梯新題。題幹由本站重寫，不是逐字原題。`;
     return `
     <div class="stack">
       ${resumeBanner(bank)}
@@ -643,9 +651,14 @@
           <button type="button" class="btn btn-primary" data-action="quiz-start" data-mode="mock">開始模擬考</button>
         </section>
         <section class="card mode">
-          <h2>快速練習</h2>
-          <p>隨機 ${cfg.quickCount} 題，不計時。每答一題立刻看對錯與解析。</p>
-          <button type="button" class="btn btn-primary" data-action="quiz-start" data-mode="quick">開始快速練習</button>
+          <h2>來源題隨機練習</h2>
+          <p>從${cfg.id === 'emt' ? '考生回憶考點' : '民間彙編且已對照法條的題目'}隨機抽 ${cfg.quickCount} 題，不計時，即時看解析。</p>
+          <button type="button" class="btn btn-primary" data-action="quiz-start" data-mode="quick">開始來源題練習</button>
+        </section>
+        <section class="card mode">
+          <h2>自編題隨機練習</h2>
+          <p>單獨從自編概念題抽最多 ${cfg.quickCount} 題。${cfg.id === 'emt' ? '尚未逐題核對 114 年教材；非考古題。' : '不屬於 257T 彙編；非考古題。'}</p>
+          <button type="button" class="btn" data-action="quiz-start" data-mode="authored">開始自編題練習</button>
         </section>
         <section class="card mode">
           <h2>章節練習</h2>
@@ -666,13 +679,12 @@
       </div>
       <div class="card stack-sm">
         <h2>出題設定</h2>
-        ${others ? `<label class="check"><input type="checkbox" id="opt-unverified"> 快速練習與章節練習納入${cfg.otherLabel}（${others} 題）</label>
-        <p class="small muted">${cfg.id === 'recruit'
-          ? '包含答案沒有法規條文可以對照的彙編題、役男筆記裡的射擊題，以及站方自己編寫的題目。'
-          : '這些題目是先前由 AI 依教材編寫的，不是考古題；正確選項常常是最長或唯一帶英文的那一個，和實際考題的寫法不同。'}作答時題目上會有標示，模擬考不會抽到它們。</p>` : ''}
+        ${others ? `<label class="check"><input type="checkbox" id="opt-unverified"> 章節練習納入答案待補證的來源題（${others} 題）</label>` : ''}
+        ${authored ? `<label class="check"><input type="checkbox" id="opt-authored"> 章節練習納入自編題（${authored} 題；預設不勾選）</label>
+        <p class="small muted">自編題沒有在成功嶺考過的證據。${cfg.id === 'emt' ? '這 96 題尚未逐題對照 114 年教材，正解常是最長或唯一含英文的選項，請勿用來推測正式考試的出題方式。' : '它們不屬於 257T 彙編。'}模擬考不會抽到自編題。</p>` : ''}
         <label class="check"><input type="checkbox" id="opt-shuffle" checked> 選擇題的選項隨機排列</label>
         <p class="small muted">含「以上皆是」這類選項的題目不會打亂。未作答的題目不計分，也不會加入錯題本。模擬考計時以實際時間計算，切到其他 App 時不會停；離開測驗頁或重新整理會自動暫停，可以回來繼續。</p>
-        <div class="row">${pdfLink(cfg.id)}</div>
+        <div class="row">${pdfLink(cfg.id)}${pdfLink(cfg.id === 'emt' ? 'emtPractice' : 'recruitPractice')}</div>
       </div>
     </div>`;
   }
@@ -835,7 +847,13 @@
     const cfg = bank.cfg, f = bank.filter;
     const hasTypes = bank.questions.some((q) => q.type === 'tf');
     const sel = (value, current) => (value === current ? 'selected' : '');
+    const sourcedCount = bank.questions.filter((q) => q.provenance !== 'site_authored').length;
+    const authoredCount = bank.questions.length - sourcedCount;
     return `
+    <div class="source-switch" role="group" aria-label="題庫來源分類">
+      <button type="button" class="source-choice ${f.scope === 'sourced' ? 'is-selected' : ''}" data-action="bank-scope" data-scope="sourced" aria-pressed="${f.scope === 'sourced'}"><b>有來源的題目</b><span>${sourcedCount} 題；部分為回憶或民間彙編，請看逐題標籤</span></button>
+      <button type="button" class="source-choice ${f.scope === 'authored' ? 'is-selected' : ''}" data-action="bank-scope" data-scope="authored" aria-pressed="${f.scope === 'authored'}"><b>自編概念練習</b><span>${authoredCount} 題；沒有考過的證據，預設不納入測驗</span></button>
+    </div>
     <div class="card">
       <div class="toolbar">
         <div class="field field-search ${hasTypes ? '' : 'field-wide'}">
@@ -850,7 +868,7 @@
         </div>
         <div class="field field-select">
           <label for="bank-scope">範圍</label>
-          <select id="bank-scope" data-filter="scope"><option value="all" ${sel('all', f.scope)}>全部題目</option><option value="bookmarks" ${sel('bookmarks', f.scope)}>我的收藏</option><option value="mistakes" ${sel('mistakes', f.scope)}>錯題本</option><option value="exam" ${sel('exam', f.scope)}>模擬考會考的題目</option><option value="authored" ${sel('authored', f.scope)}>站方自編題</option></select>
+          <select id="bank-scope" data-filter="scope"><option value="sourced" ${sel('sourced', f.scope)}>有來源的題目</option><option value="authored" ${sel('authored', f.scope)}>自編概念練習</option><option value="bookmarks" ${sel('bookmarks', f.scope)}>我的收藏</option><option value="mistakes" ${sel('mistakes', f.scope)}>錯題本</option><option value="exam" ${sel('exam', f.scope)}>模擬考會考的題目</option></select>
         </div>
         <div class="toolbar-checks">
           <label class="check"><input type="checkbox" id="bank-hide" ${f.hide ? 'checked' : ''}> 背題模式（先隱藏答案）</label>
@@ -872,6 +890,7 @@
       if (f.scope === 'bookmarks' && !bank.bookmarks.has(q.id)) return false;
       if (f.scope === 'mistakes' && !bank.mistakes.has(q.id)) return false;
       if (f.scope === 'exam' && (q.outdated || !bank.cfg.inExam(q))) return false;
+      if (f.scope === 'sourced' && q.provenance === 'site_authored') return false;
       if (f.scope === 'authored' && q.provenance !== 'site_authored') return false;
       if (!kw) return true;
       return [q.id, q.text, q.explanation, ...q.options].join('\n').toLowerCase().includes(kw);
@@ -1348,9 +1367,14 @@
     },
     'bank-reset'() {
       const bank = currentBank();
-      Object.assign(bank.filter, { q: '', type: 'all', cat: 'all', scope: 'all', limit: 20 });
+      Object.assign(bank.filter, { q: '', type: 'all', cat: 'all', scope: 'sourced', limit: 20 });
       bank.revealed.clear();
       state.focusAfterRender = '#bank-search';
+      render();
+    },
+    'bank-scope'(el) {
+      const bank = currentBank();
+      Object.assign(bank.filter, { q: '', type: 'all', cat: 'all', scope: el.dataset.scope, limit: 20 });
       render();
     },
     'mistake-remove'(el) {

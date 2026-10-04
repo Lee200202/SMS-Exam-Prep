@@ -222,6 +222,7 @@ def main():
     print("彙編有、站內沒有對到的題：", missing)
 
     emt = load("emt_questions.json")
+    practice = load("emt_practice_questions.json")
     emt_counts = {}
     for q in emt["questions"]:
         prov = q.get("provenance", {})
@@ -237,12 +238,17 @@ def main():
                 "source_original_options": "回憶者有記選項" if prov["options_by"] == "source" else "回憶者沒有記選項，本站選項為站方自編",
                 "source_original_answer_text": answer_text(q), "match_class": "考生回憶的考點（題文為站方重寫）",
                 "answer_diff": "相同", "has_batch_evidence": "是" if prov["round"] == "270T" else "否（梯次不明）",
-                "decision": "不列入測驗（回憶者註明已過時）" if q.get("status") == "outdated" else "有考過的證據：列入 EMT-1 模擬考",
+                "decision": "不列入測驗（回憶者註明已過時）" if q.get("status") == "outdated" else "回憶條件與 114 年教材矛盾：不列入模擬考" if q.get("review") == "recalled_conflict" else "有考過的證據：列入 EMT-1 模擬考",
             })
         rows.append(r)
     emt["stats"]["provenance"] = emt_counts
     save("emt_questions.json", emt)
     print("EMT：", emt_counts)
+
+    for q in practice["questions"]:
+        q["provenance"] = {"class": "site_authored", "label": LABEL["site_authored"]}
+        rows.append(row("EMT-1 自編練習", q, old.get(q["id"]), None, 0, "site_authored"))
+    save("emt_practice_questions.json", practice)
 
     path = os.path.join(ROOT, "docs", "question_provenance.csv")
     with open(path, "w", encoding="utf-8-sig", newline="") as f:

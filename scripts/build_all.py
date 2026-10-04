@@ -2,7 +2,7 @@
 """
 一次重建所有由 data/*.json 衍生的檔案，確保網站、PDF 與稽核表用的是同一份資料。
 
-順序：套用逐題查核 → 逐題溯源 → 資料包 → 三份 PDF → 寫入 pdf/manifest.json → 資料檢查。
+順序：套用逐題查核 → 逐題溯源 → 資料包 → 五份分冊 PDF → 寫入 pdf/manifest.json → 資料檢查。
 任何一步失敗就停止。
 
 用法：python scripts/build_all.py
@@ -27,9 +27,9 @@ STEPS = [
 ]
 
 
-def run(script):
+def run(script, *args):
     print("==>", script)
-    result = subprocess.run([sys.executable, os.path.join("scripts", script)], cwd=ROOT)
+    result = subprocess.run([sys.executable, os.path.join("scripts", script), *args], cwd=ROOT)
     if result.returncode != 0:
         sys.exit("%s 失敗，已停止" % script)
 
@@ -42,9 +42,11 @@ def digest(name):
 def main():
     for script in STEPS:
         run(script)
+    run("generate_pdf_bank.py", "--authored")
+    run("generate_emt_pdf.py", "--practice")
     manifest = {
         "generated_at": datetime.datetime.now().isoformat(timespec="seconds"),
-        "sources": {name: digest(name) for name in ("questions.json", "emt_questions.json", "study_data.json")},
+        "sources": {name: digest(name) for name in ("questions.json", "emt_questions.json", "emt_practice_questions.json", "study_data.json")},
     }
     with open(os.path.join(ROOT, "pdf", "manifest.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)

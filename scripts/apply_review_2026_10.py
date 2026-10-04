@@ -518,11 +518,13 @@ def recalled_questions():
         else:
             q.update({
                 "review": "recalled", "source_kind": "recalled", "confidence": "中",
-                "source": "270T 考生回憶（Dcard 軍旅板），%s" % item, "source_url": src.SOURCE_URL,
+                "source": ("270T 作者當梯回憶" if qid.startswith("EMT-270") else "Dcard 文章舊考點（梯次不明）") + "，%s" % item, "source_url": src.SOURCE_URL,
                 "explanation": (note + chr(10) if note else "") + "答案照回憶者所記，沒有逐題對照現行教材原文。" + tail,
             })
         if retired:
             q.update({"status": "outdated", "status_note": retired + "本題不列入測驗。", "review": "outdated", "confidence": "低"})
+        if qid == "EMT-P1-25":
+            q.update({"review": "recalled_conflict", "confidence": "低", "caution": "來源回憶與 114 年消防署教材第 125 頁的脈搏條件矛盾；本站題幹改為有脈搏，不列入模擬考。"})
         out.append(q)
     return out
 
@@ -530,9 +532,9 @@ def recalled_questions():
 def review_emt():
     data = load("emt_questions.json")
     recalled = recalled_questions()
-    keep = [q for q in data["questions"] if q.get("provenance", {}).get("class") != "recalled"]
-    data["questions"] = recalled + keep  # 有考過證據的題目排在前面
-    summary = {"law": 0, "partial": 0, "textbook": 0, "recalled": 0, "outdated": 0}
+    # 自編 96 題另存於 data/emt_practice_questions.json，使用者須明確選擇才進入練習。
+    data["questions"] = recalled
+    summary = {"law": 0, "partial": 0, "textbook": 0, "recalled": 0, "recalled_conflict": 0, "outdated": 0}
     for q in data["questions"]:
         if q.get("provenance", {}).get("class") == "recalled":
             summary[q["review"]] += 1
@@ -562,7 +564,7 @@ def review_emt():
             q["source"] = q["source"].replace("全國法規資料庫 - ", "")
         summary[q["review"]] += 1
     data["updatedAt"] = REVIEWED_AT
-    data["subtitle"] = "依消防署初級救護技術員教材與歷屆役男分享整理；法規題已對照現行條文"
+    data["subtitle"] = "依 270T 考生回憶的考點重寫；不是逐字原題"
     data["stats"]["review"] = summary
     data["stats"]["total"] = data["total"] = len(data["questions"])
     data["stats"].pop("multiple_choice_count", None)
@@ -697,11 +699,13 @@ def review_study():
 REVIEWER = "Claude（AI）；尚無人工複核"
 STATUS = {
     "recalled": "考生回憶的答案（未對照現行教材原文）",
+    "recalled_conflict": "回憶題幹與 114 年教材條件矛盾（不列入模擬考）",
     "law": "核實", "partial": "待補證（條文只支持一部分）", "unverified": "待補證（查無條文）",
     "experience": "待補證（經驗題）", "outdated": "舊法停用", "textbook": "待補證（教材題，未對照現行教材原文）",
 }
 METHOD = {
     "recalled": "題幹由站方依考生回憶的考點重寫；答案照回憶者所記，另以急救常識檢查有無明顯矛盾",
+    "recalled_conflict": "核對消防署 114 年教材第 125 頁；回憶題幹的脈搏條件與教材表格不符，先排除模擬考",
     "law": "題幹、選項與所引條文逐字比對，列出不見於條文的片段後逐題裁定",
     "partial": "題幹、選項與所引條文逐字比對；條文只支持一部分",
     "unverified": "在收錄的 20 部法規中檢索，查無對應條文",
@@ -711,6 +715,7 @@ METHOD = {
 }
 SUPPORT = {
     "recalled": "未對照教材原文",
+    "recalled_conflict": "回憶條件與教材矛盾",
     "law": "是", "partial": "部分", "unverified": "無條文可對照", "experience": "無條文可對照",
     "outdated": "否（舊法）", "textbook": "未對照教材原文",
 }
@@ -750,9 +755,10 @@ def write_csv(recruit, emt):
             return False
         if bank == "recruit":
             return cls.startswith("compiled") and q["review"] == "law"
-        return cls == "recalled"
+        return cls == "recalled" and q.get("review") != "recalled_conflict"
     rows = []
-    for bank, data in (("recruit", recruit), ("emt", emt)):
+    practice = load("emt_practice_questions.json")
+    for bank, data in (("recruit", recruit), ("emt", emt), ("emt-practice", practice)):
         for q in data["questions"]:
             old = before.get(q["id"])
             old_answer = answer_text(old) if old else ""
@@ -765,7 +771,7 @@ def write_csv(recruit, emt):
                 status = STATUS[review]
                 unique = "是" if review == "law" else "未裁定" if review != "outdated" else "不適用"
             rows.append({
-                "題號": q["id"], "題庫": "新訓" if bank == "recruit" else "EMT-1",
+                "題號": q["id"], "題庫": "新訓" if bank == "recruit" else "EMT-1 自編練習" if bank == "emt-practice" else "EMT-1 回憶考點",
                 "題型": "是非" if q["type"] == "true_false" else "選擇", "分類": q["category"],
                 "出題梯次": q.get("exam_tag", ""), "題幹": q["question"],
                 "選項": " ／ ".join(q.get("options", [])),
@@ -824,15 +830,15 @@ def write_report(recruit, emt, r_sum, e_sum, rows):
     out += ["| MC-002 | %s |" % NOTES["MC-002"]]
     out += ["", "## 三、EMT-1 題庫（%d 題）" % len(emt["questions"]), "",
             "- 法規題 %d 題已對照現行《緊急醫療救護法》與《救護技術員管理辦法》（含附表一）；另有 %d 題條文只支持一部分。" % (e_sum["law"], e_sum["partial"]),
-            "- 其餘 %d 題是醫學與操作內容，依消防署 108 年版教材與歷屆整理。已檢查題目、答案與解析是否一致，但沒有取得現行（56 小時課程）教材原文，不能視為已核實；不適合作為現場醫療決策的依據。" % e_sum["textbook"],
-            "- 因為教材題佔絕大多數，EMT-1 模擬考仍會抽教材題，測驗頁有說明。", "",
+            "- 回憶考點中 %d 題答案仍未逐題對照消防署 114 年教材；另有 %d 題回憶條件與教材矛盾，已排除模擬考。這些內容不適合作為現場醫療決策的依據。" % (e_sum["recalled"], e_sum["recalled_conflict"]),
+            "- 96 題 AI 自編概念練習另存資料與 PDF，預設不出題，且永不納入模擬考；尚未逐題核對 114 年教材。", "",
             "### 更正的題目", "", "| 題號 | 處理 |", "| --- | --- |"]
     out += ["| %s | %s |" % (q["id"], q["revised"]) for q in emt["questions"] if q.get("revised")]
     out += ["", "### 與較新急救指引不完全一致、已加註的教材題", "", "| 題號 | 加註 |", "| --- | --- |"]
     out += ["| %s | %s |" % (qid, text) for qid, text in EMT_CAUTION.items()]
     out += ["", "## 四、尚未查核的內容", "",
             "- 新訓 %d 題待補證題、%d 題射擊經驗題：需要當梯次教材或主管機關文件才能核定。" % (r_sum["unverified"] + r_sum["partial"], r_sum["experience"]),
-            "- EMT-1 %d 題教材題：需要現行教材原文逐題對照。" % e_sum["textbook"],
+            "- EMT-1 %d 題回憶考點和 96 題自編概念練習：需要現行教材原文逐題對照。" % e_sum["recalled"],
             "- 役期月數、薪給金額、成績配分：由行政院或訓練單位核定，不在收錄的法規條文中，頁面已標示為歷屆整理。",
             "- 「歷屆役男重點筆記」「歷屆考題註解」約 200 則筆記沒有逐條核對，頁面標題已註明可能含舊法內容。",
             "- 用品清單為 2024 年梯次役男分享，非官方清單。", ""]

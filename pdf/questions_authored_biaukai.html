@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<title>新訓自編概念練習（非考古題）</title>
+<style>
+  /* 標楷體沒有粗體字重，合成粗體會被輸出成 Type3 字型而讓 PDF 膨脹 */
+  strong, b, th { font-weight: normal; }
+  @page {
+    size: A4 portrait;
+    margin: 8mm 8mm 10mm 8mm;
+    @bottom-right {
+      content: "第 " counter(page) " 頁，共 " counter(pages) " 頁";
+      font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
+      font-size: 8pt;
+      color: #555;
+    }
+    @bottom-left {
+      content: "新訓自編概念練習 ｜ 非考古題";
+      font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
+      font-size: 8pt;
+      color: #555;
+    }
+  }
+
+  body {
+    font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
+    font-size: 9.3pt;
+    line-height: 1.44;
+    color: #111;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Document Header */
+  .doc-header {
+    text-align: center;
+    border-bottom: 2px solid #222;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+  .doc-title {
+    font-size: 15pt;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 0 0 2px 0;
+  }
+  .doc-subtitle {
+    font-size: 9.5pt;
+    font-weight: normal;
+    color: #2b4c7e;
+    margin: 0 0 2px 0;
+  }
+  .doc-meta {
+    font-size: 8pt;
+    color: #444;
+  }
+
+  /* Section Banners */
+  .section-banner {
+    font-size: 10pt;
+    font-weight: normal;
+    padding: 4px 8px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .tf-banner {
+    background-color: #1e40af;
+    color: #ffffff;
+  }
+  .mc-banner {
+    background-color: #581c87;
+    color: #ffffff;
+  }
+
+  /* Table Style */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    page-break-inside: auto;
+    margin-bottom: 8px;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  th {
+    background-color: #e6edf5;
+    color: #1a2a3a;
+    border: 1px solid #4a6b82;
+    padding: 5px 5px;
+    font-size: 8.8pt;
+    font-weight: normal;
+    text-align: center;
+  }
+  td {
+    border: 1px solid #888;
+    padding: 5px 5px;
+    vertical-align: top;
+    font-size: 9pt;
+    word-break: break-word;
+  }
+  tr:nth-child(even) {
+    background-color: #fbfcfd;
+  }
+
+  /* Column Widths (4 columns: 題號, 題目內容, 選項與解析, 答案) */
+  .col-num { width: 3.5%; }
+  .col-q { width: 53.5%; }
+  .col-opt { width: 36%; }
+  .col-ans { width: 7%; }
+
+  .text-center { text-align: center; }
+
+  /* Badges & Tags */
+  .badge {
+    display: inline-block;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: 7.8pt;
+    font-weight: normal;
+    margin-right: 2px;
+    vertical-align: baseline;
+    line-height: 1.25;
+  }
+  .badge-tf { background-color: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+  .badge-mc { background-color: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+  .badge-exam {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    font-size: 7.2pt;
+    font-weight: normal;
+  }
+
+  /* Options list (clean neutral text color, NO green spoilers) */
+  .opt-list { font-size: 8.8pt; line-height: 1.42; margin-bottom: 3px; }
+  .opt-item { margin-bottom: 2px; color: #1e293b; }
+  .tf-line {
+    font-size: 8.8pt;
+    margin-bottom: 1px;
+    color: #1e293b;
+  }
+
+  /* Legal explanation & compact source citation */
+  .expl-box {
+    font-size: 8.2pt;
+    color: #334155;
+    line-height: 1.38;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 4px;
+    margin-top: 3px;
+  }
+  .source-sub {
+    font-size: 7.8pt;
+    margin-top: 3px;
+    color: #2563eb;
+  }
+  .source-link {
+    font-size: 7.8pt;
+    color: #1d4ed8;
+    text-decoration: underline;
+    line-height: 1.2;
+    word-break: break-all;
+  }
+
+  /* Rightmost Answer Column (easy to cover with a bookmark/ruler) */
+  .ans-cell {
+    font-size: 9pt;
+    font-weight: normal;
+    color: #0f172a;
+    padding-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="doc-header">
+    <div class="doc-title">新訓自編概念練習（非考古題）</div>
+    <div class="doc-subtitle">本站自行編寫，257T 彙編裡找不到；答案仍須逐條核對，請勿當作正式歷屆題。</div>
+    <div class="doc-meta">
+      自編題沒有曾在成功嶺考過的證據 ｜ 資料整理日：2026-10-04 ｜ 總題數：50 題 (是非題 26 題 · 選擇題 24 題)
+    </div>
+  </div>
+
+  <!-- Part 1: True / False -->
+  <div class="section-banner tf-banner">第一部分：是非題（共 26 題 ｜ 題號：1 ～ 26）</div>
+  <table>
+
+    <thead>
+      <tr>
+        <th class="col-num">題號</th>
+        <th class="col-q">題目內容 (含梯次與章節)</th>
+        <th class="col-opt">選項與法規解析</th>
+        <th class="col-ans">答案</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+        <tr data-qid="TF-124">
+          <td class="col-num text-center"><strong>1</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 我國《志願服務法》所稱志願服務，指民眾出於自由意志，非基於個人義務或法律責任，以知識、體能、勞力等奉獻社會，不以獲取報酬為目的之各項輔助性服務。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第3條：本法之名詞定義如下：一、志願服務：民眾出於自由意志，非基於個人義務或法律責任，秉誠心以知識、體能、勞力、經驗、技術、時間等貢獻社會，不以獲取報酬為目的，以提高公共事務效能及增進社會公益所為之各項輔助性服務。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=3" target="_blank" class="source-link">參考：志願服務法 第3條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-125">
+          <td class="col-num text-center"><strong>2</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 志工服務年資滿 3 年，服務時數達 300 小時以上者，得向地方主管機關申請核發志願服務榮譽卡。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第20條：志工服務年資滿三年，服務時數達三百小時以上者，得檢具證明文件向地方主管機關申請核發志願服務榮譽卡。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=20" target="_blank" class="source-link">參考：志願服務法 第20條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-126">
+          <td class="col-num text-center"><strong>3</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 志願服務榮譽卡使用期限為5年，期滿後志工可直接自動永久續卡，無須再提出申請。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第20條沒有規定榮譽卡的使用期限，期限與換發規定在子法，本站未收錄。<div class="source-sub"><span class="source-link">來源：歷屆考古題（未能以法規查核）</span></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-127">
+          <td class="col-num text-center"><strong>4</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 志願服務運用單位應為志工辦理意外事故保險，必要時並得補助交通、誤餐及特殊保險等費用。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第16條：志願服務運用單位應為志工辦理意外事故保險，必要時，並得補助交通、誤餐及特殊保險等經費。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=16" target="_blank" class="source-link">參考：志願服務法 第16條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-128">
+          <td class="col-num text-center"><strong>5</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 若志工個人平時已自行購買多份民間商業意外險，志願服務運用單位即可依法免除為其辦理意外事故保險之義務。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第16條：志願服務運用單位應為志工辦理意外事故保險，必要時，並得補助交通、誤餐及特殊保險等經費。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=16" target="_blank" class="source-link">參考：志願服務法 第16條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-129">
+          <td class="col-num text-center"><strong>6</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 同一位志工若同時於多個不同運用單位服務，每個單位都必須發給該志工一本獨立的志願服務紀錄冊。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>一人一冊的規定出自《志願服務證及服務紀錄冊管理辦法》，本站未收錄該辦法全文。<div class="source-sub"><span class="source-link">來源：歷屆考古題（未能以法規查核）</span></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-130">
+          <td class="col-num text-center"><strong>7</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 志工必須同時完成基礎訓練及特殊訓練之後，方得由志願服務運用單位檢具相關文件造冊向主管機關申請核發志願服務紀錄冊。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>紀錄冊核發條件出自《志願服務證及服務紀錄冊管理辦法》，本站未收錄該辦法全文。<div class="source-sub"><span class="source-link">來源：歷屆考古題（未能以法規查核）</span></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-131">
+          <td class="col-num text-center"><strong>8</strong></td>
+          <td class="col-q"><span class="badge badge-tf">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 法規明定擔任志願服務志工有嚴格的年齡上下限，未滿 12 歲或超過 70 歲者絕對不得擔任志工。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《志願服務法》條文中沒有志工年齡上下限的規定。<div class="source-sub"><span class="source-link">來源：歷屆考古題（未能以法規查核）</span></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-132">
+          <td class="col-num text-center"><strong>9</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 成功嶺實彈射擊時，射擊基本口訣為「托、抵、握、貼、瞄、停、扣、報」八大要領。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>射擊口訣八大要領：托(托前護木)、抵(槍托抵肩)、握(右手握握把)、貼(右腮緊貼槍面)、瞄(瞄準目標)、停(自然停止呼吸)、扣(食指第一節徐徐扣引扳機)、報(維持姿勢報靶)。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-133">
+          <td class="col-num text-center"><strong>10</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 在靶場若遇步槍卡彈或無法擊發時，射手應立即自行拆解槍枝排障，不需舉手報告。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>靶場鐵律：遇槍枝故障時應維持槍口指向目標方向，立即「舉手」報告教官處理，嚴禁自行擅自轉身或拆解。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-134">
+          <td class="col-num text-center"><strong>11</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 步槍射擊瞄準之正確認知為：眼睛、覘孔、準星尖與目標靶心，必須構成「三點一線」之同心圓與平視直線。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>準星尖平正於覘孔中央，使準星尖對準目標瞄準點中央，維持三點一線。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-135">
+          <td class="col-num text-center"><strong>12</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 射擊練習中，步槍故障排除的基本口訣為「拍、拉、看、瞄、射」五步驟。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>故障排除基本口訣：拍(拍緊彈匣底板)、拉(拉拉柄向後)、看(看進彈口是否有卡彈或雙重進彈)、瞄(重新瞄準目標)、射(扣扳機擊發)。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-136">
+          <td class="col-num text-center"><strong>13</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 靶場口令下達「左線預備」時，通常代表要求射手打開步槍保險，由「S（安全）」撥轉至「單發（R/1）」位置。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>左線預備開保險，右線預備做深呼吸與最後確認，全線預備開保險開始射擊。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-137">
+          <td class="col-num text-center"><strong>14</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 在任何情況下（無論有無裝填子彈、有無開保險），槍口絕對不可對人，此為靶場至高無上之安全守則。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>安全第一，將任何槍枝視為已上膛狀態，槍口嚴禁指向任何人。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-138">
+          <td class="col-num text-center"><strong>15</strong></td>
+          <td class="col-q"><span class="badge badge-tf">役男權益</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男服役期間，因配偶分娩，依法得檢附相關證明申請「陪產檢及陪產假」合計 7 日，並得於配偶分娩日前後 15 日內請畢。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《替代役役男請假規則》第4條：替代役役男因配偶妊娠產檢或分娩，核給陪產檢及陪產假七日，得分次申請。除陪產檢於配偶妊娠期間請假外，陪產之請假應於配偶分娩之當日及其前後合計十五日期間內為之。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040021&flno=4" target="_blank" class="source-link">參考：替代役役男請假規則 第4條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-139">
+          <td class="col-num text-center"><strong>16</strong></td>
+          <td class="col-q"><span class="badge badge-tf">役男權益</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男結婚，依法得核給婚假 14 日，可分次申請，但原則上應於結婚之日起 3 個月內請畢。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《替代役役男請假規則》第5條：前項婚假可分次申請。但應於結婚之日起三個月內請畢。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040021&flno=5" target="_blank" class="source-link">參考：替代役役男請假規則 第5條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-140">
+          <td class="col-num text-center"><strong>17</strong></td>
+          <td class="col-q"><span class="badge badge-tf">役男權益</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男服役期間，若因公傷病經就醫治療，其健保門診掛號費及健保部分負擔均由政府全額負擔。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《替代役役男保險及醫療實施辦法》第12條：替代役役男傷病赴國軍醫療院所以外之全民健康保險醫事服務機構就醫，主管機關應編列預算負擔下列費用：<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040027&flno=12" target="_blank" class="source-link">參考：替代役役男保險及醫療實施辦法 第12條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-141">
+          <td class="col-num text-center"><strong>18</strong></td>
+          <td class="col-q"><span class="badge badge-tf">役男權益</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男對服勤單位所為之罰薪或記過懲處不服時，得於懲處核定書送達之次日起 30 日內提出申訴，受申訴機關應於 30 日內處理完畢。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>《替代役役男獎懲辦法》第20條：替代役役男對前條第三項之懲處不服時，得於懲處處分書送達之次日起三十日內，以書面或言詞向需用機關提出申訴；原懲處機關為需用機關者，向主管機關提出申訴。受理申訴機關應自收受申訴書之日起三十日內以書面答覆，必要時得延長十日（第21條）。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040028&flno=20" target="_blank" class="source-link">參考：替代役役男獎懲辦法 第20條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-01">
+          <td class="col-num text-center"><strong>19</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span> <span class="badge badge-exam">【257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> T65K2步槍避火罩具有減音、滅光、減少後座力之功用。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>依國軍步槍教範，T65K2步槍槍口避火罩主要功用僅為「減光」，並無顯著減音或減少後座力之設計。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-02">
+          <td class="col-num text-center"><strong>20</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span> <span class="badge badge-exam">【257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> T65K2步槍覘孔可分為前覘孔與後覘孔，前覘孔為射擊0至300公尺目標，後覘孔為射擊300至800公尺目標。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>正確。0-3覘孔為近距離（0-300公尺不含），3-8覘孔為中遠距離（300-800公尺）瞄準使用。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-03">
+          <td class="col-num text-center"><strong>21</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span> <span class="badge badge-exam">【257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 為求訓練迅速與方便，T65K2步槍可在草地或砂地上直接實施槍枝分解與結合。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>嚴禁在草地、砂地上實施槍枝分解與結合，以避免砂石塵土進入機匣磨損零件，並防細小機件遺失。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>❌ (X)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-04">
+          <td class="col-num text-center"><strong>22</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span> <span class="badge badge-exam">【257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 靶場非操作與射擊時間，嚴禁個人擅自取槍瞄準，槍枝集中放置處應指派槍前哨負責警戒。</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>靶場安全至上，非射擊時間個人絕不可隨意取槍瞄準把玩，槍枝架放處須有專人哨兵看守。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-05">
+          <td class="col-num text-center"><strong>23</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 射擊口訣為「托、抵、握、貼、瞄、停、扣、報」八大要領。【257T考選擇 原文考點】</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>【257T考選擇 原文】正確。射擊口訣：托抵握貼瞄停扣報。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-06">
+          <td class="col-num text-center"><strong>24</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 步槍「箱上瞄準」鑑測訓練之合格標準為「5分鐘內畫3個三角形」。【257T考選擇 原文考點】</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>【257T考選擇 原文】正確。箱上瞄準合格標準：5分鐘畫3個三角形。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-07">
+          <td class="col-num text-center"><strong>25</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> T65K2突擊步槍是一種重量輕、空氣冷卻、氣體傳動、彈匣給彈、可做半自動、三發連放、全自動射擊之肩射武器。【247T、257T 原文】</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>【打靶筆記原文】正確。本槍是一種重量輕、空氣冷卻、氣體傳動、彈匣給彈、可做半自動，三發連放、全自動射擊之肩射武器。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+        <tr data-qid="TF-257-08">
+          <td class="col-num text-center"><strong>26</strong></td>
+          <td class="col-q"><span class="badge badge-tf">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 槍械到達場地由中隊長統一指揮驗槍。【257T新增題目 原文考點】</td>
+          <td class="col-opt"><div class="tf-line">⭕ 正確 (O) &nbsp;｜&nbsp; ❌ 錯誤 (X)</div><div class="expl-box"><strong>【解析】</strong>【257T新增題目 原文】槍械到達場地由誰統一指揮驗槍? (1)分隊長 (2)區隊長 (3)中隊長 (4)役男。答案為 (3)中隊長。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>⭕ (O)</strong></div></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+  <!-- Part 2: Multiple Choice -->
+  <div class="section-banner mc-banner">第二部分：單選選擇題（共 24 題 ｜ 題號：27 ～ 50）</div>
+  <table>
+
+    <thead>
+      <tr>
+        <th class="col-num">題號</th>
+        <th class="col-q">題目內容 (含梯次與章節)</th>
+        <th class="col-opt">選項與法規解析</th>
+        <th class="col-ans">答案</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+        <tr data-qid="MC-086">
+          <td class="col-num text-center"><strong>27</strong></td>
+          <td class="col-q"><span class="badge badge-mc">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 依《志願服務法》規定，全國志願服務之中央主管機關為下列何者？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 內政部</div><div class="opt-item">(B) 教育部</div><div class="opt-item">(C) 衛生福利部</div><div class="opt-item">(D) 勞動部</div></div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第4條：本法所稱之主管機關：在中央為衛生福利部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=4" target="_blank" class="source-link">參考：志願服務法 第4條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-087">
+          <td class="col-num text-center"><strong>28</strong></td>
+          <td class="col-q"><span class="badge badge-mc">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 志工志願服務年資滿幾年，且服務時數達多少小時以上，得申請核發「志願服務榮譽卡」？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 滿1年，150小時</div><div class="opt-item">(B) 滿2年，200小時</div><div class="opt-item">(C) 滿3年，300小時</div><div class="opt-item">(D) 滿3年，500小時</div></div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第20條：志工服務年資滿三年，服務時數達三百小時以上者，得檢具證明文件向地方主管機關申請核發志願服務榮譽卡。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=20" target="_blank" class="source-link">參考：志願服務法 第20條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-088">
+          <td class="col-num text-center"><strong>29</strong></td>
+          <td class="col-q"><span class="badge badge-mc">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 持有志願服務榮譽卡之志工，依法可享有下列何項具體權益或優待？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 免費搭乘所有民營客運與高鐵</div><div class="opt-item">(B) 進入公立收費之公園、森林遊樂區、公立博物館免費或優惠</div><div class="opt-item">(C) 於公立醫院免收所有健保部分負擔與自費項目</div><div class="opt-item">(D) 享有政府每月發放之志工津貼補助</div></div><div class="expl-box"><strong>【解析】</strong>《志願服務法》第20條：志工進入收費之公立風景區、未編定座次之康樂場所及文教設施，憑志願服務榮譽卡得以免費。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050131&flno=20" target="_blank" class="source-link">參考：志願服務法 第20條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-089">
+          <td class="col-num text-center"><strong>30</strong></td>
+          <td class="col-q"><span class="badge badge-mc">志願服務</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 關於志願服務運用單位對於志工應盡之義務，下列敘述何者錯誤？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 應為志工辦理意外事故保險</div><div class="opt-item">(B) 應提供志工必要之教育訓練</div><div class="opt-item">(C) 得要求志工無償代行單位公務員之公權力簽署行政處分</div><div class="opt-item">(D) 應發給志工服務時數證明或紀錄冊登錄</div></div><div class="expl-box"><strong>【解析】</strong>收錄的現行法規中查無對應條文，這題的答案來自歷屆考古題，請以當梯次教材為準。<div class="source-sub"><span class="source-link">來源：歷屆考古題（未能以法規查核）</span></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-090">
+          <td class="col-num text-center"><strong>31</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 步槍實彈射擊八大要領口訣「托、抵、握、貼、瞄、停、扣、報」中，「停」代表的意思為何？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 射擊完畢立即停止動作</div><div class="opt-item">(B) 在預備擊發時自然暫停呼吸，避免胸腔起伏晃動槍身</div><div class="opt-item">(C) 扣下扳機後停止十秒才能站起</div><div class="opt-item">(D) 由靶場指揮官喊停止</div></div><div class="expl-box"><strong>【解析】</strong>「停」意指在擊發瞄準瞬間自然吐氣後暫停呼吸数秒，使槍身保持最平穩狀態。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-091">
+          <td class="col-num text-center"><strong>32</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 步槍故障排除「拍、拉、看、瞄、射」五大步驟中，「拍」主要之操作目的為何？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 拍打槍管散熱</div><div class="opt-item">(B) 拍緊彈匣底部，確認彈匣確實卡緊入位</div><div class="opt-item">(C) 拍擊槍托調整長度</div><div class="opt-item">(D) 拍打射手肩部提醒射擊</div></div><div class="expl-box"><strong>【解析】</strong>拍(拍彈匣底板)是確保彈匣定位卡損確實卡入彈匣井，避免因供彈不良產生不進彈障礙。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-092">
+          <td class="col-num text-center"><strong>33</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 實彈射擊時，關於「扣扳機」之正確動作要領，下列敘述何者最正確？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 用食指根部猛力快速扣到底</div><div class="opt-item">(B) 食指第二節用力向側邊按壓</div><div class="opt-item">(C) 以食指第一節（指腹前段）置於扳機中央，徐徐均勻向後正直扣引</div><div class="opt-item">(D) 用兩隻手指合力扣引</div></div><div class="expl-box"><strong>【解析】</strong>扣扳機要領：以食指第一節肉厚處置於扳機上，自然向後均勻正直施力扣引，不可猛扣。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-093">
+          <td class="col-num text-center"><strong>34</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 在靶場實彈射擊進行中，指揮官下達「停止射擊」口令時，射手第一時間應採取之動作為何？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 將剩餘彈藥全數迅速打完</div><div class="opt-item">(B) 立即停止扣扳機，食指離開扳機移至護弓外，步槍維持朝向靶面方向並關上保險</div><div class="opt-item">(C) 立刻起立拿著步槍轉身報告指揮官</div><div class="opt-item">(D) 將彈匣自行卸下並拆解槍枝</div></div><div class="expl-box"><strong>【解析】</strong>聽聞停止射擊口令，必須立刻停止任何擊發動作，手指離開扳機，槍口仍朝目標區，並依指令關保險。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-094">
+          <td class="col-num text-center"><strong>35</strong></td>
+          <td class="col-q"><span class="badge badge-mc">役男權益</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男因父母或配偶死亡，依法得核給喪假幾日？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 5日</div><div class="opt-item">(B) 10日</div><div class="opt-item">(C) 15日</div><div class="opt-item">(D) 20日</div></div><div class="expl-box"><strong>【解析】</strong>《替代役役男請假規則》第6條：替代役役男因下列親屬死亡，核給喪假，其規定如下：一、父母、養父母或配偶死亡者，給假十五日。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040021&flno=6" target="_blank" class="source-link">參考：替代役役男請假規則 第6條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-095">
+          <td class="col-num text-center"><strong>36</strong></td>
+          <td class="col-q"><span class="badge badge-mc">役男權益</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男服役期間，因公傷殘給予年撫卹金之年限規定，下列何者正確？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 一等給與終身</div><div class="opt-item">(B) 二等給與20年</div><div class="opt-item">(C) 三等給與15年</div><div class="opt-item">(D) 重度機能障礙給與20年</div></div><div class="expl-box"><strong>【解析】</strong>《替代役實施條例》第34條：替代役役男因傷病致身心障礙，自核定身心障礙等級之日起，依下列規定給與年撫卹金：（一）一等給與終身，每年給與四個基數。<br><strong>【改寫說明】</strong>原選項「二等殘給與10年」「三等殘給與5年」依第34條也是正確敘述，不是唯一正解；已改寫干擾選項。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=34" target="_blank" class="source-link">參考：替代役實施條例 第34條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-096">
+          <td class="col-num text-center"><strong>37</strong></td>
+          <td class="col-q"><span class="badge badge-mc">替代役條例</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 依《替代役實施條例》規定，替代役役男無故擅離職役累計逾幾日者，即屬觸犯刑法，應函送司法機關偵辦？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 3日</div><div class="opt-item">(B) 5日</div><div class="opt-item">(C) 7日</div><div class="opt-item">(D) 10日</div></div><div class="expl-box"><strong>【解析】</strong>《替代役實施條例》第52條：替代役役男無故不就指定之替代役職役、擅離職役累計逾七日者，處二年以下有期徒刑、拘役或科或併科新臺幣二十萬元以下罰金。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=52" target="_blank" class="source-link">參考：替代役實施條例 第52條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-097">
+          <td class="col-num text-center"><strong>38</strong></td>
+          <td class="col-q"><span class="badge badge-mc">服勤管理</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男違反生活或服勤管理規定，施以「罰勤」懲處時，平日與例假日之每日時數上限分別為？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 平日1小時，假日4小時</div><div class="opt-item">(B) 平日2小時，假日8小時</div><div class="opt-item">(C) 平日3小時，假日6小時</div><div class="opt-item">(D) 平日4小時，假日8小時</div></div><div class="expl-box"><strong>【解析】</strong>《替代役實施條例》第55條：罰勤，平日以二小時為限，例假日以八小時為限。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=55" target="_blank" class="source-link">參考：替代役實施條例 第55條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-098">
+          <td class="col-num text-center"><strong>39</strong></td>
+          <td class="col-q"><span class="badge badge-mc">服勤管理</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 替代役役男違反生活及勤務規定施以「罰薪」處分時，其扣除當月份薪資百分比與最長期限為？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 扣除10%至20%，以1個月為限</div><div class="opt-item">(B) 扣除10%至30%，以3個月為限</div><div class="opt-item">(C) 扣除20%至50%，以6個月為限</div><div class="opt-item">(D) 扣除全部月薪，以2個月為限</div></div><div class="expl-box"><strong>【解析】</strong>《替代役實施條例》第55條：罰薪，扣除薪給百分之十至百分之三十，以三個月為限。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=55" target="_blank" class="source-link">參考：替代役實施條例 第55條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-01">
+          <td class="col-num text-center"><strong>40</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span> <span class="badge badge-exam">【257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 實彈射擊實施時，槍械到達靶場後應由何人統一指揮下達驗槍程序？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 分隊長</div><div class="opt-item">(B) 區隊長</div><div class="opt-item">(C) 中隊長</div><div class="opt-item">(D) 實彈射擊役男本人</div></div><div class="expl-box"><strong>【解析】</strong>槍械到達射擊場地由「中隊長」親自統一指揮驗槍，確認無彈無虞後始得展開後續操課。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-02">
+          <td class="col-num text-center"><strong>41</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span> <span class="badge badge-exam">【257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 步槍「箱上瞄準」訓練測驗之合格標準與要求為？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 3分鐘內畫2個三角形</div><div class="opt-item">(B) 5分鐘內畫3個三角形</div><div class="opt-item">(C) 10分鐘內畫5個三角形</div><div class="opt-item">(D) 無時間限制畫出同心圓即可</div></div><div class="expl-box"><strong>【解析】</strong>箱上瞄準測驗要求：5分鐘內在標靶紙上連續完成3個三角形瞄準點，三點連線構成之三角形越小表示瞄準線越穩定一致。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-03">
+          <td class="col-num text-center"><strong>42</strong></td>
+          <td class="col-q"><span class="badge badge-mc">替代役條例</span> <span class="badge badge-exam">【205T/219T/257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 依《替代役實施條例》規定，替代役之法定主管機關為下列何者？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 內政部</div><div class="opt-item">(B) 國防部</div><div class="opt-item">(C) 行政院</div><div class="opt-item">(D) 直轄市、縣(市)政府</div></div><div class="expl-box"><strong>【解析】</strong>《替代役實施條例》第2條：本條例之主管機關為內政部。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=2" target="_blank" class="source-link">參考：替代役實施條例 第2條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-04">
+          <td class="col-num text-center"><strong>43</strong></td>
+          <td class="col-q"><span class="badge badge-mc">服勤管理</span> <span class="badge badge-exam">【247T/257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 依役男獎懲規定，替代役役男違反生活及勤務規定予以「罰勤」時，例假日每日以幾小時為限？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 2小時</div><div class="opt-item">(B) 4小時</div><div class="opt-item">(C) 6小時</div><div class="opt-item">(D) 8小時</div></div><div class="expl-box"><strong>【解析】</strong>《替代役實施條例》第55條：罰勤，平日以二小時為限，例假日以八小時為限。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=55" target="_blank" class="source-link">參考：替代役實施條例 第55條</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-05">
+          <td class="col-num text-center"><strong>44</strong></td>
+          <td class="col-q"><span class="badge badge-mc">替代役條例</span> <span class="badge badge-exam">【247T/257T考】</span> <span class="badge badge-exam">站方自編，無考古題來源</span> 役男入營後，因體格不適服替代役者，應於入營幾天內辦理驗退？</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 15天</div><div class="opt-item">(B) 20天</div><div class="opt-item">(C) 30天</div><div class="opt-item">(D) 45天</div></div><div class="expl-box"><strong>【解析】</strong>收錄的現行法規中查無對應條文，這題的答案來自歷屆考古題，請以當梯次教材為準。<div class="source-sub"><span class="source-link">來源：歷屆考古題（未能以法規查核）</span></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-06">
+          <td class="col-num text-center"><strong>45</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 國軍T65K2步槍槍口「避火罩」之主要功用為何？【257T新增題目 原文】</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 主要功用為「減光」，無減音或減少後座力之功用</div><div class="opt-item">(B) 主要功用為「減音」，可做微聲射擊</div><div class="opt-item">(C) 主要功用為「減少後座力」，增進連發穩定度</div><div class="opt-item">(D) 同時具備減音、滅光及減少後座力三種功能</div></div><div class="expl-box"><strong>【解析】</strong>【257T新增題目 原文】避火罩功能：T65K2步槍避火罩有減音、滅光、減少後座力之公用→錯誤，正確為「減光」。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-07">
+          <td class="col-num text-center"><strong>46</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> T65K2步槍之「0至3覘孔」與「3至8覘孔」，其適用之射擊目標距離分別為何？【247T、257T期末考 原文】</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 0至3覘孔為0至300(不含)公尺；3至8覘孔為300(含)至800公尺</div><div class="opt-item">(B) 0至3覘孔為0至30公尺；3至8覘孔為30至80公尺</div><div class="opt-item">(C) 0至3覘孔為300至800公尺；3至8覘孔為0至300公尺</div><div class="opt-item">(D) 兩者射程相同，僅區分為夜間射擊與日間射擊</div></div><div class="expl-box"><strong>【解析】</strong>【打靶筆記原文】有兩個覘孔作為兩個不同距離射擊瞄準用：0至3覘孔為0至300(不含)公尺目標射擊使用；3至8覘孔為300(含)至800公尺目標射擊使用。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-08">
+          <td class="col-num text-center"><strong>47</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 關於T65K2步槍實施槍枝分解與結合之場地規定，下列敘述何者正確？【257T新增題目 原文】</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 可在草地、砂地上實施分解與結合</div><div class="opt-item">(B) 嚴禁在草地、砂地上實施分解與結合，以防沙土雜物進入槍機</div><div class="opt-item">(C) 只要鋪上雨衣即可在泥濘砂地上分解結合</div><div class="opt-item">(D) 役男可自行在走廊或草地上練習拆解槍機</div></div><div class="expl-box"><strong>【解析】</strong>【257T新增題目 原文】T65K2步槍可在草地、砂地上實施分解與結合→錯誤(X)。嚴禁在草地、砂地上分解結合！<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-09">
+          <td class="col-num text-center"><strong>48</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 依射擊訓練安全規定，非操作時間之槍枝管制規定為何？【257T新增題目 原文】</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 非操作時間，嚴禁個人取槍瞄準，槍枝集放處應派出槍前哨</div><div class="opt-item">(B) 非操作時間，役男可自行取槍加強箱上瞄準練習</div><div class="opt-item">(C) 槍枝集放處無須派哨，由靶場安全軍官一人總管即可</div><div class="opt-item">(D) 非操作時間役男可互相借槍檢查彼此槍機</div></div><div class="expl-box"><strong>【解析】</strong>【257T新增題目 原文】非操作時間，嚴禁個人取槍瞄準，槍枝集放處應派出槍前哨→正確(O)。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-10">
+          <td class="col-num text-center"><strong>49</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 射擊口訣八大要領為何？【257T考選擇 原文】</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 托抵握貼瞄停扣報</div><div class="opt-item">(B) 托握貼瞄抵扣報停</div><div class="opt-item">(C) 抵托握貼瞄停報扣</div><div class="opt-item">(D) 瞄貼握抵托停扣報</div></div><div class="expl-box"><strong>【解析】</strong>【257T考選擇 原文】* 射擊口訣：托、抵、握、貼、瞄、停、扣、報。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+        <tr data-qid="MC-257-11">
+          <td class="col-num text-center"><strong>50</strong></td>
+          <td class="col-q"><span class="badge badge-mc">打靶射擊</span>  <span class="badge badge-exam">站方自編，無考古題來源</span> 關於成功嶺新訓打靶使用槍枝「T65K2突擊步槍」之開發與設計諸元，下列敘述何者正確？【247、257T 期末考 原文】</td>
+          <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 由高雄聯勤205廠於1987年開發，參考美製M16A2與AR-18步槍優點並針對T65與T65K1缺失改進，同年4月量產</div><div class="opt-item">(B) 由聯勤202廠開發，主要仿製蘇聯AK-47步槍機構</div><div class="opt-item">(C) 為水冷式、重型機槍，只具備單發半自動射擊模式</div><div class="opt-item">(D) 採用彈鏈給彈，重量達7公斤以上之班用機槍</div></div><div class="expl-box"><strong>【解析】</strong>【打靶筆記原文】由高雄的聯勤205廠於1987年開發的，參考了美製M16A2步槍、AR-18步槍的優點，並針對原T65式步槍、T65K1步槍的缺失進行改進，於該年4月量產。本槍是一種重量輕、空氣冷卻、氣體傳動、彈匣給彈、可做半自動，三發連放、全自動射擊之肩射武器。<div class="source-sub"><a href="https://docs.google.com/document/d/1ZVoioIgaMONwXbe6INEmwd22QzGqVPz7/edit#heading=h.36ei31r" target="_blank" class="source-link">參考：役男筆記與歷屆鑑測題整理（非官方）</a></div></div></td>
+          <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+</body>
+</html>

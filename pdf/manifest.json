@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-10-04T12:54:22",
+  "generated_at": "2026-10-04T17:03:12",
   "sources": {
     "questions.json": "ea2fae94cd5c1919d28db9cf978f03d1d4bfddbb",
-    "emt_questions.json": "12d8916afda3c276ad94e0b04f79b7b851ef469f",
+    "emt_questions.json": "e28e9fc7c33cb0ac546af89a043390e07b0b00e0",
+    "emt_practice_questions.json": "8ccd4ed81ced7cf607bba652020645f42ad5abef",
     "study_data.json": "2ba45a2729272822ae4be70af852727eef665e26"
   }
 }

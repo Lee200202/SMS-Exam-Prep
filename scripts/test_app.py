@@ -57,6 +57,7 @@ def correct_index(question):
 def run(base):
     recruit = {q["id"]: q for q in load_json("questions.json")["questions"]}
     emt = {q["id"]: q for q in load_json("emt_questions.json")["questions"]}
+    emt_practice = {q["id"]: q for q in load_json("emt_practice_questions.json")["questions"]}
     tf = sum(q["type"] == "true_false" for q in recruit.values())
 
     with sync_playwright() as p:
@@ -92,12 +93,12 @@ def run(base):
         print("首頁與路由")
         go("home")
         stats = page.inner_text("#home-stats")
-        check("首頁題數由資料計算", all(str(n) in stats for n in (len(recruit), tf, len(recruit) - tf, len(emt))), stats)
+        check("首頁題數分開顯示", all(str(n) in stats for n in (len(recruit), tf, len(recruit) - tf, len(emt), len(emt_practice))), stats)
         for route in ROUTES:
             go(route)
             check("深連結 #%s 可開啟" % route, page.locator("#app h1, #app h2").count() > 0)
         go("recruit")
-        check("舊連結 #recruit 轉到測驗", page.locator('[data-action="quiz-start"]').count() == 4)
+        check("舊連結 #recruit 轉到測驗", page.locator('[data-action="quiz-start"]').count() == 5)
 
         print("快速練習：未作答不算錯")
         page.evaluate("localStorage.clear()")
@@ -190,6 +191,7 @@ def run(base):
 
         print("題庫搜尋與篩選")
         go("emt-bank")
+        page.select_option("#bank-scope", "authored")
         page.click("#bank-search")
         page.keyboard.type("GCS", delay=60)
         page.wait_for_timeout(400)
@@ -203,15 +205,16 @@ def run(base):
         page.wait_for_timeout(300)
         check("零結果顯示空狀態", page.locator("#bank-list .empty").count() == 1 and "找到 0 題" in page.inner_text("#bank-count"))
         page.click('#bank-list [data-action="bank-reset"]')
-        check("清除篩選後回到全部題目", "找到 %d 題" % len(emt) in page.inner_text("#bank-count"))
+        check("清除篩選後回到來源題目", "找到 %d 題" % len(emt) in page.inner_text("#bank-count"))
         go("bank")
         page.select_option("#bank-type", "tf")
-        check("題型篩選是非題", "找到 %d 題" % tf in page.inner_text("#bank-count"))
+        sourced_tf = sum(q["type"] == "true_false" and q["provenance"]["class"] != "site_authored" for q in recruit.values())
+        check("題型篩選是非題", "找到 %d 題" % sourced_tf in page.inner_text("#bank-count"))
         page.select_option("#bank-type", "all")
         page.locator("#bank-list .qcard .star-btn").first.click()
         page.select_option("#bank-scope", "bookmarks")
         check("收藏後可在「我的收藏」找到", page.locator("#bank-list .qcard").count() == 1)
-        page.select_option("#bank-scope", "all")
+        page.select_option("#bank-scope", "sourced")
         page.check("#bank-hide")
         check("背題模式隱藏答案", page.locator("#bank-list .is-answer").count() == 0)
         page.locator('#bank-list [data-action="bank-reveal"]').first.click()
@@ -266,6 +269,7 @@ def run(base):
         page.wait_for_timeout(300)
         check("TF-117 依現行條文更正為「正確」", "正確" in page.inner_text("#bank-list .is-answer"))
         go("emt-bank")
+        page.select_option("#bank-scope", "authored")
         page.fill("#bank-search", "EMT-LAW-01")
         page.wait_for_timeout(300)
         check("EMT 初訓時數為 56 小時", "56 小時" in page.inner_text("#bank-list .is-answer"))
@@ -298,6 +302,13 @@ def run(base):
             page.click('[data-action="quiz-discard"]')
             page.click('#dialog [data-dialog="1"]')
         check("新訓模擬考 4 次抽題都只含彙編收錄且已對照法條的題目", drawn <= verified and not (drawn & outdated), sorted(drawn - verified)[:5])
+        authored_recruit = {q["id"] for q in recruit.values() if q["provenance"]["class"] == "site_authored" and q.get("status") != "outdated"}
+        page.click('[data-mode="authored"]')
+        authored_draw = {it["id"] for it in session(page, "recruit")["items"]}
+        check("新訓自編題有獨立隨機練習", len(authored_draw) == 20 and authored_draw <= authored_recruit)
+        page.click('.quiz-bar [data-action="quiz-pause"]')
+        page.click('[data-action="quiz-discard"]')
+        page.click('#dialog [data-dialog="1"]')
         page.select_option("#opt-cat", "shooting")
         page.click('[data-mode="category"]')
         check("章節沒有已核實題時不出題並提示", session(page, "recruit") is None and "納入" in page.inner_text("#toast"))
@@ -311,7 +322,7 @@ def run(base):
         page.click('#dialog [data-dialog="1"]')
 
         go("emt")
-        recalled = {q["id"] for q in emt.values() if q["provenance"]["class"] == "recalled" and q.get("status") != "outdated"}
+        recalled = {q["id"] for q in emt.values() if q["provenance"]["class"] == "recalled" and q.get("status") != "outdated" and q.get("review") != "recalled_conflict"}
         check("EMT 模擬考說明標示考生回憶考點", str(len(recalled)) in page.inner_text("#mock-scope") and "270T" in page.inner_text("#mock-scope"))
         drawn = set()
         for _ in range(3):
@@ -328,15 +339,24 @@ def run(base):
         page.click('.quiz-bar [data-action="quiz-pause"]')
         page.click('[data-action="quiz-discard"]')
         page.click('#dialog [data-dialog="1"]')
+        check("EMT 自編題須自行勾選", not page.locator("#opt-authored").is_checked())
+        page.click('[data-mode="authored"]')
+        opted = {it["id"] for it in session(page, "emt")["items"]}
+        check("自編題有獨立隨機練習", len(opted) == 20 and opted <= emt_practice.keys())
+        page.click('.quiz-bar [data-action="quiz-pause"]')
+        page.click('[data-action="quiz-discard"]')
+        page.click('#dialog [data-dialog="1"]')
         go("emt-bank")
+        page.select_option("#bank-scope", "sourced")
         page.fill("#bank-search", "EMT-270-06")
         page.wait_for_timeout(300)
         card = page.inner_text("#bank-list")
         check("回憶考點題標示來源與梯次", "考生回憶考點" in card and "270T" in card and "黃色" in page.inner_text("#bank-list .is-answer"))
         page.fill("#bank-search", "")
         page.wait_for_timeout(300)
+        check("EMT 題庫預設排除自編題", "找到 46 題" in page.inner_text("#bank-count") and page.locator('#bank-scope').input_value() == 'sourced')
         page.select_option("#bank-scope", "authored")
-        authored = sum(q["provenance"]["class"] == "site_authored" for q in emt.values())
+        authored = len(emt_practice)
         check("可篩出站方自編題並有標示", "找到 %d 題" % authored in page.inner_text("#bank-count") and "站方自編，非考古題" in page.inner_text("#bank-list"))
         go("bank")
         page.fill("#bank-search", "TF-145")

@@ -108,11 +108,19 @@ def main():
 
     recruit = load("questions.json")
     emt = load("emt_questions.json")
+    practice = load("emt_practice_questions.json")
     study = load("study_data.json")
     emt_study = load("emt_study_data.json")
 
     check_bank("新訓", recruit, {"regulations", "rights", "management", "volunteer", "shooting"}, law_names)
     check_bank("EMT", emt, None, law_names)
+    check_bank("EMT 自編練習", practice, None, law_names)
+    if len(practice["questions"]) != 96:
+        errors.append("EMT 自編練習應有 96 題")
+    if set(q["id"] for q in emt["questions"]) & set(q["id"] for q in practice["questions"]):
+        errors.append("EMT 回憶考點與自編練習題號重複")
+    if any(q.get("provenance", {}).get("class") != "site_authored" for q in practice["questions"]):
+        errors.append("EMT 自編練習有題目被標成非自編題")
 
     stats = recruit["stats"]
     actual = {
@@ -124,7 +132,7 @@ def main():
         if stats.get(key) != value:
             errors.append("questions.json stats.%s=%s 與實際 %s 不符" % (key, stats.get(key), value))
 
-    for name, data in (("questions", recruit), ("emt_questions", emt), ("study_data", study), ("emt_study_data", emt_study)):
+    for name, data in (("questions", recruit), ("emt_questions", emt), ("emt_practice_questions", practice), ("study_data", study), ("emt_study_data", emt_study)):
         for text in strings(data):
             for word in BANNED:
                 if word in text:
@@ -146,7 +154,7 @@ def main():
     bundle_path = os.path.join(ROOT, "data", "data_bundle.js")
     with open(bundle_path, encoding="utf-8") as f:
         bundle = f.read()
-    for var, data in (("APP_QUESTIONS", recruit), ("APP_STUDY_DATA", study), ("APP_EMT_QUESTIONS", emt), ("APP_EMT_STUDY_DATA", emt_study)):
+    for var, data in (("APP_QUESTIONS", recruit), ("APP_STUDY_DATA", study), ("APP_EMT_QUESTIONS", emt), ("APP_EMT_PRACTICE_QUESTIONS", practice), ("APP_EMT_STUDY_DATA", emt_study)):
         expected = "window.%s = %s;" % (var, json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         if expected not in bundle:
             errors.append("data_bundle.js 的 %s 與 JSON 不一致，請重跑 generate_bundle.py" % var)
@@ -161,25 +169,25 @@ def main():
     else:
         with open(audits[-1], encoding="utf-8-sig", newline="") as f:
             rows = {row["題號"]: row for row in csv.DictReader(f)}
-        for q in recruit["questions"] + emt["questions"]:
+        for q in recruit["questions"] + emt["questions"] + practice["questions"]:
             row = rows.get(q["id"])
             answer = q["answer"] if q["type"] == "true_false" else q["options"][q["answer"]]
             if not row:
                 errors.append("逐題審核表缺少 %s" % q["id"])
             elif row["核定答案"] != str(answer) or row["題幹"] != q["question"]:
                 errors.append("逐題審核表的 %s 與題庫不一致，請重跑 apply_review" % q["id"])
-        if len(rows) != len(recruit["questions"]) + len(emt["questions"]):
+        if len(rows) != len(recruit["questions"]) + len(emt["questions"]) + len(practice["questions"]):
             errors.append("逐題審核表列數 %d 與題數不符" % len(rows))
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
-    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "recalled"}
+    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "recalled", "recalled_conflict"}
     origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled", "site_authored"}
 
     def in_exam(name, q):
         cls = q.get("provenance", {}).get("class", "")
         if q.get("status") == "outdated":
             return False
-        return (cls.startswith("compiled") and q.get("review") == "law") if name == "新訓" else cls == "recalled"
+        return (cls.startswith("compiled") and q.get("review") == "law") if name == "新訓" else cls == "recalled" and q.get("review") != "recalled_conflict"
 
     for name, data, need in (("新訓", recruit, 50), ("EMT", emt, 40)):
         for q in data["questions"]:
@@ -210,16 +218,20 @@ def main():
         errors.append("找不到 pdf/manifest.json，請執行 scripts/build_all.py")
     else:
         manifest = json.load(open(manifest_path, encoding="utf-8"))
-        for name in ("questions.json", "emt_questions.json", "study_data.json"):
+        for name in ("questions.json", "emt_questions.json", "emt_practice_questions.json", "study_data.json"):
             if manifest.get("sources", {}).get(name) != digest(name):
                 errors.append("PDF 不是用目前的 %s 產生的，請執行 scripts/build_all.py" % name)
-    for html_name, data in (("questions_biaukai.html", recruit), ("emt_questions_biaukai.html", emt)):
+    for html_name, data in (("questions_biaukai.html", recruit), ("questions_authored_biaukai.html", recruit), ("emt_questions_biaukai.html", emt), ("emt_practice_biaukai.html", practice)):
         page = open(os.path.join(ROOT, "pdf", html_name), encoding="utf-8").read()
         # EMT 的 PDF 不印回憶者註明已過時的題目
         skip = lambda q: html_name.startswith("emt") and q.get("status") == "outdated"
-        missing = [q["id"] for q in data["questions"] if q["question"] not in page and not skip(q)]
+        subset = [q for q in data["questions"] if not html_name.startswith("questions_") or ((q.get("provenance", {}).get("class") == "site_authored") == html_name.startswith("questions_authored"))]
+        missing = [q["id"] for q in subset if ('data-qid="%s"' % q["id"]) not in page and not skip(q)]
         if missing:
             errors.append("%s 缺少或未更新的題目：%s" % (html_name, missing[:5]))
+        unexpected = [q["id"] for q in data["questions"] if q not in subset and ('data-qid="%s"' % q["id"]) in page]
+        if unexpected:
+            errors.append("%s 混入另一冊的題目：%s" % (html_name, unexpected[:5]))
 
     dups = near_duplicates(recruit["questions"])
     print("新訓 %d 題（是非 %d、選擇 %d），EMT %d 題，法規 %d 部" % (

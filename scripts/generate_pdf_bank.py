@@ -8,7 +8,8 @@ from playwright.sync_api import sync_playwright
 with open('data/questions.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-questions = data['questions']
+authored = '--authored' in sys.argv
+questions = [q for q in data['questions'] if (q.get('provenance', {}).get('class') == 'site_authored') == authored]
 stats = data.get('stats', {})
 
 category_names = {
@@ -67,7 +68,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
         ans_html = f'<div class="ans-cell"><strong>{ans_str}</strong></div>'
 
         row = f"""
-        <tr>
+        <tr data-qid="{q['id']}">
           <td class="col-num text-center"><strong>{q_num}</strong></td>
           <td class="col-q">{cat_badge} {exam_badge} <span class="badge badge-exam">{q.get('provenance', {}).get('label', '')}</span> {q['question']}</td>
           <td class="col-opt">{opt_ans_html}</td>
@@ -96,7 +97,7 @@ html_content = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8">
-<title>成功嶺替代役新訓題庫全集彙編</title>
+<title>{'新訓自編概念練習（非考古題）' if authored else '新訓民間彙編來源題（非官方原卷）'}</title>
 <style>
   /* 標楷體沒有粗體字重，合成粗體會被輸出成 Type3 字型而讓 PDF 膨脹 */
   strong, b, th {{ font-weight: normal; }}
@@ -110,7 +111,7 @@ html_content = f"""<!DOCTYPE html>
       color: #555;
     }}
     @bottom-left {{
-      content: "成功嶺替代役新訓學科考古題彙編 ｜ 非官方整理，以主管機關公告為準";
+      content: "{'新訓自編概念練習 ｜ 非考古題' if authored else '新訓民間彙編來源題 ｜ 非官方原卷'}";
       font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", serif;
       font-size: 8pt;
       color: #555;
@@ -119,8 +120,8 @@ html_content = f"""<!DOCTYPE html>
 
   body {{
     font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
-    font-size: 8.5pt;
-    line-height: 1.32;
+    font-size: 9.3pt;
+    line-height: 1.44;
     color: #111;
     margin: 0;
     padding: 0;
@@ -189,16 +190,16 @@ html_content = f"""<!DOCTYPE html>
     background-color: #e6edf5;
     color: #1a2a3a;
     border: 1px solid #4a6b82;
-    padding: 4px 4px;
-    font-size: 8.2pt;
+    padding: 5px 5px;
+    font-size: 8.8pt;
     font-weight: normal;
     text-align: center;
   }}
   td {{
     border: 1px solid #888;
-    padding: 2.5px 4.5px;
+    padding: 5px 5px;
     vertical-align: top;
-    font-size: 8.2pt;
+    font-size: 9pt;
     word-break: break-word;
   }}
   tr:nth-child(even) {{
@@ -218,7 +219,7 @@ html_content = f"""<!DOCTYPE html>
     display: inline-block;
     padding: 0 3px;
     border-radius: 2px;
-    font-size: 7.2pt;
+    font-size: 7.8pt;
     font-weight: normal;
     margin-right: 2px;
     vertical-align: baseline;
@@ -235,30 +236,30 @@ html_content = f"""<!DOCTYPE html>
   }}
 
   /* Options list (clean neutral text color, NO green spoilers) */
-  .opt-list {{ font-size: 8pt; line-height: 1.3; margin-bottom: 1px; }}
-  .opt-item {{ margin-bottom: 0.5px; color: #1e293b; }}
+  .opt-list {{ font-size: 8.8pt; line-height: 1.42; margin-bottom: 3px; }}
+  .opt-item {{ margin-bottom: 2px; color: #1e293b; }}
   .tf-line {{
-    font-size: 8.2pt;
+    font-size: 8.8pt;
     margin-bottom: 1px;
     color: #1e293b;
   }}
 
   /* Legal explanation & compact source citation */
   .expl-box {{
-    font-size: 7.4pt;
+    font-size: 8.2pt;
     color: #334155;
-    line-height: 1.24;
+    line-height: 1.38;
     border-top: 1px dashed #cbd5e1;
-    padding-top: 2px;
-    margin-top: 1px;
+    padding-top: 4px;
+    margin-top: 3px;
   }}
   .source-sub {{
-    font-size: 7.2pt;
-    margin-top: 1.5px;
+    font-size: 7.8pt;
+    margin-top: 3px;
     color: #2563eb;
   }}
   .source-link {{
-    font-size: 7.2pt;
+    font-size: 7.8pt;
     color: #1d4ed8;
     text-decoration: underline;
     line-height: 1.2;
@@ -278,10 +279,10 @@ html_content = f"""<!DOCTYPE html>
 
   <!-- Header -->
   <div class="doc-header">
-    <div class="doc-title">成功嶺替代役新訓學科考古題彙編（非官方整理）</div>
-    <div class="doc-subtitle">涵蓋：替代役實施條例、志願服務法、役男權益與保險撫卹、訓練服勤管理、射擊</div>
+    <div class="doc-title">{'新訓自編概念練習（非考古題）' if authored else '新訓民間彙編來源題（非官方原卷）'}</div>
+    <div class="doc-subtitle">{'本站自行編寫，257T 彙編裡找不到；答案仍須逐條核對，請勿當作正式歷屆題。' if authored else '對照增補至 257T 的民間彙編；部分題目已依現行法規改寫，逐題標示來源等級。'}</div>
     <div class="doc-meta">
-      題目來自歷屆役男分享；與現行法規牴觸者已依全國法規資料庫條文改寫並標示 ｜ 資料整理日：{data.get('updatedAt', '')} ｜ 總題數：{len(questions)} 題 (是非題 {len(tf_questions)} 題 · 選擇題 {len(mc_questions)} 題)
+      {'自編題沒有曾在成功嶺考過的證據' if authored else '民間彙編非考試單位原卷；現行法規改寫另有標示'} ｜ 資料整理日：{data.get('updatedAt', '')} ｜ 總題數：{len(questions)} 題 (是非題 {len(tf_questions)} 題 · 選擇題 {len(mc_questions)} 題)
     </div>
   </div>
 
@@ -309,11 +310,11 @@ html_content = f"""<!DOCTYPE html>
 
 # Save HTML file
 os.makedirs('pdf', exist_ok=True)
-html_file_path = 'pdf/questions_biaukai.html'
-pdf_file_path = 'pdf/替代役新訓題庫_全集彙編_標楷體版.pdf'
+html_file_path = 'pdf/questions_authored_biaukai.html' if authored else 'pdf/questions_biaukai.html'
+pdf_file_path = 'pdf/新訓_自編概念練習_非考古題.pdf' if authored else 'pdf/新訓_民間彙編來源題_非官方原卷.pdf'
 
 with open(html_file_path, 'w', encoding='utf-8') as f:
-    f.write(html_content)
+    f.write('\n'.join(line.rstrip() for line in html_content.splitlines()) + '\n')
 
 print(f"Saved HTML template to {html_file_path}, size: {len(html_content)} bytes")
 

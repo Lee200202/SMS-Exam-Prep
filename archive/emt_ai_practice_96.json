@@ -1,0 +1,2432 @@
+{
+ "archived_at": "2026-10-04",
+ "from_commit": "d7d52ab",
+ "reason": "這 96 題是先前由 AI 依教材編寫的 EMT-1 練習題，沒有在成功嶺考過的證據，選項寫法也有可猜的規律，因此從公開題庫、測驗、搜尋與 PDF 移除。封存在這裡只為了保留審核紀錄。",
+ "stats": {
+  "count": 96,
+  "keyed_answer_strictly_longest": 59,
+  "keyed_answer_only_option_with_english": 21,
+  "original_answer_positions": {
+   "A": 14,
+   "B": 55,
+   "C": 24,
+   "D": 3
+  }
+ },
+ "reinstatement_rule": "只有逐題對上消防署 114 年版教材、經具資格者複核並重寫選項後，才可以單題重新加入「教材概念練習」；即使內容正確，也不得標為歷屆考題。",
+ "user_data_migration": "公開站載入時會清掉指向這些題號的錯題、收藏與未完成測驗，並提示使用者。",
+ "questions": [
+  {
+   "id": "EMT-LAW-01",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依現行《救護技術員管理辦法》（民國 114 年 1 月 1 日施行）附表一，初級救護技術員（EMT-1）訓練課程的總時數為幾小時？",
+   "options": [
+    "(A) 24 小時",
+    "(B) 40 小時",
+    "(C) 56 小時",
+    "(D) 80 小時"
+   ],
+   "answer": 2,
+   "explanation": "《救護技術員管理辦法》第3條：各級救護技術員之訓練課程模組別、科目別、內容及時數如附表一至附表三。附表一「初級救護技術員訓練課程基準」共七個模組，總時數 56 小時。修正前為 40 小時，舊教材與歷屆考古題多以 40 小時作答。",
+   "source": "救護技術員管理辦法 第3條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=3",
+   "reviewed_at": "2026-10-04",
+   "revised": "原考古題答案為 40 小時（修正前規定），已依現行附表一改為 56 小時。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-02",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依《救護技術員管理辦法》規定，初級救護技術員（EMT-1）合格證書之有效期限為幾年？",
+   "options": [
+    "(A) 1 年",
+    "(B) 2 年",
+    "(C) 3 年",
+    "(D) 5 年"
+   ],
+   "answer": 2,
+   "explanation": "《救護技術員管理辦法》第9條：各級救護技術員證書有效期間為三年。",
+   "source": "救護技術員管理辦法 第9條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=9",
+   "reviewed_at": "2026-10-04",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-03",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依現行《救護技術員管理辦法》，初級救護技術員（EMT-1）於證書效期三年內應完成多少繼續教育課程，才得申請展延？",
+   "options": [
+    "(A) 16 小時以上，其中 8 小時以上為指定模組之科目",
+    "(B) 24 小時以上，其中 12 小時以上為模組二、四及六之科目",
+    "(C) 32 小時以上，其中 16 小時以上為指定模組之科目",
+    "(D) 40 小時以上，不限科目"
+   ],
+   "answer": 1,
+   "explanation": "《救護技術員管理辦法》第10條：初級救護技術員完成附表一所列科目達二十四小時以上，且其中十二小時以上為模組二、四及六之科目，得申請證書效期之展延；展延之有效期間每次為三年。",
+   "source": "救護技術員管理辦法 第10條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=10",
+   "reviewed_at": "2026-10-04",
+   "revised": "原考古題為「每年至少 8 小時」（修正前規定），已依現行第10條改寫。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-04",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依《救護技術員管理辦法》第13條規定，下列何者「屬於」初級救護技術員（EMT-1）得施行之救護項目？",
+   "options": [
+    "(A) 靜脈注射生理食鹽水",
+    "(B) 給予口服阿斯匹靈 (Aspirin)",
+    "(C) 氣管內插管 (Endotracheal Intubation)",
+    "(D) 使用自動體外心臟電擊去顫器 (AED)"
+   ],
+   "answer": 3,
+   "explanation": "《救護技術員管理辦法》第13條列出初級救護技術員得施行的 20 項救護項目，第14款為「使用自動體外心臟電擊去顫器」。周邊輸液與注射用輸液屬中級項目（第14條）；依預立醫療流程給藥、氣管插管屬高級項目（第15條）。",
+   "source": "救護技術員管理辦法 第13條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=13",
+   "reviewed_at": "2026-10-04",
+   "revised": "原題引用第3條（修正前條號），已改為現行第13條。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-05",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "救護人員施行救護所填具的「救護紀錄表」，依《緊急醫療救護法》第34條規定，應由救護車設置機關（構）及應診之醫療機構保存至少多久？",
+   "options": [
+    "(A) 1 年",
+    "(B) 3 年",
+    "(C) 5 年",
+    "(D) 7 年"
+   ],
+   "answer": 3,
+   "explanation": "《緊急醫療救護法》第34條：救護人員施行救護，應填具救護紀錄表，分別交由該救護車設置機關（構）及應診之醫療機構保存至少七年。",
+   "source": "緊急醫療救護法 第34條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=34",
+   "reviewed_at": "2026-10-04",
+   "revised": "原題引用第23條，實際條文在第34條。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-06",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依《緊急醫療救護法》第14-2條，救護人員以外之人為免除他人生命之急迫危險，使用緊急救護設備或施予急救措施者，法律上如何處理其責任？",
+   "options": [
+    "(A) 僅免除行政責任，民法與刑法仍需負責",
+    "(B) 適用民法、刑法緊急避難免責之規定",
+    "(C) 若傷患不幸死亡仍需負過失致死罪責",
+    "(D) 僅限於直系血親施救時免責"
+   ],
+   "answer": 1,
+   "explanation": "《緊急醫療救護法》第14-2條：救護人員以外之人，為免除他人生命之急迫危險，使用緊急救護設備或施予急救措施者，適用民法、刑法緊急避難免責之規定。救護人員於非值勤期間，前項規定亦適用之。",
+   "source": "緊急醫療救護法 第14-2條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=14-2",
+   "reviewed_at": "2026-10-04",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-07",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "救護技術員因業務而知悉或持有他人之秘密，無故洩漏者，依《緊急醫療救護法》第35條及第45條之罰則為何？",
+   "options": [
+    "(A) 處新臺幣三千元以上一萬五千元以下罰鍰",
+    "(B) 處新臺幣一萬元以上五萬元以下罰鍰",
+    "(C) 處新臺幣二萬元以上十萬元以下罰鍰",
+    "(D) 處新臺幣五萬元以上二十萬元以下罰鍰"
+   ],
+   "answer": 1,
+   "explanation": "《緊急醫療救護法》第35條：救護技術員及其他參與緊急醫療救護業務之機關（構）所屬人員，因業務而知悉或持有他人之秘密，不得無故洩漏。違反者依第45條第3款處新臺幣一萬元以上五萬元以下罰鍰。",
+   "source": "緊急醫療救護法 第35條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=35",
+   "reviewed_at": "2026-10-04",
+   "revised": "原考古題答案為二萬元以上十萬元以下，且引用第37、44條；依現行第35、45條應為一萬元以上五萬元以下。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-08",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依《緊急醫療救護法》第29條，救護人員應將緊急傷病患送達何處？",
+   "options": [
+    "(A) 一律送往距離最近之醫學中心",
+    "(B) 送往傷病患指定之任何診所",
+    "(C) 送往就近適當之醫療機構",
+    "(D) 一律送往直轄市或縣市衛生局"
+   ],
+   "answer": 2,
+   "explanation": "《緊急醫療救護法》第29條：救護人員應依救災救護指揮中心指示前往現場急救，並將緊急傷病患送達就近適當醫療機構。",
+   "source": "緊急醫療救護法 第29條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=29",
+   "reviewed_at": "2026-10-04",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-09",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依《緊急醫療救護法》第18條規定，救護車於救護傷病患及運送病人時，出勤人員的最低要求為何？",
+   "options": [
+    "(A) 一名救護技術員獨自出勤即可",
+    "(B) 應有救護人員二名以上出勤",
+    "(C) 至少三名高級救護技術員",
+    "(D) 必須有一名急診專科醫師隨車"
+   ],
+   "answer": 1,
+   "explanation": "《緊急醫療救護法》第18條：救護車於救護傷病患及運送病人時，應有救護人員二名以上出勤；加護救護車出勤之救護人員，至少應有一名為醫師、護理人員或中級以上救護技術員。",
+   "source": "緊急醫療救護法 第18條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=18",
+   "reviewed_at": "2026-10-04",
+   "revised": "原題引用第17條，且選項含「一名救護人員搭配一名駕駛」，現行第18條並無此規定。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-10",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "病患意識清醒且具有完全行為能力，但堅決拒絕救護人員處置與送醫，救護員第一步與標準處置應為何？",
+   "options": [
+    "(A) 強制壓制病患並上約束帶強制送醫",
+    "(B) 不管病患立即收隊返隊離開現場",
+    "(C) 充分告知拒絕送醫之潛在生命危險，若仍拒絕，請病患或家屬簽署拒絕醫療救護切結書並詳實記錄",
+    "(D) 報請警察現場逮捕病患"
+   ],
+   "answer": 2,
+   "explanation": "具有完全決定能力之成年病患享有拒絕醫療自主權。救護員應耐心溝通、充分說明未就醫之后續風險，若病患仍堅持拒絕，應請其簽署「拒絕緊急醫療處置/送醫聲明書」並登載於救護紀錄表，以昭信守並保障雙方權益。",
+   "source": "內政部消防署 - 緊急救護作業程序規範",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-11",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "救護車在執行緊急救護任務中，開啟警示燈及警鳴器時之交通行駛特權，下列敘述何者「錯誤」？",
+   "options": [
+    "(A) 得不受行車速度之限制",
+    "(B) 得不受行車標誌、標線及號誌之限制",
+    "(C) 擁有絕對路權，即使發生車禍亦完全免除過失刑事與民事賠償責任",
+    "(D) 雖享有優先通行權，但仍應顧及其他車輛及行人安全（注意義務）"
+   ],
+   "answer": 2,
+   "explanation": "《道路交通安全規則》第93條第2項：消防車、救護車、警備車、工程救險車及毒性化學物質災害事故應變車執行任務時，得不受前項行車速度之限制，且於開啟警示燈及警鳴器執行緊急任務時，得不受標誌、標線及號誌指示之限制。\n條文只免除速限與標誌、標線、號誌的限制，沒有免除肇事責任的規定，所以「完全免除刑事與民事責任」的敘述沒有依據。選項 (D) 所說的注意義務不在這一條的文字裡，本題保留歷屆答案，不列入模擬考。",
+   "source": "道路交通安全規則 第93條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0040013&flno=93",
+   "reviewed_at": "2026-10-04",
+   "review": "partial",
+   "source_kind": "law",
+   "confidence": "低",
+   "revised": "原解析引用「法院判例」但沒有可查的出處，已刪除，改為只引用第93條條文。",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-LAW-12",
+   "type": "multiple_choice",
+   "category": "emt_laws",
+   "category_name": "緊急醫療救護法規與倫理",
+   "question": "依現行《救護技術員管理辦法》，「協助使用吸入型支氣管擴張劑、自備腎上腺素注射筆或硝化甘油舌下含片」最低須為哪一級救護技術員才得施行？",
+   "options": [
+    "(A) 初級救護技術員",
+    "(B) 中級救護技術員",
+    "(C) 高級救護技術員",
+    "(D) 各級救護技術員均不得施行"
+   ],
+   "answer": 1,
+   "explanation": "《救護技術員管理辦法》第14條第5款把「協助使用吸入型支氣管擴張劑、自備腎上腺素注射筆或硝化甘油舌下含片」列為中級救護技術員得施行之項目；第13條所列初級救護技術員的 20 項救護項目不包含這一項。",
+   "source": "救護技術員管理辦法 第14條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=14",
+   "reviewed_at": "2026-10-04",
+   "revised": "原考古題認為 EMT-1 可協助病患服用自備藥物；依現行第13、14條，此項屬中級救護技術員之救護項目。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-01",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "緊急醫療救護常規所指之「八大生命徵象（Vital Signs）」，下列何者「不屬於」其中項目？",
+   "options": [
+    "(A) 意識狀態 (Consciousness)",
+    "(B) 呼吸 (Respiration) 與脈搏 (Pulse)",
+    "(C) 體重 (Body Weight) 與尿量 (Urine Output)",
+    "(D) 血壓 (BP)、體溫 (BT)、瞳孔 (Pupil) 與膚色/微血管充填時間 (CRT)"
+   ],
+   "answer": 2,
+   "explanation": "緊急救護實務之八大生命徵象包含：1.意識、2.呼吸、3.脈搏、4.血壓、5.體溫、6.瞳孔、7.膚色與體溫濕度、8.微血管充填時間(CRT)及血氧飽和度(SpO2)。體重與尿量屬於院內長期監測指標，非院前八大生命徵象。",
+   "source": "消防署初級救護技術員訓練教材 - 病患評估章節",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-02",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "正常健康成年人在安靜休息狀態下，其正常脈搏次數範圍通常為每分鐘幾次？",
+   "options": [
+    "(A) 40～60 次/分",
+    "(B) 60～100 次/分",
+    "(C) 100～140 次/分",
+    "(D) 120～160 次/分"
+   ],
+   "answer": 1,
+   "explanation": "正常成年人安靜時脈搏正常值為 60～100 次/分。小於 60 次/分為心搏過緩（Bradycardia），大於 100 次/分為心搏過速（Tachycardia）。",
+   "source": "消防署初級救護技術員訓練教材 - 生命徵象數值標準",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-03",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "正常健康成年人於平靜休息時，每分鐘正常呼吸頻率範圍約為多少？",
+   "options": [
+    "(A) 8～10 次/分",
+    "(B) 12～20 次/分",
+    "(C) 24～32 次/分",
+    "(D) 30～40 次/分"
+   ],
+   "answer": 1,
+   "explanation": "成年人平靜呼吸頻率正常值約為 12～20 次/分。小於 10～12 次/分常代表換氣不足；大於 20～24 次/分為呼吸過速（Tachypnea）；大於 30 次/分常被列為檢傷重症危急指標。",
+   "source": "消防署初級救護技術員訓練教材 - 呼吸系統與評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-04",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "格拉斯哥昏迷指數 (Glasgow Coma Scale, GCS) 包含哪三大評估面向？其滿分與最低分分別為何？",
+   "options": [
+    "(A) 脈搏、呼吸、血壓；滿分 100 分，最低 0 分",
+    "(B) 睜眼反應 (E)、語言反應 (V)、動作反應 (M)；滿分 15 分，最低 3 分",
+    "(C) 視覺、聽覺、觸覺；滿分 10 分，最低 1 分",
+    "(D) 瞳孔、膚色、肌力；滿分 12 分，最低 0 分"
+   ],
+   "answer": 1,
+   "explanation": "GCS 昏迷指數由睜眼反應 (Eye, 1-4分)、語言反應 (Verbal, 1-5分)、動作反應 (Motor, 1-6分) 三者組成。滿分為 15 分（完全清醒正常），最低分為 3 分（對任何刺激均無反應的深昏迷）。",
+   "source": "台灣急診醫學會 - GCS評估指引",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-05",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "病患對呼喚聲音無反應，施予斜方肌痛刺激時，能「準確抬手撥開痛源」，此時其 GCS 之動作反應 (Motor, M) 應評為幾分？",
+   "options": [
+    "(A) 6 分 (遵從指示動作)",
+    "(B) 5 分 (對痛能定位撥除)",
+    "(C) 4 分 (對痛僅有屈曲退縮)",
+    "(D) 3 分 (異常屈曲/去大腦皮質僵直)"
+   ],
+   "answer": 1,
+   "explanation": "GCS 動作反應 (M) 計分：M6 遵從口頭指令；M5 對疼痛能「定位並撥開痛源 (Localizes pain)」；M4 僅能縮回退縮避痛 (Withdrawal)；M3 異常屈曲 (Decorticate)；M2 異常伸展 (Decerebrate)；M1 完全無動作反應。",
+   "source": "Dcard 265T 快速參考手冊 - GCS評估速查表",
+   "source_url": "https://drive.google.com/file/d/1X7HXDpSaryZcTXkAJJF3TAe8QrnFcdG-/view",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-06",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "創傷傷患睜眼需施以叫喚 (E3)、說話答非所問且字句混亂 (V3)、對疼痛刺激僅有四肢縮回反射 (M4)，其 GCS 總分應記為幾分？",
+   "options": [
+    "(A) 8 分",
+    "(B) 10 分",
+    "(C) 12 分",
+    "(D) 14 分"
+   ],
+   "answer": 1,
+   "explanation": "總分 = E (3) + V (3) + M (4) = 10 分。臨床上 GCS ≦ 8 分通常定義為嚴重腦傷或重度昏迷，呼吸道極易阻塞，常需積極呼吸道處置。",
+   "source": "消防署初級救護技術員訓練教材 - 神經學評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-07",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "評估傷病患微血管充填時間 (Capillary Refill Time, CRT) 時，正常回血時間應於幾秒之內完成？",
+   "options": [
+    "(A) 1 秒內",
+    "(B) 2 秒內 (＜2秒)",
+    "(C) 4 秒內",
+    "(D) 6 秒內"
+   ],
+   "answer": 1,
+   "explanation": "輕壓指甲床或皮膚使其變白後放開，正常應於「2 秒以內」迅速恢復粉紅。若 CRT ＞ 2 秒，代表末梢組織微血管血液灌流不足，常為休克、脫水、低體溫或周邊循環障礙之早期徵兆。",
+   "source": "消防署初級救護技術員訓練教材 - 循環評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-08",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "評估一名「意識清醒且呼吸正常」之成年傷病患時，最常優先觸診脈搏之動脈部位為何？",
+   "options": [
+    "(A) 橈動脈 (Radial artery)",
+    "(B) 頸動脈 (Carotid artery)",
+    "(C) 股動脈 (Femoral artery)",
+    "(D) 足背動脈 (Dorsalis pedis artery)"
+   ],
+   "answer": 0,
+   "explanation": "對於意識清楚且有呼吸之成人病患，首選以手腕拇指側之「橈動脈」評估脈搏強度、速率與規則度；無意識或休克瀕死病患才優先摸「頸動脈」。",
+   "source": "消防署初級救護技術員訓練教材 - 生命徵象量測技術",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-09",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "針對一名「突然倒地、呼喚無反應且無呼吸」之成人傷患，救護員應於幾秒內觸摸何處動脈確認有無脈搏？",
+   "options": [
+    "(A) 於 5～10 秒內觸摸橈動脈",
+    "(B) 於 5～10 秒內觸摸頸動脈",
+    "(C) 於 15～20 秒內觸摸股動脈",
+    "(D) 於 30 秒內觸摸足背動脈"
+   ],
+   "answer": 1,
+   "explanation": "評估無反應無呼吸成人時，救護員應在「5 至 10 秒內」觸摸「頸動脈（氣管軟骨旁溝槽）」。若 10 秒內無法確認脈搏，應立即視同無脈搏心搏驟停，立刻實施 CPR 胸外按壓。",
+   "source": "AHA 2020 心肺復甦術指引 / 消防署教材",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-10",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "評估「未滿一歲之嬰兒 (Infant)」心跳與脈搏時，建議首選之觸診動脈部位為何？",
+   "options": [
+    "(A) 橈動脈",
+    "(B) 頸動脈",
+    "(C) 肱動脈 (Brachial artery)",
+    "(D) 顳動脈"
+   ],
+   "answer": 2,
+   "explanation": "嬰兒頸部通常較短且脂肪豐厚，觸摸頸動脈困難且易壓迫呼吸道，因此一歲以下嬰兒建議觸摸上臂內側之「肱動脈（或股動脈）」。",
+   "source": "AHA 兒童高級救命指引 / 消防署教材",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-11",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "以手電筒照射檢查傷患瞳孔對光反射時，發現「雙側瞳孔大小不一且一側固定放大對光無收縮」，最可能代表何種緊急狀況？",
+   "options": [
+    "(A) 正常生理現象",
+    "(B) 鴉片類藥物中毒",
+    "(C) 嚴重的顱內壓升高 (IICP)、腦部出血或腦疝形成危急",
+    "(D) 低血糖反應"
+   ],
+   "answer": 2,
+   "explanation": "兩側瞳孔大小不等 (Anisocoria) 超過 1mm 且對光反射遲鈍或無反應，多為嚴重顱內損傷、硬腦膜上/下出血導致第三對腦神經（動眼神經）受壓迫之腦疝危急徵兆。鴉片中毒通常為雙側極度針尖樣縮小 (Pinpoint)。",
+   "source": "消防署初級救護技術員訓練教材 - 神經學評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-12",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "成人收縮壓 (Systolic BP) 低於多少 mmHg 時，臨床上通常被視為低血壓、組織灌流不足或休克之高危急指標？",
+   "options": [
+    "(A) 120 mmHg",
+    "(B) 100 mmHg",
+    "(C) 90 mmHg",
+    "(D) 70 mmHg"
+   ],
+   "answer": 2,
+   "explanation": "收縮壓 ＜ 90 mmHg（或平均動脈壓 MAP ＜ 65 mmHg）為休克評估之重要切點，代表心血管循環無法維持重要器官之基本血液灌流需求。",
+   "source": "消防署初級救護技術員訓練教材 - 休克評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-13",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "人體負責調控呼吸頻率、心跳速率、血管張力等最原始自律生命機能之「生命中樞」，位於中樞神經系統之何處？",
+   "options": [
+    "(A) 大腦皮質額葉",
+    "(B) 小腦蚓部",
+    "(C) 腦幹（尤其是延腦）",
+    "(D) 脊髓腰椎節段"
+   ],
+   "answer": 2,
+   "explanation": "延腦 (Medulla oblongata) 與橋腦位於腦幹，內含心血管中樞與呼吸節律中樞，調節生命呼吸心跳反射，被稱為生命中樞。此處受損常致命。",
+   "source": "初級救護技術員訓練教材 - 解剖生理學基礎",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-ANA-14",
+   "type": "multiple_choice",
+   "category": "emt_anatomy",
+   "category_name": "基礎解剖與生命徵象",
+   "question": "簡便意識評估量表「AVPU」中的「P」代表病患之意識反應層次為何？",
+   "options": [
+    "(A) 完全清醒警覺 (Alert)",
+    "(B) 對口頭聲音有反應 (Voice)",
+    "(C) 僅對疼痛刺激有反應 (Pain)",
+    "(D) 對任何刺激均毫無反應 (Unresponsive)"
+   ],
+   "answer": 2,
+   "explanation": "AVPU 量表：A = Alert (警醒清醒)；V = Responds to Voice (對聲音有反應)；P = Responds to Pain (僅對疼痛有反應)；U = Unresponsive (無任何反應)。",
+   "source": "消防署初級救護技術員訓練教材 - 意識初評快速量表",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-01",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "對於「懷疑有頸椎受傷」或嚴重創傷機轉之病患，救護員暢通呼吸道之首選徒手手法為何？",
+   "options": [
+    "(A) 壓額抬下巴法 (Head-tilt Chin-lift)",
+    "(B) 推下顎法 (Jaw-thrust maneuver)",
+    "(C) 頸部後仰過伸法 (Neck hyperextension)",
+    "(D) 側臥翻轉法"
+   ],
+   "answer": 1,
+   "explanation": "創傷傷患必須保護頸椎，嚴禁將頭部後仰，應使用「推下顎法 (Jaw-thrust)」，雙手托住下頜骨角向前上方抬起，使舌根脫離呼吸道後壁，避免加劇脊椎損傷。",
+   "source": "消防署初級救護技術員訓練教材 - 呼吸道處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-02",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "口咽呼吸道 (Oropharyngeal Airway, OPA) 之適當尺寸量測基準為何？",
+   "options": [
+    "(A) 病患鼻尖至嘴角之距離",
+    "(B) 病患嘴角至耳垂（或下頜角）之距離",
+    "(C) 病患前額至鼻尖之距離",
+    "(D) 病患食指長度"
+   ],
+   "answer": 1,
+   "explanation": "口咽呼吸道 (OPA) 之正確尺寸測量方法為：將翼板置於病患「嘴角」，末端恰好對準病患同側「耳垂」或「下頜角」。太長會刺激會厭引發喉部痙攣，太短則會將舌根往後推壓加重阻塞。",
+   "source": "消防署初級救護技術員訓練教材 - 人工呼吸道量測",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-03",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "使用口咽呼吸道 (OPA) 的最主要適應症與先決條件為何？",
+   "options": [
+    "(A) 任何清醒且有氣喘之病患",
+    "(B) 任何有輕微咳嗽但呼吸急促之病患",
+    "(C) 病患「對疼痛刺激完全無反應（深昏迷）」且「無咽喉嘔吐反射 (Gag reflex)」",
+    "(D) 僅限於氣管切開術之病患"
+   ],
+   "answer": 2,
+   "explanation": "OPA 僅能使用於「無意識且無咽喉嘔吐反射 (Gag reflex)」的昏迷病患。若病患清醒或有嘔吐反射，置入 OPA 會引發嚴重嘔吐與吸入性肺炎窒息，此時應改用鼻咽呼吸道 (NPA) 或側臥。",
+   "source": "消防署初級救護技術員訓練教材 - OPA適應症與禁忌症",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-04",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "為「成人」昏迷病患置入口咽呼吸道 (OPA) 之經典旋轉置入技巧為何？",
+   "options": [
+    "(A) 凹面朝下直接筆直強行插入",
+    "(B) 凹面朝上置入口腔，抵達軟硬顎交界處時再旋轉 180 度順勢向下推入",
+    "(C) 凹面朝左側旋轉 360 度推入",
+    "(D) 必須在喉頭鏡直視下方可置入"
+   ],
+   "answer": 1,
+   "explanation": "成人常採「旋轉 180 度法」：以交叉手指打開口腔，OPA 凹面朝上（或朝臉頰側90度）置入，沿上顎滑行避免壓迫舌頭，待頂端抵達軟顎後順時鐘旋轉 180 度至凹面朝下，順著舌後曲度滑入喉部。",
+   "source": "Dcard 265T 快速參考手冊 - OPA操作步驟",
+   "source_url": "https://drive.google.com/file/d/1X7HXDpSaryZcTXkAJJF3TAe8QrnFcdG-/view",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-05",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "鼻咽呼吸道 (Nasopharyngeal Airway, NPA) 長度之正確量取標準為何？",
+   "options": [
+    "(A) 病患鼻尖至同側耳垂之距離",
+    "(B) 嘴角至下頜角之距離",
+    "(C) 兩側鼻孔間距",
+    "(D) 眉心至嘴角之距離"
+   ],
+   "answer": 0,
+   "explanation": "鼻咽呼吸道 (NPA) 長度量測方式為：從「病患鼻尖量至同側耳垂（或下頜角）」；外徑管徑大小通常約相當於病患本人的小指直徑粗細。",
+   "source": "消防署初級救護技術員訓練教材 - NPA測量標準",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-06",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "下列何種外傷病況被列為使用鼻咽呼吸道 (NPA) 之「絕對禁忌症」？",
+   "options": [
+    "(A) 單純大腿閉鎖性骨折",
+    "(B) 懷疑顱底骨折（如鼻部或耳部流出清澈腦脊髓液 CSF、熊貓眼、耳後瘀斑）",
+    "(C) 意識昏迷但無任何頭部創傷",
+    "(D) 呼吸過快"
+   ],
+   "answer": 1,
+   "explanation": "顱底骨折 (Basilar skull fracture) 患者若置入 NPA，導管可能穿透碎裂的篩骨板直接插進顱內腦組織，造成致死性腦損傷，因此為絕對禁忌症！",
+   "source": "消防署初級救護技術員訓練教材 - NPA禁忌症",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-07",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "使用抽吸器為「成人」清除口咽部異物或黏液時，單次抽吸時間「最長不可超過幾秒」？",
+   "options": [
+    "(A) 5 秒",
+    "(B) 10 秒",
+    "(C) 15 秒",
+    "(D) 30 秒"
+   ],
+   "answer": 2,
+   "explanation": "抽吸會同時抽除口咽內氣體造成嚴重缺氧並可能刺激迷走神經引發心搏過緩。成人單次抽吸時間上限為「15 秒」（小兒為 10 秒，嬰兒為 5 秒）。",
+   "source": "消防署初級救護技術員訓練教材 / 歷屆鑑測真題",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-08",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "使用抽吸管置入口腔與操作抽吸之正確原則為何？",
+   "options": [
+    "(A) 插入時按住通氣孔持續抽吸",
+    "(B) 深度量測為鼻尖至下巴",
+    "(C) 插入時不可按住通氣孔（不抽吸），達到定位深度後，邊抽吸邊旋轉向外退出",
+    "(D) 抽吸越久越乾淨，應至少抽吸 45 秒以上"
+   ],
+   "answer": 2,
+   "explanation": "量測長度為嘴角至耳垂。插入口腔時「不可按住通氣孔（不可抽吸）」，避免刮傷黏膜引發出血；待導管到達適當深度後，才按住通氣孔開始抽吸，並以旋轉方式平順退出。",
+   "source": "消防署初級救護技術員訓練教材 - 抽吸技術操作規範",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-09",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "使用「鼻導管 (Nasal Cannula)」給氧時，其臨床建議設定之氧氣流量與提供之氧氣濃度 (FiO2) 範圍為何？",
+   "options": [
+    "(A) 流量 1～6 L/min；濃度約 24%～44%",
+    "(B) 流量 6～10 L/min；濃度約 40%～60%",
+    "(C) 流量 10～15 L/min；濃度約 80%～100%",
+    "(D) 流量 15～25 L/min；濃度約 100%"
+   ],
+   "answer": 0,
+   "explanation": "鼻導管建議流量為 1～6 L/min。空氣中氧氣約 21%，每增加 1 L/min 氧氣流量約增加 4% 氧濃度（1L約24%、2L約28%...6L約44%）。流量超過 6 L/min 容易造成鼻黏膜乾燥破皮流血且無法提升濃度。",
+   "source": "消防署初級救護技術員訓練教材 - 氧氣治療設備",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-10",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "使用「非再吸入型面罩 (Non-rebreathing Mask, NRM)」進行高濃度給氧時，建議氧氣流量為何？使用前必須注意何項步驟？",
+   "options": [
+    "(A) 流量 2～4 L/min；無須理會儲氣袋",
+    "(B) 流量 6～10 L/min；將儲氣袋排空",
+    "(C) 流量 10～15 L/min；戴上病患臉部前，必須先以手堵住呼氣閥使儲氣袋充飽至少 2/3 以上",
+    "(D) 流量 20～30 L/min；儲氣袋不可進氣"
+   ],
+   "answer": 2,
+   "explanation": "NRM 適用於嚴重低血氧、嚴重創傷或休克病患，氧氣流量設定為 10～15 L/min（可提供 80%～90% 以上高濃度氧氣）。使用前必須先用手遮住瓣膜將儲氣袋充氣至少 2/3 以上，才能配戴於病患口鼻，避免吸入量不足。",
+   "source": "消防署初級救護技術員訓練教材 - NRM操作重點",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-11",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "使用袋瓣罩甦醒球 (BVM) 搭配面罩為無呼吸成人病患進行正壓人工通氣時，面罩應如何密合固定？",
+   "options": [
+    "(A) 面罩尖端朝向下巴，單手隨意按壓",
+    "(B) 面罩尖端朝向鼻樑，以「EC 手勢」（拇指與食指呈C型壓緊面罩，中指、無名指、小指呈E型托住下頜骨）確實緊貼",
+    "(C) 面罩橫放蓋住雙眼與嘴巴",
+    "(D) 無須密合，保留大縫隙通風"
+   ],
+   "answer": 1,
+   "explanation": "面罩尖端對準鼻骨鼻樑，寬端蓋住嘴唇與下巴。施救者以左手「EC 手勢」操作（拇指與食指形成 C 壓住面罩邊緣，下三指形成 E 勾住下頜骨角向前拉抬向上提），確保不漏氣。",
+   "source": "消防署初級救護技術員訓練教材 - BVM通氣技巧",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-12",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "袋瓣罩甦醒球 (BVM) 連接氧氣並使用儲氣袋時，氧氣流量計通常應設定調至多少 L/min？",
+   "options": [
+    "(A) 4 L/min",
+    "(B) 8 L/min",
+    "(C) 15 L/min",
+    "(D) 25 L/min"
+   ],
+   "answer": 2,
+   "explanation": "BVM 連接高壓氧氣瓶進行人工甦醒時，氧氣流量應調至最大之「15 L/min」，配合儲氣袋可提供接近 90%～100% 的純氧。",
+   "source": "消防署初級救護技術員訓練教材 - 甦醒球高濃度氧給予",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-13",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "緊急救護常用的「D型 (D-cylinder)」可攜式氧氣鋼瓶，其鋼瓶轉換常數為何？安全存量通常保留多少 psi？",
+   "options": [
+    "(A) 常數 0.16；安全存量 200 psi",
+    "(B) 常數 0.28；安全存量 500 psi",
+    "(C) 常數 1.56；安全存量 100 psi",
+    "(D) 常數 3.14；安全存量 1000 psi"
+   ],
+   "answer": 0,
+   "explanation": "氧氣鋼瓶常數：D 瓶為 0.16（救護攜帶常用）、E 瓶為 0.28、M 瓶為 1.56。安全存量通常設定保留 200 psi（部分教材規範 500 psi），防止鋼瓶內氣體完全耗盡受潮。",
+   "source": "消防署初級救護技術員訓練教材 - 氧氣鋼瓶可用時間計算",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-14",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "一具壓力表顯示 1200 psi 的 D 型氧氣鋼瓶（常數 0.16，安全存量 200 psi），若設定非再吸入型面罩流量為 10 L/min，該氧氣瓶大約還可連續使用幾分鐘？",
+   "options": [
+    "(A) 約 8 分鐘",
+    "(B) 約 16 分鐘",
+    "(C) 約 25 分鐘",
+    "(D) 約 40 分鐘"
+   ],
+   "answer": 1,
+   "explanation": "氧氣可用時間公式：(目前壓力 - 安全存量) × 鋼瓶常數 ÷ 氧氣流量 = (1200 - 200) × 0.16 ÷ 10 = 1000 × 0.16 ÷ 10 = 160 ÷ 10 = 16 分鐘。",
+   "source": "Dcard 265T 快速參考手冊 - 氧氣計算題型解析",
+   "source_url": "https://drive.google.com/file/d/1X7HXDpSaryZcTXkAJJF3TAe8QrnFcdG-/view",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-AIR-15",
+   "type": "multiple_choice",
+   "category": "emt_airway",
+   "category_name": "呼吸道處置與氧氣治療",
+   "question": "成人單純換氣不足但有脈搏時，以 BVM 進行純人工呼吸通氣之給氣頻率為何？每次給氣時間約多久？",
+   "options": [
+    "(A) 每 2～3 秒給一口氣；每次給氣 3 秒",
+    "(B) 每 5～6 秒給一口氣（每分鐘約 10～12 次）；每次給氣約 1 秒，以胸廓微微起伏為準",
+    "(C) 每 10 秒給一口氣；每次給氣 0.5 秒",
+    "(D) 每 1 秒給一口氣（每分鐘 60 次）"
+   ],
+   "answer": 1,
+   "explanation": "有脈搏但無足夠呼吸之成人，人工呼吸給予頻率為「每 5～6 秒一次（約 10～12 次/分）」。每次壓球通氣時間約 1 秒，以看到胸廓微微起伏為原則，嚴禁快速猛壓以防止胃脹氣與胃內容物逆流嘔吐。",
+   "source": "AHA 2020 心肺復甦術指引 / 消防署教材",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "低",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   },
+   "caution": "2020 年版美國心臟協會（AHA）指引對有脈搏、呼吸不足的成人，建議每 6 秒給一口氣（每分鐘約 10 次）。考試以訓練單位教材為準。"
+  },
+  {
+   "id": "EMT-CPR-01",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "成人「院外心臟停止 (OHCA)」生存之鏈 (Chain of Survival) 六大環節依序為何？",
+   "options": [
+    "(A) 快速送醫 ➜ 醫師診斷 ➜ 開刀 ➜ 服藥 ➜ 復健 ➜ 出院",
+    "(B) 早期辨識與求救 (119) ➜ 高品質 CPR ➜ 快速去顫 (AED) ➜ 高級救命術 (ACLS) ➜ 心臟驟停後照護 ➜ 復原 (Recovery)",
+    "(C) 施行人工呼吸 ➜ 靜脈注射 ➜ 電擊 ➜ 止血 ➜ 包紮 ➜ 搬運",
+    "(D) 測量血壓 ➜ 抽血 ➜ 胸外按壓 ➜ 氣管插管 ➜ 保溫 ➜ 送醫"
+   ],
+   "answer": 1,
+   "explanation": "AHA 與台灣急診醫學會院外生存之鏈六環：1. 早期辨識與啟動緊急醫療系統；2. 即時高品質心肺復甦術 (CPR)；3. 快速體外去顫 (AED)；4. 高級救命術與運送；5. 心臟驟停後整合照護；6. 生理與心理全面復原 (Recovery)。",
+   "source": "台灣急診醫學會 - 2020 CPR指引生存之鏈",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-02",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "執行高品質成人 CPR 時，胸外心臟按壓的「正確深度」與「按壓速率」分別應符合何項標準？",
+   "options": [
+    "(A) 深度 3～4 公分；速率 80～100 次/分",
+    "(B) 深度 5～6 公分；速率 100～120 次/分",
+    "(C) 深度 7～8 公分；速率 120～140 次/分",
+    "(D) 深度至少 10 公分；速率越高越好"
+   ],
+   "answer": 1,
+   "explanation": "高品質 CPR 五大要領：1. 用力壓（成人深度 5～6 公分，不超過 6 公分）；2. 快快壓（速率 100～120 次/分）；3. 胸回彈（每次按壓後完全回彈）；4. 莫中斷（按壓中斷時間小於 10 秒）；5. 避免過度通氣。",
+   "source": "消防署初級救護技術員訓練教材 - CPR操作標準",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-03",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "成人施行心肺復甦術時，無論是「單人施救」或「雙人救護員」，其胸外按壓與人工呼吸之比例均應為何？",
+   "options": [
+    "(A) 15：2",
+    "(B) 30：2",
+    "(C) 5：1",
+    "(D) 50：2"
+   ],
+   "answer": 1,
+   "explanation": "成人 CPR 無論是單人或雙人施救，胸外按壓與吹氣循環比例均維持「30：2」（每按壓 30 次後給予 2 口氣）。",
+   "source": "消防署初級救護技術員訓練教材 - CPR循環比例",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-04",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "針對「兒童 (Child)」或「嬰兒 (Infant)」心臟驟停，由「雙人救護員」施行 CPR 時，其胸外按壓與人工呼吸比率應調整為何？",
+   "options": [
+    "(A) 30：2",
+    "(B) 15：2",
+    "(C) 5：1",
+    "(D) 15：1"
+   ],
+   "answer": 1,
+   "explanation": "兒科/嬰兒心臟驟停通常多源於呼吸衰竭缺氧。單人施救時比例仍為 30：2；但「雙人專業救護員」時，兒童及嬰兒之按壓吹氣比應調整為「15：2」，以提高氧氣供給比例。",
+   "source": "AHA 兒科基礎救命術指引 / 消防署教材",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-05",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "自動體外心臟電擊去顫器 (AED) 語音發出「建議電擊 (Shock Advised)」指令時，代表傷患此時心律最可能處於何種致命狀態？",
+   "options": [
+    "(A) 心室纖維顫動 (VF) 或無脈性心室頻脈 (Pulseless VT)",
+    "(B) 心搏停止 (Asystole)",
+    "(C) 無脈性電氣活動 (PEA)",
+    "(D) 竇性心律過緩 (Sinus Bradycardia)"
+   ],
+   "answer": 0,
+   "explanation": "AED 分析的可電擊心律 (Shockable Rhythms) 僅有兩種：1. 心室纖維顫動 (Ventricular Fibrillation, VF)；2. 無脈性心室頻脈 (Pulseless Ventricular Tachycardia, pVT)。這兩種心律心臟處於亂顫抽動無法有效輸出血液，需透過電擊使心肌細胞瞬間去極化恢復正常節律。",
+   "source": "消防署初級救護技術員訓練教材 - AED原理與心律",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-06",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "下列何種心律 AED 會分析判定為「不建議電擊 (No Shock Advised)」？此時應立即採取何種行動？",
+   "options": [
+    "(A) 心室纖維顫動 (VF)；應等待醫師抵達",
+    "(B) 心搏停止 (Asystole) 或無脈性電氣活動 (PEA)；應立即重新實施 CPR 胸外按壓",
+    "(C) 無脈性心室頻脈；應拔掉貼片收工",
+    "(D) 任何心律均需電擊"
+   ],
+   "answer": 1,
+   "explanation": "心搏停止 (Asystole/靜態直線) 及無脈性電氣活動 (PEA) 為「不建議電擊心律」，電擊無效甚至有害。此時應完全不中斷，立即重新接續實施高品質胸外按壓 (CPR)。",
+   "source": "消防署初級救護技術員訓練教材 - AED語音處置流程",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-07",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "AED 成人電擊貼片之標準黏貼位置為何？",
+   "options": [
+    "(A) 左胸上方與腹部臍周",
+    "(B) 右胸上方（右鎖骨下方）與左胸外下方（左乳頭外側下緣、腋中線）",
+    "(C) 背部左右肩胛骨",
+    "(D) 前後胸壁正中心點"
+   ],
+   "answer": 1,
+   "explanation": "成人標準前側貼片位置：一塊貼於「右胸前壁鎖骨下方」，另一塊貼於「左乳頭外下方前側腋下肋骨處」，使去顫電流能穿過心臟中心。",
+   "source": "消防署初級救護技術員訓練教材 - AED貼片黏貼位置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-08",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "當 AED 充能完畢並發出蜂鳴聲準備電擊時，施救者在按下電擊鈕前必須大聲喊出並確認何事？",
+   "options": [
+    "(A) 「大家用力壓胸」",
+    "(B) 「我離開、你離開、大家都離開（嚴禁任何人觸碰傷患）」並確認無人碰觸",
+    "(C) 「快給一口氣」",
+    "(D) 「關閉 AED 電源」"
+   ],
+   "answer": 1,
+   "explanation": "去顫電擊電流強大，若他人接觸傷患會引發觸電危險。施救者必須環顧全場大聲口誦並比畫：「我離開、你離開、大家都離開！」，確認無任何人觸碰傷患或病床後方可按下橘/紅色閃爍電擊鈕。",
+   "source": "消防署初級救護技術員訓練教材 - AED安全鐵則",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-09",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "AED 電擊完成後，救護員第一時間應立即採取何種行動？",
+   "options": [
+    "(A) 停下來檢查病患脈搏 1 分鐘",
+    "(B) 拔掉 AED 電擊貼片並關機",
+    "(C) 無須花時間摸脈搏，立即重新開始 CPR 胸外按壓 2 分鐘（5個循環）",
+    "(D) 將病患扶起坐好"
+   ],
+   "answer": 2,
+   "explanation": "電擊剛結束時心肌常處於心肌頓抑 (Stunned) 狀態，即使電擊成功心臟也無法立刻產生有效搏出量。指引規定「電擊後立即接續 CPR」，連續按壓 2 分鐘後，AED 才會自動進行下一次心律分析。",
+   "source": "AHA 心肺復甦術指引 / 消防署教材",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-10",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "心室纖維顫動 (VF) 傷患若無施予 CPR，每延遲去顫電擊 1 分鐘，其存活率估計大約下降多少？",
+   "options": [
+    "(A) 1%～2%",
+    "(B) 3%～4%",
+    "(C) 7%～10%",
+    "(D) 20%～25%"
+   ],
+   "answer": 2,
+   "explanation": "醫學統計顯示，VF 發生後若完全未實施 CPR，每延遲 1 分鐘電擊，存活率急速下降約 7%～10%；若有持續實施高品質 CPR，可將存活率下降速度減緩至每分鐘約 3%～4%。",
+   "source": "消防署初級救護技術員訓練教材 - OHCA存活率曲線",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-11",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "一名清醒成年男性用餐時突然雙手抓掐喉嚨、表情痛苦發不出聲音、無法咳嗽，此為呼吸道異物嚴重哽塞徵象，首選處置為何？",
+   "options": [
+    "(A) 立即給予一大杯水要求其吞下",
+    "(B) 站在病患身後，實施「哈姆立克法 (Heimlich Maneuver / 腹部向上推擠法）」",
+    "(C) 用手指盲目深入口腔深部挖取",
+    "(D) 叫病患躺下實施長背板固定"
+   ],
+   "answer": 1,
+   "explanation": "清醒成人嚴重異物哽塞首選為哈姆立克法：施救者站於傷患身後，一腳成弓箭步置於傷患兩腳間，一手握拳將拇指側抵於肚臍上方與劍突下方之間，另一手包覆拳頭，快速向後向上連續推擠，直到異物排出或患者昏迷。",
+   "source": "消防署初級救護技術員訓練教材 - 異物哽塞處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "低",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   },
+   "caution": "各指引對清醒成人嚴重哽塞的第一步作法不同：歐洲復甦委員會（ERC）建議先拍背 5 下，無效再做腹部推擠。考試以訓練單位教材為準。"
+  },
+  {
+   "id": "EMT-CPR-12",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "若異物哽塞病患為「懷孕後期之明顯孕婦」或「重度肥胖者」，施救者應改採何種手法推擠排出異物？",
+   "options": [
+    "(A) 改採「胸部推擠法 (Chest Thrusts)」於胸骨下半段施壓",
+    "(B) 用力重擊腹部肚臍下方",
+    "(C) 倒立懸掛拍打雙腳",
+    "(D) 嚴禁急救，靜待救護車"
+   ],
+   "answer": 0,
+   "explanation": "孕婦或過度肥胖者無法環抱腹部或腹部推擠恐壓迫子宮胎兒，施救者應改站於患者背後，雙手環抱其胸部，置於胸骨下半段實施「胸部推擠法 (Chest thrusts)」。",
+   "source": "消防署初級救護技術員訓練教材 - 特殊族群異物哽塞",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-13",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "嚴重異物哽塞病患在處置過程中「突然失去意識倒地」，施救者應立即如何調整急救程序？",
+   "options": [
+    "(A) 繼續站著實施哈姆立克推擠",
+    "(B) 將病患安全放倒於平坦堅硬地面上，立即啟動 CPR 胸外按壓 30 次，每次吹氣前檢查口腔有無可見異物",
+    "(C) 立即猛掐人中等待甦醒",
+    "(D) 放棄急救"
+   ],
+   "answer": 1,
+   "explanation": "異物哽塞患者一旦失去反應倒地，處置流程立即轉為「無意識 CPR」：胸外按壓 30 次能產生高於腹部推擠的胸內壓；在打開呼吸道給予吹氣前，先檢視口腔，若看見鬆脫之異物才用手指取出，看不見嚴禁盲挖，隨後給予吹氣並持續 CPR。",
+   "source": "消防署初級救護技術員訓練教材 - 哽塞昏迷處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-14",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "針對未滿 1 歲之清醒「嬰兒 (Infant)」發生嚴重呼吸道異物哽塞時，正確急救操作手法為何？",
+   "options": [
+    "(A) 實施成人哈姆立克腹部推擠",
+    "(B) 趴在施救者前臂頭低腳高「拍背 5 次」，隨後翻轉正面實施「壓胸 5 次」，交替操作",
+    "(C) 盲目以食指伸入喉部深處搜尋異物",
+    "(D) 用力搖晃嬰兒全身"
+   ],
+   "answer": 1,
+   "explanation": "嬰兒內臟肝臟脆弱，嚴禁實施腹部推擠。正確手法為：固定嬰兒下巴保持頭低腳高趴在施救者前臂上，在兩肩胛骨間「拍背 5 次」；隨後翻轉成面朝上，以兩指在胸骨按壓處「壓胸 5 次」，交替進行直至異物排出或昏迷。",
+   "source": "AHA 兒科基礎救命術 / 消防署教材",
+   "source_url": "https://www.sem.org.tw/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-CPR-15",
+   "type": "multiple_choice",
+   "category": "emt_cpr",
+   "category_name": "心肺復甦術與AED",
+   "question": "使用 AED 時，若傷患胸前裝有「心律調節器 (Pacemaker)」導致皮下有明顯硬塊突起，電擊貼片應如何處理？",
+   "options": [
+    "(A) 正對調節器金屬硬塊緊密重疊黏貼",
+    "(B) 避開該凸起硬塊，至少距離調節器 2.5 公分（約 1 吋）以上位置黏貼",
+    "(C) 嚴禁使用 AED 電擊",
+    "(D) 將調節器硬塊切開取出"
+   ],
+   "answer": 1,
+   "explanation": "若貼片直接貼在節律器硬塊上方，電流會被節律器金屬吸收減弱且可能損壞儀器。正確做法為避開突起部位，距離至少 1 吋 (2.5cm) 以上貼附。",
+   "source": "消防署初級救護技術員訓練教材 - AED特殊情境處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-01",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "創傷病患初評流程中，國際與台灣急救指引強調「XABCDE」架構，其中字首「X」代表何項最優先處置項目？",
+   "options": [
+    "(A) X光攝影 (X-ray)",
+    "(B) 控制致命性大出血 (eXsanguinating hemorrhage)",
+    "(C) 頸椎完全固定 (X-collar)",
+    "(D) 心理輔導 (X-mind)"
+   ],
+   "answer": 1,
+   "explanation": "現代戰傷與創傷指引將「X (eXsanguinating hemorrhage / 噴射性動脈致死性大出血)」列為最先處置。四肢大動脈出血可在 1～3 分鐘內失血休克死亡，因此發現噴血時必須立即上止血帶止血，優先於呼吸道處置。",
+   "source": "消防署初級救護技術員訓練教材 - 創傷初評新指引",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-02",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "針對四肢噴射性嚴重動脈出血，一般「直接加壓止血」無效時，應立即採取何種最有效止血手段？",
+   "options": [
+    "(A) 患肢抬高於心臟即可",
+    "(B) 於傷口近心端 5～7 公分處施打戰術止血帶 (CAT) 並旋緊絞棒至遠端脈搏摸不到、出血停止",
+    "(C) 用大量冷水沖洗傷口",
+    "(D) 冰敷患部"
+   ],
+   "answer": 1,
+   "explanation": "四肢危及生命之大量外出血，止血帶為首選救命工具。上在傷口上方 5～7 公分處（避開關節），旋緊絞棒鎖定，徹底阻斷動脈血流直至出血停止與遠端摸不到脈搏。",
+   "source": "消防署初級救護技術員訓練教材 - 止血帶操作規範",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-03",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "在現場為傷患施打戰術止血帶 (CAT) 後，救護員必須嚴格遵守之重要原則為何？",
+   "options": [
+    "(A) 必須在止血帶白色時間標籤上清楚註記「施打時間 (TIME)」，且到院前「嚴禁自行鬆開」",
+    "(B) 每隔 15 分鐘必須自行鬆開 5 分鐘通血",
+    "(C) 止血帶應以厚衣物完全包裹遮蓋不讓醫院人員看見",
+    "(D) 止血帶打上後遠端脈搏越強越好"
+   ],
+   "answer": 0,
+   "explanation": "止血帶打上後必須用奇異筆在時間標籤寫上「時間（如 14:35）」，並務必讓急診醫護人員一眼可見。現場「嚴禁自行鬆開止血帶」，因貿然鬆解會導致再次大出血及下肢累積的毒素/鉀離子/酸性代謝物瞬間回流心臟引發心律不整休克死亡。",
+   "source": "消防署初級救護技術員訓練教材 - 止血帶安全原則",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-04",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "頭部鈍傷病患檢查發現「雙眼眶周圍嚴重瘀青（熊貓眼 Raccoon eyes）」或「耳後乳突處瘀斑 (Battle's sign)」，高度代表何種骨折？",
+   "options": [
+    "(A) 下頜骨骨折",
+    "(B) 鎖骨骨折",
+    "(C) 顱底骨折 (Basilar Skull Fracture)",
+    "(D) 頸椎第二節骨折"
+   ],
+   "answer": 2,
+   "explanation": "耳後瘀斑 (Battle's sign) 與雙眼眶瘀青 (Raccoon eyes/熊貓眼) 加上鼻漏/耳漏腦脊髓液，為典型「顱底骨折」晚期徵兆，嚴禁使用鼻咽呼吸道。",
+   "source": "消防署初級救護技術員訓練教材 - 頭部創傷評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-05",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "胸部穿刺傷合併「吮吸性胸部傷口（開放性氣胸 Sucking chest wound）」，現場敷料包紮之黃金處置原則為何？",
+   "options": [
+    "(A) 四邊全部以透氣膠帶貼死",
+    "(B) 使用不透氣敷料（如凡士林紗布或塑膠包裝）覆蓋，並「三邊貼緊、留下一邊開放」形成單向活瓣",
+    "(C) 將傷口撐開通風",
+    "(D) 嚴禁覆蓋任何敷料"
+   ],
+   "answer": 1,
+   "explanation": "開放性氣胸會隨呼吸吸入空氣進入胸膜腔。現場應使用不透氣敷料製作「三邊封閉單向閥（Three-sided occlusive dressing）」：吸氣時敷料貼緊阻止外界空氣吸入；呼氣時開放的一邊可讓胸膜腔內多餘氣體逸出，防止演變為致命的張力性氣胸。",
+   "source": "消防署初級救護技術員訓練教材 - 胸部創傷處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-06",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "腹部創傷導致腸道等臟器脫出體外 (Evisceration) 時，現場正確處置方式為何？",
+   "options": [
+    "(A) 立即戴手套用力將脫出的腸子全部塞回腹腔內",
+    "(B) 嚴禁推回臟器，應以「無菌生理食鹽水濕紗布」覆蓋保濕，外層加覆防水膜或保鮮膜保溫後迅速送醫",
+    "(C) 使用乾紗布直接按壓止血",
+    "(D) 塗抹大量抗生素藥膏"
+   ],
+   "answer": 1,
+   "explanation": "脫出之內臟組織嚴禁塞回腹腔（會帶入細菌引起嚴重腹膜炎且造成腸道扭轉壞死）。應用生理食鹽水沾濕之無菌敷料覆蓋保持濕潤，外覆保鮮膜或無菌塑膠布避免水分散失與失溫，雙膝微彎減輕腹壁張力送醫。",
+   "source": "消防署初級救護技術員訓練教材 - 腹部創傷處理",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-07",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "傷患胸壁或大腿遭鋼筋、尖刀等異物深刺穿留體內 (Impalement)，現場處置原則為何？",
+   "options": [
+    "(A) 迅速將穿刺物用力拔除以利傷口消毒",
+    "(B) 嚴禁拔除穿刺物，應以敷料或捲軸紗布在穿刺物四周穩固固定，避免移動造成二次大出血",
+    "(C) 左右搖晃穿刺物以測試深度",
+    "(D) 於穿刺物末端用力敲擊"
+   ],
+   "answer": 1,
+   "explanation": "穿刺物在體內常壓迫破損血管形成暫時止血塞，一旦拔除會引發不可收拾的噴射性大出血致死。救護員除「刺穿臉頰阻塞呼吸道」或「穿刺物妨礙實施胸外 CPR 按壓」極罕見情況外，一律「嚴禁拔除」，應就地穩固固定包紮。",
+   "source": "消防署初級救護技術員訓練教材 - 穿刺傷處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-08",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "意外斷肢（如手指或手掌完全截斷）時，現場對於「離斷肢體」之正確保存運送原則為何？",
+   "options": [
+    "(A) 直接將斷肢浸泡在純酒精或熱水中消毒",
+    "(B) 將斷肢直接埋入純冰塊或乾冰中冷凍",
+    "(C) 以生理食鹽水微濕無菌紗布包裹斷肢，裝入乾淨密封防水塑膠袋，再將塑膠袋置於「冰水混合物」容器中隔水冷藏（嚴禁直接接觸冰塊）",
+    "(D) 隨意丟入垃圾袋中"
+   ],
+   "answer": 2,
+   "explanation": "斷肢切忌直接泡水或接觸冰塊，否則組織會細胞凍傷水腫壞死無法再植。正確為「隔水冷藏」：濕紗布包裹 ➜ 放入密封防水袋 ➜ 放入冰水混合容器 (約4°C)。",
+   "source": "消防署初級救護技術員訓練教材 - 斷肢保存處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-09",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "對肢體長骨骨折實施夾板包紮固定時，夾板長度與固定範圍應遵循何項基本原則？",
+   "options": [
+    "(A) 夾板長度只需覆蓋骨折局部傷口即可",
+    "(B) 夾板長度必須超越骨折處之「上下兩個鄰近關節」並予以有效固定",
+    "(C) 夾板必須固定全身所有關節",
+    "(D) 關節處骨折只需固定單一骨幹"
+   ],
+   "answer": 1,
+   "explanation": "骨幹骨折（如小腿脛腓骨骨折）之固定原則為：夾板必須跨越並固定「骨折處上方的膝關節」與「下方的踝關節」，才能徹底防止斷骨扭轉刺穿肌肉與血管。",
+   "source": "消防署初級救護技術員訓練教材 - 骨折固定基本原則",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-10",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "在對患肢進行副木夾板固定「之前」與「之後」，救護人員均必須重複評估肢體末端的何項神經血管指標？",
+   "options": [
+    "(A) 體重與身高",
+    "(B) CMS 評估（Circulation 血液循環/脈搏、Motor 運動功能、Sensory 感覺功能）",
+    "(C) 瞳孔對光反射",
+    "(D) 腹部敲診音"
+   ],
+   "answer": 1,
+   "explanation": "固定前與固定後均需檢查 CMS（或稱 PMS）：C (Circulation 脈搏/微血管充填)、M (Motor 腳趾/手指能否活動)、S (Sensory 觸摸有無知覺)。固定後若 CMS 消失，代表包紮過緊阻斷血流，必須立刻重新鬆解調整。",
+   "source": "消防署初級救護技術員訓練教材 - 骨折包紮檢測",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-11",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "測量硬頸圈 (C-spine Collar) 之尺寸大小時，救護員手指定位測量病患頸部之解剖基準點為何？",
+   "options": [
+    "(A) 頭頂至鼻尖垂直高度",
+    "(B) 病患「下頜骨下緣假想水平線」至「斜方肌前緣（肩部基部）」之間的垂直手指寬度",
+    "(C) 喉結至胸骨柄之距離",
+    "(D) 兩側耳垂之間的水平距離"
+   ],
+   "answer": 1,
+   "explanation": "頸圈量取法：將頭頸維持中立，以手指垂直測量「下巴下緣假想線」到「斜方肌前緣（肩線）」的手指數（如3指幅），再將此指幅對齊頸圈塑膠片與下緣調整卡榫。",
+   "source": "消防署初級救護技術員訓練教材 - 頸圈量測與穿戴技術",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-12",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "使用長背板固定創傷傷患時，軀幹固定帶綁紮與頭部固定器 (Head Immobilizer) 固定之先後順序原則為何？",
+   "options": [
+    "(A) 先固定頭部，最後綁胸部",
+    "(B) 先固定軀幹及四肢約束帶（胸、髖/骨盆、大腿/膝），「頭部頸部固定器最後固定」",
+    "(C) 隨便先綁哪裡都可以",
+    "(D) 僅固定雙腳即可"
+   ],
+   "answer": 1,
+   "explanation": "上長背板黃金原則：「先軀幹後頭部」。若先固定頭部，在翻動或搬運綁紮胸髖時，身體軀幹晃動會以已固定的頸部為支點造成嚴重二次頸椎神經拉扯斷裂。故頭頸固定墊一律最後上膠帶固定。",
+   "source": "消防署初級救護技術員訓練教材 - 長背板上板順序",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-13",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "高處墜落疑似脊椎受傷之清醒傷患，在現場若主訴頸部劇烈疼痛，救護人員接觸病患之第一動作應為何？",
+   "options": [
+    "(A) 扶起患者坐立飲水",
+    "(B) 立即以雙手施行「頭頸部徒手胸頸中立固定 (Manual in-line stabilization)」並指示病患切勿轉頭",
+    "(C) 左右劇烈轉動病患頭部檢查活動度",
+    "(D) 脫去其安全帽並拋擲"
+   ],
+   "answer": 1,
+   "explanation": "懷疑脊椎創傷時，第一步即為「徒手頸椎固定 (MILS)」，以雙手固定頭部於自然中立位，直到上好硬頸圈並在長背板上完成頭部固定器固定為止。",
+   "source": "消防署初級救護技術員訓練教材 - 脊椎限制評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-14",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "在狹窄彎曲的公寓樓梯間運送無頸椎創傷之清醒心臟衰竭或氣喘呼吸困難病患時，最適合選用的搬運器材為何？",
+   "options": [
+    "(A) 長背板 (Long Spine Board)",
+    "(B) 樓梯搬運椅 (Stair Chair)",
+    "(C) 帆布擔架",
+    "(D) 籃式擔架"
+   ],
+   "answer": 1,
+   "explanation": "搬運椅專為狹窄樓梯設計，病患採坐姿不僅利於心衰氣喘患者呼吸，且在轉角處容易轉向行進，大幅提升安全與搬運效率（但有頸椎創傷疑慮者嚴禁使用搬運椅）。",
+   "source": "消防署初級救護技術員訓練教材 - 搬運器材選擇",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-TRM-15",
+   "type": "multiple_choice",
+   "category": "emt_trauma",
+   "category_name": "創傷評估止血固定",
+   "question": "重大車禍現場，汽車已起火燃燒威脅傷患生命，單人救護員需在數秒內緊急將無意識傷患移出車外，應採用何種緊急移位技術？",
+   "options": [
+    "(A) 慢慢等待消防隊員架設水線",
+    "(B) 立即採用「緊急移位法（如單人腋下拖拉法 Rapid Extrication）」迅速拉離危險區域",
+    "(C) 現場慢慢量測硬頸圈與包紮小傷口",
+    "(D) 等待吊車抵達"
+   ],
+   "answer": 1,
+   "explanation": "環境有立即爆炸、起火或坍塌危險時，生命優先於常規脊椎限制。應採用緊急移位法（如腋下拖拉或衣領拖拉法），沿身體長軸將傷患以最快速度拖離危險現場至安全地帶再行急救。",
+   "source": "消防署初級救護技術員訓練教材 - 緊急搬運時機",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-01",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "院前辛辛那提腦中風指標 (Cincinnati Prehospital Stroke Scale, CPSS) 包含哪三大測試項目？",
+   "options": [
+    "(A) 體溫、脈搏、血壓",
+    "(B) 顏面下垂 (Facial Droop)、手臂下垂飄移 (Arm Drift)、言語異常 (Abnormal Speech)",
+    "(C) 瞳孔大小、對光反射、角膜反射",
+    "(D) 膝反射、巴賓斯基反射、跟腱反射"
+   ],
+   "answer": 1,
+   "explanation": "辛辛那提評估三大項：1.微笑露齒看有無顏面下垂 (Face)；2.雙手平舉閉眼 10 秒看有無手臂飄移下墜 (Arm)；3.說一句話看有無含糊不清或無法言語 (Speech)。任一項異常代表急性中風機率高達 72%，並務必記錄「最後正常時間 (Last Known Normal)」通報後送急重症醫院施打血栓溶解劑。",
+   "source": "消防署初級救護技術員訓練教材 - 腦中風院前評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-02",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "急性心肌梗塞 (Acute Myocardial Infarction, AMI) 發作時，病患最典型之胸痛臨床特徵為何？",
+   "options": [
+    "(A) 胸口劇烈壓迫感、如大石重壓，且常輻射至左肩、左臂內側、下巴或背部，休息常無法緩解",
+    "(B) 隨呼吸深淺出現刺痛，按壓胸肋骨會劇烈疼痛",
+    "(C) 僅有下腹部絞痛與腹瀉",
+    "(D) 喝一杯冰開水後即可完全改善"
+   ],
+   "answer": 0,
+   "explanation": "典型缺血性心絞痛/心肌梗塞常表現為胸骨後擠壓窒息感、大汗淋漓、呼吸困難，並往左上肢、頸部、下頜輻射。休息或含 NTG 往往無法完全緩解，屬於重大內科危急急症。",
+   "source": "消防署初級救護技術員訓練教材 - 急性冠心症評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-03",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "糖尿病病患發生急性「低血糖 (Hypoglycemia)」時，若病患「意識清楚、能自行吞嚥且配合」，現場第一步急救處置為何？",
+   "options": [
+    "(A) 立即強迫注射大劑量胰島素",
+    "(B) 口服給予 15～20 克易吸收糖分（如含糖果汁、汽水、糖果或方糖）",
+    "(C) 嚴禁口服任何東西，叫其跑步運動",
+    "(D) 施予心臟胸外按壓"
+   ],
+   "answer": 1,
+   "explanation": "意識清楚且能吞嚥的低血糖病患，依「15-15 法則」，立即口服給予約 15 克快速吸收糖類（如半杯果汁或3-4顆方糖），15分鐘後複測血糖。若意識不清或無法吞嚥則嚴禁口服給糖以防窒息。",
+   "source": "消防署初級救護技術員訓練教材 - 糖尿病急症處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-04",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "遇一名糖尿病病患「意識昏迷、呼喚無反應」，救護人員在處置上何者為「絕對嚴禁」之危險舉動？",
+   "options": [
+    "(A) 測量微血管血糖值 (Dextrostix)",
+    "(B) 維持呼吸道暢通並給予氧氣",
+    "(C) 嚴禁強行從病患嘴巴灌入糖水、蜂蜜或固體食物",
+    "(D) 監測生命徵象並迅速送醫"
+   ],
+   "answer": 2,
+   "explanation": "昏迷病患咽喉反射消失，若強行由口餵食糖水或液體，糖水會直接嗆入氣管造成致命性「吸入性肺炎」或呼吸道完全窒息死亡！",
+   "source": "消防署初級救護技術員訓練教材 - 糖尿病安全處置禁忌",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-05",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "氣喘 (Asthma) 或慢性阻塞性肺病 (COPD) 急性發作時，聽診肺部最常聽到的異常呼吸音為何？",
+   "options": [
+    "(A) 呼氣性高頻哮鳴音 / 喘鳴音 (Wheezing)",
+    "(B) 正常清晰肺泡呼吸音",
+    "(C) 打呼鼾聲 (Snoring)",
+    "(D) 羊鳴音"
+   ],
+   "answer": 0,
+   "explanation": "氣喘發作時小支氣管平滑肌痙攣狹窄與黏膜水腫，氣流呼出受阻形成高音頻的連續性「呼氣喘鳴音 (Wheezing)」，病患常呈端坐呼吸 (Orthopnea)。",
+   "source": "消防署初級救護技術員訓練教材 - 呼吸急症聽診",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-06",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "蜂螫或藥物引發嚴重「過敏性休克 (Anaphylaxis)」導致喉頭水腫、低血壓與全身蕁麻疹，急救醫療體系首選之關鍵救命藥物為何？",
+   "options": [
+    "(A) 口服普拿疼 (Acetaminophen)",
+    "(B) 肌肉注射腎上腺素 (Epinephrine, 1:1000)",
+    "(C) 胰島素",
+    "(D) 抗生素"
+   ],
+   "answer": 1,
+   "explanation": "過敏性休克第一線救命藥物為肌肉注射 Epinephrine (1:1000, 劑量成人0.3-0.5mg)。若病患隨身攜帶醫師開立之 EpiPen（筆型自動注射器），EMT-1 得依指引協助病患注射於大腿外側中段。",
+   "source": "消防署初級救護技術員訓練教材 - 過敏性休克處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-07",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "臨床上「休克 (Shock)」之核心病理生理定義為何？",
+   "options": [
+    "(A) 單純心理受到極大驚嚇",
+    "(B) 全身各組織與器官血液灌流量不足，導致細胞缺氧及代謝廢物堆積",
+    "(C) 血糖過高引發多尿",
+    "(D) 關節滑液分泌過多"
+   ],
+   "answer": 1,
+   "explanation": "休克在醫學上並非心理嚇到，而是指心血管循環衰竭，造成「全身微循環灌流不足 (Inadequate tissue perfusion)」，組織細胞無法獲得足夠氧氣及養分，引發無氧呼吸、乳酸中毒與多重器官衰竭。",
+   "source": "消防署初級救護技術員訓練教材 - 休克病理定義",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-08",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "外傷失血性休克（無頭部外傷、胸部創傷或脊椎損傷疑慮）時，現場標準之病患休克臥位 (Shock position) 為何？",
+   "options": [
+    "(A) 頭高腳低坐姿",
+    "(B) 平躺並將「下肢抬高約 20～30 公分」",
+    "(C) 趴睡俯臥",
+    "(D) 倒立懸掛"
+   ],
+   "answer": 1,
+   "explanation": "單純低血容/失血性休克，將病患平躺並抬高下肢 20～30 公分（約8-12吋），可利用重力增加下肢靜脈血液回流心臟（Autotransfusion 約300-500ml），提升心輸出量與重要器官灌流。",
+   "source": "消防署初級救護技術員訓練教材 - 休克體位處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "低",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   },
+   "caution": "抬高下肢對休克的效果證據有限，部分急救指引只建議讓傷患平躺。考試以訓練單位教材為準。"
+  },
+  {
+   "id": "EMT-MED-09",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "針對疑似「急性心肌梗塞併發肺水腫、心因性休克、端坐呼吸」之病患，何種體位為「絕對禁忌」？",
+   "options": [
+    "(A) 半坐臥位 (Fowler's position)",
+    "(B) 嚴禁抬高下肢（嚴禁平躺抬腳）",
+    "(C) 身體微向前傾坐姿",
+    "(D) 給予高濃度氧氣"
+   ],
+   "answer": 1,
+   "explanation": "心因性休克合併急性肺水腫時，心臟收縮力已衰竭，若抬高下肢會使大量靜脈血湧回心臟（增加前負荷 Preload），直接造成急性心衰竭肺積水溺死！此類病患應採「半坐臥姿 (Fowler's)」，減少回心血量並利於橫膈呼吸。",
+   "source": "消防署初級救護技術員訓練教材 - 心因性急症禁忌",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-10",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "依據成人燒燙傷「九則計算法 (Rule of Nines)」，成人「整個頭頸部」與「一整隻單側下肢」所佔全身表面積 (TBSA) 百分比分別為何？",
+   "options": [
+    "(A) 頭頸部 9%；單側下肢 18%",
+    "(B) 頭頸部 18%；單側下肢 9%",
+    "(C) 頭頸部 4.5%；單側下肢 9%",
+    "(D) 頭頸部 1%；單側下肢 36%"
+   ],
+   "answer": 0,
+   "explanation": "成人九則：頭頸部 9%；雙上肢各 9% (共18%)；前軀幹 18%、後軀幹 18% (軀幹共36%)；雙下肢各 18% (單側下肢前9%+後9%=18%，雙下肢共36%)；會陰生殖器 1%。總和為 100%。",
+   "source": "消防署初級救護技術員訓練教材 - 燒燙傷面積計算",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-11",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "燒傷侵及真皮層，局部皮膚紅腫、劇烈疼痛且出現明顯「大小水泡 (Blisters)」，臨床深度分級為何？",
+   "options": [
+    "(A) 一度燒燙傷 (Superficial)",
+    "(B) 二度燒燙傷 (Partial Thickness)",
+    "(C) 三度燒燙傷 (Full Thickness)",
+    "(D) 四度燒燙傷"
+   ],
+   "answer": 1,
+   "explanation": "一度傷及表皮（紅腫乾熱疼痛，如日曬）；二度傷及真皮層（起水泡、劇痛、紅腫滲出液）；三度傷及全層皮膚（焦黑、皮革狀或蒼白，神經壞死痛覺消失）。現場切勿刺破水泡！",
+   "source": "消防署初級救護技術員訓練教材 - 燒傷分度判定",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-12",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "小面積熱液燙傷現場處理原則「沖、脫、泡、蓋、送」，其中「沖」之正確操作方式為何？",
+   "options": [
+    "(A) 用大量冰塊直接重壓冰敷傷口 1 小時",
+    "(B) 以乾淨流動冷水 (15～20°C) 輕柔沖洗傷口約 15～30 分鐘降溫",
+    "(C) 沖洗高壓熱水",
+    "(D) 塗抹大量醬油或牙膏"
+   ],
+   "answer": 1,
+   "explanation": "沖水應以溫和流動冷水沖洗 15～30 分鐘以帶走餘熱。嚴禁直接用冰塊冰敷（會造成微血管收縮壞死與組織凍傷加深傷度），嚴禁塗抹醬油、牙膏、草藥等偏方造成感染。",
+   "source": "消防署初級救護技術員訓練教材 - 燒燙傷急救五步驟",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-13",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "成功嶺新訓夏日酷暑高溫演訓時，鑑別「熱衰竭 (Heat Exhaustion)」與致命「熱中暑 (Heat Stroke)」的最核心關鍵指標為何？",
+   "options": [
+    "(A) 是否有流口水",
+    "(B) 熱中暑病患出現「中樞神經功能異常（意識混亂、譫妄、昏迷抽搐）」且「核心體溫高達 40°C 以上」，常皮膚乾熱無汗",
+    "(C) 兩者完全無區別",
+    "(D) 僅看脈搏有無跳動"
+   ],
+   "answer": 1,
+   "explanation": "熱衰竭體溫調節中樞未完全失調，體溫正常或微高，大量出汗、蒼白濕冷、意識多清楚；熱中暑則是下視丘體溫調節中樞徹底崩潰，核心體溫 ＞ 40°C，排汗衰竭皮膚乾熱，合併昏迷抽搐，死亡率極高！",
+   "source": "國防部軍醫局 / 替代役訓練班夏日防中暑指引",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-14",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "針對急性致命熱中暑 (Heat Stroke) 昏迷傷患，現場最關鍵、最具決定性的救命急救行動為何？",
+   "options": [
+    "(A) 給予大量熱開水慢飲",
+    "(B) 立即將傷患移至陰涼通風處，解開全身衣物，全身噴灑冷水並強力吹風搧風進行「積極蒸發散熱降溫」",
+    "(C) 裹上厚厚棉被強迫其排汗",
+    "(D) 靜待其自然降溫"
+   ],
+   "answer": 1,
+   "explanation": "熱中暑是時間與溫度的賽跑！關鍵為「快速積極降溫」：移至陰涼處、解開衣物、以冷水/濕毛巾噴灑皮膚並輔以電扇強風快速吹拂促進蒸發散熱，並在頸部、腋下、鼠蹊部置放冰袋，目標是盡快將核心體溫降至 38.5°C 以下。",
+   "source": "消防署初級救護技術員訓練教材 - 熱急症急救技術",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MED-15",
+   "type": "multiple_choice",
+   "category": "emt_medical",
+   "category_name": "急症評估處置與休克",
+   "question": "野外或營區操課遇毒蛇咬傷時，下列現場急救處置何者為「絕對嚴禁執行之危險錯誤行為」？",
+   "options": [
+    "(A) 保持冷靜，去除傷肢的手錶戒指等束縛物",
+    "(B) 以清水或肥皂水溫和沖洗傷口，並使患肢維持於低於心臟之高度",
+    "(C) 用嘴巴吸吮毒液、用刀片切開傷口放血、或用冰塊局部冰敷",
+    "(D) 記住蛇類外觀特徵或拍照以便醫師辨識血清"
+   ],
+   "answer": 2,
+   "explanation": "切開傷口易傷及神經血管並加速毒素擴散；用嘴吸吮會使施救者經口腔黏膜中毒；冰敷會造成組織壞死；緊縛止血帶會阻斷動脈引發肢體缺血壞疽。這些傳統偏方全部嚴格禁止！",
+   "source": "消防署初級救護技術員訓練教材 - 動物咬傷處置",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-01",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "國際大量傷病患 START (Simple Triage and Rapid Treatment) 檢傷分類法中，第一步驟要求「所有能自己走動的人員前往指定安全區集合」，這批傷患直接被歸類為何種檢傷標籤？",
+   "options": [
+    "(A) 紅色（第一優先，極重傷 Immediate）",
+    "(B) 黃色（第二優先，中傷 Delayed）",
+    "(C) 綠色（第三優先，輕傷 Minor）",
+    "(D) 黑色（死亡或無存活希望 Expectant）"
+   ],
+   "answer": 2,
+   "explanation": "START 檢傷第一步即廣播：「所有能站立並自行行走的傷患請跟著救護員移動至綠區集合」。能自行走動代表呼吸、循環、神經功能尚可自理，全部分類為「綠色（輕傷/走動傷患）」。",
+   "source": "消防署初級救護技術員訓練教材 - START檢傷分類法",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-02",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "START 檢傷分類中，評估不能走動傷患發現其「無呼吸」，施救者立即實施壓額抬下巴暢通呼吸道後「依然沒有呼吸」，此傷患應歸類為何種顏色標籤？",
+   "options": [
+    "(A) 紅色",
+    "(B) 黃色",
+    "(C) 綠色",
+    "(D) 黑色 (死亡或無存活希望 Expectant / Deceased)"
+   ],
+   "answer": 3,
+   "explanation": "大量傷患災難現場醫療資源有限。無呼吸者經單純暢通呼吸道後若仍無自主呼吸，直接歸為「黑色標籤」，現場不進行 CPR 按壓，以將有限資源保留給有存活希望的紅黃傷患。",
+   "source": "消防署初級救護技術員訓練教材 - START決策流程",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-03",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "START 檢傷分類中，原先無呼吸之傷患，在救護員「暢通呼吸道後立即恢復自主呼吸」，此時應立即掛上何種顏色檢傷標籤？",
+   "options": [
+    "(A) 紅色 (第一優先，極重傷 Immediate)",
+    "(B) 黃色",
+    "(C) 綠色",
+    "(D) 黑色"
+   ],
+   "answer": 0,
+   "explanation": "暢通呼吸道後立刻恢復自主呼吸，代表氣道可逆且急需維持，直接跳過後續評估，立即判定為「紅色（第一優先/極重傷）」，優先搶救運送！",
+   "source": "消防署初級救護技術員訓練教材 - START評估流程圖",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-04",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "START 檢傷分類中，不能走動且有自主呼吸的傷患，其呼吸速率大於每分鐘幾次 (RR) 時，直接判定為「紅色」重傷？",
+   "options": [
+    "(A) ＞ 12 次/分",
+    "(B) ＞ 20 次/分",
+    "(C) ＞ 30 次/分",
+    "(D) ＞ 50 次/分"
+   ],
+   "answer": 2,
+   "explanation": "START 檢傷口訣「RPM」（Respiration 呼吸、Perfusion 灌流、Mental 意識）。呼吸速率 ＞ 30 次/分（或 ＜ 10 次/分）代表嚴重呼吸衰竭或換氣過度，直接判定為「紅色」。",
+   "source": "消防署初級救護技術員訓練教材 - START呼吸指標",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-05",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "START 檢傷分類中，傷患呼吸速率 22 次/分（＜30次），接著評估血液灌流，若「摸不到橈動脈」或「微血管充填時間 (CRT) ＞ 2 秒」，該傷患應歸類為何者？",
+   "options": [
+    "(A) 紅色 (第一優先 Immediate)",
+    "(B) 黃色",
+    "(C) 綠色",
+    "(D) 黑色"
+   ],
+   "answer": 0,
+   "explanation": "無橈動脈或 CRT ＞ 2 秒代表病患處於嚴重休克或周邊循環衰竭，直接判定為「紅色標籤（極重傷）」，應立即控制可見大出血並優先後送。",
+   "source": "消防署初級救護技術員訓練教材 - START循環指標",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-06",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "傷患呼吸 20 次/分、橈動脈明顯且有力、CRT ＜ 2 秒，但對救護員口頭簡單指令（如「請眨眼」或「捏緊我的手」）「完全無法遵循配合（意識障礙）」，其檢傷等級應為何？",
+   "options": [
+    "(A) 紅色 (第一優先 Immediate)",
+    "(B) 黃色 (第二優先 Delayed)",
+    "(C) 綠色 (第三優先 Minor)",
+    "(D) 黑色"
+   ],
+   "answer": 0,
+   "explanation": "RPM 第三步 Mental Status（意識）：無法遵循簡單指令代表中樞神經嚴重受損或嚴重缺氧昏迷，直接歸為「紅色標籤」。若能聽從指令但因骨折無法走動，則歸為「黃色標籤」。",
+   "source": "消防署初級救護技術員訓練教材 - START意識評估",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-07",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "傷患因大腿閉鎖性骨折無法行走，檢查呼吸 18 次/分、橈動脈搏動正常、CRT 1.5 秒、意識清楚且能聽從指令，其檢傷等級應為何？",
+   "options": [
+    "(A) 紅色",
+    "(B) 黃色 (第二優先，中傷 Delayed)",
+    "(C) 綠色",
+    "(D) 黑色"
+   ],
+   "answer": 1,
+   "explanation": "不能走動但呼吸、循環、意識三大指標均正常穩定，無立即致命性傷害，判定為「黃色標籤（第二優先中度傷患）」，可暫緩後送，待紅色傷患運送完畢後處理。",
+   "source": "消防署初級救護技術員訓練教材 - 黃色檢傷標準",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-08",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "在大量傷病患 (MCI) 災害現場，START 檢傷人員對「每一位」傷患的檢傷分類評估時間，原則上應控制在多久之內？",
+   "options": [
+    "(A) 30 秒至 1 分鐘以內",
+    "(B) 至少 5～10 分鐘進行全身詳細檢查",
+    "(C) 至少 15 分鐘",
+    "(D) 30 分鐘"
+   ],
+   "answer": 0,
+   "explanation": "大量傷病患檢傷強調「快速分流」。檢傷人員不進行耗時的包紮或心電圖檢查，僅快速依 RPM 判定等級並繫上標籤，每位傷患評估時間嚴格控制在「30 秒至 1 分鐘內」，才能快速掌握全場傷亡輪廓。",
+   "source": "消防署初級救護技術員訓練教材 - 檢傷時效控制",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-09",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "救護技術員抵達各類車禍或災害事故現場，在接近任何傷患之前的「第一法定與安全行動」應為何？",
+   "options": [
+    "(A) 立即衝上前抱起傷患狂奔",
+    "(B) 現場環境安全評估 (Scene Size-up)，確認無燃油外洩、高壓電線掉落或二次車禍威脅，確保自身防護安全",
+    "(C) 立即拿出相機拍照發上社群網站",
+    "(D) 大聲斥責圍觀民眾"
+   ],
+   "answer": 1,
+   "explanation": "救護安全三大守則：1. 我最重要；2. 夥伴安全；3. 病人安全。沒有安全的救護員就沒有安全的病患。抵達現場首重「現場安全評估 (Scene Size-up)」，確認無危險且穿妥防護裝備 (PPE) 方可進入。",
+   "source": "消防署初級救護技術員訓練教材 - 現場安全與自我保護",
+   "source_url": "http://ebook.nfa.gov.tw/1080503/",
+   "reviewed_at": "2026-10-04",
+   "review": "textbook",
+   "source_kind": "textbook",
+   "confidence": "中",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  },
+  {
+   "id": "EMT-MCI-10",
+   "type": "multiple_choice",
+   "category": "emt_mci",
+   "category_name": "大量傷病患檢傷搬運",
+   "question": "依《緊急醫療救護法》第32條，直轄市、縣（市）政府遇大量傷病患或野外緊急救護時，應依災害規模及種類建立什麼，以施行救護有關工作？",
+   "options": [
+    "(A) 臨時福利社",
+    "(B) 現場指揮協調系統",
+    "(C) 臨時法庭",
+    "(D) 民宿接待處"
+   ],
+   "answer": 1,
+   "explanation": "《緊急醫療救護法》第32條：直轄市、縣（市）政府遇大量傷病患或野外緊急救護，應依災害規模及種類，建立現場指揮協調系統，施行救護有關工作。第33條並規定參與現場急救的救護人員及救護運輸工具設置機關（構），均應依現場指揮協調系統之指揮施行救護。",
+   "source": "緊急醫療救護法 第32條",
+   "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=32",
+   "reviewed_at": "2026-10-04",
+   "revised": "原題引用第26至28條，實際條文在第32、33條。",
+   "source_kind": "law",
+   "review": "law",
+   "confidence": "高",
+   "provenance": {
+    "class": "site_authored",
+    "label": "站方自編，無考古題來源"
+   }
+  }
+ ]
+}
