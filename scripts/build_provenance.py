@@ -35,6 +35,15 @@ REVIEW_DATE = "2026-10-04"
 TAG = re.compile(r"[【［\[][^】］\]]*考[^】］\]]*[】］\]]")
 
 
+def upstream():
+    """data/ptt_upstream.json：彙編題幹也出現在哪些 PTT 梯次回憶文（見 docs/PTT上游對照.csv）。"""
+    path = os.path.join(ROOT, "data", "ptt_upstream.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)["items"]
+
+
 def load(name):
     with open(os.path.join(ROOT, "data", name), encoding="utf-8") as f:
         return json.load(f)
@@ -185,6 +194,8 @@ def classify(q, old, item, score):
     return "compiled_minor" if ratio >= 0.9 else "compiled_adapted"
 
 
+UPSTREAM = upstream()
+
 LABEL = {
     "recalled": "考生回憶的考點",
     "compiled_verbatim": "彙編逐字收錄", "compiled_minor": "彙編收錄（用字微調）",
@@ -208,6 +219,8 @@ def main():
         if cls != "site_authored":
             key = "%s %d" % ("是非" if item["kind"] == "TF" else "選擇", item["no"])
             prov.update({"source_id": SOURCE_ID, "source_item": key, "tags": item["tags"]})
+            if key in UPSTREAM:
+                prov["upstream"] = UPSTREAM[key]  # 這一題的題幹也出現在這些梯次的 PTT 回憶文
             used.setdefault(key, []).append(q["id"])
         q["provenance"] = prov
         counts[cls] = counts.get(cls, 0) + 1
@@ -281,6 +294,7 @@ def row(bank, q, old, item, score, cls):
         "option_diff": "" if not item or not item["options"] else ("相同" if opts_same else "不同"),
         "answer_diff": "" if not item else ("相同" if ans_same else "不同"),
         "has_batch_evidence": "是" if item and item["tags"] else "否",
+        "ptt_upstream_rounds": "、".join(q.get("provenance", {}).get("upstream", [])),
         "current_basis": q.get("source", ""), "current_basis_url": q.get("source_url", ""),
         "revision_note": q.get("revised", "") or q.get("status_note", ""),
         "decision": decision(cls, q, item),

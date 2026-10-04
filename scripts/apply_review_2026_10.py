@@ -521,6 +521,23 @@ def recalled_questions():
                 "source": ("270T 作者當梯回憶" if qid.startswith("EMT-270") else "Dcard 文章舊考點（梯次不明）") + "，%s" % item, "source_url": src.SOURCE_URL,
                 "explanation": (note + chr(10) if note else "") + "答案照回憶者所記，沒有逐題對照現行教材原文。" + tail,
             })
+        # 消防署 114 年版教材對照（scripts/emt_recalled.py 的 TEXTBOOK）
+        page, verdict, summary = src.TEXTBOOK.get(qid, (0, "", ""))
+        if verdict:
+            q["textbook"] = {"page": page, "verdict": verdict, "summary": summary,
+                             "url": src.TEXTBOOK_URL % page if page else ""}
+        if verdict == "supported":
+            line = "消防署 114 年版教材（電子書第 %d 頁）：%s" % (page, summary)
+            if law:
+                q["explanation"] += chr(10) + line
+            else:
+                q.update({
+                    "review": "textbook114", "source_kind": "textbook", "confidence": "高" if options_by == "source" else "中",
+                    "source": "消防署《救護技術員教科書》114 年版，電子書第 %d 頁" % page, "source_url": src.TEXTBOOK_URL % page,
+                    "explanation": (note + chr(10) if note else "") + line + chr(10) + "答案與回憶者所記相同。" + tail,
+                })
+        elif verdict == "not_found":
+            q["explanation"] = (note + chr(10) if note else "") + summary + "答案照回憶者所記。" + tail
         if retired:
             q.update({"status": "outdated", "status_note": retired + "本題不列入測驗。", "review": "outdated", "confidence": "低"})
         if qid == "EMT-P1-25":
@@ -534,7 +551,7 @@ def review_emt():
     recalled = recalled_questions()
     # 自編 96 題另存於 data/emt_practice_questions.json，使用者須明確選擇才進入練習。
     data["questions"] = recalled
-    summary = {"law": 0, "partial": 0, "textbook": 0, "recalled": 0, "recalled_conflict": 0, "outdated": 0}
+    summary = {"law": 0, "partial": 0, "textbook": 0, "textbook114": 0, "recalled": 0, "recalled_conflict": 0, "outdated": 0}
     for q in data["questions"]:
         if q.get("provenance", {}).get("class") == "recalled":
             summary[q["review"]] += 1
@@ -698,13 +715,15 @@ def review_study():
 # ---------------------------------------------------------------- 查核紀錄與逐題審核表
 REVIEWER = "Claude（AI）；尚無人工複核"
 STATUS = {
-    "recalled": "考生回憶的答案（未對照現行教材原文）",
+    "textbook114": "已對照消防署 114 年版教材",
+    "recalled": "考生回憶的答案（114 年版教材中找不到這個考點）",
     "recalled_conflict": "回憶題幹與 114 年教材條件矛盾（不列入模擬考）",
     "law": "核實", "partial": "待補證（條文只支持一部分）", "unverified": "待補證（查無條文）",
     "experience": "待補證（經驗題）", "outdated": "舊法停用", "textbook": "待補證（教材題，未對照現行教材原文）",
 }
 METHOD = {
-    "recalled": "題幹由站方依考生回憶的考點重寫；答案照回憶者所記，另以急救常識檢查有無明顯矛盾",
+    "textbook114": "下載消防署 114 年版教材全書文字層，以關鍵字檢索到對應頁面後，逐題比對答案與適用條件",
+    "recalled": "題幹由站方依考生回憶的考點重寫；114 年版教材全書文字層檢索不到這個考點，答案照回憶者所記",
     "recalled_conflict": "核對消防署 114 年教材第 125 頁；回憶題幹的脈搏條件與教材表格不符，先排除模擬考",
     "law": "題幹、選項與所引條文逐字比對，列出不見於條文的片段後逐題裁定",
     "partial": "題幹、選項與所引條文逐字比對；條文只支持一部分",
@@ -714,7 +733,8 @@ METHOD = {
     "textbook": "檢查題目、答案與解析是否一致；未取得現行教材原文，未逐題對照",
 }
 SUPPORT = {
-    "recalled": "未對照教材原文",
+    "textbook114": "是（教材內容支持答案）",
+    "recalled": "教材中找不到",
     "recalled_conflict": "回憶條件與教材矛盾",
     "law": "是", "partial": "部分", "unverified": "無條文可對照", "experience": "無條文可對照",
     "outdated": "否（舊法）", "textbook": "未對照教材原文",
@@ -847,6 +867,34 @@ def write_report(recruit, emt, r_sum, e_sum, rows):
         f.write("\n".join(out))
 
 
+def write_textbook_csv(emt):
+    """docs/114年EMT逐題教材核對.csv：EMT 回憶考點逐題對照消防署 114 年版教材。"""
+    import csv
+    label = {"supported": "教材支持", "not_found": "教材中找不到", "conflict": "教材條件與回憶題幹不符", "": "法規題，未另查教材"}
+    rows = []
+    for q in emt["questions"]:
+        tb = q.get("textbook", {})
+        rows.append({
+            "題號": q["id"], "題幹": q["question"], "核定答案": answer_text(q),
+            "來源（回憶）": "%s %s" % (q["provenance"]["round"], q["provenance"]["source_item"]),
+            "選項來源": "回憶者所記" if q["provenance"]["options_by"] == "source" else "站方自編",
+            "教材電子書頁碼": tb.get("page") or "", "教材頁面連結": tb.get("url", ""),
+            "適用級別": "中級項目（初級不得施行）" if q["id"] == "EMT-P1-05" else "初級",
+            "教材內容摘要（站方改寫，非原文）": tb.get("summary", ""),
+            "裁定": label[tb.get("verdict", "")],
+            "法規依據": q["source"] if q.get("source_kind") == "law" else "",
+            "現行查核狀態": STATUS[q["review"]],
+            "列入模擬考": "否" if q.get("status") == "outdated" or q["review"] == "recalled_conflict" else "是",
+            "需要專業複核": "是",
+            "審閱者": REVIEWER, "審閱日期": REVIEWED_AT,
+        })
+    with open(os.path.join(ROOT, "docs", "114年EMT逐題教材核對.csv"), "w", encoding="utf-8-sig", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    return len(rows)
+
+
 if __name__ == "__main__":
     recruit, r_sum = review_recruit()
     emt, e_sum = review_emt()
@@ -857,3 +905,4 @@ if __name__ == "__main__":
     print("新訓：", r_sum)
     print("EMT：", e_sum)
     print("逐題審核表：%d 列" % len(rows))
+    print("114 年教材核對表：%d 列" % write_textbook_csv(emt))

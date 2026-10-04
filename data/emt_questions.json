@@ -9,7 +9,8 @@
       "law": 7,
       "partial": 0,
       "textbook": 0,
-      "recalled": 37,
+      "textbook114": 35,
+      "recalled": 2,
       "recalled_conflict": 1,
       "outdated": 1
     },
@@ -41,12 +42,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 1 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者記的答案是 84.8.9。公布日期不在條文內，本站沒有另外查證。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 11 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page11.html",
+      "explanation": "回憶者記的答案是 84.8.9。公布日期不在條文內，本站沒有另外查證。\n消防署 114 年版教材（電子書第 11 頁）：緊急醫療大事年表列出民國 84 年 8 月 9 日制定公布緊急醫療救護法。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 11,
+        "verdict": "supported",
+        "summary": "緊急醫療大事年表列出民國 84 年 8 月 9 日制定公布緊急醫療救護法。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page11.html"
+      }
     },
     {
       "id": "EMT-P1-02",
@@ -75,8 +82,14 @@
       "source": "緊急醫療救護法施行細則 第2條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020047&flno=2",
       "review": "law",
-      "explanation": "《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：一、緊急傷病：指具有急性及嚴重性症狀，如未即時給予醫療救護處理，將導致個人健康、身體功能嚴重傷害或身體器官機能嚴重異常之傷病。\n緊急傷病指具有急性及嚴重性症狀，如未即時處理將嚴重傷害健康或身體功能的傷病。",
-      "confidence": "高"
+      "explanation": "《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：一、緊急傷病：指具有急性及嚴重性症狀，如未即時給予醫療救護處理，將導致個人健康、身體功能嚴重傷害或身體器官機能嚴重異常之傷病。\n緊急傷病指具有急性及嚴重性症狀，如未即時處理將嚴重傷害健康或身體功能的傷病。\n消防署 114 年版教材（電子書第 28 頁）：教材以牙痛作為明顯非緊急病人申請救護的例子。",
+      "confidence": "高",
+      "textbook": {
+        "page": 28,
+        "verdict": "supported",
+        "summary": "教材以牙痛作為明顯非緊急病人申請救護的例子。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page28.html"
+      }
     },
     {
       "id": "EMT-P1-03",
@@ -165,8 +178,14 @@
       "source": "救護技術員管理辦法 第14條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=14",
       "review": "law",
-      "explanation": "《救護技術員管理辦法》第14條：中級救護技術員得施行之救護項目如下：四、使用聲門上呼吸道。\n使用聲門上呼吸道列在第 14 條，是中級救護技術員的救護項目。",
-      "confidence": "高"
+      "explanation": "《救護技術員管理辦法》第14條：中級救護技術員得施行之救護項目如下：四、使用聲門上呼吸道。\n使用聲門上呼吸道列在第 14 條，是中級救護技術員的救護項目。\n消防署 114 年版教材（電子書第 20 頁）：教材依管理辦法列出各級救護項目，使用聲門上呼吸道列在中級項目。",
+      "confidence": "高",
+      "textbook": {
+        "page": 20,
+        "verdict": "supported",
+        "summary": "教材依管理辦法列出各級救護項目，使用聲門上呼吸道列在中級項目。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page20.html"
+      }
     },
     {
       "id": "EMT-P1-06",
@@ -256,7 +275,13 @@
       "confidence": "中",
       "source": "Dcard 文章舊考點（梯次不明），Part 1 第 8 題",
       "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "explanation": "全書文字層找不到上、下呼吸道以聲門為界的敘述（可能在圖片裡）。答案照回憶者所記。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 0,
+        "verdict": "not_found",
+        "summary": "全書文字層找不到上、下呼吸道以聲門為界的敘述（可能在圖片裡）。",
+        "url": ""
+      }
     },
     {
       "id": "EMT-P1-09",
@@ -281,12 +306,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 9 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 38 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page38.html",
+      "explanation": "消防署 114 年版教材（電子書第 38 頁）：冠狀切面把人體縱切成前側與後側。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 38,
+        "verdict": "supported",
+        "summary": "冠狀切面把人體縱切成前側與後側。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page38.html"
+      }
     },
     {
       "id": "EMT-P1-10",
@@ -311,12 +342,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 10 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 43 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page43.html",
+      "explanation": "消防署 114 年版教材（電子書第 43 頁）：動脈點對照表：摸得到橈動脈代表收縮壓至少 80 mmHg。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 43,
+        "verdict": "supported",
+        "summary": "動脈點對照表：摸得到橈動脈代表收縮壓至少 80 mmHg。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page43.html"
+      }
     },
     {
       "id": "EMT-P1-11",
@@ -341,12 +378,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 11 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "八大生命徵象：意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 53 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page53.html",
+      "explanation": "八大生命徵象：意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧。\n消防署 114 年版教材（電子書第 53 頁）：生命徵象八項為意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧濃度，沒有血糖。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 53,
+        "verdict": "supported",
+        "summary": "生命徵象八項為意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧濃度，沒有血糖。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page53.html"
+      }
     },
     {
       "id": "EMT-P1-12",
@@ -371,12 +414,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 12 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 54 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page54.html",
+      "explanation": "消防署 114 年版教材（電子書第 54 頁）：昏迷指數表中，言語反應 4 分是言語混亂。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 54,
+        "verdict": "supported",
+        "summary": "昏迷指數表中，言語反應 4 分是言語混亂。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page54.html"
+      }
     },
     {
       "id": "EMT-P1-13",
@@ -401,12 +450,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 13 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 196 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page196.html",
+      "explanation": "消防署 114 年版教材（電子書第 196 頁）：痛刺激以單手按壓斜方肌（捏肩）為優先。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 196,
+        "verdict": "supported",
+        "summary": "痛刺激以單手按壓斜方肌（捏肩）為優先。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page196.html"
+      }
     },
     {
       "id": "EMT-P1-14",
@@ -431,12 +486,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 14 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 57 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page57.html",
+      "explanation": "消防署 114 年版教材（電子書第 57 頁）：成人正常脈搏每分鐘約 60 到 100 次。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 57,
+        "verdict": "supported",
+        "summary": "成人正常脈搏每分鐘約 60 到 100 次。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page57.html"
+      }
     },
     {
       "id": "EMT-P1-15",
@@ -461,12 +522,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 15 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 60 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page60.html",
+      "explanation": "消防署 114 年版教材（電子書第 60 頁）：正常成年人體溫為攝氏 36.5 到 37.5 度。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 60,
+        "verdict": "supported",
+        "summary": "正常成年人體溫為攝氏 36.5 到 37.5 度。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page60.html"
+      }
     },
     {
       "id": "EMT-P1-16",
@@ -491,12 +558,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 16 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者補充：低於 94% 為供氧不足，低於 90% 為危急。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 62 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page62.html",
+      "explanation": "回憶者補充：低於 94% 為供氧不足，低於 90% 為危急。\n消防署 114 年版教材（電子書第 62 頁）：血氧濃度低於 94% 代表供氧不足。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 62,
+        "verdict": "supported",
+        "summary": "血氧濃度低於 94% 代表供氧不足。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page62.html"
+      }
     },
     {
       "id": "EMT-P1-17",
@@ -521,12 +594,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 17 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 138 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page138.html",
+      "explanation": "消防署 114 年版教材（電子書第 138 頁）：口咽呼吸道用在對呼喚、輕拍與痛刺激都沒有反應的昏迷病人。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 138,
+        "verdict": "supported",
+        "summary": "口咽呼吸道用在對呼喚、輕拍與痛刺激都沒有反應的昏迷病人。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page138.html"
+      }
     },
     {
       "id": "EMT-P1-18",
@@ -551,12 +630,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 18 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 125 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page125.html",
+      "explanation": "消防署 114 年版教材（電子書第 125 頁）：各年齡層 CPR 對照表：嬰兒壓胸深度約 4 公分或胸部前後徑的三分之一。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 125,
+        "verdict": "supported",
+        "summary": "各年齡層 CPR 對照表：嬰兒壓胸深度約 4 公分或胸部前後徑的三分之一。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page125.html"
+      }
     },
     {
       "id": "EMT-P1-19",
@@ -581,12 +666,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 19 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 118 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html",
+      "explanation": "消防署 114 年版教材（電子書第 118 頁）：成人到院前心跳停止約四成最初心律是心室纖維顫動。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 118,
+        "verdict": "supported",
+        "summary": "成人到院前心跳停止約四成最初心律是心室纖維顫動。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html"
+      }
     },
     {
       "id": "EMT-P1-20",
@@ -611,12 +702,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 20 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 129 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page129.html",
+      "explanation": "消防署 114 年版教材（電子書第 129 頁）：異物哽塞病人失去意識後，讓病人仰躺並立即開始胸部按壓。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 129,
+        "verdict": "supported",
+        "summary": "異物哽塞病人失去意識後，讓病人仰躺並立即開始胸部按壓。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page129.html"
+      }
     },
     {
       "id": "EMT-P1-21",
@@ -641,12 +738,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 21 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "面罩尖端應朝向鼻子。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 134 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page134.html",
+      "explanation": "面罩尖端應朝向鼻子。\n消防署 114 年版教材（電子書第 134 頁）：袋瓣罩的面罩尖端朝向病人前額一側，不是下巴。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 134,
+        "verdict": "supported",
+        "summary": "袋瓣罩的面罩尖端朝向病人前額一側，不是下巴。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page134.html"
+      }
     },
     {
       "id": "EMT-P1-22",
@@ -671,12 +774,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 22 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者補充：有做 CPR 時約每分鐘下降 3～4%。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 118 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html",
+      "explanation": "回憶者補充：有做 CPR 時約每分鐘下降 3～4%。\n消防署 114 年版教材（電子書第 118 頁）：沒有 CPR 時存活率每分鐘下降 7 到 10%，有 CPR 時下降 3 到 4%。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 118,
+        "verdict": "supported",
+        "summary": "沒有 CPR 時存活率每分鐘下降 7 到 10%，有 CPR 時下降 3 到 4%。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html"
+      }
     },
     {
       "id": "EMT-P1-23",
@@ -733,12 +842,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 24 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者記的順序：預防、啟動緊急應變、高品質 CPR、高級心肺復甦、心臟停止後照護、復原。原題是配對題。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 118 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html",
+      "explanation": "回憶者記的順序：預防、啟動緊急應變、高品質 CPR、高級心肺復甦、心臟停止後照護、復原。原題是配對題。\n消防署 114 年版教材（電子書第 118 頁）：成人與小兒生命之鏈的差別在前三環，小兒更重視預防。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 118,
+        "verdict": "supported",
+        "summary": "成人與小兒生命之鏈的差別在前三環，小兒更重視預防。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html"
+      }
     },
     {
       "id": "EMT-P1-25",
@@ -769,6 +884,12 @@
       "source": "Dcard 文章舊考點（梯次不明），Part 1 第 25 題",
       "source_url": "https://www.dcard.tw/f/military/p/260454013",
       "explanation": "回憶者記的題幹是「嬰兒沒有脈搏」，與消防署 114 年教材第 125 頁表 5-1 的「有脈搏」條件不符。本站改寫了條件與答案關係，不能當作原題或列入模擬考。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 125,
+        "verdict": "conflict",
+        "summary": "每 2 到 3 秒一次是「有脈搏且需要人工呼吸」時的頻率；回憶者記的是沒有脈搏。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page125.html"
+      },
       "caution": "來源回憶與 114 年消防署教材第 125 頁的脈搏條件矛盾；本站題幹改為有脈搏，不列入模擬考。"
     },
     {
@@ -794,12 +915,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 26 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 196 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page196.html",
+      "explanation": "消防署 114 年版教材（電子書第 196 頁）：非外傷流程的初級評估依序是意識、呼吸道、呼吸、循環，之後做輔助檢查。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 196,
+        "verdict": "supported",
+        "summary": "非外傷流程的初級評估依序是意識、呼吸道、呼吸、循環，之後做輔助檢查。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page196.html"
+      }
     },
     {
       "id": "EMT-P1-27",
@@ -824,12 +951,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 27 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 199 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page199.html",
+      "explanation": "消防署 114 年版教材（電子書第 199 頁）：評估循環時檢查兩側橈動脈；對痛刺激沒有反應的病人才檢查頸動脈（第 208 頁）。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 199,
+        "verdict": "supported",
+        "summary": "評估循環時檢查兩側橈動脈；對痛刺激沒有反應的病人才檢查頸動脈（第 208 頁）。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page199.html"
+      }
     },
     {
       "id": "EMT-P1-28",
@@ -854,12 +987,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 28 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 100 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page100.html",
+      "explanation": "消防署 114 年版教材（電子書第 100 頁）：危急條件包含微血管充填時間超過 2 秒、小兒評估為危急、急產；血氧要低於 90% 才算。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 100,
+        "verdict": "supported",
+        "summary": "危急條件包含微血管充填時間超過 2 秒、小兒評估為危急、急產；血氧要低於 90% 才算。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page100.html"
+      }
     },
     {
       "id": "EMT-P1-29",
@@ -884,12 +1023,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 29 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 155 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page155.html",
+      "explanation": "消防署 114 年版教材（電子書第 155 頁）：胸骨前額頸椎減移用在主手協助副手變更頸椎減移方式的時候。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 155,
+        "verdict": "supported",
+        "summary": "胸骨前額頸椎減移用在主手協助副手變更頸椎減移方式的時候。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page155.html"
+      }
     },
     {
       "id": "EMT-P1-30",
@@ -914,12 +1059,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 30 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 145 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page145.html",
+      "explanation": "消防署 114 年版教材（電子書第 145 頁）：螺旋包紮以上圈蓋住下圈二分之一或三分之二為原則。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 145,
+        "verdict": "supported",
+        "summary": "螺旋包紮以上圈蓋住下圈二分之一或三分之二為原則。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page145.html"
+      }
     },
     {
       "id": "EMT-P1-31",
@@ -949,7 +1100,13 @@
       "confidence": "中",
       "source": "Dcard 文章舊考點（梯次不明），Part 1 第 31 題",
       "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "explanation": "全書文字層找不到血液約占體重十三分之一的敘述。答案照回憶者所記。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 0,
+        "verdict": "not_found",
+        "summary": "全書文字層找不到血液約占體重十三分之一的敘述。",
+        "url": ""
+      }
     },
     {
       "id": "EMT-P1-32",
@@ -974,12 +1131,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 32 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "抽吸管的長度應該量嘴角到耳垂。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 135 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page135.html",
+      "explanation": "抽吸管的長度應該量嘴角到耳垂。\n消防署 114 年版教材（電子書第 135 頁）：抽吸導管的長度量嘴角到耳垂；成人抽吸時間少於 15 秒。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 135,
+        "verdict": "supported",
+        "summary": "抽吸導管的長度量嘴角到耳垂；成人抽吸時間少於 15 秒。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page135.html"
+      }
     },
     {
       "id": "EMT-P1-33",
@@ -1004,12 +1167,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 33 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 142 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page142.html",
+      "explanation": "消防署 114 年版教材（電子書第 142 頁）：直接加壓止血法是有效而且常用的止血方式。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 142,
+        "verdict": "supported",
+        "summary": "直接加壓止血法是有效而且常用的止血方式。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page142.html"
+      }
     },
     {
       "id": "EMT-P1-34",
@@ -1034,12 +1203,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 34 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 289 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page289.html",
+      "explanation": "消防署 114 年版教材（電子書第 289 頁）：骨折固定範圍要超過患處上下兩個關節。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 289,
+        "verdict": "supported",
+        "summary": "骨折固定範圍要超過患處上下兩個關節。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page289.html"
+      }
     },
     {
       "id": "EMT-P1-35",
@@ -1064,12 +1239,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 35 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者不記得原本的選項，只記得循環評估包含脈搏、微血管充填時間、四肢膚色、四肢是否濕冷。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 199 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page199.html",
+      "explanation": "回憶者不記得原本的選項，只記得循環評估包含脈搏、微血管充填時間、四肢膚色、四肢是否濕冷。\n消防署 114 年版教材（電子書第 199 頁）：循環評估看橈動脈、膚色、肢體是否濕冷、微血管充填時間，不含血糖。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 199,
+        "verdict": "supported",
+        "summary": "循環評估看橈動脈、膚色、肢體是否濕冷、微血管充填時間，不含血糖。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page199.html"
+      }
     },
     {
       "id": "EMT-P1-36",
@@ -1094,12 +1275,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 36 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 208 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page208.html",
+      "explanation": "消防署 114 年版教材（電子書第 208 頁）：失能評估包含昏迷指數、瞳孔、兩側上下肢的感覺與運動，不含血糖。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 208,
+        "verdict": "supported",
+        "summary": "失能評估包含昏迷指數、瞳孔、兩側上下肢的感覺與運動，不含血糖。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page208.html"
+      }
     },
     {
       "id": "EMT-P1-37",
@@ -1124,12 +1311,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 37 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者補充：這類病人 92% 可以接受，低於 90% 為危急。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 228 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page228.html",
+      "explanation": "回憶者補充：這類病人 92% 可以接受，低於 90% 為危急。\n消防署 114 年版教材（電子書第 228 頁）：給氧流程的註記：慢性阻塞性肺病病人以血氧低於 90% 為準。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 228,
+        "verdict": "supported",
+        "summary": "給氧流程的註記：慢性阻塞性肺病病人以血氧低於 90% 為準。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page228.html"
+      }
     },
     {
       "id": "EMT-P1-38",
@@ -1154,12 +1347,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 38 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 206 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page206.html",
+      "explanation": "消防署 114 年版教材（電子書第 206 頁）：外傷初級評估的第一項是評估有無大量出血（X）。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 206,
+        "verdict": "supported",
+        "summary": "外傷初級評估的第一項是評估有無大量出血（X）。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page206.html"
+      }
     },
     {
       "id": "EMT-P1-39",
@@ -1184,12 +1383,18 @@
         "round": "梯次不明（講師提供的舊考古題）",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "Dcard 文章舊考點（梯次不明），Part 1 第 39 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 266 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page266.html",
+      "explanation": "消防署 114 年版教材（電子書第 266 頁）：二度灼傷有水泡（第 265 頁）；成人每一側下肢占體表面積 18%，雙下肢共 36%。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 266,
+        "verdict": "supported",
+        "summary": "二度灼傷有水泡（第 265 頁）；成人每一側下肢占體表面積 18%，雙下肢共 36%。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page266.html"
+      }
     },
     {
       "id": "EMT-P1-40",
@@ -1218,8 +1423,14 @@
       "source": "緊急醫療救護法施行細則 第2條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020047&flno=2",
       "review": "law",
-      "explanation": "《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：三、大量傷病患：指單一事故、災害發生之傷病患人數達十五人以上，或預判可能達十五人以上者。",
-      "confidence": "高"
+      "explanation": "《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：三、大量傷病患：指單一事故、災害發生之傷病患人數達十五人以上，或預判可能達十五人以上者。\n消防署 114 年版教材（電子書第 18 頁）：教材引用施行細則：大量傷病患指單一事故傷病患達 15 人以上。",
+      "confidence": "高",
+      "textbook": {
+        "page": 18,
+        "verdict": "supported",
+        "summary": "教材引用施行細則：大量傷病患指單一事故傷病患達 15 人以上。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page18.html"
+      }
     },
     {
       "id": "EMT-270-01",
@@ -1244,12 +1455,18 @@
         "round": "270T",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "270T 作者當梯回憶，Part 2 第 1 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者的說明：火場救出的病人可能有吸入性灼傷，之後可能呼吸道水腫，所以給非再吸入型面罩以上的氧氣。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 228 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page228.html",
+      "explanation": "回憶者的說明：火場救出的病人可能有吸入性灼傷，之後可能呼吸道水腫，所以給非再吸入型面罩以上的氧氣。\n消防署 114 年版教材（電子書第 228 頁）：受困火場救出的病人可給較高濃度的非再吸入型氧氣面罩。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 228,
+        "verdict": "supported",
+        "summary": "受困火場救出的病人可給較高濃度的非再吸入型氧氣面罩。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page228.html"
+      }
     },
     {
       "id": "EMT-270-02",
@@ -1274,12 +1491,18 @@
         "round": "270T",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "270T 作者當梯回憶，Part 2 第 2 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "雙手平舉時手心應該向上。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 188 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page188.html",
+      "explanation": "雙手平舉時手心應該向上。\n消防署 114 年版教材（電子書第 188 頁）：舉臂測試請病人閉眼、雙手平舉、手心朝上。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 188,
+        "verdict": "supported",
+        "summary": "舉臂測試請病人閉眼、雙手平舉、手心朝上。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page188.html"
+      }
     },
     {
       "id": "EMT-270-03",
@@ -1304,12 +1527,18 @@
         "round": "270T",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "270T 作者當梯回憶，Part 2 第 3 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 127 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page127.html",
+      "explanation": "消防署 114 年版教材（電子書第 127 頁）：腹部推擠時拳頭放在肚臍上緣。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 127,
+        "verdict": "supported",
+        "summary": "腹部推擠時拳頭放在肚臍上緣。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page127.html"
+      }
     },
     {
       "id": "EMT-270-04",
@@ -1334,12 +1563,18 @@
         "round": "270T",
         "options_by": "site"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
+      "review": "textbook114",
+      "source_kind": "textbook",
       "confidence": "中",
-      "source": "270T 作者當梯回憶，Part 2 第 4 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "回憶者的說明：雙膝頸椎減移固定效果較差，只適用於昏迷、不會亂動的病人，好處是副手可以空出雙手。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 153 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page153.html",
+      "explanation": "回憶者的說明：雙膝頸椎減移固定效果較差，只適用於昏迷、不會亂動的病人，好處是副手可以空出雙手。\n消防署 114 年版教材（電子書第 153 頁）：雙膝頸椎減移適用於昏迷、對痛沒有反應的病人，副手可以空出雙手。\n答案與回憶者所記相同。選項是站方依考點自編的。",
+      "textbook": {
+        "page": 153,
+        "verdict": "supported",
+        "summary": "雙膝頸椎減移適用於昏迷、對痛沒有反應的病人，副手可以空出雙手。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page153.html"
+      }
     },
     {
       "id": "EMT-270-05",
@@ -1364,12 +1599,18 @@
         "round": "270T",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "270T 作者當梯回憶，Part 2 第 5 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "瀕死呼吸是極慢、不規則而且深長的呼吸。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 55 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page55.html",
+      "explanation": "瀕死呼吸是極慢、不規則而且深長的呼吸。\n消防署 114 年版教材（電子書第 55 頁）：瀕死呼吸是極慢、不規則而且深長的呼吸。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 55,
+        "verdict": "supported",
+        "summary": "瀕死呼吸是極慢、不規則而且深長的呼吸。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page55.html"
+      }
     },
     {
       "id": "EMT-270-06",
@@ -1394,12 +1635,18 @@
         "round": "270T",
         "options_by": "source"
       },
-      "review": "recalled",
-      "source_kind": "recalled",
-      "confidence": "中",
-      "source": "270T 作者當梯回憶，Part 2 第 6 題",
-      "source_url": "https://www.dcard.tw/f/military/p/260454013",
-      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+      "review": "textbook114",
+      "source_kind": "textbook",
+      "confidence": "高",
+      "source": "消防署《救護技術員教科書》114 年版，電子書第 426 頁",
+      "source_url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page426.html",
+      "explanation": "消防署 114 年版教材（電子書第 426 頁）：START 檢傷依呼吸是否超過每分鐘 30 次、橈動脈或微血管充填時間、能否遵從指令來分類。\n答案與回憶者所記相同。選項依回憶者所記。",
+      "textbook": {
+        "page": 426,
+        "verdict": "supported",
+        "summary": "START 檢傷依呼吸是否超過每分鐘 30 次、橈動脈或微血管充填時間、能否遵從指令來分類。",
+        "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page426.html"
+      }
     }
   ],
   "updatedAt": "2026-10-04"

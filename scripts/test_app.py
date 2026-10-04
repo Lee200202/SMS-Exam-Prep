@@ -364,6 +364,23 @@ def run(base):
         check("自彙編補回的題目標示彙編原題與梯次", "彙編原題" in page.inner_text("#bank-list") and "257T" in page.inner_text("#bank-list"))
         go("quiz")
 
+        print("114 年教材與 PTT 上游")
+        go("emt-bank")
+        page.locator('.toolbar [data-action="bank-reset"]').click()  # 前面的測試可能留下範圍篩選
+        page.fill("#bank-search", "EMT-P1-10")
+        page.wait_for_timeout(300)
+        card = page.inner_text("#bank-list")
+        check("回憶考點題標示已對照 114 年教材並附頁碼", "已對照 114 年教材" in card and "電子書第 43 頁" in card)
+        check("教材來源連到消防署電子書該頁", page.locator('#bank-list a[href*="ebook.nfa.gov.tw/1140527/files/basic-html/page43.html"]').count() == 1)
+        page.fill("#bank-search", "EMT-P1-31")
+        page.wait_for_timeout(300)
+        check("教材找不到的考點不標示為已對照", "已對照 114 年教材" not in page.inner_text("#bank-list") and "答案照回憶者所記" in page.inner_text("#bank-list"))
+        go("bank")
+        page.fill("#bank-search", "TF-043")
+        page.wait_for_timeout(300)
+        check("彙編題顯示 PTT 上游梯次", "153T" in page.inner_text("#bank-list") and "154T" in page.inner_text("#bank-list"))
+        go("quiz")
+
         print("多分頁與紀錄匯出匯入")
         page.click('[data-mode="quick"]')
         click_answer("recruit", recruit, right=False)

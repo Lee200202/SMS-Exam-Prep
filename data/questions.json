@@ -370,7 +370,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 16",
-        "tags": "【215T考】【219T考】［227T考］"
+        "tags": "【215T考】【219T考】［227T考］",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -392,7 +395,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 17",
-        "tags": "【247T考】［227T考］【205T考】［227T考］"
+        "tags": "【247T考】［227T考］【205T考】［227T考］",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -808,7 +814,10 @@
         "label": "彙編收錄（用字微調）",
         "source_id": "R01",
         "source_item": "是非 36",
-        "tags": "【205T考】"
+        "tags": "【205T考】",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -964,7 +973,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 43",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -986,7 +999,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 44",
-        "tags": "【205T考】【257T考】"
+        "tags": "【205T考】【257T考】",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -1030,7 +1047,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 46",
-        "tags": "【215T考】【219T考】"
+        "tags": "【215T考】【219T考】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -1052,7 +1072,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 47",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -1096,7 +1119,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 49",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -1273,7 +1300,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 57",
-        "tags": "【205T考】【215T考】【257T考】"
+        "tags": "【205T考】【215T考】【257T考】",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -1317,7 +1348,11 @@
         "label": "彙編收錄（用字微調）",
         "source_id": "R01",
         "source_item": "是非 60",
-        "tags": "【205T考】"
+        "tags": "【205T考】",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -1600,7 +1635,11 @@
         "label": "彙編收錄，依現行法規改寫",
         "source_id": "R01",
         "source_item": "是非 73",
-        "tags": "【219T考】"
+        "tags": "【219T考】",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -1644,7 +1683,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 75",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -1753,7 +1796,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 79",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       },
       "status": "outdated",
       "status_note": "現行《替代役役男提前退役辦法》第2條所列得申請提前退役的情形，不包含低收入戶或中低收入戶。本題依舊規定出題，不列入測驗。"
@@ -1886,7 +1932,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 86",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -1952,7 +2001,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 89",
-        "tags": "【215T考】［227T考］【257T考】"
+        "tags": "【215T考】［227T考］【257T考】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -1974,7 +2026,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 90",
-        "tags": "［227T考］"
+        "tags": "［227T考］",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2086,7 +2141,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 95",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2108,7 +2166,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 97",
-        "tags": "【205T考】"
+        "tags": "【205T考】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2130,7 +2191,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 98",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2151,7 +2215,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 99",
-        "tags": "【205T考】【247T考選擇】【257T考選擇】"
+        "tags": "【205T考】【247T考選擇】【257T考選擇】",
+        "upstream": [
+          "154T"
+        ]
       },
       "revised": "站方先前把題幹縮寫成「應親自填寫保險受益指定書」，已還原為彙編原文。"
     },
@@ -2173,7 +2240,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 100",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2195,7 +2265,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 101",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2238,7 +2311,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 102",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2260,7 +2336,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 103",
-        "tags": "【205T考】【247T考選擇】【257T考選擇】"
+        "tags": "【205T考】【247T考選擇】【257T考選擇】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2282,7 +2361,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 104",
-        "tags": "【205T考】"
+        "tags": "【205T考】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2303,7 +2385,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 105",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -2324,7 +2410,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 106",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -2476,7 +2565,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 113",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "163T"
+        ]
       }
     },
     {
@@ -2498,7 +2590,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 114",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "163T"
+        ]
       },
       "status": "outdated",
       "status_note": "現行《役男申請服替代役辦法》第11條所列家庭因素，已無「父、母或配偶患有重大傷病，或家屬二人以上患有輕度身心障礙」這一項。本題依舊規定出題，不列入測驗。"
@@ -2522,7 +2617,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 115",
-        "tags": "【203T考】"
+        "tags": "【203T考】",
+        "upstream": [
+          "179T"
+        ]
       }
     },
     {
@@ -2544,7 +2642,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 117",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "179T"
+        ]
       }
     },
     {
@@ -2565,7 +2666,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 118",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "179T"
+        ]
       }
     },
     {
@@ -3100,7 +3204,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 2",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -3207,7 +3314,11 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 6",
-        "tags": "【205T考】【257T考是非】"
+        "tags": "【205T考】【257T考是非】",
+        "upstream": [
+          "153T",
+          "154T"
+        ]
       }
     },
     {
@@ -3402,7 +3513,10 @@
         "label": "彙編收錄，依現行法規改寫",
         "source_id": "R01",
         "source_item": "選擇 13",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -3538,7 +3652,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 18",
-        "tags": "【215T考】［227T考］"
+        "tags": "【215T考】［227T考］",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -3894,7 +4011,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 32",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -3922,7 +4042,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 33",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -3978,7 +4101,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 35",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -4502,7 +4628,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 55",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       },
       "status": "outdated",
       "status_note": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。本題依舊規定出題，不列入測驗。"
@@ -4638,7 +4767,10 @@
         "label": "彙編收錄（用字微調）",
         "source_id": "R01",
         "source_item": "選擇 55",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       },
       "status": "outdated",
       "status_note": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。本題依舊規定出題，不列入測驗。"
@@ -4942,7 +5074,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 70",
-        "tags": "【205T考】【247T考】【257T考】"
+        "tags": "【205T考】【247T考】【257T考】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -4970,7 +5105,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 71",
-        "tags": "［227T考］"
+        "tags": "［227T考］",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -4998,7 +5136,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 72",
-        "tags": "［227T考］"
+        "tags": "［227T考］",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5026,7 +5167,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 73",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5081,7 +5225,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 18",
-        "tags": "【215T考】［227T考］"
+        "tags": "【215T考】［227T考］",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5109,7 +5256,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 75",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5164,7 +5314,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 77",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -5191,7 +5344,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 78",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -5218,7 +5374,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 79",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -5245,7 +5404,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 80",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5272,7 +5434,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 81",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5300,7 +5465,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 82",
-        "tags": "【205T考】【215T考】【219T考】［227T考］【205T考】"
+        "tags": "【205T考】【215T考】【219T考】［227T考］【205T考】",
+        "upstream": [
+          "153T"
+        ]
       }
     },
     {
@@ -5328,7 +5496,10 @@
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "選擇 83",
-        "tags": "［227T考］【247T考】【257T考】"
+        "tags": "［227T考］【247T考】【257T考】",
+        "upstream": [
+          "154T"
+        ]
       }
     },
     {
@@ -5968,7 +6139,10 @@
         "label": "彙編收錄，依現行法規改寫",
         "source_id": "R01",
         "source_item": "選擇 86",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "179T"
+        ]
       }
     },
     {
@@ -5996,7 +6170,10 @@
         "label": "彙編收錄，依現行法規改寫",
         "source_id": "R01",
         "source_item": "選擇 87",
-        "tags": ""
+        "tags": "",
+        "upstream": [
+          "179T"
+        ]
       }
     },
     {
@@ -6025,7 +6202,10 @@
         "label": "彙編收錄，依現行法規改寫",
         "source_id": "R01",
         "source_item": "選擇 88",
-        "tags": "【205T考】"
+        "tags": "【205T考】",
+        "upstream": [
+          "179T"
+        ]
       }
     },
     {

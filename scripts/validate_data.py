@@ -180,7 +180,7 @@ def main():
             errors.append("逐題審核表列數 %d 與題數不符" % len(rows))
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
-    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "recalled", "recalled_conflict"}
+    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "textbook114", "recalled", "recalled_conflict"}
     origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled", "site_authored"}
 
     def in_exam(name, q):

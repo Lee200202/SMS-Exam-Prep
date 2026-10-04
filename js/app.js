@@ -193,6 +193,7 @@
       provenance: (q.provenance && q.provenance.class) || '',
       fromSource: /^compiled/.test((q.provenance && q.provenance.class) || ''),
       sourceItem: (q.provenance && q.provenance.source_item) || '',
+      upstream: (q.provenance && q.provenance.upstream) || [],
       sourceRound: (q.provenance && q.provenance.round) || '',
       optionsBy: (q.provenance && q.provenance.options_by) || '',
       caution: q.caution || '',
@@ -245,7 +246,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004d';
+  const ASSET_VERSION = '20261004e';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -521,6 +522,7 @@
     unverified: ['chip-amber', '未能以法規查核'],
     experience: ['', '經驗題'],
     textbook: ['', '教材題'],
+    textbook114: ['chip-ok', '已對照 114 年教材'],
     recalled: ['', '答案照回憶者所記'],
     recalled_conflict: ['chip-amber', '回憶題幹與教材條件不符'],
   };
@@ -541,7 +543,7 @@
     if (q.provenance === 'recalled') {
       return `<p class="small muted">考點來源：Dcard 270T 文章（${esc(q.sourceItem)}，${esc(q.sourceRound)}）。題幹為站方重寫${q.optionsBy === 'site' ? '，回憶者沒有記下選項，選項是站方自編' : ''}。</p>`;
     }
-    if (q.fromSource) return `<p class="small muted">考古題來源：成功嶺新訓考古題彙編（增補至 257T）${esc(q.sourceItem)} 題。</p>`;
+    if (q.fromSource) return `<p class="small muted">考古題來源：成功嶺新訓考古題彙編（增補至 257T）${esc(q.sourceItem)} 題。${q.upstream.length ? `PTT 的 ${esc(q.upstream.join('、'))} 回憶文裡也有這一題。` : ''}</p>`;
     if (q.provenance === 'site_authored') return '<p class="small muted">這一題在歷屆彙編與考生回憶裡都找不到，是站方編寫的練習題，沒有考過的證據。</p>';
     return '';
   };
