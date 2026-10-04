@@ -965,6 +965,13 @@ def write_textbook_csv(emt):
 if __name__ == "__main__":
     recruit, r_sum = review_recruit()
     emt, e_sum = review_emt()
+    # 站方撰寫的選項在這裡統一改寫（長度、句型、英文註解），之後的審核表才會和題庫一致
+    import revise_authored_options
+    practice = load("emt_practice_questions.json")
+    revised = revise_authored_options.apply(recruit, emt, practice)
+    for name, data in (("questions.json", recruit), ("emt_questions.json", emt), ("emt_practice_questions.json", practice)):
+        save(name, data)
+    print("站方選項改寫：新訓 %d 題、EMT 回憶考點 %d 題、EMT 自編 %d 題" % revised)
     review_emt_study()
     review_study()
     rows = write_csv(recruit, emt)

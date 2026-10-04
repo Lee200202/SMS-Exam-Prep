@@ -2,6 +2,7 @@
 import html
 import json
 import os
+import re
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -15,10 +16,15 @@ CONFIGS = [
     ("emt_authored", "data/emt_practice_questions.json", "EMT-1 自編教材概念練習", "EMT1_自編概念練習_無解析版.pdf", "emt_practice_plain.html"),
 ]
 ABC = "ABCDE"
+OPTION_PREFIX = re.compile(r"^\s*[（(][A-Ea-e][）)]\s*")
 
 
 def e(value):
     return html.escape(str(value), quote=True)
+
+
+def option_text(value):
+    return OPTION_PREFIX.sub("", str(value)).strip()
 
 
 def booklet(title, questions):
@@ -39,9 +45,9 @@ def booklet(title, questions):
                 opts = '<div class="choices">□ 正確（O）　　□ 錯誤（X）</div>'
                 answer = q["answer"]
             else:
-                short = all(len(o) <= 19 for o in q["options"])
+                short = all(len(option_text(o)) <= 19 for o in q["options"])
                 opts = '<div class="choices ' + ('short' if short else '') + '">' + "".join(
-                    f'<div>（{ABC[i] if i < len(ABC) else i + 1}）{e(opt)}</div>'
+                    f'<div>（{ABC[i] if i < len(ABC) else i + 1}）{e(option_text(opt))}</div>'
                     for i, opt in enumerate(q["options"])
                 ) + '</div>'
                 answer = ABC[q["answer"]]

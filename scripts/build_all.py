@@ -20,6 +20,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STEPS = [
     "apply_review_2026_10.py",
     "build_provenance.py",
+    "audit_option_clues.py",
     "generate_bundle.py",
     "generate_pdf_bank.py",
     "generate_emt_pdf.py",

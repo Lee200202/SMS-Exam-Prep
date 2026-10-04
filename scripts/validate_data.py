@@ -52,6 +52,8 @@ def check_bank(name, data, categories, law_names):
             options = q.get("options", [])
             if not 3 <= len(options) <= 5 or len(set(options)) != len(options):
                 errors.append("%s %s 選項數量或內容異常" % (name, qid))
+            if any(re.match(r"^\s*[（(][A-Ea-e][）)]", option) for option in options):
+                errors.append("%s %s 選項資料含多餘標號，PDF 會重複顯示" % (name, qid))
             if not (isinstance(q["answer"], int) and 0 <= q["answer"] < len(options)):
                 errors.append("%s %s 正解索引超出範圍" % (name, qid))
         else:
@@ -219,6 +221,35 @@ def main():
             name, len(pool), len(mc), longest, english))
         if mc and (longest / len(mc) > 0.4 or english / len(mc) > 0.1):
             errors.append("%s 模擬考題池的選項有可猜的規律（最長 %d、唯一英文 %d／%d）" % (name, longest, english, len(mc)))
+
+    # 站方自己寫的選項不能留下盲猜線索：正解不可常是最長、不可是唯一帶英文、題幹選項不夾英文註解，
+    # 正解位置也不能集中在同一個選項（PDF 是照存檔順序印的）
+    gloss = re.compile(r"[（(][A-Za-z][A-Za-z0-9 ',/.\-]*[a-z]{3}[A-Za-z0-9 ',/.\-]*[）)]")
+    word = re.compile(r"[A-Za-z]{2,}")
+    for name, pool in (
+        ("EMT 自編練習", practice["questions"]),
+        ("EMT 回憶考點（站方補寫選項）", [q for q in emt["questions"] if q.get("provenance", {}).get("options_by") == "site"]),
+        ("新訓站方自編選擇題", [q for q in recruit["questions"] if q["type"] == "multiple_choice"
+                         and q.get("provenance", {}).get("class") == "site_authored"]),
+    ):
+        longest = english = 0
+        position = [0, 0, 0, 0, 0]
+        for q in pool:
+            options, answer = q["options"], q["answer"]
+            others = [o for i, o in enumerate(options) if i != answer]
+            longest += len(options[answer]) > max(len(o) for o in others)
+            english += bool(word.search(options[answer])) and not any(word.search(o) for o in others)
+            position[answer] += 1
+            if gloss.search(q["question"]) or any(gloss.search(o) for o in options):
+                errors.append("%s 的題幹或選項夾了英文註解，站方撰寫的題目請只用中文名稱" % q["id"])
+            if max(len(o) for o in options) - min(len(o) for o in options) > 6:
+                errors.append("%s 的選項長短差太多（超過 6 個字），請改寫成相近長度" % q["id"])
+        print("%s %d 題：正解是唯一最長 %d 題、唯一含英文 %d 題、正解位置 A/B/C/D = %s" % (
+            name, len(pool), longest, english, "/".join(str(n) for n in position[:4])))
+        if longest / len(pool) > 0.25 or english:
+            errors.append("%s 的正解有可猜的規律（唯一最長 %d、唯一英文 %d／%d）" % (name, longest, english, len(pool)))
+        if max(position) / len(pool) > 0.45:
+            errors.append("%s 的正解位置過度集中（%s）" % (name, position[:4]))
 
     # PDF 必須在資料最後一次修改之後重新產生（scripts/build_all.py 會寫入 pdf/manifest.json）
     manifest_path = os.path.join(ROOT, "pdf", "manifest.json")

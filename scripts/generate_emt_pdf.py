@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 sys.stdout.reconfigure(encoding='utf-8')
 from playwright.sync_api import sync_playwright
 
@@ -25,6 +26,7 @@ category_tags = {
 # Build table rows (4 columns: 題號, 題目內容, 選項與解析, 答案)
 rows_html = []
 labels = ['(A)', '(B)', '(C)', '(D)']
+option_prefix = re.compile(r'^\s*[（(][A-Ea-e][）)]\s*')
 
 for idx, q in enumerate(questions):
     q_num = idx + 1
@@ -40,13 +42,8 @@ for idx, q in enumerate(questions):
     opts = []
     for o_idx, opt in enumerate(q.get('options', [])):
         # Normalize prefix if already has (A)
-        clean_opt = opt
-        if clean_opt.startswith('(') and len(clean_opt) >= 4 and clean_opt[2] == ')':
-            lbl = clean_opt[:3]
-            opt_text = clean_opt[3:].strip()
-        else:
-            lbl = labels[o_idx] if o_idx < len(labels) else f'({o_idx+1})'
-            opt_text = clean_opt
+        lbl = labels[o_idx] if o_idx < len(labels) else f'({o_idx+1})'
+        opt_text = option_prefix.sub('', opt).strip()
             
         opts.append(f'<div class="opt-item">{lbl} {opt_text}</div>')
     

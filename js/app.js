@@ -257,7 +257,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004g';
+  const ASSET_VERSION = '20261004h';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -720,7 +720,7 @@
         <h2>出題設定</h2>
         ${others ? `<label class="check"><input type="checkbox" id="opt-unverified"> 章節練習納入答案待補證的來源題（${others} 題）</label>` : ''}
         ${authored ? `<label class="check"><input type="checkbox" id="opt-authored"> 章節練習納入自編題（${authored} 題；預設不勾選）</label>
-        <p class="small muted">自編題沒有在成功嶺考過的證據。${cfg.id === 'emt' ? '這 96 題尚未逐題對照 114 年教材，正解常是最長或唯一含英文的選項，請勿用來推測正式考試的出題方式。' : '它們不屬於 257T 彙編。'}模擬考不會抽到自編題。</p>` : ''}
+        <p class="small muted">自編題沒有在成功嶺考過的證據。${cfg.id === 'emt' ? '這 96 題尚未逐題對照 114 年教材，題目與選項都是站方寫的，請勿用來推測正式考試的出題方式。' : '它們不屬於 257T 彙編。'}模擬考不會抽到自編題。</p>` : ''}
         <label class="check"><input type="checkbox" id="opt-shuffle" checked> 選擇題的選項隨機排列</label>
         <p class="small muted">含「以上皆是」這類選項的題目不會打亂。未作答的題目不計分，也不會加入錯題本。模擬考計時以實際時間計算，切到其他 App 時不會停；離開測驗頁或重新整理會自動暫停，可以回來繼續。</p>
         <div class="pdf-grid">

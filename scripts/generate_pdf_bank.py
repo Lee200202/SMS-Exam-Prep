@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 sys.stdout.reconfigure(encoding='utf-8')
 from playwright.sync_api import sync_playwright
 
@@ -25,6 +26,7 @@ tf_questions = [q for q in questions if q['type'] == 'true_false']
 mc_questions = [q for q in questions if q['type'] == 'multiple_choice']
 
 labels = ['(A)', '(B)', '(C)', '(D)']
+option_prefix = re.compile(r'^\s*[（(][A-Ea-e][）)]\s*')
 
 def build_rows(q_list, start_num, is_tf_section=False):
     rows = []
@@ -50,7 +52,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
             opts = []
             for o_idx, opt in enumerate(q.get('options', [])):
                 lbl = labels[o_idx] if o_idx < len(labels) else f'({o_idx+1})'
-                opts.append(f'<div class="opt-item">{lbl} {opt}</div>')
+                opts.append(f'<div class="opt-item">{lbl} {option_prefix.sub("", opt).strip()}</div>')
             opt_ans_html = '<div class="opt-list">' + ''.join(opts) + '</div>'
             ans_str = labels[q['answer']] if q['answer'] < len(labels) else f'({q["answer"]+1})'
 
