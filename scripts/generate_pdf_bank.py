@@ -30,9 +30,6 @@ def build_rows(q_list, start_num, is_tf_section=False):
     rows = []
     for idx, q in enumerate(q_list):
         q_num = start_num + idx
-        cat_str = category_names.get(q['category'], q['category'])
-        cat_badge = f'<span class="badge badge-{"tf" if is_tf_section else "mc"}">{cat_str}</span>'
-        exam_badge = f'<span class="badge badge-exam">{q["exam_tag"]}</span>' if q.get('exam_tag') else ''
         
         # Source link (compact sub-part under explanation)
         source_name = q.get('source', '全國法規資料庫')
@@ -43,7 +40,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
             source_link_html = f'<span class="source-link">來源：{source_name}</span>'
         p10 = [e['source_item'] for e in q.get('exam_evidence', []) if e.get('source_id') == 'P10']
         if p10:
-            source_link_html += ' <span class="source-link">205T A 卷來源：' + '、'.join(p10) + '（來源未附答案）</span>'
+            source_link_html += ' <span class="source-link">205T A 卷：' + '、'.join(p10) + '</span>'
         
         # Options & Explanation (neutral text colors, NO green spoiler)
         if is_tf_section:
@@ -72,8 +69,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
 
         row = f"""
         <tr data-qid="{q['id']}">
-          <td class="col-num text-center"><strong>{q_num}</strong></td>
-          <td class="col-q">{cat_badge} {exam_badge} <span class="badge badge-exam">{q.get('provenance', {}).get('label', '')}</span> {q['question']}</td>
+          <td class="col-q"><div class="qprompt"><span class="qnum">{q_num:03d}.</span><span class="qtext">{q['question']}</span></div></td>
           <td class="col-opt">{opt_ans_html}</td>
           <td class="col-ans text-center">{ans_html}</td>
         </tr>
@@ -87,8 +83,7 @@ mc_rows_html = build_rows(mc_questions, len(tf_questions) + 1, is_tf_section=Fal
 table_header_html = """
     <thead>
       <tr>
-        <th class="col-num">題號</th>
-        <th class="col-q">題目內容 (含梯次與章節)</th>
+        <th class="col-q">題目</th>
         <th class="col-opt">選項與法規解析</th>
         <th class="col-ans">答案</th>
       </tr>
@@ -124,7 +119,7 @@ html_content = f"""<!DOCTYPE html>
   body {{
     font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
     font-size: 9.3pt;
-    line-height: 1.44;
+    line-height: 1.34;
     color: #111;
     margin: 0;
     padding: 0;
@@ -193,14 +188,14 @@ html_content = f"""<!DOCTYPE html>
     background-color: #e6edf5;
     color: #1a2a3a;
     border: 1px solid #4a6b82;
-    padding: 5px 5px;
+    padding: 3px 4px;
     font-size: 8.8pt;
     font-weight: normal;
     text-align: center;
   }}
   td {{
     border: 1px solid #888;
-    padding: 5px 5px;
+    padding: 3px 4px;
     vertical-align: top;
     font-size: 9pt;
     word-break: break-word;
@@ -209,11 +204,13 @@ html_content = f"""<!DOCTYPE html>
     background-color: #fbfcfd;
   }}
 
-  /* Column Widths (4 columns: 題號, 題目內容, 選項與解析, 答案) */
-  .col-num {{ width: 3.5%; }}
-  .col-q {{ width: 53.5%; }}
-  .col-opt {{ width: 36%; }}
-  .col-ans {{ width: 7%; }}
+  /* 題號與題幹共用一欄；解析獲得較多橫向空間，減少換行。 */
+  .col-q {{ width: 42%; }}
+  .col-opt {{ width: 50%; }}
+  .col-ans {{ width: 8%; }}
+  .qprompt {{ display: grid; grid-template-columns: max-content minmax(0,1fr); }}
+  .qnum {{ color: #17466b; white-space: nowrap; }}
+  .qtext {{ min-width: 0; overflow-wrap: anywhere; }}
 
   .text-center {{ text-align: center; }}
 
@@ -239,8 +236,8 @@ html_content = f"""<!DOCTYPE html>
   }}
 
   /* Options list (clean neutral text color, NO green spoilers) */
-  .opt-list {{ font-size: 8.8pt; line-height: 1.42; margin-bottom: 3px; }}
-  .opt-item {{ margin-bottom: 2px; color: #1e293b; }}
+  .opt-list {{ font-size: 8.8pt; line-height: 1.34; margin-bottom: 1px; }}
+  .opt-item {{ margin-bottom: 1px; color: #1e293b; }}
   .tf-line {{
     font-size: 8.8pt;
     margin-bottom: 1px;
@@ -253,12 +250,12 @@ html_content = f"""<!DOCTYPE html>
     color: #334155;
     line-height: 1.38;
     border-top: 1px dashed #cbd5e1;
-    padding-top: 4px;
-    margin-top: 3px;
+    padding-top: 2px;
+    margin-top: 2px;
   }}
   .source-sub {{
     font-size: 7.8pt;
-    margin-top: 3px;
+    margin-top: 2px;
     color: #2563eb;
   }}
   .source-link {{
@@ -283,10 +280,7 @@ html_content = f"""<!DOCTYPE html>
   <!-- Header -->
   <div class="doc-header">
     <div class="doc-title">{'新訓自編概念練習（非考古題）' if authored else '新訓歷屆來源題（非官方原卷）'}</div>
-    <div class="doc-subtitle">{'本站自行編寫，257T 彙編裡找不到；答案仍須逐條核對，請勿當作正式歷屆題。' if authored else '對照 257T 民間彙編與 205T A 卷來源文件；部分題目已依法改寫，逐題標示來源等級。'}</div>
-    <div class="doc-meta">
-      {'自編題沒有曾在成功嶺考過的證據' if authored else '考生回憶與民間彙編皆非考試單位原卷；現行法規改寫另有標示'} ｜ 資料整理日：{data.get('updatedAt', '')} ｜ 總題數：{len(questions)} 題 (是非題 {len(tf_questions)} 題 · 選擇題 {len(mc_questions)} 題)
-    </div>
+    <div class="doc-subtitle">有解析版 ｜ 共 {len(questions)} 題（是非 {len(tf_questions)} · 選擇 {len(mc_questions)}）</div>
   </div>
 
   <!-- Part 1: True / False -->

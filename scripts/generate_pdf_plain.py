@@ -32,11 +32,9 @@ def booklet(title, questions):
         cards = []
         for number, q in enumerate(group, start):
             old = q.get("status") == "outdated" or q.get("review", "").endswith("_conflict")
-            tag = e(q.get("exam_tag", ""))
-            source = e(q.get("provenance", {}).get("label", ""))
-            badges = "".join(f'<span class="tag">{text}</span>' for text in (tag, source) if text)
+            badges = ""
             if old:
-                badges += '<span class="tag warning">舊制或條件衝突，不計分</span>'
+                badges = '<span class="tag warning">不計分</span>'
             if q["type"] == "true_false":
                 opts = '<div class="choices">□ 正確（O）　　□ 錯誤（X）</div>'
                 answer = q["answer"]
@@ -48,37 +46,35 @@ def booklet(title, questions):
                 ) + '</div>'
                 answer = ABC[q["answer"]]
             cards.append(
-                f'<article class="question" data-qid="{e(q["id"])}"><div class="head">'
-                f'<b>{number:03d}</b><div class="tags">{badges}</div></div>'
-                f'<p class="stem">{e(q["question"])}</p>{opts}</article>'
+                f'<article class="question" data-qid="{e(q["id"])}">'
+                f'<div class="stem"><b>{number:03d}.</b>'
+                f'<span>{e(q["question"])}{badges}</span></div>'
+                f'{opts}</article>'
             )
             uncertain = q.get("review") not in ("law", "textbook114") and not old
             key = "—" if old else answer + ("†" if uncertain else "")
             answers.append(f'<div class="key-item"><span>{number:03d}</span><b>{e(key)}</b></div>')
         sections.append(f'<section><h2>{heading} <small>{len(group)} 題</small></h2>{"".join(cards)}</section>')
     css = """
-@page { size: A4; margin: 13mm 12mm 15mm;
+@page { size: A4; margin: 10mm 10mm 13mm;
   @bottom-center { content: "第 " counter(page) " 頁"; font: 9pt "DFKai-SB","標楷體",serif; color:#59606b; } }
 * { box-sizing: border-box; }
-body { margin:0; color:#171c26; font:10pt/1.55 "DFKai-SB","標楷體","BiauKai","KaiTi",serif; }
+body { margin:0; color:#171c26; font:10pt/1.38 "DFKai-SB","標楷體","BiauKai","KaiTi",serif; }
 h1,h2,p { margin:0; }
 h1 { font-size:19pt; letter-spacing:1px; line-height:1.35; }
 h2 { font-size:12pt; color:#203f60; border-bottom:1px solid #c3cfda; padding-bottom:2mm; margin:5mm 0 3mm; break-after:avoid; }
 h2 small { font-size:9pt; font-weight:normal; color:#64748b; }
-.cover { border-bottom:2px solid #284869; padding-bottom:7mm; margin-bottom:6mm; }
-.eyebrow { color:#365876; font-size:9pt; letter-spacing:1px; }
+.cover { border-bottom:2px solid #284869; padding-bottom:4mm; margin-bottom:4mm; }
 .subtitle { color:#365876; font-size:11pt; margin-top:2mm; }
-.meta { color:#59606b; font-size:9pt; margin-top:4mm; }
-.notice { background:#f1f5f9; border-left:3px solid #64748b; padding:3mm 4mm; margin-top:4mm; font-size:9pt; }
-.question { border:1px solid #d5dde5; border-radius:2mm; padding:3mm 4mm; margin-bottom:3mm; break-inside:avoid; }
-.head { display:flex; align-items:flex-start; gap:3mm; }
-.head b { min-width:11mm; color:#17466b; }
-.tags { display:flex; flex-wrap:wrap; gap:1.5mm; }
-.tag { font-size:8pt; color:#385d77; border:1px solid #bccbd5; border-radius:2mm; padding:0 .9mm; }
+.meta { color:#59606b; font-size:9pt; margin-top:2mm; }
+.question { border:1px solid #d5dde5; border-radius:1.5mm; padding:1.7mm 2.3mm; margin-bottom:1.5mm; break-inside:avoid; }
+.stem { display:grid; grid-template-columns:max-content minmax(0,1fr); font-size:10.3pt; margin-bottom:.5mm; }
+.stem b { color:#17466b; }
+.stem span { min-width:0; overflow-wrap:anywhere; }
+.tag { font-size:8pt; color:#385d77; border:1px solid #bccbd5; border-radius:2mm; padding:0 .9mm; margin-left:2mm; }
 .tag.warning { color:#874327; border-color:#c9a58f; }
-.stem { margin:1.5mm 0 1mm 14mm; font-size:10.3pt; }
-.choices { margin-left:14mm; }
-.choices.short { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:5mm; }
+.choices { margin-left:6mm; }
+.choices.short { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:3mm; }
 .choices div { min-width:0; overflow-wrap:anywhere; }
 .key { break-before:page; }
 .key h2 { font-size:16pt; }
@@ -89,11 +85,10 @@ h2 small { font-size:9pt; font-weight:normal; color:#64748b; }
     return (
         '<!doctype html><html lang="zh-TW"><head><meta charset="utf-8">'
         f'<title>{e(title)}｜無解析版</title><style>{css}</style></head><body>'
-        '<header class="cover"><div class="eyebrow">成功嶺替代役考前準備 · 可列印練習本</div>'
-        f'<h1>{e(title)}</h1><p class="subtitle">無解析版｜題目頁不顯示答案，答案集中在最後</p>'
+        '<header class="cover">'
+        f'<h1>{e(title)}</h1><p class="subtitle">無解析版 · 答案在末頁</p>'
         f'<p class="meta">共 {len(ordered)} 題 · 是非 {len(tf)} 題 · 選擇 {len(mc)} 題</p>'
-        '<p class="notice">列印時可指定題目頁範圍，不印最後的答案頁。'
-        '舊制或條件衝突題另有標示；紙本攜帶請依當梯營區規定。</p></header>'
+        '</header>'
         f'<main id="questions">{"".join(sections)}</main>'
         '<section class="key"><h2>答案速查</h2>'
         '<p>「—」表示舊制或條件衝突，不作現行計分；'

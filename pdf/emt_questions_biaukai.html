@@ -26,7 +26,7 @@
   body {
     font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
     font-size: 9.3pt;
-    line-height: 1.44;
+    line-height: 1.34;
     color: #111;
     margin: 0;
     padding: 0;
@@ -75,14 +75,14 @@
     background-color: #ecfdf5;
     color: #064e3b;
     border: 1px solid #059669;
-    padding: 5px 5px;
+    padding: 3px 4px;
     font-size: 8.8pt;
     font-weight: normal;
     text-align: center;
   }
   td {
     border: 1px solid #94a3b8;
-    padding: 5px 5px;
+    padding: 3px 4px;
     vertical-align: top;
     font-size: 9pt;
     word-break: break-word;
@@ -91,11 +91,13 @@
     background-color: #f8fafc;
   }
 
-  /* Column Widths (4 columns: 題號, 題目內容, 選項與解析, 答案) */
-  .col-num { width: 3.5%; }
-  .col-q { width: 53.5%; }
-  .col-opt { width: 36%; }
-  .col-ans { width: 7%; }
+  /* 題號與題幹共用一欄；解析獲得較多橫向空間，減少換行。 */
+  .col-q { width: 42%; }
+  .col-opt { width: 50%; }
+  .col-ans { width: 8%; }
+  .qprompt { display: grid; grid-template-columns: max-content minmax(0,1fr); }
+  .qnum { color: #065f46; white-space: nowrap; }
+  .qtext { min-width: 0; overflow-wrap: anywhere; }
 
   .text-center { text-align: center; }
 
@@ -113,8 +115,8 @@
   .badge-mc { background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
 
   /* Options list (clean neutral text color, NO green spoilers) */
-  .opt-list { font-size: 8.8pt; line-height: 1.42; margin-bottom: 3px; }
-  .opt-item { margin-bottom: 2px; color: #1e293b; }
+  .opt-list { font-size: 8.8pt; line-height: 1.34; margin-bottom: 1px; }
+  .opt-item { margin-bottom: 1px; color: #1e293b; }
 
   /* Legal explanation & compact source citation */
   .expl-box {
@@ -122,12 +124,12 @@
     color: #475569;
     line-height: 1.38;
     border-top: 1px dashed #cbd5e1;
-    padding-top: 4px;
-    margin-top: 3px;
+    padding-top: 2px;
+    margin-top: 2px;
   }
   .source-sub {
     font-size: 7.8pt;
-    margin-top: 3px;
+    margin-top: 2px;
     color: #0d9488;
   }
   .source-link {
@@ -152,17 +154,13 @@
 
   <div class="doc-header">
     <div class="doc-title">EMT-1 考生回憶考點（非逐字原題）</div>
-    <div class="doc-subtitle">Dcard 270T 文章的 Part 1 是梯次不明的舊考點，Part 2 為作者記下的六道當梯新題；題幹為本站重寫，多數選項為本站補寫。 ｜ 總題數：107 題</div>
-    <div class="doc-meta">
-      及格標準：學科測驗 70 分 ｜ 資料整理日：2026-10-04
-    </div>
+    <div class="doc-subtitle">有解析版 ｜ 共 107 題</div>
   </div>
 
   <table>
     <thead>
       <tr>
-        <th class="col-num">題號</th>
-        <th class="col-q">題目內容 (含章節)</th>
+        <th class="col-q">題目</th>
         <th class="col-opt">選項與法規解析</th>
         <th class="col-ans">答案</th>
       </tr>
@@ -170,8 +168,7 @@
     <tbody>
 
     <tr data-qid="EMT-P1-01">
-      <td class="col-num text-center"><strong>1</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 《緊急醫療救護法》是在哪一天公布的？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">001.</span><span class="qtext">《緊急醫療救護法》是在哪一天公布的？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 民國 84 年 8 月 9 日</div><div class="opt-item">(B) 民國 86 年 7 月 11 日</div><div class="opt-item">(C) 民國 89 年 2 月 2 日</div><div class="opt-item">(D) 民國 96 年 7 月 11 日</div></div><div class="expl-box"><strong>【解析】</strong>回憶者記的答案是 84.8.9。公布日期不在條文內，本站沒有另外查證。
 消防署 114 年版教材（電子書第 11 頁）：緊急醫療大事年表列出民國 84 年 8 月 9 日制定公布緊急醫療救護法。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page11.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 11 頁</a></div></div></td>
@@ -179,8 +176,7 @@
     </tr>
 
     <tr data-qid="EMT-P1-02">
-      <td class="col-num text-center"><strong>2</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 下列何者不屬於緊急傷病患？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">002.</span><span class="qtext">下列何者不屬於緊急傷病患？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 突然昏迷的病人</div><div class="opt-item">(B) 牙痛的病人</div><div class="opt-item">(C) 溺水的病人</div><div class="opt-item">(D) 急產的孕婦</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：一、緊急傷病：指具有急性及嚴重性症狀，如未即時給予醫療救護處理，將導致個人健康、身體功能嚴重傷害或身體器官機能嚴重異常之傷病。
 緊急傷病指具有急性及嚴重性症狀，如未即時處理將嚴重傷害健康或身體功能的傷病。
 消防署 114 年版教材（電子書第 28 頁）：教材以牙痛作為明顯非緊急病人申請救護的例子。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020047&flno=2" target="_blank" class="source-link">參考：緊急醫療救護法施行細則 第2條</a></div></div></td>
@@ -188,23 +184,20 @@
     </tr>
 
     <tr data-qid="EMT-P1-03">
-      <td class="col-num text-center"><strong>3</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 救護紀錄表依法至少要保存幾年？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">003.</span><span class="qtext">救護紀錄表依法至少要保存幾年？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 3 年</div><div class="opt-item">(B) 5 年</div><div class="opt-item">(C) 7 年</div><div class="opt-item">(D) 10 年</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法》第34條：救護人員施行救護，應填具救護紀錄表，分別交由該救護車設置機關（構）及應診之醫療機構保存至少七年。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=34" target="_blank" class="source-link">參考：緊急醫療救護法 第34條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-04">
-      <td class="col-num text-center"><strong>4</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 救護車不是情況緊急卻使用警鳴器及紅色閃光燈，依《緊急醫療救護法》第 42 條的罰鍰是多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">004.</span><span class="qtext">救護車不是情況緊急卻使用警鳴器及紅色閃光燈，依《緊急醫療救護法》第 42 條的罰鍰是多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 新臺幣 1 萬元以上 5 萬元以下</div><div class="opt-item">(B) 新臺幣 3 萬元以上 15 萬元以下</div><div class="opt-item">(C) 新臺幣 6 萬元以上 30 萬元以下</div><div class="opt-item">(D) 新臺幣 10 萬元以上 50 萬元以下</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法》第42條：有下列情形之一者，處新臺幣六萬元以上三十萬元以下罰鍰：一、救護車設置機關（構）違反第十七條第二項、第三十四條第一項或違反依第二十條所定標準超額收費。二、醫院違反第三十六條第一項規定，未立即依其醫療能力救治緊急傷病患或未作適當處置而逕予轉診。三、醫院違反第三十八條第一項規定，未依中央衛生主管機關評定之緊急醫療處理能力分級提供緊急醫療服務。
 第 17 條第 2 項規定救護車非因情況緊急不得使用警鳴器及紅色閃光燈；違反者依第 42 條第 1 款處罰。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=42" target="_blank" class="source-link">參考：緊急醫療救護法 第42條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-05">
-      <td class="col-num text-center"><strong>5</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 下列哪一項，初級救護技術員不得施行？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">005.</span><span class="qtext">下列哪一項，初級救護技術員不得施行？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 給予氧氣</div><div class="opt-item">(B) 使用口咽呼吸道</div><div class="opt-item">(C) 使用鼻咽呼吸道</div><div class="opt-item">(D) 使用聲門上呼吸道</div></div><div class="expl-box"><strong>【解析】</strong>《救護技術員管理辦法》第14條：中級救護技術員得施行之救護項目如下：四、使用聲門上呼吸道。
 使用聲門上呼吸道列在第 14 條，是中級救護技術員的救護項目。
 消防署 114 年版教材（電子書第 20 頁）：教材依管理辦法列出各級救護項目，使用聲門上呼吸道列在中級項目。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=14" target="_blank" class="source-link">參考：救護技術員管理辦法 第14條</a></div></div></td>
@@ -212,45 +205,39 @@
     </tr>
 
     <tr data-qid="EMT-P1-06">
-      <td class="col-num text-center"><strong>6</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 初級救護技術員在證書效期三年內，要完成多少小時的繼續教育才能申請展延？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">006.</span><span class="qtext">初級救護技術員在證書效期三年內，要完成多少小時的繼續教育才能申請展延？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 12 小時</div><div class="opt-item">(B) 24 小時</div><div class="opt-item">(C) 36 小時</div><div class="opt-item">(D) 72 小時</div></div><div class="expl-box"><strong>【解析】</strong>《救護技術員管理辦法》第10條：各級救護技術員於證書效期三年內，完成下列繼續教育課程者，得申請證書效期之展延：一、初級救護技術員：完成附表一所列科目達二十四小時以上，且其中十二小時以上為模組二、四及六之科目。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=10" target="_blank" class="source-link">參考：救護技術員管理辦法 第10條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-07">
-      <td class="col-num text-center"><strong>7</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 依《緊急醫療救護法》第 18 條，救護車出勤至少要有幾名救護人員？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">007.</span><span class="qtext">依《緊急醫療救護法》第 18 條，救護車出勤至少要有幾名救護人員？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 1 名</div><div class="opt-item">(B) 2 名</div><div class="opt-item">(C) 3 名</div><div class="opt-item">(D) 4 名</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法》第18條：救護車於救護傷病患及運送病人時，應有救護人員二名以上出勤；加護救護車出勤之救護人員，至少應有一名為醫師、護理人員或中級以上救護技術員。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=18" target="_blank" class="source-link">參考：緊急醫療救護法 第18條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-08">
-      <td class="col-num text-center"><strong>8</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 上呼吸道與下呼吸道以哪裡為分界？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">008.</span><span class="qtext">上呼吸道與下呼吸道以哪裡為分界？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 鼻咽</div><div class="opt-item">(B) 會厭</div><div class="opt-item">(C) 聲門</div><div class="opt-item">(D) 氣管隆凸</div></div><div class="expl-box"><strong>【解析】</strong>全書文字層找不到上、下呼吸道以聲門為界的敘述（可能在圖片裡）。答案照回憶者所記。選項是站方依考點自編的。<div class="source-sub"><a href="https://www.dcard.tw/f/military/p/260454013" target="_blank" class="source-link">參考：Dcard 文章舊考點（梯次不明），Part 1 第 8 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-09">
-      <td class="col-num text-center"><strong>9</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 哪一個解剖切面把人體分成前、後兩部分？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">009.</span><span class="qtext">哪一個解剖切面把人體分成前、後兩部分？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 矢狀切面</div><div class="opt-item">(B) 冠狀切面</div><div class="opt-item">(C) 正中切面</div><div class="opt-item">(D) 水平切面</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 38 頁）：冠狀切面把人體縱切成前側與後側。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page38.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 38 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-10">
-      <td class="col-num text-center"><strong>10</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 摸得到橈動脈的脈搏，代表病人的收縮壓至少約多少 mmHg？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">010.</span><span class="qtext">摸得到橈動脈的脈搏，代表病人的收縮壓至少約多少 mmHg？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 60</div><div class="opt-item">(B) 70</div><div class="opt-item">(C) 80</div><div class="opt-item">(D) 90</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 43 頁）：動脈點對照表：摸得到橈動脈代表收縮壓至少 80 mmHg。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page43.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 43 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-11">
-      <td class="col-num text-center"><strong>11</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 下列何者不是八大生命徵象？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">011.</span><span class="qtext">下列何者不是八大生命徵象？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 血氧</div><div class="opt-item">(B) 膚色</div><div class="opt-item">(C) 瞳孔</div><div class="opt-item">(D) 血糖</div></div><div class="expl-box"><strong>【解析】</strong>八大生命徵象：意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧。
 消防署 114 年版教材（電子書第 53 頁）：生命徵象八項為意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧濃度，沒有血糖。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page53.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 53 頁</a></div></div></td>
@@ -258,40 +245,35 @@
     </tr>
 
     <tr data-qid="EMT-P1-12">
-      <td class="col-num text-center"><strong>12</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 評估昏迷指數時，病人能回答問題但答錯了，語言反應是幾分？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">012.</span><span class="qtext">評估昏迷指數時，病人能回答問題但答錯了，語言反應是幾分？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) V2</div><div class="opt-item">(B) V3</div><div class="opt-item">(C) V4</div><div class="opt-item">(D) V5</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 54 頁）：昏迷指數表中，言語反應 4 分是言語混亂。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page54.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 54 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-13">
-      <td class="col-num text-center"><strong>13</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 評估昏迷指數時，給予痛刺激的方式是哪一種？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">013.</span><span class="qtext">評估昏迷指數時，給予痛刺激的方式是哪一種？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 捏肩</div><div class="opt-item">(B) 按眼眶上緣</div><div class="opt-item">(C) 搓胸骨</div><div class="opt-item">(D) 按人中</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 196 頁）：痛刺激以單手按壓斜方肌（捏肩）為優先。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page196.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 196 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-14">
-      <td class="col-num text-center"><strong>14</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 成人脈搏的正常值是每分鐘幾次？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">014.</span><span class="qtext">成人脈搏的正常值是每分鐘幾次？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 40～60 次</div><div class="opt-item">(B) 60～100 次</div><div class="opt-item">(C) 100～120 次</div><div class="opt-item">(D) 120～140 次</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 57 頁）：成人正常脈搏每分鐘約 60 到 100 次。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page57.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 57 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-15">
-      <td class="col-num text-center"><strong>15</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 正常體溫的範圍是攝氏幾度？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">015.</span><span class="qtext">正常體溫的範圍是攝氏幾度？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 35.0～36.0 度</div><div class="opt-item">(B) 36.5～37.5 度</div><div class="opt-item">(C) 37.5～38.5 度</div><div class="opt-item">(D) 38.0～39.0 度</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 60 頁）：正常成年人體溫為攝氏 36.5 到 37.5 度。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page60.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 60 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-16">
-      <td class="col-num text-center"><strong>16</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 依 EMT-1 教材，血氧濃度低於多少視為供氧不足？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">016.</span><span class="qtext">依 EMT-1 教材，血氧濃度低於多少視為供氧不足？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 90%</div><div class="opt-item">(B) 92%</div><div class="opt-item">(C) 94%</div><div class="opt-item">(D) 96%</div></div><div class="expl-box"><strong>【解析】</strong>回憶者補充：低於 94% 為供氧不足，低於 90% 為危急。
 消防署 114 年版教材（電子書第 62 頁）：血氧濃度低於 94% 代表供氧不足。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page62.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 62 頁</a></div></div></td>
@@ -299,40 +281,35 @@
     </tr>
 
     <tr data-qid="EMT-P1-17">
-      <td class="col-num text-center"><strong>17</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 使用口咽呼吸道之前，要先確認病人處於哪一種狀態？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">017.</span><span class="qtext">使用口咽呼吸道之前，要先確認病人處於哪一種狀態？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 清醒</div><div class="opt-item">(B) 對聲音刺激有反應</div><div class="opt-item">(C) 對痛刺激有反應</div><div class="opt-item">(D) 對痛刺激沒有反應</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 138 頁）：口咽呼吸道用在對呼喚、輕拍與痛刺激都沒有反應的昏迷病人。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page138.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 138 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-18">
-      <td class="col-num text-center"><strong>18</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 為嬰兒做 CPR 時，壓胸的深度約幾公分？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">018.</span><span class="qtext">為嬰兒做 CPR 時，壓胸的深度約幾公分？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 2 公分</div><div class="opt-item">(B) 4 公分</div><div class="opt-item">(C) 5 公分</div><div class="opt-item">(D) 6 公分</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 125 頁）：各年齡層 CPR 對照表：嬰兒壓胸深度約 4 公分或胸部前後徑的三分之一。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page125.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 125 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-19">
-      <td class="col-num text-center"><strong>19</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 到院前心肺功能停止的病人當中，心室纖維顫動約占多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">019.</span><span class="qtext">到院前心肺功能停止的病人當中，心室纖維顫動約占多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 10%</div><div class="opt-item">(B) 20%</div><div class="opt-item">(C) 40%</div><div class="opt-item">(D) 80%</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 118 頁）：成人到院前心跳停止約四成最初心律是心室纖維顫動。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 118 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-20">
-      <td class="col-num text-center"><strong>20</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 成人嚴重異物哽塞後失去意識、倒在地上，第一步要做什麼？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">020.</span><span class="qtext">成人嚴重異物哽塞後失去意識、倒在地上，第一步要做什麼？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 打開呼吸道</div><div class="opt-item">(B) 吹氣一次</div><div class="opt-item">(C) 壓胸 30 次</div><div class="opt-item">(D) 目視有無適當呼吸</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 129 頁）：異物哽塞病人失去意識後，讓病人仰躺並立即開始胸部按壓。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page129.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 129 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-21">
-      <td class="col-num text-center"><strong>21</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 關於袋瓣罩甦醒球的使用，下列何者錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">021.</span><span class="qtext">關於袋瓣罩甦醒球的使用，下列何者錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 面罩尖端朝向下巴</div><div class="opt-item">(B) 用 EC 手勢固定面罩</div><div class="opt-item">(C) 接上氧氣與儲氣袋</div><div class="opt-item">(D) 擠壓到胸部有起伏</div></div><div class="expl-box"><strong>【解析】</strong>面罩尖端應朝向鼻子。
 消防署 114 年版教材（電子書第 134 頁）：袋瓣罩的面罩尖端朝向病人前額一側，不是下巴。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page134.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 134 頁</a></div></div></td>
@@ -340,8 +317,7 @@
     </tr>
 
     <tr data-qid="EMT-P1-22">
-      <td class="col-num text-center"><strong>22</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 心室纖維顫動的病人如果沒有接受 CPR，存活率每分鐘約下降多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">022.</span><span class="qtext">心室纖維顫動的病人如果沒有接受 CPR，存活率每分鐘約下降多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 1～2%</div><div class="opt-item">(B) 3～4%</div><div class="opt-item">(C) 7～10%</div><div class="opt-item">(D) 15～20%</div></div><div class="expl-box"><strong>【解析】</strong>回憶者補充：有做 CPR 時約每分鐘下降 3～4%。
 消防署 114 年版教材（電子書第 118 頁）：沒有 CPR 時存活率每分鐘下降 7 到 10%，有 CPR 時下降 3 到 4%。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 118 頁</a></div></div></td>
@@ -349,8 +325,7 @@
     </tr>
 
     <tr data-qid="EMT-P1-24">
-      <td class="col-num text-center"><strong>24</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 兒童生存之鏈的第一個環節是什麼？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">024.</span><span class="qtext">兒童生存之鏈的第一個環節是什麼？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 預防</div><div class="opt-item">(B) 啟動緊急應變</div><div class="opt-item">(C) 高品質 CPR</div><div class="opt-item">(D) 高級心肺復甦</div></div><div class="expl-box"><strong>【解析】</strong>回憶者記的順序：預防、啟動緊急應變、高品質 CPR、高級心肺復甦、心臟停止後照護、復原。原題是配對題。
 消防署 114 年版教材（電子書第 118 頁）：成人與小兒生命之鏈的差別在前三環，小兒更重視預防。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page118.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 118 頁</a></div></div></td>
@@ -358,63 +333,55 @@
     </tr>
 
     <tr data-qid="EMT-P1-25">
-      <td class="col-num text-center"><strong>25</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 嬰兒有脈搏、但沒有正常呼吸時，人工呼吸多久給一次？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">025.</span><span class="qtext">嬰兒有脈搏、但沒有正常呼吸時，人工呼吸多久給一次？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 2～3 秒一次</div><div class="opt-item">(B) 5～6 秒一次</div><div class="opt-item">(C) 8～10 秒一次</div><div class="opt-item">(D) 10～12 秒一次</div></div><div class="expl-box"><strong>【解析】</strong>回憶者記的題幹是「嬰兒沒有脈搏」，與消防署 114 年教材第 125 頁表 5-1 的「有脈搏」條件不符。本站改寫了條件與答案關係，不能當作原題或列入模擬考。
 答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。<div class="source-sub"><a href="https://www.dcard.tw/f/military/p/260454013" target="_blank" class="source-link">參考：Dcard 文章舊考點（梯次不明），Part 1 第 25 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-26">
-      <td class="col-num text-center"><strong>26</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 非創傷病人的評估順序，下列何者正確？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">026.</span><span class="qtext">非創傷病人的評估順序，下列何者正確？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 意識 → 呼吸道 → 呼吸 → 循環 → 輔助檢查</div><div class="opt-item">(B) 意識 → 呼吸 → 呼吸道 → 循環 → 輔助檢查</div><div class="opt-item">(C) 呼吸道 → 意識 → 呼吸 → 循環 → 輔助檢查</div><div class="opt-item">(D) 意識 → 循環 → 呼吸道 → 呼吸 → 輔助檢查</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 196 頁）：非外傷流程的初級評估依序是意識、呼吸道、呼吸、循環，之後做輔助檢查。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page196.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 196 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-27">
-      <td class="col-num text-center"><strong>27</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 成人清醒、有呼吸，要評估脈搏時摸哪裡？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">027.</span><span class="qtext">成人清醒、有呼吸，要評估脈搏時摸哪裡？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 頸動脈</div><div class="opt-item">(B) 橈動脈</div><div class="opt-item">(C) 肱動脈</div><div class="opt-item">(D) 股動脈</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 199 頁）：評估循環時檢查兩側橈動脈；對痛刺激沒有反應的病人才檢查頸動脈（第 208 頁）。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page199.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 199 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-28">
-      <td class="col-num text-center"><strong>28</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 下列何者不算危急狀況？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">028.</span><span class="qtext">下列何者不算危急狀況？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 小兒經評估為危急</div><div class="opt-item">(B) 血氧濃度 91%</div><div class="opt-item">(C) 急產或已在現場完成接生</div><div class="opt-item">(D) 微血管充填時間超過 2 秒</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 100 頁）：危急條件包含微血管充填時間超過 2 秒、小兒評估為危急、急產；血氧要低於 90% 才算。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page100.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 100 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-29">
-      <td class="col-num text-center"><strong>29</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 副手要變換頸椎限制方式時，主手改用哪一種頸椎限制術來協助？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">029.</span><span class="qtext">副手要變換頸椎限制方式時，主手改用哪一種頸椎限制術來協助？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 胸骨枕骨頸椎減移</div><div class="opt-item">(B) 胸骨前額頸椎減移</div><div class="opt-item">(C) 胸骨脊椎頸椎減移</div><div class="opt-item">(D) 肩部頸椎減移</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 155 頁）：胸骨前額頸椎減移用在主手協助副手變更頸椎減移方式的時候。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page155.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 155 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-30">
-      <td class="col-num text-center"><strong>30</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 螺旋包紮時，每一圈要蓋住上一圈的多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">030.</span><span class="qtext">螺旋包紮時，每一圈要蓋住上一圈的多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 四分之一到三分之一</div><div class="opt-item">(B) 三分之一到二分之一</div><div class="opt-item">(C) 二分之一到三分之二</div><div class="opt-item">(D) 完全重疊</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 145 頁）：螺旋包紮以上圈蓋住下圈二分之一或三分之二為原則。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page145.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 145 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-31">
-      <td class="col-num text-center"><strong>31</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 全身血液約占體重的多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">031.</span><span class="qtext">全身血液約占體重的多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 五分之一</div><div class="opt-item">(B) 十分之一</div><div class="opt-item">(C) 十三分之一</div><div class="opt-item">(D) 二十分之一</div></div><div class="expl-box"><strong>【解析】</strong>全書文字層找不到血液約占體重十三分之一的敘述。答案照回憶者所記。選項是站方依考點自編的。<div class="source-sub"><a href="https://www.dcard.tw/f/military/p/260454013" target="_blank" class="source-link">參考：Dcard 文章舊考點（梯次不明），Part 1 第 31 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-32">
-      <td class="col-num text-center"><strong>32</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 關於抽吸，下列何者錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">032.</span><span class="qtext">關於抽吸，下列何者錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 抽吸前先給予氧氣</div><div class="opt-item">(B) 抽吸管的長度量鼻尖到耳垂</div><div class="opt-item">(C) 抽吸管放入口腔做口咽部抽吸</div><div class="opt-item">(D) 抽吸時間少於 15 秒</div></div><div class="expl-box"><strong>【解析】</strong>抽吸管的長度應該量嘴角到耳垂。
 消防署 114 年版教材（電子書第 135 頁）：抽吸導管的長度量嘴角到耳垂；成人抽吸時間少於 15 秒。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page135.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 135 頁</a></div></div></td>
@@ -422,24 +389,21 @@
     </tr>
 
     <tr data-qid="EMT-P1-33">
-      <td class="col-num text-center"><strong>33</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 最有效而且最常用的止血法是哪一種？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">033.</span><span class="qtext">最有效而且最常用的止血法是哪一種？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 直接加壓止血</div><div class="opt-item">(B) 抬高傷肢</div><div class="opt-item">(C) 止血點止血</div><div class="opt-item">(D) 止血帶止血</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 142 頁）：直接加壓止血法是有效而且常用的止血方式。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page142.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 142 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-34">
-      <td class="col-num text-center"><strong>34</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 固定肢體骨折時，要固定哪些部位？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">034.</span><span class="qtext">固定肢體骨折時，要固定哪些部位？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 只固定骨折處</div><div class="opt-item">(B) 骨折處和上方的關節</div><div class="opt-item">(C) 骨折處和下方的關節</div><div class="opt-item">(D) 骨折處和上下兩個關節</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 289 頁）：骨折固定範圍要超過患處上下兩個關節。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page289.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 289 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-35">
-      <td class="col-num text-center"><strong>35</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 非創傷病人的循環評估，不包含下列哪一項？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">035.</span><span class="qtext">非創傷病人的循環評估，不包含下列哪一項？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 脈搏</div><div class="opt-item">(B) 微血管充填時間</div><div class="opt-item">(C) 四肢膚色與溫度</div><div class="opt-item">(D) 血糖</div></div><div class="expl-box"><strong>【解析】</strong>回憶者不記得原本的選項，只記得循環評估包含脈搏、微血管充填時間、四肢膚色、四肢是否濕冷。
 消防署 114 年版教材（電子書第 199 頁）：循環評估看橈動脈、膚色、肢體是否濕冷、微血管充填時間，不含血糖。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page199.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 199 頁</a></div></div></td>
@@ -447,16 +411,14 @@
     </tr>
 
     <tr data-qid="EMT-P1-36">
-      <td class="col-num text-center"><strong>36</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 評估病人的失能狀況（XABCDE 的 D），不包含下列哪一項？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">036.</span><span class="qtext">評估病人的失能狀況（XABCDE 的 D），不包含下列哪一項？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 昏迷指數</div><div class="opt-item">(B) 瞳孔</div><div class="opt-item">(C) 四肢感覺與運動</div><div class="opt-item">(D) 血糖</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 208 頁）：失能評估包含昏迷指數、瞳孔、兩側上下肢的感覺與運動，不含血糖。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page208.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 208 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-37">
-      <td class="col-num text-center"><strong>37</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 慢性阻塞性肺病的病人，血氧濃度低於多少算危急？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">037.</span><span class="qtext">慢性阻塞性肺病的病人，血氧濃度低於多少算危急？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 85%</div><div class="opt-item">(B) 88%</div><div class="opt-item">(C) 90%</div><div class="opt-item">(D) 94%</div></div><div class="expl-box"><strong>【解析】</strong>回憶者補充：這類病人 92% 可以接受，低於 90% 為危急。
 消防署 114 年版教材（電子書第 228 頁）：給氧流程的註記：慢性阻塞性肺病病人以血氧低於 90% 為準。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page228.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 228 頁</a></div></div></td>
@@ -464,32 +426,28 @@
     </tr>
 
     <tr data-qid="EMT-P1-38">
-      <td class="col-num text-center"><strong>38</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 創傷評估 XABCDE 的 X 代表什麼？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">038.</span><span class="qtext">創傷評估 XABCDE 的 X 代表什麼？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 大量出血</div><div class="opt-item">(B) 呼吸道</div><div class="opt-item">(C) 頸椎</div><div class="opt-item">(D) 暴露檢查</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 206 頁）：外傷初級評估的第一項是評估有無大量出血（X）。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page206.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 206 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-39">
-      <td class="col-num text-center"><strong>39</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 成人雙下肢燙傷，紅腫並起水泡。燙傷深度與體表面積各是多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">039.</span><span class="qtext">成人雙下肢燙傷，紅腫並起水泡。燙傷深度與體表面積各是多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 一度、18%</div><div class="opt-item">(B) 二度、18%</div><div class="opt-item">(C) 二度、36%</div><div class="opt-item">(D) 三度、36%</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 266 頁）：二度灼傷有水泡（第 265 頁）；成人每一側下肢占體表面積 18%，雙下肢共 36%。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page266.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 266 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-P1-40">
-      <td class="col-num text-center"><strong>40</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【檢傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 大量傷病患的定義，是單一事故的傷病患人數達到幾人以上？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">040.</span><span class="qtext">大量傷病患的定義，是單一事故的傷病患人數達到幾人以上？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 5 人</div><div class="opt-item">(B) 10 人</div><div class="opt-item">(C) 15 人</div><div class="opt-item">(D) 30 人</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：三、大量傷病患：指單一事故、災害發生之傷病患人數達十五人以上，或預判可能達十五人以上者。
 消防署 114 年版教材（電子書第 18 頁）：教材引用施行細則：大量傷病患指單一事故傷病患達 15 人以上。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020047&flno=2" target="_blank" class="source-link">參考：緊急醫療救護法施行細則 第2條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-270-01">
-      <td class="col-num text-center"><strong>41</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 從火場救出的病人意識清醒、血氧濃度 96%，應該用哪一種方式給氧？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">041.</span><span class="qtext">從火場救出的病人意識清醒、血氧濃度 96%，應該用哪一種方式給氧？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 鼻導管</div><div class="opt-item">(B) 簡單面罩</div><div class="opt-item">(C) 非再吸入型面罩</div><div class="opt-item">(D) 袋瓣罩甦醒球</div></div><div class="expl-box"><strong>【解析】</strong>回憶者的說明：火場救出的病人可能有吸入性灼傷，之後可能呼吸道水腫，所以給非再吸入型面罩以上的氧氣。
 消防署 114 年版教材（電子書第 228 頁）：受困火場救出的病人可給較高濃度的非再吸入型氧氣面罩。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page228.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 228 頁</a></div></div></td>
@@ -497,8 +455,7 @@
     </tr>
 
     <tr data-qid="EMT-270-02">
-      <td class="col-num text-center"><strong>42</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 用 G-FAST 評估中風時，下列哪個做法錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">042.</span><span class="qtext">用 G-FAST 評估中風時，下列哪個做法錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 請病人雙手平舉、手心向下</div><div class="opt-item">(B) 請病人微笑，看臉部是否對稱</div><div class="opt-item">(C) 請病人說一句話</div><div class="opt-item">(D) 看兩眼是否偏向一側</div></div><div class="expl-box"><strong>【解析】</strong>雙手平舉時手心應該向上。
 消防署 114 年版教材（電子書第 188 頁）：舉臂測試請病人閉眼、雙手平舉、手心朝上。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page188.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 188 頁</a></div></div></td>
@@ -506,16 +463,14 @@
     </tr>
 
     <tr data-qid="EMT-270-03">
-      <td class="col-num text-center"><strong>43</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 病人噎到，用哈姆立克法時要壓哪裡？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">043.</span><span class="qtext">病人噎到，用哈姆立克法時要壓哪裡？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 胸骨中段</div><div class="opt-item">(B) 劍突</div><div class="opt-item">(C) 肚臍上緣</div><div class="opt-item">(D) 肚臍下方</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 127 頁）：腹部推擠時拳頭放在肚臍上緣。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page127.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 127 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-270-04">
-      <td class="col-num text-center"><strong>44</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 病人昏迷指數 3 分，副手可以用哪一種頸椎限制術？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">044.</span><span class="qtext">病人昏迷指數 3 分，副手可以用哪一種頸椎限制術？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 雙膝頸椎減移</div><div class="opt-item">(B) 胸骨前額頸椎減移</div><div class="opt-item">(C) 胸骨枕骨頸椎減移</div><div class="opt-item">(D) 肩部頸椎減移</div></div><div class="expl-box"><strong>【解析】</strong>回憶者的說明：雙膝頸椎減移固定效果較差，只適用於昏迷、不會亂動的病人，好處是副手可以空出雙手。
 消防署 114 年版教材（電子書第 153 頁）：雙膝頸椎減移適用於昏迷、對痛沒有反應的病人，副手可以空出雙手。
 答案與回憶者所記相同。選項是站方依考點自編的。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page153.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 153 頁</a></div></div></td>
@@ -523,8 +478,7 @@
     </tr>
 
     <tr data-qid="EMT-270-05">
-      <td class="col-num text-center"><strong>45</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 關於瀕死呼吸，下列何者錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">045.</span><span class="qtext">關於瀕死呼吸，下列何者錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 淺而短</div><div class="opt-item">(B) 極慢</div><div class="opt-item">(C) 不規則</div><div class="opt-item">(D) 常出現在心跳停止後一分鐘內</div></div><div class="expl-box"><strong>【解析】</strong>瀕死呼吸是極慢、不規則而且深長的呼吸。
 消防署 114 年版教材（電子書第 55 頁）：瀕死呼吸是極慢、不規則而且深長的呼吸。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page55.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 55 頁</a></div></div></td>
@@ -532,451 +486,389 @@
     </tr>
 
     <tr data-qid="EMT-270-06">
-      <td class="col-num text-center"><strong>46</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【檢傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 20 歲男性雙腳骨折無法行走，呼吸每分鐘 20 次，微血管充填時間 1 秒，可以正常溝通。依 START 檢傷法應分到哪一類？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">046.</span><span class="qtext">20 歲男性雙腳骨折無法行走，呼吸每分鐘 20 次，微血管充填時間 1 秒，可以正常溝通。依 START 檢傷法應分到哪一類？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 紅色</div><div class="opt-item">(B) 黃色</div><div class="opt-item">(C) 綠色</div><div class="opt-item">(D) 黑色</div></div><div class="expl-box"><strong>【解析】</strong>消防署 114 年版教材（電子書第 426 頁）：START 檢傷依呼吸是否超過每分鐘 30 次、橈動脈或微血管充填時間、能否遵從指令來分類。
 答案與回憶者所記相同。選項依回憶者所記。<div class="source-sub"><a href="https://ebook.nfa.gov.tw/1140527/files/basic-html/page426.html" target="_blank" class="source-link">參考：消防署《救護技術員教科書》114 年版，電子書第 426 頁</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-03">
-      <td class="col-num text-center"><strong>47</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 下列何者不是緊急醫療救護人員？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">047.</span><span class="qtext">下列何者不是緊急醫療救護人員？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 醫師</div><div class="opt-item">(B) 護理人員</div><div class="opt-item">(C) 救護技術員</div><div class="opt-item">(D) 救護車駕駛</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法》第4條：本法所稱緊急醫療救護人員（以下簡稱救護人員），指醫師、護理人員、救護技術員。
 整理檔的答案：醫師、護理人員、救護技術員以外的人不算。選項是站方補寫的。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=4" target="_blank" class="source-link">參考：緊急醫療救護法 第4條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-06">
-      <td class="col-num text-center"><strong>48</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">考生回憶的考點</span> 依《緊急醫療救護法》第 45 條，救護技術員未依規定施救，罰鍰是多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">048.</span><span class="qtext">依《緊急醫療救護法》第 45 條，救護技術員未依規定施救，罰鍰是多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 新臺幣 5 千元以上 2 萬 5 千元以下</div><div class="opt-item">(B) 新臺幣 1 萬元以上 5 萬元以下</div><div class="opt-item">(C) 新臺幣 6 萬元以上 30 萬元以下</div><div class="opt-item">(D) 新臺幣 10 萬元以上 50 萬元以下</div></div><div class="expl-box"><strong>【解析】</strong>《緊急醫療救護法》第45條：有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：一、救護技術員違反第二十六條或第二十七條第一項規定。二、救護人員違反第二十九條或第三十三條規定。三、救護技術員及其他參與緊急醫療救護業務之機關（構）所屬人員違反第三十五條規定。四、醫院違反第三十六條第二項所定轉診辦法之轉診要件、方式及應辦理之醫院聯繫與協調事項或第三十七條第二項規定。
 選項是站方補寫的。<div class="source-sub"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=45" target="_blank" class="source-link">參考：緊急醫療救護法 第45條</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-12">
-      <td class="col-num text-center"><strong>49</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 20 歲女性昏迷，給痛刺激會睜眼、會發出聲音、肢體伸直，昏迷指數是幾分？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">049.</span><span class="qtext">20 歲女性昏迷，給痛刺激會睜眼、會發出聲音、肢體伸直，昏迷指數是幾分？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 5 分</div><div class="opt-item">(B) 6 分</div><div class="opt-item">(C) 7 分</div><div class="opt-item">(D) 8 分</div></div><div class="expl-box"><strong>【解析】</strong>整理檔的答案：E2 + V2 + M2 = 6 分。選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 12 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-15">
-      <td class="col-num text-center"><strong>50</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">考生回憶的考點</span> 血壓低於多少算有危險？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">050.</span><span class="qtext">血壓低於多少算有危險？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 80/50 mmHg</div><div class="opt-item">(B) 90/60 mmHg</div><div class="opt-item">(C) 100/70 mmHg</div><div class="opt-item">(D) 110/70 mmHg</div></div><div class="expl-box"><strong>【解析】</strong>選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 15 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-19">
-      <td class="col-num text-center"><strong>51</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 下列哪一種情況應該使用袋瓣罩甦醒球？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">051.</span><span class="qtext">下列哪一種情況應該使用袋瓣罩甦醒球？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 意識清醒、血氧 96%</div><div class="opt-item">(B) 已使用非再吸入型面罩，血氧仍低於 90%</div><div class="opt-item">(C) 輕微喘、能說完整句子</div><div class="opt-item">(D) 手指擦傷</div></div><div class="expl-box"><strong>【解析】</strong>整理檔的答案：心跳停止、沒有適當呼吸、用了非再吸入型面罩血氧仍低於 90%、意識不清且通氣不足等。選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 19 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-21">
-      <td class="col-num text-center"><strong>52</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 嬰兒異物哽塞時怎麼處理？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">052.</span><span class="qtext">嬰兒異物哽塞時怎麼處理？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 腹部推擠法</div><div class="opt-item">(B) 拍背壓胸法</div><div class="opt-item">(C) 用手指伸進嘴裡挖</div><div class="opt-item">(D) 倒提雙腳拍打</div></div><div class="expl-box"><strong>【解析】</strong>選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 21 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-23">
-      <td class="col-num text-center"><strong>53</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 成人 CPR 的口訣是什麼？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">053.</span><span class="qtext">成人 CPR 的口訣是什麼？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 快快壓、重重壓、胸回彈、莫中斷</div><div class="opt-item">(B) 慢慢壓、輕輕壓、胸回彈、莫中斷</div><div class="opt-item">(C) 快快壓、輕輕壓、不回彈、可中斷</div><div class="opt-item">(D) 慢慢壓、重重壓、胸回彈、常中斷</div></div><div class="expl-box"><strong>【解析】</strong>選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 23 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-25">
-      <td class="col-num text-center"><strong>54</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">考生回憶的考點</span> 臍帶還連在母親身上的新生兒沒有脈搏，壓胸與吹氣的比例是多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">054.</span><span class="qtext">臍帶還連在母親身上的新生兒沒有脈搏，壓胸與吹氣的比例是多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 3：1</div><div class="opt-item">(B) 5：1</div><div class="opt-item">(C) 15：2</div><div class="opt-item">(D) 30：2</div></div><div class="expl-box"><strong>【解析】</strong>選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 25 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-28">
-      <td class="col-num text-center"><strong>55</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">考生回憶的考點</span> 非再吸入型面罩的氧氣流量是每分鐘幾公升？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">055.</span><span class="qtext">非再吸入型面罩的氧氣流量是每分鐘幾公升？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 1～6 公升</div><div class="opt-item">(B) 6～10 公升</div><div class="opt-item">(C) 10～15 公升</div><div class="opt-item">(D) 20～25 公升</div></div><div class="expl-box"><strong>【解析】</strong>整理檔的答案：鼻導管 1～6、簡單面罩 6～10、非再吸入型面罩 10～15、袋瓣罩甦醒球約 15。選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 28 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-35">
-      <td class="col-num text-center"><strong>56</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">考生回憶的考點</span> 頸圈的大小怎麼量？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">056.</span><span class="qtext">頸圈的大小怎麼量？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 下顎到鎖骨的距離</div><div class="opt-item">(B) 耳垂到肩膀的距離</div><div class="opt-item">(C) 頸部一圈的長度</div><div class="opt-item">(D) 下顎到胸骨下緣的距離</div></div><div class="expl-box"><strong>【解析】</strong>選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 35 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-274-39">
-      <td class="col-num text-center"><strong>57</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">考生回憶的考點</span> 小兒評估三角包含哪三項？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">057.</span><span class="qtext">小兒評估三角包含哪三項？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 外觀、呼吸作功、皮膚循環</div><div class="opt-item">(B) 意識、血壓、體溫</div><div class="opt-item">(C) 呼吸道、呼吸、循環</div><div class="opt-item">(D) 瞳孔、膚色、血氧</div></div><div class="expl-box"><strong>【解析】</strong>選項是站方補寫的。
 依使用者指示直接匯入，答案照整理檔所記，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/1057074543/" target="_blank" class="source-link">參考：274T 考古題整理檔（使用者提供），274T 第 39 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-01">
-      <td class="col-num text-center"><strong>58</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 初級救護技術員得施行之救護項目，下列何者為非？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">058.</span><span class="qtext">初級救護技術員得施行之救護項目，下列何者為非？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 檢傷分類</div><div class="opt-item">(B) 急產接生</div><div class="opt-item">(C) 使用自動心臟電擊器</div><div class="opt-item">(D) 使用沖洗用生理食鹽水沖洗眼睛</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 1 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-02">
-      <td class="col-num text-center"><strong>59</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 初級救護技術員教育訓練 W 小時，證書有效期為 X 年，於 Y 年內需繼續教育 Z 小時，請問 W+X+Y+Z=？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">059.</span><span class="qtext">初級救護技術員教育訓練 W 小時，證書有效期為 X 年，於 Y 年內需繼續教育 Z 小時，請問 W+X+Y+Z=？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 67</div><div class="opt-item">(B) 68</div><div class="opt-item">(C) 69</div><div class="opt-item">(D) 70</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 2 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-03">
-      <td class="col-num text-center"><strong>60</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 未依緊急傷病患作業救護程序施行救護者，依緊急醫療救護法第 45 條，處多少罰鍰？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">060.</span><span class="qtext">未依緊急傷病患作業救護程序施行救護者，依緊急醫療救護法第 45 條，處多少罰鍰？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 處新台幣 5 千元以上 2 萬 5 千元以下罰鍰</div><div class="opt-item">(B) 處新台幣 1 萬元以上 5 萬元以下罰鍰</div><div class="opt-item">(C) 處新台幣 6 萬元以上 30 萬元以下罰鍰</div><div class="opt-item">(D) 處新台幣 10 萬元以上 50 萬元以下罰鍰</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 3 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-04">
-      <td class="col-num text-center"><strong>61</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 救護車載送病患至少要有幾名緊急醫療救護人員？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">061.</span><span class="qtext">救護車載送病患至少要有幾名緊急醫療救護人員？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 2 人</div><div class="opt-item">(B) 3 人</div><div class="opt-item">(C) 4 人</div><div class="opt-item">(D) 沒有限制</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 4 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-05">
-      <td class="col-num text-center"><strong>62</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 救護紀錄表要存放幾年才能銷毀？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">062.</span><span class="qtext">救護紀錄表要存放幾年才能銷毀？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 5</div><div class="opt-item">(B) 6</div><div class="opt-item">(C) 7</div><div class="opt-item">(D) 8</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 5 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-06">
-      <td class="col-num text-center"><strong>63</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 請問頸動脈、肱動脈、股動脈、橈動脈、足背動脈，分別為多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">063.</span><span class="qtext">請問頸動脈、肱動脈、股動脈、橈動脈、足背動脈，分別為多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 60.70.70.90.90</div><div class="opt-item">(B) 60.70.80.80.80</div><div class="opt-item">(C) 60.70.70.80.90</div><div class="opt-item">(D) 70.70.80.80.90</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 6 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-07">
-      <td class="col-num text-center"><strong>64</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 成人共有幾塊骨頭？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">064.</span><span class="qtext">成人共有幾塊骨頭？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 205</div><div class="opt-item">(B) 206</div><div class="opt-item">(C) 207</div><div class="opt-item">(D) 208</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 7 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-08">
-      <td class="col-num text-center"><strong>65</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 緊急醫療的運作需要分為四個階段，請排出正確的順序？（1 到院前救護單位的派遣　2 轉送到適當的醫療場所　3 報告及啟動緊急醫療系統　4 救護技術員的醫療評及現場處置）</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">065.</span><span class="qtext">緊急醫療的運作需要分為四個階段，請排出正確的順序？（1 到院前救護單位的派遣　2 轉送到適當的醫療場所　3 報告及啟動緊急醫療系統　4 救護技術員的醫療評及現場處置）</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 1234</div><div class="opt-item">(B) 2143</div><div class="opt-item">(C) 3142</div><div class="opt-item">(D) 4312</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 8 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-09">
-      <td class="col-num text-center"><strong>66</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">2022 年考古題文件</span> 鼻咽呼吸道測量方式為何？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">066.</span><span class="qtext">鼻咽呼吸道測量方式為何？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 測量嘴角到耳垂距離</div><div class="opt-item">(B) 測量鼻尖到下巴距離</div><div class="opt-item">(C) 測量鼻尖到嘴角距離</div><div class="opt-item">(D) 測量鼻尖到耳垂距離</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 9 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-10">
-      <td class="col-num text-center"><strong>67</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">2022 年考古題文件</span> 創傷患者要暢通呼吸道時，需使用？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">067.</span><span class="qtext">創傷患者要暢通呼吸道時，需使用？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 壓額抬下顎法</div><div class="opt-item">(B) 拇食指交叉法</div><div class="opt-item">(C) 食拇指交叉法</div><div class="opt-item">(D) 下顎推舉法</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 10 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-11">
-      <td class="col-num text-center"><strong>68</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 遇到低血壓患者，應給予？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">068.</span><span class="qtext">遇到低血壓患者，應給予？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 平躺</div><div class="opt-item">(B) 頭高腳低</div><div class="opt-item">(C) 腳高頭低</div><div class="opt-item">(D) 半坐臥</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 11 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-12">
-      <td class="col-num text-center"><strong>69</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 一名燒燙傷患者，左手臂（整隻手）以及左腳（整隻腳）二度燒燙傷，試問它的燒燙傷面積為何？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">069.</span><span class="qtext">一名燒燙傷患者，左手臂（整隻手）以及左腳（整隻腳）二度燒燙傷，試問它的燒燙傷面積為何？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 18</div><div class="opt-item">(B) 27</div><div class="opt-item">(C) 36</div><div class="opt-item">(D) 45</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 12 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-13">
-      <td class="col-num text-center"><strong>70</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">2022 年考古題文件</span> 一名患者意識清楚，從火場被救出，在檢查時發現患者鼻毛燒焦，試問患者氧氣治療需選擇？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">070.</span><span class="qtext">一名患者意識清楚，從火場被救出，在檢查時發現患者鼻毛燒焦，試問患者氧氣治療需選擇？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 氧氣鼻管</div><div class="opt-item">(B) 氧氣面罩</div><div class="opt-item">(C) 非再吸入型面罩</div><div class="opt-item">(D) 不用給患者氧氣治療</div></div><div class="expl-box"><strong>【解析】</strong>文件上選項 C 寫作「非在吸入型面罩」，是錯字。
 題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 13 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-14">
-      <td class="col-num text-center"><strong>71</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">2022 年考古題文件</span> 對孕婦的哈姆立克急救法應採用？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">071.</span><span class="qtext">對孕婦的哈姆立克急救法應採用？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 腹部推擠法</div><div class="opt-item">(B) 胸部推擠法</div><div class="opt-item">(C) 背部敲擊法</div><div class="opt-item">(D) 倒立法</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 14 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-15">
-      <td class="col-num text-center"><strong>72</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">2022 年考古題文件</span> 沒有施行心肺復甦術，其存活率每分鐘約減少多少？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">072.</span><span class="qtext">沒有施行心肺復甦術，其存活率每分鐘約減少多少？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 7-10%</div><div class="opt-item">(B) 10-15%</div><div class="opt-item">(C) 15-20%</div><div class="opt-item">(D) 20-25%</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 15 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-16">
-      <td class="col-num text-center"><strong>73</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">2022 年考古題文件</span> 基本心肺復甦術下壓深度？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">073.</span><span class="qtext">基本心肺復甦術下壓深度？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 5-6 公分</div><div class="opt-item">(B) 2-4 公分</div><div class="opt-item">(C) 7-8 公分</div><div class="opt-item">(D) 8 公分以上</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 16 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-17">
-      <td class="col-num text-center"><strong>74</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 危急度判斷呼吸速率大於幾次為危急個案？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">074.</span><span class="qtext">危急度判斷呼吸速率大於幾次為危急個案？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 每分鐘>29 次</div><div class="opt-item">(B) 每分鐘>35 次</div><div class="opt-item">(C) 每分鐘>20 次</div><div class="opt-item">(D) 每分鐘>10 次</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 17 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-18">
-      <td class="col-num text-center"><strong>75</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列何者為危急個案患者？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">075.</span><span class="qtext">下列何者為危急個案患者？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 血壓 120/80、心跳 90、血氧 95%、意識昏迷的患者。</div><div class="opt-item">(B) 血壓 120/80、心跳 90、血氧 95%、主訴胸悶/痛。</div><div class="opt-item">(C) 血壓 120/80、心跳 90、血氧 95%、左側肢體無力患者。</div><div class="opt-item">(D) 以上皆是。</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 18 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-19">
-      <td class="col-num text-center"><strong>76</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 快速最有效的簡單止血方法有？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">076.</span><span class="qtext">快速最有效的簡單止血方法有？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 直接加壓止血</div><div class="opt-item">(B) 止血帶止血法</div><div class="opt-item">(C) 止血點止血法</div><div class="opt-item">(D) 全部皆可</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 19 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-20">
-      <td class="col-num text-center"><strong>77</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 為患者進行止血包紮時，應該要注意事項，何者為非？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">077.</span><span class="qtext">為患者進行止血包紮時，應該要注意事項，何者為非？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 優先使用止血帶止血</div><div class="opt-item">(B) 敷料要大於傷口邊緣</div><div class="opt-item">(C) 無菌技術</div><div class="opt-item">(D) 清潔傷口</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 20 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-21">
-      <td class="col-num text-center"><strong>78</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 從正趴翻身至患者已呈現頭頸一直線之狀態，此時救護人員之主手該以何種頸椎限制固定？好讓副手使用肩部頸椎限制固定。</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">078.</span><span class="qtext">從正趴翻身至患者已呈現頭頸一直線之狀態，此時救護人員之主手該以何種頸椎限制固定？好讓副手使用肩部頸椎限制固定。</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 頭部頸椎限制</div><div class="opt-item">(B) 胸骨前額頸椎限制</div><div class="opt-item">(C) 胸骨脊椎頸椎限制</div><div class="opt-item">(D) 胸骨枕骨頸椎限制</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 21 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-22">
-      <td class="col-num text-center"><strong>79</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> （接續上一題：病人已由俯臥翻成仰躺）救護人員為患者上完頸圈後，救護人員之副手該以何種頸椎保護固定？好準備將患者固定上長背板。</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">079.</span><span class="qtext">（接續上一題：病人已由俯臥翻成仰躺）救護人員為患者上完頸圈後，救護人員之副手該以何種頸椎保護固定？好準備將患者固定上長背板。</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 肩部頸椎限制</div><div class="opt-item">(B) 頭肩部頸椎限制</div><div class="opt-item">(C) 胸骨前額頸椎限制</div><div class="opt-item">(D) 胸骨脊椎頸椎限制</div></div><div class="expl-box"><strong>【解析】</strong>文件原文為「承上題」。
 題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 22 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-23">
-      <td class="col-num text-center"><strong>80</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">2022 年考古題文件</span> (1)儘早 CPR (2)儘早高級心臟救命術 (3)儘早求救 (4)完整的復甦後照顧 (5)儘早去顫，有關生命之鏈順序，何者正確？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">080.</span><span class="qtext">(1)儘早 CPR (2)儘早高級心臟救命術 (3)儘早求救 (4)完整的復甦後照顧 (5)儘早去顫，有關生命之鏈順序，何者正確？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 12345</div><div class="opt-item">(B) 13254</div><div class="opt-item">(C) 31254</div><div class="opt-item">(D) 31524</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 23 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-24">
-      <td class="col-num text-center"><strong>81</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 患者對聲音無反應，給他疼痛刺激時眼睛會睜開，會呻吟，手腳伸展僵直，請問 GCS？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">081.</span><span class="qtext">患者對聲音無反應，給他疼痛刺激時眼睛會睜開，會呻吟，手腳伸展僵直，請問 GCS？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) E2V3M2</div><div class="opt-item">(B) E2V2M3</div><div class="opt-item">(C) E1V3M2</div><div class="opt-item">(D) E2V2M2</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 24 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-25">
-      <td class="col-num text-center"><strong>82</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列危急個案判斷的敘述何者錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">082.</span><span class="qtext">下列危急個案判斷的敘述何者錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 生命徵象-急性意識不清</div><div class="opt-item">(B) GCS-14 分</div><div class="opt-item">(C) 特殊情況-持續抽搐</div><div class="opt-item">(D) 創傷機轉-成人高度 5 公尺墜落</div><div class="opt-item">(5) 創傷部位-嚴重撕裂傷</div></div><div class="expl-box"><strong>【解析】</strong>文件上這一題有五個選項。
 題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 25 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-26">
-      <td class="col-num text-center"><strong>83</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 在發生車禍時，操作傷患車內脫困過程中，下列何者為常見的錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">083.</span><span class="qtext">在發生車禍時，操作傷患車內脫困過程中，下列何者為常見的錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 車體尚未熄火前即接觸傷患</div><div class="opt-item">(B) 未確實做好傷患的頭頸部保護</div><div class="opt-item">(C) 操作人員未做好自我保護</div><div class="opt-item">(D) 以上皆是</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 26 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-27">
-      <td class="col-num text-center"><strong>84</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 在非創傷二度評估時，操作項目「全身皮膚是否有異常」指的是檢查皮膚有無下列何者異常？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">084.</span><span class="qtext">在非創傷二度評估時，操作項目「全身皮膚是否有異常」指的是檢查皮膚有無下列何者異常？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 紅疹</div><div class="opt-item">(B) 紫斑</div><div class="opt-item">(C) 針孔</div><div class="opt-item">(D) 以上皆是</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 27 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-28">
-      <td class="col-num text-center"><strong>85</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列何者不是非創傷二度評估的操作項目？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">085.</span><span class="qtext">下列何者不是非創傷二度評估的操作項目？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 氣管是否偏移</div><div class="opt-item">(B) 聽診兩側肺音</div><div class="opt-item">(C) 胸部觸診是否有壓痛</div><div class="opt-item">(D) 腹部觸診是否有壓痛</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 28 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-29">
-      <td class="col-num text-center"><strong>86</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 檢查氣管是否偏移，應使用幾隻手指操作？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">086.</span><span class="qtext">檢查氣管是否偏移，應使用幾隻手指操作？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 1</div><div class="opt-item">(B) 2</div><div class="opt-item">(C) 3</div><div class="opt-item">(D) 4</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 29 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-30">
-      <td class="col-num text-center"><strong>87</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 中風的黃金治療時間？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">087.</span><span class="qtext">中風的黃金治療時間？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 1 小時</div><div class="opt-item">(B) 2 小時</div><div class="opt-item">(C) 3 小時</div><div class="opt-item">(D) 30 分鐘</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 30 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-31">
-      <td class="col-num text-center"><strong>88</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【急症】</span> <span class="badge badge-mc">2022 年考古題文件</span> 老人評估中，若有神經學症狀時，辛辛那提檢查任何一項不正常且新發作患者，可能為腦中風之可能性為 _%，三項均不正常 _%？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">088.</span><span class="qtext">老人評估中，若有神經學症狀時，辛辛那提檢查任何一項不正常且新發作患者，可能為腦中風之可能性為 _%，三項均不正常 _%？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 70%、80%</div><div class="opt-item">(B) 72%、85%</div><div class="opt-item">(C) 75%、85%</div><div class="opt-item">(D) 80%、90%</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 31 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-32">
-      <td class="col-num text-center"><strong>89</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 欲用夾板固定肢體骨折，夾板長度必須至少涵蓋？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">089.</span><span class="qtext">欲用夾板固定肢體骨折，夾板長度必須至少涵蓋？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 整個肢體</div><div class="opt-item">(B) 骨斷端及其上面的關節</div><div class="opt-item">(C) 骨斷端及上下兩個關節</div><div class="opt-item">(D) 骨斷端及其下面的關節</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 32 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-33">
-      <td class="col-num text-center"><strong>90</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列何者為錯誤的？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">090.</span><span class="qtext">下列何者為錯誤的？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 到達現場時應注意現場是否安全</div><div class="opt-item">(B) 推擔架床上救護車時僅需注意前方就好</div><div class="opt-item">(C) 患者資料及病情不可以隨意洩漏</div><div class="opt-item">(D) 接觸病人時應做好適當防護</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 33 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-34">
-      <td class="col-num text-center"><strong>91</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【檢傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 有關大量傷病患事故，其敘述下列何者錯？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">091.</span><span class="qtext">有關大量傷病患事故，其敘述下列何者錯？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 一般而言在大量傷病患事故中，常使用 START 檢法</div><div class="opt-item">(B) 傷票顏色分為黑、紅、黃、綠共四色</div><div class="opt-item">(C) 大量傷病患的定義為單一事故中，災害發生時傷病患人數達 15 人以上或預判可能發生 15 人以上之緊急醫療救護</div><div class="opt-item">(D) 依傷票顏色判定後送醫院優先順序，黑色應該要優先後送</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 34 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-35">
-      <td class="col-num text-center"><strong>92</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列哪一種結常用於三角巾包紮？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">092.</span><span class="qtext">下列哪一種結常用於三角巾包紮？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 滑結</div><div class="opt-item">(B) 爪結</div><div class="opt-item">(C) 死結</div><div class="opt-item">(D) 平結</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 35 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-36">
-      <td class="col-num text-center"><strong>93</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列何種器材常使用於車禍患者脫困？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">093.</span><span class="qtext">下列何種器材常使用於車禍患者脫困？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 抽吸式護木</div><div class="opt-item">(B) KED</div><div class="opt-item">(C) 椅式擔架</div><div class="opt-item">(D) 搬運毯</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 36 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-37">
-      <td class="col-num text-center"><strong>94</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 救護技術員應該知道什麼事情？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">094.</span><span class="qtext">救護技術員應該知道什麼事情？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 心肺復甦術</div><div class="opt-item">(B) 辨識生命危急的問題</div><div class="opt-item">(C) 控制出血</div><div class="opt-item">(D) 以上皆是</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 37 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-38">
-      <td class="col-num text-center"><strong>95</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 利用 AVPU 來表示意識程度，其中 V 是表示病人？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">095.</span><span class="qtext">利用 AVPU 來表示意識程度，其中 V 是表示病人？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 清醒</div><div class="opt-item">(B) 對聲音有反應</div><div class="opt-item">(C) 對疼痛刺激有反應</div><div class="opt-item">(D) 昏迷</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 38 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-39">
-      <td class="col-num text-center"><strong>96</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列敘述何者不是長骨？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">096.</span><span class="qtext">下列敘述何者不是長骨？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 鎖骨</div><div class="opt-item">(B) 股骨</div><div class="opt-item">(C) 脛骨</div><div class="opt-item">(D) 腓骨</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 39 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-40">
-      <td class="col-num text-center"><strong>97</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 當前臂骨折，固定前/後應檢查？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">097.</span><span class="qtext">當前臂骨折，固定前/後應檢查？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 檢查頸動脈、感覺運動功能</div><div class="opt-item">(B) 檢查股動脈、感覺運動功能</div><div class="opt-item">(C) 檢查橈動脈、感覺運動功能</div><div class="opt-item">(D) 檢查肱動脈、感覺運動功能</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 40 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-41">
-      <td class="col-num text-center"><strong>98</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【CPR/AED】</span> <span class="badge badge-mc">2022 年考古題文件</span> 成人 CPR 對於無呼吸的病人，在給予第一次正壓給氧後，若無法吹入氣體，則施救者應該？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">098.</span><span class="qtext">成人 CPR 對於無呼吸的病人，在給予第一次正壓給氧後，若無法吹入氣體，則施救者應該？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 重新打開呼吸道，再給予正壓給氧</div><div class="opt-item">(B) 開始胸外按壓</div><div class="opt-item">(C) 檢查脈搏</div><div class="opt-item">(D) 檢查是否有異物堵塞呼吸道</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 41 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(A)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-42">
-      <td class="col-num text-center"><strong>99</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 您救護一患者騎機車自摔，主訴頸部及雙手麻麻的、有刺痛感，欲為其上頸圈，此時您要如何測量頸圈大小？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">099.</span><span class="qtext">您救護一患者騎機車自摔，主訴頸部及雙手麻麻的、有刺痛感，欲為其上頸圈，此時您要如何測量頸圈大小？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 下巴的平行切線至鎖骨之平行切線</div><div class="opt-item">(B) 下頜骨轉角的平行線至肩膀</div><div class="opt-item">(C) 下巴的平行切線至肩膀</div><div class="opt-item">(D) 患者中指後兩節</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 42 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-43">
-      <td class="col-num text-center"><strong>100</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">2022 年考古題文件</span> 對於呼吸困難的傷患，應採取何種姿勢運送？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">100.</span><span class="qtext">對於呼吸困難的傷患，應採取何種姿勢運送？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 平躺</div><div class="opt-item">(B) 左側躺</div><div class="opt-item">(C) 半坐臥</div><div class="opt-item">(D) 無限制姿勢</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 43 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-44">
-      <td class="col-num text-center"><strong>101</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【法規】</span> <span class="badge badge-mc">2022 年考古題文件</span> 「緊急醫療救護法」，於民國幾年發布？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">101.</span><span class="qtext">「緊急醫療救護法」，於民國幾年發布？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 82</div><div class="opt-item">(B) 84</div><div class="opt-item">(C) 86</div><div class="opt-item">(D) 88</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 44 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-45">
-      <td class="col-num text-center"><strong>102</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 腦神經共有幾對？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">102.</span><span class="qtext">腦神經共有幾對？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 11</div><div class="opt-item">(B) 12</div><div class="opt-item">(C) 13</div><div class="opt-item">(D) 14</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 45 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(B)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-46">
-      <td class="col-num text-center"><strong>103</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 請問骨盆骨折，則出血量大約為？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">103.</span><span class="qtext">請問骨盆骨折，則出血量大約為？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 500 C.C.</div><div class="opt-item">(B) 1000 C.C.</div><div class="opt-item">(C) 3000 C.C.</div><div class="opt-item">(D) 10000 C.C.</div></div><div class="expl-box"><strong>【解析】</strong>文件上選項 A 寫作「500°C.C」，是錯字。
 題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 46 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-47">
-      <td class="col-num text-center"><strong>104</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【解剖】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列何者非「生命徵象」檢查項目？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">104.</span><span class="qtext">下列何者非「生命徵象」檢查項目？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 意識</div><div class="opt-item">(B) 血壓</div><div class="opt-item">(C) 瞳孔</div><div class="opt-item">(D) 血糖</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 47 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-48">
-      <td class="col-num text-center"><strong>105</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【創傷】</span> <span class="badge badge-mc">2022 年考古題文件</span> 檢查骨盆是否穩定與疼痛，檢查方式為？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">105.</span><span class="qtext">檢查骨盆是否穩定與疼痛，檢查方式為？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 向外側擠壓一次為限</div><div class="opt-item">(B) 向左側擠壓一次為限</div><div class="opt-item">(C) 向右側擠壓一次為限</div><div class="opt-item">(D) 向內側擠壓一次為限</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 48 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-49">
-      <td class="col-num text-center"><strong>106</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">2022 年考古題文件</span> 下列何者錯誤？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">106.</span><span class="qtext">下列何者錯誤？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 氧氣鼻導管，1~6 L/min</div><div class="opt-item">(B) 氧氣面罩，6~10 L/min</div><div class="opt-item">(C) 非再吸入型氧氣面罩，10~15 L/min</div><div class="opt-item">(D) 甦醒球，10~15 L/min</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 49 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(D)</strong></div></td>
     </tr>
 
     <tr data-qid="EMT-2022-50">
-      <td class="col-num text-center"><strong>107</strong></td>
-      <td class="col-q"><span class="badge badge-mc">【呼吸】</span> <span class="badge badge-mc">2022 年考古題文件</span> 抽吸操作規範，下列何者正確？</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">107.</span><span class="qtext">抽吸操作規範，下列何者正確？</span></div></td>
       <td class="col-opt"><div class="opt-list"><div class="opt-item">(A) 抽吸前應先給予氧氣鼻導管之氧氣治療</div><div class="opt-item">(B) 抽吸導管欲深入之長度(嘴角至下巴)</div><div class="opt-item">(C) 抽吸時間<15 秒</div><div class="opt-item">(D) 抽吸時間<10 秒</div></div><div class="expl-box"><strong>【解析】</strong>題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。<div class="source-sub"><a href="https://www.scribd.com/document/846175657/" target="_blank" class="source-link">參考：2022 EMT-1 筆試考古題文件（使用者提供截圖），第 50 題</a></div></div></td>
       <td class="col-ans text-center"><div class="ans-cell"><strong>(C)</strong></div></td>
     </tr>

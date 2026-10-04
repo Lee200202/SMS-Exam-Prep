@@ -28,8 +28,6 @@ labels = ['(A)', '(B)', '(C)', '(D)']
 
 for idx, q in enumerate(questions):
     q_num = idx + 1
-    cat_str = category_tags.get(q['category'], '急救')
-    type_badge = f'<span class="badge badge-mc">【{cat_str}】</span>'
     
     # Source link (compact sub-part under explanation)
     source_name = q.get('source', '消防署初級救護技術員教材')
@@ -66,8 +64,7 @@ for idx, q in enumerate(questions):
 
     row = f"""
     <tr data-qid="{q['id']}">
-      <td class="col-num text-center"><strong>{q_num}</strong></td>
-      <td class="col-q">{type_badge} <span class="badge badge-mc">{q.get('provenance', {}).get('label', '')}</span> {q['question']}</td>
+      <td class="col-q"><div class="qprompt"><span class="qnum">{q_num:03d}.</span><span class="qtext">{q['question']}</span></div></td>
       <td class="col-opt">{opt_ans_html}</td>
       <td class="col-ans text-center">{ans_html}</td>
     </tr>
@@ -103,7 +100,7 @@ html_content = f"""<!DOCTYPE html>
   body {{
     font-family: "DFKai-SB", "標楷體", "BiauKai", "KaiTi", "Times New Roman", serif;
     font-size: 9.3pt;
-    line-height: 1.44;
+    line-height: 1.34;
     color: #111;
     margin: 0;
     padding: 0;
@@ -152,14 +149,14 @@ html_content = f"""<!DOCTYPE html>
     background-color: #ecfdf5;
     color: #064e3b;
     border: 1px solid #059669;
-    padding: 5px 5px;
+    padding: 3px 4px;
     font-size: 8.8pt;
     font-weight: normal;
     text-align: center;
   }}
   td {{
     border: 1px solid #94a3b8;
-    padding: 5px 5px;
+    padding: 3px 4px;
     vertical-align: top;
     font-size: 9pt;
     word-break: break-word;
@@ -168,11 +165,13 @@ html_content = f"""<!DOCTYPE html>
     background-color: #f8fafc;
   }}
 
-  /* Column Widths (4 columns: 題號, 題目內容, 選項與解析, 答案) */
-  .col-num {{ width: 3.5%; }}
-  .col-q {{ width: 53.5%; }}
-  .col-opt {{ width: 36%; }}
-  .col-ans {{ width: 7%; }}
+  /* 題號與題幹共用一欄；解析獲得較多橫向空間，減少換行。 */
+  .col-q {{ width: 42%; }}
+  .col-opt {{ width: 50%; }}
+  .col-ans {{ width: 8%; }}
+  .qprompt {{ display: grid; grid-template-columns: max-content minmax(0,1fr); }}
+  .qnum {{ color: #065f46; white-space: nowrap; }}
+  .qtext {{ min-width: 0; overflow-wrap: anywhere; }}
 
   .text-center {{ text-align: center; }}
 
@@ -190,8 +189,8 @@ html_content = f"""<!DOCTYPE html>
   .badge-mc {{ background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }}
 
   /* Options list (clean neutral text color, NO green spoilers) */
-  .opt-list {{ font-size: 8.8pt; line-height: 1.42; margin-bottom: 3px; }}
-  .opt-item {{ margin-bottom: 2px; color: #1e293b; }}
+  .opt-list {{ font-size: 8.8pt; line-height: 1.34; margin-bottom: 1px; }}
+  .opt-item {{ margin-bottom: 1px; color: #1e293b; }}
 
   /* Legal explanation & compact source citation */
   .expl-box {{
@@ -199,12 +198,12 @@ html_content = f"""<!DOCTYPE html>
     color: #475569;
     line-height: 1.38;
     border-top: 1px dashed #cbd5e1;
-    padding-top: 4px;
-    margin-top: 3px;
+    padding-top: 2px;
+    margin-top: 2px;
   }}
   .source-sub {{
     font-size: 7.8pt;
-    margin-top: 3px;
+    margin-top: 2px;
     color: #0d9488;
   }}
   .source-link {{
@@ -229,17 +228,13 @@ html_content = f"""<!DOCTYPE html>
 
   <div class="doc-header">
     <div class="doc-title">{'EMT-1 教材概念自編練習（非考古題）' if practice else 'EMT-1 考生回憶考點（非逐字原題）'}</div>
-    <div class="doc-subtitle">{'本站先前由 AI 依教材編寫；尚未逐題核對 114 年教材，選項有可猜規律。請勿當作歷屆試卷。' if practice else 'Dcard 270T 文章的 Part 1 是梯次不明的舊考點，Part 2 為作者記下的六道當梯新題；題幹為本站重寫，多數選項為本站補寫。'} ｜ 總題數：{len(questions)} 題</div>
-    <div class="doc-meta">
-      及格標準：學科測驗 70 分 ｜ 資料整理日：{data.get('updatedAt', '')}
-    </div>
+    <div class="doc-subtitle">有解析版 ｜ 共 {len(questions)} 題</div>
   </div>
 
   <table>
     <thead>
       <tr>
-        <th class="col-num">題號</th>
-        <th class="col-q">題目內容 (含章節)</th>
+        <th class="col-q">題目</th>
         <th class="col-opt">選項與法規解析</th>
         <th class="col-ans">答案</th>
       </tr>
