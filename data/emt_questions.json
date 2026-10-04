@@ -2,26 +2,1404 @@
   "version": "2026-10",
   "title": "EMT-1 初級救護技術員學科題庫",
   "subtitle": "依消防署初級救護技術員教材與歷屆役男分享整理；法規題已對照現行條文",
-  "total": 96,
+  "total": 142,
   "stats": {
-    "total": 96,
-    "multiple_choice_count": 96,
-    "categories": {
-      "emt_laws": 12,
-      "emt_anatomy": 14,
-      "emt_airway": 15,
-      "emt_cpr": 15,
-      "emt_trauma": 15,
-      "emt_medical": 15,
-      "emt_mci": 10
-    },
+    "total": 142,
     "review": {
-      "law": 11,
+      "law": 18,
       "partial": 1,
-      "textbook": 84
+      "textbook": 84,
+      "recalled": 38,
+      "outdated": 1
+    },
+    "provenance": {
+      "recalled": 46,
+      "site_authored": 96
     }
   },
   "questions": [
+    {
+      "id": "EMT-P1-01",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "《緊急醫療救護法》是在哪一天公布的？",
+      "options": [
+        "民國 84 年 8 月 9 日",
+        "民國 86 年 7 月 11 日",
+        "民國 89 年 2 月 2 日",
+        "民國 96 年 7 月 11 日"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 1 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 1 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者記的答案是 84.8.9。公布日期不在條文內，本站沒有另外查證。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-02",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "下列何者不屬於緊急傷病患？",
+      "options": [
+        "突然昏迷的病人",
+        "牙痛的病人",
+        "溺水的病人",
+        "急產的孕婦"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 2 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法施行細則 第2條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020047&flno=2",
+      "review": "law",
+      "explanation": "《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：一、緊急傷病：指具有急性及嚴重性症狀，如未即時給予醫療救護處理，將導致個人健康、身體功能嚴重傷害或身體器官機能嚴重異常之傷病。\n緊急傷病指具有急性及嚴重性症狀，如未即時處理將嚴重傷害健康或身體功能的傷病。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-P1-03",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "救護紀錄表依法至少要保存幾年？",
+      "options": [
+        "3 年",
+        "5 年",
+        "7 年",
+        "10 年"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 3 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法 第34條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=34",
+      "review": "law",
+      "explanation": "《緊急醫療救護法》第34條：救護人員施行救護，應填具救護紀錄表，分別交由該救護車設置機關（構）及應診之醫療機構保存至少七年。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-P1-04",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "救護車不是情況緊急卻使用警鳴器及紅色閃光燈，依《緊急醫療救護法》第 42 條的罰鍰是多少？",
+      "options": [
+        "新臺幣 1 萬元以上 5 萬元以下",
+        "新臺幣 3 萬元以上 15 萬元以下",
+        "新臺幣 6 萬元以上 30 萬元以下",
+        "新臺幣 10 萬元以上 50 萬元以下"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 4 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法 第42條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=42",
+      "review": "law",
+      "explanation": "《緊急醫療救護法》第42條：有下列情形之一者，處新臺幣六萬元以上三十萬元以下罰鍰：一、救護車設置機關（構）違反第十七條第二項、第三十四條第一項或違反依第二十條所定標準超額收費。二、醫院違反第三十六條第一項規定，未立即依其醫療能力救治緊急傷病患或未作適當處置而逕予轉診。三、醫院違反第三十八條第一項規定，未依中央衛生主管機關評定之緊急醫療處理能力分級提供緊急醫療服務。\n第 17 條第 2 項規定救護車非因情況緊急不得使用警鳴器及紅色閃光燈；違反者依第 42 條第 1 款處罰。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-P1-05",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "下列哪一項，初級救護技術員不得施行？",
+      "options": [
+        "給予氧氣",
+        "使用口咽呼吸道",
+        "使用鼻咽呼吸道",
+        "使用聲門上呼吸道"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 5 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "救護技術員管理辦法 第14條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=14",
+      "review": "law",
+      "explanation": "《救護技術員管理辦法》第14條：中級救護技術員得施行之救護項目如下：四、使用聲門上呼吸道。\n使用聲門上呼吸道列在第 14 條，是中級救護技術員的救護項目。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-P1-06",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "初級救護技術員在證書效期三年內，要完成多少小時的繼續教育才能申請展延？",
+      "options": [
+        "12 小時",
+        "24 小時",
+        "36 小時",
+        "72 小時"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 6 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "救護技術員管理辦法 第10條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020141&flno=10",
+      "review": "law",
+      "explanation": "《救護技術員管理辦法》第10條：各級救護技術員於證書效期三年內，完成下列繼續教育課程者，得申請證書效期之展延：一、初級救護技術員：完成附表一所列科目達二十四小時以上，且其中十二小時以上為模組二、四及六之科目。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-P1-07",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "依《緊急醫療救護法》第 18 條，救護車出勤至少要有幾名救護人員？",
+      "options": [
+        "1 名",
+        "2 名",
+        "3 名",
+        "4 名"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 7 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法 第18條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=18",
+      "review": "law",
+      "explanation": "《緊急醫療救護法》第18條：救護車於救護傷病患及運送病人時，應有救護人員二名以上出勤；加護救護車出勤之救護人員，至少應有一名為醫師、護理人員或中級以上救護技術員。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-P1-08",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "上呼吸道與下呼吸道以哪裡為分界？",
+      "options": [
+        "鼻咽",
+        "會厭",
+        "聲門",
+        "氣管隆凸"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 8 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 8 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-09",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "哪一個解剖切面把人體分成前、後兩部分？",
+      "options": [
+        "矢狀切面",
+        "冠狀切面",
+        "正中切面",
+        "水平切面"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 9 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 9 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-10",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "摸得到橈動脈的脈搏，代表病人的收縮壓至少約多少 mmHg？",
+      "options": [
+        "60",
+        "70",
+        "80",
+        "90"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 10 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 10 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-11",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "下列何者不是八大生命徵象？",
+      "options": [
+        "血氧",
+        "膚色",
+        "瞳孔",
+        "血糖"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 11 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 11 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "八大生命徵象：意識、呼吸、脈搏、血壓、瞳孔、體溫、膚色、血氧。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-12",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "評估昏迷指數時，病人能回答問題但答錯了，語言反應是幾分？",
+      "options": [
+        "V2",
+        "V3",
+        "V4",
+        "V5"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 12 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 12 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-13",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "評估昏迷指數時，給予痛刺激的方式是哪一種？",
+      "options": [
+        "捏肩",
+        "按眼眶上緣",
+        "搓胸骨",
+        "按人中"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 13 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 13 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-14",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "成人脈搏的正常值是每分鐘幾次？",
+      "options": [
+        "40～60 次",
+        "60～100 次",
+        "100～120 次",
+        "120～140 次"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 14 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 14 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-15",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "正常體溫的範圍是攝氏幾度？",
+      "options": [
+        "35.0～36.0 度",
+        "36.5～37.5 度",
+        "37.5～38.5 度",
+        "38.0～39.0 度"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 15 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 15 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-16",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "依 EMT-1 教材，血氧濃度低於多少視為供氧不足？",
+      "options": [
+        "90%",
+        "92%",
+        "94%",
+        "96%"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 16 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 16 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者補充：低於 94% 為供氧不足，低於 90% 為危急。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-17",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "使用口咽呼吸道之前，要先確認病人處於哪一種狀態？",
+      "options": [
+        "清醒",
+        "對聲音刺激有反應",
+        "對痛刺激有反應",
+        "對痛刺激沒有反應"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 17 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 17 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-18",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "為嬰兒做 CPR 時，壓胸的深度約幾公分？",
+      "options": [
+        "2 公分",
+        "4 公分",
+        "5 公分",
+        "6 公分"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 18 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 18 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-19",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "到院前心肺功能停止的病人當中，心室纖維顫動約占多少？",
+      "options": [
+        "10%",
+        "20%",
+        "40%",
+        "80%"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 19 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 19 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-20",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "成人嚴重異物哽塞後失去意識、倒在地上，第一步要做什麼？",
+      "options": [
+        "打開呼吸道",
+        "吹氣一次",
+        "壓胸 30 次",
+        "目視有無適當呼吸"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 20 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 20 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-21",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "關於袋瓣罩甦醒球的使用，下列何者錯誤？",
+      "options": [
+        "面罩尖端朝向下巴",
+        "用 EC 手勢固定面罩",
+        "接上氧氣與儲氣袋",
+        "擠壓到胸部有起伏"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 21 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 21 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "面罩尖端應朝向鼻子。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-22",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "心室纖維顫動的病人如果沒有接受 CPR，存活率每分鐘約下降多少？",
+      "options": [
+        "1～2%",
+        "3～4%",
+        "7～10%",
+        "15～20%"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 22 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 22 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者補充：有做 CPR 時約每分鐘下降 3～4%。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-23",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "民國 110 年 4 月 29 日的單項技術規範，為 EMT-1 的輔助檢查新增了哪個項目？",
+      "options": [
+        "血壓、血氧",
+        "瞳孔、聽呼吸音",
+        "辛辛那提中風指數",
+        "測量昏迷指數"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 23 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "outdated",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 23 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。",
+      "status": "outdated",
+      "status_note": "回憶者註明這一題已經過時：規範在 110 年之後又修正過，可操作的項目有再增加。本題不列入測驗。"
+    },
+    {
+      "id": "EMT-P1-24",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "兒童生存之鏈的第一個環節是什麼？",
+      "options": [
+        "預防",
+        "啟動緊急應變",
+        "高品質 CPR",
+        "高級心肺復甦"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 24 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 24 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者記的順序：預防、啟動緊急應變、高品質 CPR、高級心肺復甦、心臟停止後照護、復原。原題是配對題。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-25",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "依 2020 年版指引，為嬰兒做人工呼吸時，多久給一次？",
+      "options": [
+        "2～3 秒一次",
+        "5～6 秒一次",
+        "8～10 秒一次",
+        "10～12 秒一次"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 25 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 25 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者記的題幹是「嬰兒沒有脈搏」，但每 2～3 秒一次是有脈搏、沒有正常呼吸時的給氣頻率，題幹可能記錯。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-26",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "非創傷病人的評估順序，下列何者正確？",
+      "options": [
+        "意識 → 呼吸道 → 呼吸 → 循環 → 輔助檢查",
+        "意識 → 呼吸 → 呼吸道 → 循環 → 輔助檢查",
+        "呼吸道 → 意識 → 呼吸 → 循環 → 輔助檢查",
+        "意識 → 循環 → 呼吸道 → 呼吸 → 輔助檢查"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 26 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 26 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-27",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "成人清醒、有呼吸，要評估脈搏時摸哪裡？",
+      "options": [
+        "頸動脈",
+        "橈動脈",
+        "肱動脈",
+        "股動脈"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 27 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 27 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-28",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "下列何者不算危急狀況？",
+      "options": [
+        "小兒經評估為危急",
+        "血氧濃度 91%",
+        "急產或已在現場完成接生",
+        "微血管充填時間超過 2 秒"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 28 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 28 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-29",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "副手要變換頸椎限制方式時，主手改用哪一種頸椎限制術來協助？",
+      "options": [
+        "胸骨枕骨頸椎減移",
+        "胸骨前額頸椎減移",
+        "胸骨脊椎頸椎減移",
+        "肩部頸椎減移"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 29 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 29 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-30",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "螺旋包紮時，每一圈要蓋住上一圈的多少？",
+      "options": [
+        "四分之一到三分之一",
+        "三分之一到二分之一",
+        "二分之一到三分之二",
+        "完全重疊"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 30 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 30 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-31",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "全身血液約占體重的多少？",
+      "options": [
+        "五分之一",
+        "十分之一",
+        "十三分之一",
+        "二十分之一"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 31 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 31 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-32",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "關於抽吸，下列何者錯誤？",
+      "options": [
+        "抽吸前先給予氧氣",
+        "抽吸管的長度量鼻尖到耳垂",
+        "抽吸管放入口腔做口咽部抽吸",
+        "抽吸時間少於 15 秒"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 32 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 32 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "抽吸管的長度應該量嘴角到耳垂。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-P1-33",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "最有效而且最常用的止血法是哪一種？",
+      "options": [
+        "直接加壓止血",
+        "抬高傷肢",
+        "止血點止血",
+        "止血帶止血"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 33 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 33 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-34",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "固定肢體骨折時，要固定哪些部位？",
+      "options": [
+        "只固定骨折處",
+        "骨折處和上方的關節",
+        "骨折處和下方的關節",
+        "骨折處和上下兩個關節"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 34 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 34 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-35",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "非創傷病人的循環評估，不包含下列哪一項？",
+      "options": [
+        "脈搏",
+        "微血管充填時間",
+        "四肢膚色與溫度",
+        "血糖"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 35 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 35 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者不記得原本的選項，只記得循環評估包含脈搏、微血管充填時間、四肢膚色、四肢是否濕冷。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-36",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "評估病人的失能狀況（XABCDE 的 D），不包含下列哪一項？",
+      "options": [
+        "昏迷指數",
+        "瞳孔",
+        "四肢感覺與運動",
+        "血糖"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 36 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 36 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-37",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "慢性阻塞性肺病的病人，血氧濃度低於多少算危急？",
+      "options": [
+        "85%",
+        "88%",
+        "90%",
+        "94%"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 37 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 37 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者補充：這類病人 92% 可以接受，低於 90% 為危急。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-38",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "創傷評估 XABCDE 的 X 代表什麼？",
+      "options": [
+        "大量出血",
+        "呼吸道",
+        "頸椎",
+        "暴露檢查"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 38 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 38 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-39",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "成人雙下肢燙傷，紅腫並起水泡。燙傷深度與體表面積各是多少？",
+      "options": [
+        "一度、18%",
+        "二度、18%",
+        "二度、36%",
+        "三度、36%"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 39 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 1 第 39 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-P1-40",
+      "type": "multiple_choice",
+      "category": "emt_mci",
+      "category_name": "大量傷病患與檢傷分類",
+      "question": "大量傷病患的定義，是單一事故的傷病患人數達到幾人以上？",
+      "options": [
+        "5 人",
+        "10 人",
+        "15 人",
+        "30 人"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 1 第 40 題",
+        "round": "梯次不明（講師提供的舊考古題）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法施行細則 第2條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020047&flno=2",
+      "review": "law",
+      "explanation": "《緊急醫療救護法施行細則》第2條：本法用詞，定義如下：三、大量傷病患：指單一事故、災害發生之傷病患人數達十五人以上，或預判可能達十五人以上者。",
+      "confidence": "高"
+    },
+    {
+      "id": "EMT-270-01",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "從火場救出的病人意識清醒、血氧濃度 96%，應該用哪一種方式給氧？",
+      "options": [
+        "鼻導管",
+        "簡單面罩",
+        "非再吸入型面罩",
+        "袋瓣罩甦醒球"
+      ],
+      "answer": 2,
+      "exam_tag": "【270T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 2 第 1 題",
+        "round": "270T",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 2 第 1 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者的說明：火場救出的病人可能有吸入性灼傷，之後可能呼吸道水腫，所以給非再吸入型面罩以上的氧氣。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-270-02",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "用 G-FAST 評估中風時，下列哪個做法錯誤？",
+      "options": [
+        "請病人雙手平舉、手心向下",
+        "請病人微笑，看臉部是否對稱",
+        "請病人說一句話",
+        "看兩眼是否偏向一側"
+      ],
+      "answer": 0,
+      "exam_tag": "【270T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 2 第 2 題",
+        "round": "270T",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 2 第 2 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "雙手平舉時手心應該向上。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-270-03",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "病人噎到，用哈姆立克法時要壓哪裡？",
+      "options": [
+        "胸骨中段",
+        "劍突",
+        "肚臍上緣",
+        "肚臍下方"
+      ],
+      "answer": 2,
+      "exam_tag": "【270T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 2 第 3 題",
+        "round": "270T",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 2 第 3 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-270-04",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "病人昏迷指數 3 分，副手可以用哪一種頸椎限制術？",
+      "options": [
+        "雙膝頸椎減移",
+        "胸骨前額頸椎減移",
+        "胸骨枕骨頸椎減移",
+        "肩部頸椎減移"
+      ],
+      "answer": 0,
+      "exam_tag": "【270T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 2 第 4 題",
+        "round": "270T",
+        "options_by": "site"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 2 第 4 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "回憶者的說明：雙膝頸椎減移固定效果較差，只適用於昏迷、不會亂動的病人，好處是副手可以空出雙手。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項是站方依考點自編的。"
+    },
+    {
+      "id": "EMT-270-05",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "關於瀕死呼吸，下列何者錯誤？",
+      "options": [
+        "淺而短",
+        "極慢",
+        "不規則",
+        "常出現在心跳停止後一分鐘內"
+      ],
+      "answer": 0,
+      "exam_tag": "【270T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 2 第 5 題",
+        "round": "270T",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 2 第 5 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "瀕死呼吸是極慢、不規則而且深長的呼吸。\n答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
+    {
+      "id": "EMT-270-06",
+      "type": "multiple_choice",
+      "category": "emt_mci",
+      "category_name": "大量傷病患與檢傷分類",
+      "question": "20 歲男性雙腳骨折無法行走，呼吸每分鐘 20 次，微血管充填時間 1 秒，可以正常溝通。依 START 檢傷法應分到哪一類？",
+      "options": [
+        "紅色",
+        "黃色",
+        "綠色",
+        "黑色"
+      ],
+      "answer": 1,
+      "exam_tag": "【270T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E02",
+        "source_item": "Part 2 第 6 題",
+        "round": "270T",
+        "options_by": "source"
+      },
+      "review": "recalled",
+      "source_kind": "recalled",
+      "confidence": "中",
+      "source": "270T 考生回憶（Dcard 軍旅板），Part 2 第 6 題",
+      "source_url": "https://www.dcard.tw/f/military/p/260454013",
+      "explanation": "答案照回憶者所記，沒有逐題對照現行教材原文。選項依回憶者所記。"
+    },
     {
       "id": "EMT-LAW-01",
       "type": "multiple_choice",
@@ -42,7 +1420,11 @@
       "revised": "原考古題答案為 40 小時（修正前規定），已依現行附表一改為 56 小時。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-02",
@@ -63,7 +1445,11 @@
       "reviewed_at": "2026-10-04",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-03",
@@ -85,7 +1471,11 @@
       "revised": "原考古題為「每年至少 8 小時」（修正前規定），已依現行第10條改寫。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-04",
@@ -107,7 +1497,11 @@
       "revised": "原題引用第3條（修正前條號），已改為現行第13條。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-05",
@@ -129,7 +1523,11 @@
       "revised": "原題引用第23條，實際條文在第34條。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-06",
@@ -150,7 +1548,11 @@
       "reviewed_at": "2026-10-04",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-07",
@@ -172,7 +1574,11 @@
       "revised": "原考古題答案為二萬元以上十萬元以下，且引用第37、44條；依現行第35、45條應為一萬元以上五萬元以下。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-08",
@@ -193,7 +1599,11 @@
       "reviewed_at": "2026-10-04",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-09",
@@ -215,7 +1625,11 @@
       "revised": "原題引用第17條，且選項含「一名救護人員搭配一名駕駛」，現行第18條並無此規定。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-10",
@@ -236,7 +1650,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-11",
@@ -258,7 +1676,11 @@
       "review": "partial",
       "source_kind": "law",
       "confidence": "低",
-      "revised": "原解析引用「法院判例」但沒有可查的出處，已刪除，改為只引用第93條條文。"
+      "revised": "原解析引用「法院判例」但沒有可查的出處，已刪除，改為只引用第93條條文。",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-LAW-12",
@@ -280,7 +1702,11 @@
       "revised": "原考古題認為 EMT-1 可協助病患服用自備藥物；依現行第13、14條，此項屬中級救護技術員之救護項目。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-01",
@@ -301,7 +1727,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-02",
@@ -322,7 +1752,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-03",
@@ -343,7 +1777,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-04",
@@ -364,7 +1802,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-05",
@@ -385,7 +1827,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-06",
@@ -406,7 +1852,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-07",
@@ -427,7 +1877,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-08",
@@ -448,7 +1902,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-09",
@@ -469,7 +1927,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-10",
@@ -490,7 +1952,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-11",
@@ -511,7 +1977,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-12",
@@ -532,7 +2002,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-13",
@@ -553,7 +2027,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-ANA-14",
@@ -574,7 +2052,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-01",
@@ -595,7 +2077,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-02",
@@ -616,7 +2102,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-03",
@@ -637,7 +2127,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-04",
@@ -658,7 +2152,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-05",
@@ -679,7 +2177,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-06",
@@ -700,7 +2202,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-07",
@@ -721,7 +2227,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-08",
@@ -742,7 +2252,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-09",
@@ -763,7 +2277,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-10",
@@ -784,7 +2302,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-11",
@@ -805,7 +2327,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-12",
@@ -826,7 +2352,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-13",
@@ -847,7 +2377,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-14",
@@ -868,7 +2402,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-AIR-15",
@@ -890,6 +2428,10 @@
       "review": "textbook",
       "source_kind": "textbook",
       "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      },
       "caution": "2020 年版美國心臟協會（AHA）指引對有脈搏、呼吸不足的成人，建議每 6 秒給一口氣（每分鐘約 10 次）。考試以訓練單位教材為準。"
     },
     {
@@ -911,7 +2453,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-02",
@@ -932,7 +2478,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-03",
@@ -953,7 +2503,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-04",
@@ -974,7 +2528,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-05",
@@ -995,7 +2553,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-06",
@@ -1016,7 +2578,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-07",
@@ -1037,7 +2603,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-08",
@@ -1058,7 +2628,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-09",
@@ -1079,7 +2653,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-10",
@@ -1100,7 +2678,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-11",
@@ -1122,6 +2704,10 @@
       "review": "textbook",
       "source_kind": "textbook",
       "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      },
       "caution": "各指引對清醒成人嚴重哽塞的第一步作法不同：歐洲復甦委員會（ERC）建議先拍背 5 下，無效再做腹部推擠。考試以訓練單位教材為準。"
     },
     {
@@ -1143,7 +2729,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-13",
@@ -1164,7 +2754,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-14",
@@ -1185,7 +2779,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-CPR-15",
@@ -1206,7 +2804,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-01",
@@ -1227,7 +2829,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-02",
@@ -1248,7 +2854,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-03",
@@ -1269,7 +2879,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-04",
@@ -1290,7 +2904,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-05",
@@ -1311,7 +2929,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-06",
@@ -1332,7 +2954,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-07",
@@ -1353,7 +2979,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-08",
@@ -1374,7 +3004,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-09",
@@ -1395,7 +3029,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-10",
@@ -1416,7 +3054,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-11",
@@ -1437,7 +3079,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-12",
@@ -1458,7 +3104,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-13",
@@ -1479,7 +3129,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-14",
@@ -1500,7 +3154,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-TRM-15",
@@ -1521,7 +3179,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-01",
@@ -1542,7 +3204,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-02",
@@ -1563,7 +3229,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-03",
@@ -1584,7 +3254,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-04",
@@ -1605,7 +3279,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-05",
@@ -1626,7 +3304,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-06",
@@ -1647,7 +3329,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-07",
@@ -1668,7 +3354,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-08",
@@ -1690,6 +3380,10 @@
       "review": "textbook",
       "source_kind": "textbook",
       "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      },
       "caution": "抬高下肢對休克的效果證據有限，部分急救指引只建議讓傷患平躺。考試以訓練單位教材為準。"
     },
     {
@@ -1711,7 +3405,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-10",
@@ -1732,7 +3430,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-11",
@@ -1753,7 +3455,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-12",
@@ -1774,7 +3480,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-13",
@@ -1795,7 +3505,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-14",
@@ -1816,7 +3530,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MED-15",
@@ -1837,7 +3555,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-01",
@@ -1858,7 +3580,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-02",
@@ -1879,7 +3605,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-03",
@@ -1900,7 +3630,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-04",
@@ -1921,7 +3655,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-05",
@@ -1942,7 +3680,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-06",
@@ -1963,7 +3705,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-07",
@@ -1984,7 +3730,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-08",
@@ -2005,7 +3755,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-09",
@@ -2026,7 +3780,11 @@
       "reviewed_at": "2026-10-04",
       "review": "textbook",
       "source_kind": "textbook",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "EMT-MCI-10",
@@ -2048,7 +3806,11 @@
       "revised": "原題引用第26至28條，實際條文在第32、33條。",
       "source_kind": "law",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     }
   ],
   "updatedAt": "2026-10-04"

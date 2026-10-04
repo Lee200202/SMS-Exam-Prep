@@ -172,16 +172,36 @@ def main():
             errors.append("逐題審核表列數 %d 與題數不符" % len(rows))
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
-    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook"}
-    for name, data, pool, need in (("新訓", recruit, {"law"}, 50), ("EMT", emt, {"law", "textbook"}, 50)):
+    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "recalled"}
+    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled", "site_authored"}
+
+    def in_exam(name, q):
+        cls = q.get("provenance", {}).get("class", "")
+        if q.get("status") == "outdated":
+            return False
+        return (cls.startswith("compiled") and q.get("review") == "law") if name == "新訓" else cls == "recalled"
+
+    for name, data, need in (("新訓", recruit, 50), ("EMT", emt, 40)):
         for q in data["questions"]:
             if q.get("review") not in allowed:
                 errors.append("%s %s 的查核狀態不明：%s" % (name, q["id"], q.get("review")))
+            if q.get("provenance", {}).get("class") not in origins:
+                errors.append("%s %s 沒有來源等級，請重跑 build_provenance.py" % (name, q["id"]))
             if (q.get("status") == "outdated") != (q.get("review") == "outdated"):
                 errors.append("%s %s 的舊法標記不一致" % (name, q["id"]))
-        count = sum(q.get("review") in pool for q in data["questions"])
-        if count < need:
-            errors.append("%s 可列入模擬考的題目只有 %d 題，不足 %d 題" % (name, count, need))
+        pool = [q for q in data["questions"] if in_exam(name, q)]
+        if len(pool) < need:
+            errors.append("%s 可列入模擬考的題目只有 %d 題，不足 %d 題" % (name, len(pool), need))
+        # 模擬考題池裡，正解不應該靠「最長」或「唯一帶英文」就猜得出來
+        mc = [q for q in pool if q["type"] == "multiple_choice"]
+        longest = sum(1 for q in mc if len(q["options"][q["answer"]]) > max(
+            len(o) for i, o in enumerate(q["options"]) if i != q["answer"]))
+        english = sum(1 for q in mc if re.search(r"[A-Za-z]{2,}", q["options"][q["answer"]]) and not any(
+            re.search(r"[A-Za-z]{2,}", o) for i, o in enumerate(q["options"]) if i != q["answer"]))
+        print("%s 模擬考題池 %d 題（選擇題 %d）：正解是最長選項 %d 題、正解是唯一含英文的選項 %d 題" % (
+            name, len(pool), len(mc), longest, english))
+        if mc and (longest / len(mc) > 0.4 or english / len(mc) > 0.1):
+            errors.append("%s 模擬考題池的選項有可猜的規律（最長 %d、唯一英文 %d／%d）" % (name, longest, english, len(mc)))
 
     # PDF 必須在資料最後一次修改之後重新產生（scripts/build_all.py 會寫入 pdf/manifest.json）
     manifest_path = os.path.join(ROOT, "pdf", "manifest.json")
@@ -195,7 +215,9 @@ def main():
                 errors.append("PDF 不是用目前的 %s 產生的，請執行 scripts/build_all.py" % name)
     for html_name, data in (("questions_biaukai.html", recruit), ("emt_questions_biaukai.html", emt)):
         page = open(os.path.join(ROOT, "pdf", html_name), encoding="utf-8").read()
-        missing = [q["id"] for q in data["questions"] if q["question"] not in page]
+        # EMT 的 PDF 不印回憶者註明已過時的題目
+        skip = lambda q: html_name.startswith("emt") and q.get("status") == "outdated"
+        missing = [q["id"] for q in data["questions"] if q["question"] not in page and not skip(q)]
         if missing:
             errors.append("%s 缺少或未更新的題目：%s" % (html_name, missing[:5]))
 

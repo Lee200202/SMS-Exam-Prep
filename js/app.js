@@ -122,19 +122,20 @@
         regulations: '替代役實施條例', rights: '權益、撫卹與保險', management: '訓練服勤與獎懲',
         volunteer: '志願服務法', shooting: '射擊與國防',
       },
-      // 模擬考只從這些查核狀態的題目出題
-      verified: ['law'],
-      verifiedLabel: '已對照法條',
-      otherLabel: '未能以法規查核的題目與經驗題',
+      // 模擬考題池：257T 彙編收錄、而且答案已對照現行條文的題目
+      inExam: (q) => q.fromSource && q.review === 'law',
+      examLabel: '彙編收錄且已對照法條',
+      otherLabel: '答案待補證的彙編題、射擊經驗題與站方自編題',
     },
     emt: {
-      id: 'emt', label: 'EMT-1', pass: 70, mockCount: 50, mockMinutes: 50, quickCount: 20,
+      id: 'emt', label: 'EMT-1', pass: 70, mockCount: 40, mockMinutes: 50, quickCount: 20,
       mistakesKey: 'sms_emt_mistakes', bookmarksKey: 'sms_emt_bookmarks', sessionKey: 'sms_session_v2_emt',
       quizRoute: 'emt', bankRoute: 'emt-bank',
       cats: {},
-      verified: ['law', 'textbook'],
-      verifiedLabel: '法規題與教材題',
-      otherLabel: '其他題目',
+      // 模擬考題池：270T 考生回憶的考點題
+      inExam: (q) => q.provenance === 'recalled',
+      examLabel: '考生回憶考點',
+      otherLabel: '站方依教材自編的練習題',
     },
   };
 
@@ -156,7 +157,7 @@
   };
   const SECTION_HEAD = {
     recruit: ['新訓學科', '替代役基礎訓練學科測驗的題庫、重點整理與法規全文。'],
-    emt: ['EMT-1 初級救護技術員', '學科題庫、重點整理與相關法規。及格標準為 70 分。'],
+    emt: ['EMT-1 初級救護技術員', '學科題庫、重點整理與相關法規。模擬考以 70 分為及格標準。'],
   };
 
   const state = {
@@ -187,6 +188,11 @@
       sourceUrl: q.source_url || '',
       sourceKind: q.source_kind || (/law\.moj\.gov\.tw/.test(q.source_url || '') ? 'law' : 'other'),
       review: q.review || '',
+      provenance: (q.provenance && q.provenance.class) || '',
+      fromSource: /^compiled/.test((q.provenance && q.provenance.class) || ''),
+      sourceItem: (q.provenance && q.provenance.source_item) || '',
+      sourceRound: (q.provenance && q.provenance.round) || '',
+      optionsBy: (q.provenance && q.provenance.options_by) || '',
       caution: q.caution || '',
       outdated: q.status === 'outdated',
       statusNote: q.status_note || '',
@@ -205,7 +211,7 @@
     const bank = {
       cfg, questions, byId,
       pool: questions.filter((q) => !q.outdated),
-      verified: questions.filter((q) => !q.outdated && cfg.verified.includes(q.review)),
+      verified: questions.filter((q) => !q.outdated && cfg.inExam(q)),
       keep,
       mistakes: keep(loadSet(cfg.mistakesKey)),
       bookmarks: keep(loadSet(cfg.bookmarksKey)),
@@ -236,7 +242,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004b';
+  const ASSET_VERSION = '20261004c';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -340,7 +346,7 @@
       const count = Number($('#opt-count') ? $('#opt-count').value : 20) || Infinity;
       ids = shuffle(practice.filter((q) => q.cat === cat)).slice(0, count).map((q) => q.id);
       opts = { ...opts, label: `章節練習：${cfg.cats[cat]}`, instant: true };
-      emptyMessage = `這個章節沒有${cfg.verifiedLabel}的題目。勾選下方「納入${cfg.otherLabel}」後可以練習。`;
+      emptyMessage = `這個章節沒有「${cfg.examLabel}」的題目。勾選下方「納入${cfg.otherLabel}」後可以練習。`;
     } else if (mode === 'mistakes') {
       ids = shuffle(bank.pool.filter((q) => bank.mistakes.has(q.id))).slice(0, 50).map((q) => q.id);
       opts = { ...opts, label: '錯題重測', instant: true };
@@ -476,7 +482,7 @@
 
   function sourceLine(q) {
     if (!q.source && !q.sourceUrl) return '';
-    const label = { law: '法規依據', experience: '經驗來源', textbook: '參考教材', past: '來源' }[q.sourceKind] || '參考資料';
+    const label = { law: '法規依據', experience: '經驗來源', textbook: '參考教材', past: '來源', recalled: '來源' }[q.sourceKind] || '參考資料';
     return `<p class="small muted">${label}：${ext(q.sourceUrl, q.source || q.sourceUrl)}</p>`;
   }
 
@@ -487,6 +493,7 @@
     if (q.caution) parts.push(`<p class="notice notice-warn small">${esc(q.caution)}</p>`);
     if (q.revised) parts.push(`<p class="small"><span class="chip chip-amber">已依現行法規改寫</span> ${esc(q.revised)}</p>`);
     parts.push(sourceLine(q));
+    parts.push(originLine(q));
     return parts.join('');
   }
 
@@ -508,9 +515,29 @@
     unverified: ['chip-amber', '未能以法規查核'],
     experience: ['', '經驗題'],
     textbook: ['', '教材題'],
+    recalled: ['', '答案照回憶者所記'],
   };
   const reviewChip = (q) => (REVIEW_CHIP[q.review]
     ? `<span class="chip ${REVIEW_CHIP[q.review][0]}">${REVIEW_CHIP[q.review][1]}</span>` : '');
+
+  // 來源等級：這一題有沒有「考過」的證據，和答案對不對是兩件事
+  const ORIGIN_CHIP = {
+    compiled_verbatim: ['chip-primary', '彙編原題'],
+    compiled_minor: ['chip-primary', '彙編原題（用字微調）'],
+    compiled_adapted: ['chip-amber', '彙編題，已依現行法改寫'],
+    recalled: ['chip-primary', '考生回憶考點'],
+    site_authored: ['chip-amber', '站方自編，非考古題'],
+  };
+  const originChip = (q) => (ORIGIN_CHIP[q.provenance]
+    ? `<span class="chip ${ORIGIN_CHIP[q.provenance][0]}">${ORIGIN_CHIP[q.provenance][1]}</span>` : '');
+  const originLine = (q) => {
+    if (q.provenance === 'recalled') {
+      return `<p class="small muted">考點來源：270T 考生回憶（${esc(q.sourceItem)}，${esc(q.sourceRound)}）。題幹為站方重寫${q.optionsBy === 'site' ? '，回憶者沒有記下選項，選項是站方自編' : ''}。</p>`;
+    }
+    if (q.fromSource) return `<p class="small muted">考古題來源：成功嶺新訓考古題彙編（增補至 257T）${esc(q.sourceItem)} 題。</p>`;
+    if (q.provenance === 'site_authored') return '<p class="small muted">這一題在歷屆彙編與考生回憶裡都找不到，是站方編寫的練習題，沒有考過的證據。</p>';
+    return '';
+  };
 
   const tagText = (q) => {
     const tags = (q.tag.match(/【(.+?)】/g) || []).map((t) => t.slice(1, -1).replace(/考$/, ''));
@@ -543,7 +570,8 @@
         <a class="btn btn-primary btn-lg" href="#quiz">開始新訓學科測驗</a>
         <a class="btn btn-primary btn-lg" href="#emt">開始 EMT-1 測驗</a>
       </div>
-      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}），其中 ${r.verified.length} 題已對照法條・EMT-1 ${e.questions.length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
+      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 ${e.questions.length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
+      <p class="small muted" id="home-origin">模擬考只出有來源的題目：新訓 ${r.verified.length} 題（歷屆彙編收錄並已對照現行法條）、EMT-1 ${e.verified.length} 題（270T 考生回憶的考點）。其餘題目要在練習時自己勾選才會出現。</p>
     </section>
     <div class="stack">
       ${resumeBanner(r)}${resumeBanner(e)}
@@ -583,9 +611,10 @@
       <details>
         <summary>資料來源與使用限制</summary>
         <div class="details-body read">
-          <p>題目來自歷屆役男公開分享的考古題與筆記，不是主管機關公布的題庫。法規條文直接取自全國法規資料庫，取得日期標示在「法規全文」頁。</p>
-          <p>考古題可能依當時的舊法出題。新訓每一題都對照過收錄的現行法規：有條文依據的題目標示「已對照法條」，解析就是條文原文；與現行法規牴觸的題目已改寫並註明原因；現行法規已無對應規定的題目標為「舊法題」，不列入測驗；查無明文的題目標示「未能以法規查核」，保留歷屆答案。</p>
-          <p>EMT-1 的法規題已對照現行條文；醫學題依消防署教材與歷屆整理，沒有對照比教材更新的國際急救指引，請以訓練單位教學為準。</p>
+          <p>「有沒有考過」和「答案對不對」是分開標示的。</p>
+          <p>新訓題庫對照的是〈成功嶺新訓考古題〉彙編（增補至 257T）。每一題會標示「彙編原題」「彙編題，已依現行法改寫」或「站方自編，非考古題」；彙編是役男整理的民間資料，不是考試單位的原卷。答案另外對照全國法規資料庫的現行條文。</p>
+          <p>EMT-1 目前唯一能確認替代役考過的來源，是一位 270T 役男在 Dcard 記下的 46 個考點。這些題目的題幹由站方重寫、部分選項為站方自編，答案照回憶者所記，不是逐字原題。其餘 96 題是先前由 AI 依教材編寫的練習題，沒有考過的證據。</p>
+          <p>醫學內容沒有逐題對照現行教材原文，請以訓練單位教學為準，不適合作為現場急救的依據。</p>
           <p>用品清單、成績配分與薪給等內容屬於歷屆經驗，實際以徵集令、當梯次營區通知與主管機關公告為準。</p>
         </div>
       </details>
@@ -598,12 +627,12 @@
     const count = (list, cat) => list.filter((q) => q.cat === cat).length;
     const catOptions = Object.entries(cfg.cats).map(([id, name]) => {
       const a = count(bank.verified, id), b = count(bank.pool, id);
-      return `<option value="${esc(id)}">${esc(name)}（${a} 題${b > a ? `，另 ${b - a} 題待核實` : ''}）</option>`;
+      return `<option value="${esc(id)}">${esc(name)}（${a} 題${b > a ? `，另 ${b - a} 題需勾選` : ''}）</option>`;
     }).join('');
     const others = bank.pool.length - bank.verified.length;
     const scope = cfg.id === 'recruit'
-      ? `只從${cfg.verifiedLabel}的 ${bank.verified.length} 題出題。`
-      : `從 ${bank.verified.length} 題出題，其中醫學題依消防署教材整理，尚未對照新版教材。`;
+      ? `只從歷屆彙編（增補至 257T）收錄、而且答案已對照現行法條的 ${bank.verified.length} 題出題。`
+      : `只從 270T 考生回憶的 ${bank.verified.length} 題考點出題（回憶者記錄當梯考試是 40 題單選）。題幹由站方重寫，不是逐字原題。`;
     return `
     <div class="stack">
       ${resumeBanner(bank)}
@@ -638,7 +667,9 @@
       <div class="card stack-sm">
         <h2>出題設定</h2>
         ${others ? `<label class="check"><input type="checkbox" id="opt-unverified"> 快速練習與章節練習納入${cfg.otherLabel}（${others} 題）</label>
-        <p class="small muted">這些題目的答案來自歷屆考古題或役男筆記，沒有法規條文可以對照，作答時題目上會有標示。模擬考不會抽到它們。</p>` : ''}
+        <p class="small muted">${cfg.id === 'recruit'
+          ? '包含答案沒有法規條文可以對照的彙編題、役男筆記裡的射擊題，以及站方自己編寫的題目。'
+          : '這些題目是先前由 AI 依教材編寫的，不是考古題；正確選項常常是最長或唯一帶英文的那一個，和實際考題的寫法不同。'}作答時題目上會有標示，模擬考不會抽到它們。</p>` : ''}
         <label class="check"><input type="checkbox" id="opt-shuffle" checked> 選擇題的選項隨機排列</label>
         <p class="small muted">含「以上皆是」這類選項的題目不會打亂。未作答的題目不計分，也不會加入錯題本。模擬考計時以實際時間計算，切到其他 App 時不會停；離開測驗頁或重新整理會自動暫停，可以回來繼續。</p>
         <div class="row">${pdfLink(cfg.id)}</div>
@@ -707,7 +738,7 @@
         <div class="question-meta">
           <span class="chip chip-primary">${typeLabel(q)}</span>
           <span class="chip">${esc(bank.cfg.cats[q.cat] || q.cat)}</span>
-          ${bank.cfg.verified.includes(q.review) ? '' : reviewChip(q)}
+          ${bank.cfg.inExam(q) ? '' : originChip(q) + reviewChip(q)}
           ${flagged ? '<span class="chip chip-amber">已標記</span>' : ''}
         </div>
         <h1 class="question-text" id="question-text" tabindex="-1">${esc(q.text)}</h1>
@@ -819,7 +850,7 @@
         </div>
         <div class="field field-select">
           <label for="bank-scope">範圍</label>
-          <select id="bank-scope" data-filter="scope"><option value="all" ${sel('all', f.scope)}>全部題目</option><option value="bookmarks" ${sel('bookmarks', f.scope)}>我的收藏</option><option value="mistakes" ${sel('mistakes', f.scope)}>錯題本</option></select>
+          <select id="bank-scope" data-filter="scope"><option value="all" ${sel('all', f.scope)}>全部題目</option><option value="bookmarks" ${sel('bookmarks', f.scope)}>我的收藏</option><option value="mistakes" ${sel('mistakes', f.scope)}>錯題本</option><option value="exam" ${sel('exam', f.scope)}>模擬考會考的題目</option><option value="authored" ${sel('authored', f.scope)}>站方自編題</option></select>
         </div>
         <div class="toolbar-checks">
           <label class="check"><input type="checkbox" id="bank-hide" ${f.hide ? 'checked' : ''}> 背題模式（先隱藏答案）</label>
@@ -840,6 +871,8 @@
       if (f.cat !== 'all' && q.cat !== f.cat) return false;
       if (f.scope === 'bookmarks' && !bank.bookmarks.has(q.id)) return false;
       if (f.scope === 'mistakes' && !bank.mistakes.has(q.id)) return false;
+      if (f.scope === 'exam' && (q.outdated || !bank.cfg.inExam(q))) return false;
+      if (f.scope === 'authored' && q.provenance !== 'site_authored') return false;
       if (!kw) return true;
       return [q.id, q.text, q.explanation, ...q.options].join('\n').toLowerCase().includes(kw);
     });
@@ -856,13 +889,13 @@
       : `${answerList(q, order, undefined, kw)}
          ${q.caution ? `<p class="notice notice-warn small">${esc(q.caution)}</p>` : ''}
          ${q.revised ? `<p class="small"><span class="chip chip-amber">已依現行法規改寫</span> ${esc(q.revised)}</p>` : ''}
-         ${sourceLine(q)}
+         ${sourceLine(q)}${originLine(q)}
          ${q.explanation ? `<details class="explain-fold" ${inExplanation ? 'open' : ''}><summary>看解析</summary>
            <div class="details-body"><p>${hl(q.explanation, kw).replace(/\n/g, '<br>')}</p></div></details>` : ''}`;
     return `<article class="card qcard" id="q-${esc(q.id)}" data-id="${esc(q.id)}">
       <div class="qcard-head">
         <span class="id">${esc(q.id)}</span><span class="chip chip-primary">${typeLabel(q)}</span><span class="chip">${esc(bank.cfg.cats[q.cat] || q.cat)}</span>
-        ${reviewChip(q)}
+        ${originChip(q)}${reviewChip(q)}
         ${bank.mistakes.has(q.id) ? '<span class="chip chip-red">錯題</span>' : ''}
         ${starButton(bank, q)}
       </div>

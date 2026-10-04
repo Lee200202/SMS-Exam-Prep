@@ -2,7 +2,7 @@
 """
 一次重建所有由 data/*.json 衍生的檔案，確保網站、PDF 與稽核表用的是同一份資料。
 
-順序：套用逐題查核 → 資料包 → 三份 PDF → 寫入 pdf/manifest.json → 資料檢查。
+順序：套用逐題查核 → 逐題溯源 → 資料包 → 三份 PDF → 寫入 pdf/manifest.json → 資料檢查。
 任何一步失敗就停止。
 
 用法：python scripts/build_all.py
@@ -19,6 +19,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STEPS = [
     "apply_review_2026_10.py",
+    "build_provenance.py",
     "generate_bundle.py",
     "generate_pdf_bank.py",
     "generate_emt_pdf.py",

@@ -34,6 +34,8 @@ for idx, q in enumerate(questions):
     source_name = q.get('source', '消防署初級救護技術員教材')
     source_url = q.get('source_url', 'http://ebook.nfa.gov.tw/1080503/')
     source_link_html = f'<a href="{source_url}" target="_blank" class="source-link">參考：{source_name}</a>'
+    if q.get('status') == 'outdated':
+        continue  # 回憶者註明已過時的題目不印
 
     # Options (A)(B)(C)(D) with identical text colors (NO green spoiler)
     opts = []
@@ -64,7 +66,7 @@ for idx, q in enumerate(questions):
     row = f"""
     <tr>
       <td class="col-num text-center"><strong>{q_num}</strong></td>
-      <td class="col-q">{type_badge} {q['question']}</td>
+      <td class="col-q">{type_badge} <span class="badge badge-mc">{q.get('provenance', {}).get('label', '')}</span> {q['question']}</td>
       <td class="col-opt">{opt_ans_html}</td>
       <td class="col-ans text-center">{ans_html}</td>
     </tr>
@@ -226,7 +228,7 @@ html_content = f"""<!DOCTYPE html>
 
   <div class="doc-header">
     <div class="doc-title">成功嶺替代役 EMT-1 初級救護技術員學科題庫彙編（非官方整理）</div>
-    <div class="doc-subtitle">依消防署初級救護技術員教材與歷屆役男分享整理 ｜ 總題數：{len(questions)} 題</div>
+    <div class="doc-subtitle">前 45 題為 270T 考生回憶的考點（題文為站方重寫）；其後為站方依教材自編的練習題，不是考古題 ｜ 總題數：{len(questions)} 題</div>
     <div class="doc-meta">
       及格標準：學科測驗 70 分 ｜ 資料整理日：{data.get('updatedAt', '')}
     </div>

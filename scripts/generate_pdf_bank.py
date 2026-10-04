@@ -69,7 +69,7 @@ def build_rows(q_list, start_num, is_tf_section=False):
         row = f"""
         <tr>
           <td class="col-num text-center"><strong>{q_num}</strong></td>
-          <td class="col-q">{cat_badge} {exam_badge} {q['question']}</td>
+          <td class="col-q">{cat_badge} {exam_badge} <span class="badge badge-exam">{q.get('provenance', {}).get('label', '')}</span> {q['question']}</td>
           <td class="col-opt">{opt_ans_html}</td>
           <td class="col-ans text-center">{ans_html}</td>
         </tr>

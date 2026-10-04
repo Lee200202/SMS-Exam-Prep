@@ -2,17 +2,23 @@
   "version": "2026.10",
   "updatedAt": "2026-10-04",
   "stats": {
-    "total": 272,
-    "active": 264,
-    "true_false": 154,
-    "multiple_choice": 118,
-    "with_explanation": 264,
+    "total": 287,
+    "active": 278,
+    "true_false": 166,
+    "multiple_choice": 121,
+    "with_explanation": 278,
     "review": {
-      "law": 175,
+      "law": 182,
       "partial": 4,
-      "unverified": 58,
+      "unverified": 65,
       "experience": 27,
-      "outdated": 8
+      "outdated": 9
+    },
+    "provenance": {
+      "compiled_verbatim": 182,
+      "compiled_minor": 25,
+      "compiled_adapted": 30,
+      "site_authored": 50
     }
   },
   "questions": [
@@ -29,7 +35,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 1",
+        "tags": "【205T考】【219T考】【257T考】"
+      }
     },
     {
       "id": "TF-002",
@@ -44,7 +57,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 2",
+        "tags": "【219T考】【247T考】"
+      }
     },
     {
       "id": "TF-003",
@@ -59,7 +79,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 3",
+        "tags": ""
+      }
     },
     {
       "id": "TF-004",
@@ -74,7 +101,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 4",
+        "tags": ""
+      }
     },
     {
       "id": "TF-005",
@@ -89,7 +123,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 5",
+        "tags": "【215T考】［227T考］【257T考】"
+      }
     },
     {
       "id": "TF-006",
@@ -104,7 +145,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 6",
+        "tags": "【215T考】［227T考］【247T考】【257T考】【205T考】"
+      }
     },
     {
       "id": "TF-007",
@@ -119,7 +167,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 7",
+        "tags": "［227T考］【215T考】【219T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-008",
@@ -134,7 +189,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 8",
+        "tags": ""
+      }
     },
     {
       "id": "TF-009",
@@ -149,7 +211,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 9",
+        "tags": ""
+      }
     },
     {
       "id": "TF-010",
@@ -164,7 +233,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 10",
+        "tags": "【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "TF-011",
@@ -179,7 +255,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 11",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-012",
@@ -194,7 +277,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 12",
+        "tags": ""
+      }
     },
     {
       "id": "TF-013",
@@ -208,7 +298,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 13",
+        "tags": ""
+      }
     },
     {
       "id": "TF-014",
@@ -223,7 +320,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 14",
+        "tags": ""
+      }
     },
     {
       "id": "TF-015",
@@ -238,7 +342,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 15",
+        "tags": ""
+      }
     },
     {
       "id": "TF-016",
@@ -253,7 +364,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 16",
+        "tags": "【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "TF-017",
@@ -268,7 +386,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 17",
+        "tags": "【247T考】［227T考］【205T考】［227T考］"
+      }
     },
     {
       "id": "TF-018",
@@ -283,7 +408,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原題幹為「軍事基礎訓練」；現行第13條的用語是「基礎訓練」，已依條文更新。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 18",
+        "tags": ""
+      }
     },
     {
       "id": "TF-019",
@@ -297,7 +429,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 19",
+        "tags": ""
+      }
     },
     {
       "id": "TF-020",
@@ -311,7 +450,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 20",
+        "tags": ""
+      }
     },
     {
       "id": "TF-021",
@@ -326,7 +472,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 21",
+        "tags": ""
+      }
     },
     {
       "id": "TF-022",
@@ -341,7 +494,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 22",
+        "tags": ""
+      }
     },
     {
       "id": "TF-023",
@@ -356,7 +516,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 23",
+        "tags": ""
+      }
     },
     {
       "id": "TF-024",
@@ -371,7 +538,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 24",
+        "tags": "【205T考】【215T考】【219T考】［227T考］【247T考】"
+      }
     },
     {
       "id": "TF-025",
@@ -386,7 +560,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 25",
+        "tags": ""
+      }
     },
     {
       "id": "TF-026",
@@ -401,7 +582,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 26",
+        "tags": "【219T考】【247T考】"
+      }
     },
     {
       "id": "TF-027",
@@ -416,7 +604,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 27",
+        "tags": "【215T考】【219T考】【247T考選擇】【257T考選擇】"
+      }
     },
     {
       "id": "TF-028",
@@ -431,7 +626,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 28",
+        "tags": ""
+      }
     },
     {
       "id": "TF-029",
@@ -446,6 +648,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 29",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《替代役實施條例》第56條已改為「得邀請民間團體代表、學者及專家」辦理審查，條文中已無「替代役審議委員會」。本題依舊規定出題，不列入測驗。"
     },
@@ -462,7 +671,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 30",
+        "tags": ""
+      }
     },
     {
       "id": "TF-031",
@@ -477,7 +693,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 31",
+        "tags": "【219T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-032",
@@ -492,7 +715,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 32",
+        "tags": "【205T考】【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "TF-033",
@@ -507,7 +737,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 33",
+        "tags": ""
+      }
     },
     {
       "id": "TF-034",
@@ -521,7 +758,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 34",
+        "tags": ""
+      }
     },
     {
       "id": "TF-035",
@@ -536,7 +780,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 35",
+        "tags": ""
+      }
     },
     {
       "id": "TF-036",
@@ -551,7 +802,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 36",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "TF-037",
@@ -566,7 +824,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 37",
+        "tags": ""
+      }
     },
     {
       "id": "TF-038",
@@ -582,7 +847,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原題幹為「軍事基礎訓練期間請假由訓練單位逕行核處」，已依現行第10條文字更新。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 38",
+        "tags": ""
+      }
     },
     {
       "id": "TF-039",
@@ -597,7 +869,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 39",
+        "tags": ""
+      }
     },
     {
       "id": "TF-040",
@@ -612,7 +891,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 40",
+        "tags": ""
+      }
     },
     {
       "id": "TF-041",
@@ -628,7 +914,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原題幹為「軍事基礎訓練」；現行第3條的用語是「基礎訓練」，已依條文更新。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 41",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-042",
@@ -643,7 +936,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 42",
+        "tags": "【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-043",
@@ -658,7 +958,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 43",
+        "tags": ""
+      }
     },
     {
       "id": "TF-044",
@@ -673,7 +980,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 44",
+        "tags": "【205T考】【257T考】"
+      }
     },
     {
       "id": "TF-045",
@@ -688,7 +1002,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 45",
+        "tags": "【203T考】"
+      }
     },
     {
       "id": "TF-046",
@@ -703,7 +1024,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 46",
+        "tags": "【215T考】【219T考】"
+      }
     },
     {
       "id": "TF-047",
@@ -718,7 +1046,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 47",
+        "tags": ""
+      }
     },
     {
       "id": "TF-048",
@@ -733,7 +1068,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 48",
+        "tags": "【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-049",
@@ -748,7 +1090,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 49",
+        "tags": ""
+      }
     },
     {
       "id": "TF-050",
@@ -763,7 +1112,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 50",
+        "tags": ""
+      }
     },
     {
       "id": "TF-051",
@@ -778,7 +1134,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 51",
+        "tags": "【215T考】【219T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-052",
@@ -793,7 +1156,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 52",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-053",
@@ -808,7 +1178,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 53",
+        "tags": ""
+      }
     },
     {
       "id": "TF-054",
@@ -824,7 +1201,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原題幹漏字，讀起來變成「罰站、罰勤、禁足、申誡及記過由服勤單位提出，報請需用機關核定」，與第55條不符；已依條文補全。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 54",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-055",
@@ -839,7 +1223,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 55",
+        "tags": ""
+      }
     },
     {
       "id": "TF-056",
@@ -854,7 +1245,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 56",
+        "tags": ""
+      }
     },
     {
       "id": "TF-057",
@@ -869,7 +1267,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 57",
+        "tags": "【205T考】【215T考】【257T考】"
+      }
     },
     {
       "id": "TF-058",
@@ -884,7 +1289,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 58",
+        "tags": ""
+      }
     },
     {
       "id": "TF-059",
@@ -899,7 +1311,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 60",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "TF-060",
@@ -915,6 +1334,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 61",
+        "tags": "【219T考】"
+      },
       "status": "outdated",
       "status_note": "現行《替代役役男獎懲辦法》第20條規定向「需用機關」提出申訴（原懲處機關為需用機關者，向主管機關提出），與題目所稱向原懲處機關申訴不同。本題依舊規定出題，不列入測驗。"
     },
@@ -931,7 +1357,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 62",
+        "tags": "［227T考］【215T考】【219T考】"
+      }
     },
     {
       "id": "TF-062",
@@ -946,7 +1379,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 63",
+        "tags": "［227T考］【257T考選擇】【203T考】【205T考】【215T考】【219T考】"
+      }
     },
     {
       "id": "TF-063",
@@ -961,7 +1401,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 64",
+        "tags": ""
+      }
     },
     {
       "id": "TF-064",
@@ -976,7 +1423,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 65",
+        "tags": "［227T考］【205T考】【215T考】【247T考】"
+      }
     },
     {
       "id": "TF-065",
@@ -990,7 +1444,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 66",
+        "tags": ""
+      }
     },
     {
       "id": "TF-066",
@@ -1004,7 +1465,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 67",
+        "tags": ""
+      }
     },
     {
       "id": "TF-067",
@@ -1018,7 +1486,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 68",
+        "tags": ""
+      }
     },
     {
       "id": "TF-068",
@@ -1032,7 +1507,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 69",
+        "tags": ""
+      }
     },
     {
       "id": "TF-069",
@@ -1046,7 +1528,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 70",
+        "tags": ""
+      }
     },
     {
       "id": "TF-070",
@@ -1060,7 +1549,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 71",
+        "tags": ""
+      }
     },
     {
       "id": "TF-071",
@@ -1075,7 +1571,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 72",
+        "tags": ""
+      }
     },
     {
       "id": "TF-072",
@@ -1091,7 +1594,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原題幹為「軍事基礎訓練成績」；現行第7條的用語是「基礎訓練成績」，已依條文更新。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 73",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-073",
@@ -1106,7 +1616,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 74",
+        "tags": ""
+      }
     },
     {
       "id": "TF-074",
@@ -1121,7 +1638,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 75",
+        "tags": ""
+      }
     },
     {
       "id": "TF-075",
@@ -1136,7 +1660,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 76",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "TF-076",
@@ -1151,7 +1682,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 77",
+        "tags": ""
+      }
     },
     {
       "id": "TF-077",
@@ -1165,7 +1703,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 59",
+        "tags": "【205T考】［227T考］"
+      }
     },
     {
       "id": "TF-078",
@@ -1180,7 +1725,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 78",
+        "tags": ""
+      }
     },
     {
       "id": "TF-079",
@@ -1196,6 +1748,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 79",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《替代役役男提前退役辦法》第2條所列得申請提前退役的情形，不包含低收入戶或中低收入戶。本題依舊規定出題，不列入測驗。"
     },
@@ -1212,7 +1771,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 80",
+        "tags": "【205T考】【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "TF-081",
@@ -1227,7 +1793,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 81",
+        "tags": "［227T考］"
+      }
     },
     {
       "id": "TF-082",
@@ -1242,7 +1815,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 82",
+        "tags": ""
+      }
     },
     {
       "id": "TF-083",
@@ -1256,7 +1836,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 84",
+        "tags": ""
+      }
     },
     {
       "id": "TF-084",
@@ -1271,7 +1858,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 85",
+        "tags": "【205T考】【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "TF-085",
@@ -1286,7 +1880,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 86",
+        "tags": ""
+      }
     },
     {
       "id": "TF-086",
@@ -1301,7 +1902,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 87",
+        "tags": "【247T考】"
+      }
     },
     {
       "id": "TF-087",
@@ -1316,7 +1924,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 88",
+        "tags": ""
+      }
     },
     {
       "id": "TF-088",
@@ -1331,7 +1946,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 89",
+        "tags": "【215T考】［227T考］【257T考】"
+      }
     },
     {
       "id": "TF-089",
@@ -1346,7 +1968,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 90",
+        "tags": "［227T考］"
+      }
     },
     {
       "id": "TF-090",
@@ -1361,7 +1990,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 91",
+        "tags": "［227T考］"
+      }
     },
     {
       "id": "TF-091",
@@ -1376,7 +2012,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 92",
+        "tags": "【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-092",
@@ -1391,7 +2034,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 93",
+        "tags": "【205T考】【219T考】"
+      }
     },
     {
       "id": "TF-093",
@@ -1407,6 +2057,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 94",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。本題依舊規定出題，不列入測驗。"
     },
@@ -1423,7 +2080,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 95",
+        "tags": ""
+      }
     },
     {
       "id": "TF-095",
@@ -1438,7 +2102,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 97",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "TF-096",
@@ -1453,21 +2124,36 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 98",
+        "tags": ""
+      }
     },
     {
       "id": "TF-097",
       "type": "true_false",
       "category": "rights",
-      "question": "替代役役男應親自填寫保險受益指定書。",
+      "question": "替代役役男入營後應親自填寫替代役役男一般保險及團體保險意外保險受益人指定書。",
       "answer": "O",
-      "explanation": "《替代役役男保險及醫療實施辦法》第3條：替代役役男應親自指定法定繼承人為一般保險死亡給付受益人。無法定繼承人時，得指定其他親友為受益人；未指定受益人者，依民法有關繼承規定辦理。",
+      "explanation": "《替代役役男保險及醫療實施辦法》第3條：替代役役男應親自指定法定繼承人為一般保險死亡給付受益人。無法定繼承人時，得指定其他親友為受益人；未指定受益人者，依民法有關繼承規定辦理。條文只就一般保險規定，團體意外保險不在本條範圍。",
       "source": "替代役役男保險及醫療實施辦法 第3條",
       "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040027&flno=3",
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 99",
+        "tags": "【205T考】【247T考選擇】【257T考選擇】"
+      },
+      "revised": "站方先前把題幹縮寫成「應親自填寫保險受益指定書」，已還原為彙編原文。"
     },
     {
       "id": "TF-098",
@@ -1481,7 +2167,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 100",
+        "tags": ""
+      }
     },
     {
       "id": "TF-099",
@@ -1496,7 +2189,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 101",
+        "tags": ""
+      }
     },
     {
       "id": "TF-100",
@@ -1510,7 +2210,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 51",
+        "tags": "【215T考】【219T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-101",
@@ -1525,7 +2232,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 102",
+        "tags": ""
+      }
     },
     {
       "id": "TF-102",
@@ -1540,7 +2254,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 103",
+        "tags": "【205T考】【247T考選擇】【257T考選擇】"
+      }
     },
     {
       "id": "TF-103",
@@ -1555,7 +2276,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 104",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "TF-104",
@@ -1569,7 +2297,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 105",
+        "tags": ""
+      }
     },
     {
       "id": "TF-105",
@@ -1583,7 +2318,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 106",
+        "tags": ""
+      }
     },
     {
       "id": "TF-106",
@@ -1599,7 +2341,14 @@
       "revised": "原考古題為「每次1日以內，必要時得延長為3日至5日」（舊規定），已依現行第3條改寫。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 107",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-107",
@@ -1615,7 +2364,14 @@
       "revised": "原考古題為「60歲以上、未滿18歲」（舊規定），已依現行第11條改寫。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 108",
+        "tags": ""
+      }
     },
     {
       "id": "TF-108",
@@ -1629,7 +2385,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 109",
+        "tags": ""
+      }
     },
     {
       "id": "TF-109",
@@ -1643,7 +2406,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 110",
+        "tags": ""
+      }
     },
     {
       "id": "TF-110",
@@ -1657,7 +2427,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 111",
+        "tags": ""
+      }
     },
     {
       "id": "TF-111",
@@ -1672,7 +2449,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原題幹為「育有12歲以下子女或配偶懷孕六個月以上」（舊規定）；現行第11條已無年齡與月數限制，已依條文改寫。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 112",
+        "tags": ""
+      }
     },
     {
       "id": "TF-112",
@@ -1686,7 +2470,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 113",
+        "tags": ""
+      }
     },
     {
       "id": "TF-113",
@@ -1702,6 +2493,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 114",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《役男申請服替代役辦法》第11條所列家庭因素，已無「父、母或配偶患有重大傷病，或家屬二人以上患有輕度身心障礙」這一項。本題依舊規定出題，不列入測驗。"
     },
@@ -1718,7 +2516,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "partial",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 115",
+        "tags": "【203T考】"
+      }
     },
     {
       "id": "TF-115",
@@ -1733,7 +2538,14 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 117",
+        "tags": ""
+      }
     },
     {
       "id": "TF-116",
@@ -1747,7 +2559,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 118",
+        "tags": ""
+      }
     },
     {
       "id": "TF-117",
@@ -1763,7 +2582,14 @@
       "revised": "歷屆考古題答案為「錯」；依現行《替代役役男保險及醫療實施辦法》第12條，應自行負擔之醫療費用由主管機關負擔並預撥健保署，故改為「對」。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 119",
+        "tags": "【205T考】【219T考】"
+      }
     },
     {
       "id": "TF-118",
@@ -1778,7 +2604,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 120",
+        "tags": ""
+      }
     },
     {
       "id": "TF-119",
@@ -1793,7 +2626,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "partial",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 121",
+        "tags": "【247T考】【257T考】"
+      }
     },
     {
       "id": "TF-120",
@@ -1808,7 +2648,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 122",
+        "tags": ""
+      }
     },
     {
       "id": "TF-121",
@@ -1823,7 +2670,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 123",
+        "tags": ""
+      }
     },
     {
       "id": "TF-122",
@@ -1838,7 +2692,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 124",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "TF-123",
@@ -1854,6 +2715,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 125",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《役男申請服替代役辦法》第11條為「役男育有子女或配偶懷孕」，已無「懷孕6個月以上」的限制；同一考點已由 TF-111 依現行條文改寫。本題依舊規定出題，不列入測驗。"
     },
@@ -1869,7 +2737,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1883,7 +2755,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1897,7 +2773,11 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1911,7 +2791,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1925,7 +2809,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1939,7 +2827,11 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1953,7 +2845,11 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1967,7 +2863,11 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1981,7 +2881,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -1995,7 +2899,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2009,7 +2917,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2023,7 +2935,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2037,7 +2953,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2051,7 +2971,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2065,7 +2989,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2079,7 +3007,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2093,7 +3025,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "true_false",
@@ -2107,7 +3043,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-001",
@@ -2127,7 +3067,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 1",
+        "tags": ""
+      }
     },
     {
       "id": "MC-002",
@@ -2147,7 +3094,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 2",
+        "tags": ""
+      }
     },
     {
       "id": "MC-003",
@@ -2166,7 +3120,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 3",
+        "tags": ""
+      }
     },
     {
       "id": "MC-004",
@@ -2186,7 +3147,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 4",
+        "tags": ""
+      }
     },
     {
       "id": "MC-005",
@@ -2205,7 +3173,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 5",
+        "tags": ""
+      }
     },
     {
       "id": "MC-006",
@@ -2226,7 +3201,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 6",
+        "tags": "【205T考】【257T考是非】"
+      }
     },
     {
       "id": "MC-007",
@@ -2248,7 +3230,14 @@
       "revised": "原考古題依舊規定（陪產假三日、前後五日內請畢），已依現行第4條改寫。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 7",
+        "tags": ""
+      }
     },
     {
       "id": "MC-008",
@@ -2267,7 +3256,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 8",
+        "tags": ""
+      }
     },
     {
       "id": "MC-009",
@@ -2287,7 +3283,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 9",
+        "tags": "［227T考］【219T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "MC-010",
@@ -2307,7 +3310,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 10",
+        "tags": ""
+      }
     },
     {
       "id": "MC-011",
@@ -2328,7 +3338,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 11",
+        "tags": "【205T考】［227T考］【247T考】【257T考】"
+      }
     },
     {
       "id": "MC-012",
@@ -2342,14 +3359,23 @@
         "42.5%"
       ],
       "answer": 0,
-      "explanation": "成績配分屬訓練單位規定，各梯次可能不同，本題為歷屆答案。",
+      "explanation": "",
       "exam_tag": "【205T考】［227T考］【247T考】",
-      "source": "替代役實施條例",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040017",
+      "source": "一般替代役役男訓練服勤管理辦法 第7條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040020&flno=7",
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
-      "review": "unverified",
-      "confidence": "低"
+      "review": "outdated",
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 12",
+        "tags": ""
+      },
+      "status": "outdated",
+      "status_note": "彙編編者已把這題的答案改註為「35%」，但四個選項（45%、40%、22.5%、42.5%）都沒有這個答案；配分由訓練單位公告，各梯次可能不同。本題不列入測驗。"
     },
     {
       "id": "MC-013",
@@ -2370,7 +3396,14 @@
       "revised": "原考古題答案為 5 年（修正前條文），已依現行第47條改為 10 年。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 13",
+        "tags": ""
+      }
     },
     {
       "id": "MC-014",
@@ -2389,7 +3422,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 14",
+        "tags": ""
+      }
     },
     {
       "id": "MC-015",
@@ -2409,7 +3449,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 15",
+        "tags": ""
+      }
     },
     {
       "id": "MC-016",
@@ -2429,7 +3476,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 16",
+        "tags": ""
+      }
     },
     {
       "id": "MC-017",
@@ -2450,7 +3504,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 17",
+        "tags": ""
+      }
     },
     {
       "id": "MC-018",
@@ -2471,7 +3532,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 18",
+        "tags": "【215T考】［227T考］"
+      }
     },
     {
       "id": "MC-019",
@@ -2492,7 +3560,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 19",
+        "tags": "【205T考】［227T考］"
+      }
     },
     {
       "id": "MC-020",
@@ -2513,7 +3588,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 20",
+        "tags": "［227T考］"
+      }
     },
     {
       "id": "MC-021",
@@ -2533,7 +3615,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 21",
+        "tags": ""
+      }
     },
     {
       "id": "MC-022",
@@ -2554,7 +3643,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 22",
+        "tags": "【257T考】"
+      }
     },
     {
       "id": "MC-023",
@@ -2574,7 +3670,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 23",
+        "tags": "【205T考】【247T考】"
+      }
     },
     {
       "id": "MC-024",
@@ -2593,7 +3696,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 24",
+        "tags": ""
+      }
     },
     {
       "id": "MC-025",
@@ -2613,7 +3723,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 25",
+        "tags": ""
+      }
     },
     {
       "id": "MC-026",
@@ -2634,7 +3751,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 26",
+        "tags": ""
+      }
     },
     {
       "id": "MC-027",
@@ -2655,7 +3779,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 27",
+        "tags": "【205T考】【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "MC-028",
@@ -2676,7 +3807,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 28",
+        "tags": ""
+      }
     },
     {
       "id": "MC-029",
@@ -2696,7 +3834,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 30",
+        "tags": ""
+      }
     },
     {
       "id": "MC-030",
@@ -2716,7 +3861,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 31",
+        "tags": ""
+      }
     },
     {
       "id": "MC-031",
@@ -2736,7 +3888,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 32",
+        "tags": ""
+      }
     },
     {
       "id": "MC-032",
@@ -2757,7 +3916,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 33",
+        "tags": ""
+      }
     },
     {
       "id": "MC-033",
@@ -2778,7 +3944,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 34",
+        "tags": "【219T考】［227T考］"
+      }
     },
     {
       "id": "MC-034",
@@ -2799,7 +3972,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 35",
+        "tags": ""
+      }
     },
     {
       "id": "MC-035",
@@ -2819,7 +3999,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 36",
+        "tags": ""
+      }
     },
     {
       "id": "MC-036",
@@ -2839,7 +4026,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 37",
+        "tags": ""
+      }
     },
     {
       "id": "MC-037",
@@ -2860,7 +4054,14 @@
       "revised": "原考古題答案為 5 年（修正前條文），已依現行第38條改為 10 年。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 38",
+        "tags": ""
+      }
     },
     {
       "id": "MC-038",
@@ -2880,7 +4081,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 39",
+        "tags": ""
+      }
     },
     {
       "id": "MC-039",
@@ -2900,7 +4108,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 40",
+        "tags": ""
+      }
     },
     {
       "id": "MC-040",
@@ -2922,7 +4137,14 @@
       "revised": "原考古題題幹為「應於一個月內請畢」（舊規定），已依現行第5條改為三個月。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 41",
+        "tags": "［227T考］【205T考】【215T考】"
+      }
     },
     {
       "id": "MC-041",
@@ -2943,7 +4165,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 42",
+        "tags": "【219T考】"
+      }
     },
     {
       "id": "MC-042",
@@ -2964,7 +4193,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 43",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-043",
@@ -2985,7 +4221,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 44",
+        "tags": ""
+      }
     },
     {
       "id": "MC-044",
@@ -3006,7 +4249,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 45",
+        "tags": "［227T考］【205T考】【219T考】"
+      }
     },
     {
       "id": "MC-045",
@@ -3026,7 +4276,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 46",
+        "tags": ""
+      }
     },
     {
       "id": "MC-046",
@@ -3047,7 +4304,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 47",
+        "tags": ""
+      }
     },
     {
       "id": "MC-047",
@@ -3067,7 +4331,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 48",
+        "tags": "【215T考】"
+      }
     },
     {
       "id": "MC-048",
@@ -3087,7 +4358,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 50",
+        "tags": ""
+      }
     },
     {
       "id": "MC-049",
@@ -3108,7 +4386,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 51",
+        "tags": ""
+      }
     },
     {
       "id": "MC-050",
@@ -3129,7 +4414,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 52",
+        "tags": "【247T考】【257T考】"
+      }
     },
     {
       "id": "MC-051",
@@ -3150,7 +4442,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 53",
+        "tags": ""
+      }
     },
     {
       "id": "MC-052",
@@ -3170,7 +4469,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 54",
+        "tags": ""
+      }
     },
     {
       "id": "MC-053",
@@ -3191,6 +4497,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 55",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。本題依舊規定出題，不列入測驗。"
     },
@@ -3212,7 +4525,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 56",
+        "tags": ""
+      }
     },
     {
       "id": "MC-055",
@@ -3232,7 +4552,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 57",
+        "tags": ""
+      }
     },
     {
       "id": "MC-056",
@@ -3251,7 +4578,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 58",
+        "tags": ""
+      }
     },
     {
       "id": "MC-057",
@@ -3271,7 +4605,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 59",
+        "tags": "【215T考】［227T考］"
+      }
     },
     {
       "id": "MC-058",
@@ -3292,6 +4633,13 @@
       "reviewed_at": "2026-10-04",
       "review": "outdated",
       "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 55",
+        "tags": ""
+      },
       "status": "outdated",
       "status_note": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。本題依舊規定出題，不列入測驗。"
     },
@@ -3314,7 +4662,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 60",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-060",
@@ -3334,7 +4689,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 61",
+        "tags": ""
+      }
     },
     {
       "id": "MC-061",
@@ -3355,7 +4717,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 62",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-062",
@@ -3375,7 +4744,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 63",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-063",
@@ -3396,7 +4772,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 64",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-064",
@@ -3416,7 +4799,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 65",
+        "tags": "【203T考】【205T考】"
+      }
     },
     {
       "id": "MC-065",
@@ -3436,7 +4826,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 66",
+        "tags": "【215T考】［227T考］"
+      }
     },
     {
       "id": "MC-066",
@@ -3457,7 +4854,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 67",
+        "tags": ""
+      }
     },
     {
       "id": "MC-067",
@@ -3477,7 +4881,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 68",
+        "tags": "【215T考】"
+      }
     },
     {
       "id": "MC-068",
@@ -3497,7 +4908,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 69",
+        "tags": "【205T考】［227T考］【257T考】"
+      }
     },
     {
       "id": "MC-069",
@@ -3518,7 +4936,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 70",
+        "tags": "【205T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "MC-070",
@@ -3539,7 +4964,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 71",
+        "tags": "［227T考］"
+      }
     },
     {
       "id": "MC-071",
@@ -3560,7 +4992,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "partial",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 72",
+        "tags": "［227T考］"
+      }
     },
     {
       "id": "MC-072",
@@ -3581,7 +5020,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 73",
+        "tags": ""
+      }
     },
     {
       "id": "MC-073",
@@ -3601,7 +5047,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 74",
+        "tags": ""
+      }
     },
     {
       "id": "MC-074",
@@ -3622,7 +5075,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 18",
+        "tags": "【215T考】［227T考］"
+      }
     },
     {
       "id": "MC-075",
@@ -3643,7 +5103,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 75",
+        "tags": ""
+      }
     },
     {
       "id": "MC-076",
@@ -3664,7 +5131,14 @@
       "revised": "原考古題答案為 5 日（舊規定），已依現行第4條改為 7 日。",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 76",
+        "tags": ""
+      }
     },
     {
       "id": "MC-077",
@@ -3684,7 +5158,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 77",
+        "tags": ""
+      }
     },
     {
       "id": "MC-078",
@@ -3704,7 +5185,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 78",
+        "tags": ""
+      }
     },
     {
       "id": "MC-079",
@@ -3724,7 +5212,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 79",
+        "tags": ""
+      }
     },
     {
       "id": "MC-080",
@@ -3744,7 +5239,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 80",
+        "tags": ""
+      }
     },
     {
       "id": "MC-081",
@@ -3764,7 +5266,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 81",
+        "tags": ""
+      }
     },
     {
       "id": "MC-082",
@@ -3785,7 +5294,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 82",
+        "tags": "【205T考】【215T考】【219T考】［227T考］【205T考】"
+      }
     },
     {
       "id": "MC-083",
@@ -3806,7 +5322,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 83",
+        "tags": "［227T考］【247T考】【257T考】"
+      }
     },
     {
       "id": "MC-084",
@@ -3826,7 +5349,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 84",
+        "tags": "【205T考】【215T考】"
+      }
     },
     {
       "id": "MC-085",
@@ -3846,7 +5376,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 85",
+        "tags": ""
+      }
     },
     {
       "type": "multiple_choice",
@@ -3866,7 +5403,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -3886,7 +5427,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -3906,7 +5451,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -3926,7 +5475,11 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -3946,7 +5499,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -3966,7 +5523,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -3986,7 +5547,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -4006,7 +5571,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -4026,7 +5595,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -4047,7 +5620,11 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原選項「二等殘給與10年」「三等殘給與5年」依第34條也是正確敘述，不是唯一正解；已改寫干擾選項。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -4067,7 +5644,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "中"
+      "confidence": "中",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -4087,7 +5668,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "type": "multiple_choice",
@@ -4107,7 +5692,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-01",
@@ -4122,7 +5711,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-02",
@@ -4137,7 +5730,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-03",
@@ -4152,7 +5749,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-04",
@@ -4167,7 +5768,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-01",
@@ -4188,7 +5793,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-02",
@@ -4209,7 +5818,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-03",
@@ -4230,7 +5843,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-04",
@@ -4251,7 +5868,11 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-05",
@@ -4272,7 +5893,11 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-DOC2-01",
@@ -4287,7 +5912,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 83",
+        "tags": "【203T考】【205T考】【215T考】［227T考］【247T考選擇】【257T考選擇】"
+      }
     },
     {
       "id": "TF-DOC2-02",
@@ -4302,7 +5934,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "是非 116",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-DOC2-01",
@@ -4323,7 +5962,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 86",
+        "tags": ""
+      }
     },
     {
       "id": "MC-DOC2-02",
@@ -4344,7 +5990,14 @@
       "source_kind": "past",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 87",
+        "tags": ""
+      }
     },
     {
       "id": "MC-DOC2-03",
@@ -4366,7 +6019,14 @@
       "reviewed_at": "2026-10-04",
       "review": "law",
       "revised": "原選項寫「內政部（役政署）」；役政署已改制，條文用語為主管機關。",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 88",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-DOC2-04",
@@ -4387,7 +6047,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 89",
+        "tags": "【215T考】【215T考】【219T考】［227T考］"
+      }
     },
     {
       "id": "MC-DOC2-05",
@@ -4408,7 +6075,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "unverified",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 90",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "TF-DOC2-03",
@@ -4423,7 +6097,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "partial",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 92",
+        "tags": "【205T考】"
+      }
     },
     {
       "id": "MC-DOC2-06",
@@ -4444,7 +6125,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 93",
+        "tags": "【205T考】［227T考］【215T考】【219T考】【247T考】【257T考】"
+      }
     },
     {
       "id": "MC-DOC2-07",
@@ -4465,7 +6153,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 94",
+        "tags": ""
+      }
     },
     {
       "id": "TF-DOC2-04",
@@ -4480,7 +6175,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 96",
+        "tags": "【219T考】［227T考］"
+      }
     },
     {
       "id": "MC-DOC2-09",
@@ -4501,7 +6203,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 100",
+        "tags": ""
+      }
     },
     {
       "id": "MC-DOC2-10",
@@ -4522,7 +6231,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "選擇 101",
+        "tags": "【257T考】"
+      }
     },
     {
       "id": "TF-DOC2-05",
@@ -4537,7 +6253,14 @@
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
       "review": "law",
-      "confidence": "高"
+      "confidence": "高",
+      "provenance": {
+        "class": "compiled_adapted",
+        "label": "彙編收錄，依現行法規改寫",
+        "source_id": "R01",
+        "source_item": "是非 59",
+        "tags": "【205T考】［227T考］"
+      }
     },
     {
       "id": "MC-257-06",
@@ -4557,7 +6280,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-07",
@@ -4577,7 +6304,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-08",
@@ -4597,7 +6328,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-09",
@@ -4617,7 +6352,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-10",
@@ -4637,7 +6376,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-05",
@@ -4651,7 +6394,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-06",
@@ -4665,7 +6412,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "MC-257-11",
@@ -4685,7 +6436,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-07",
@@ -4699,7 +6454,11 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
     },
     {
       "id": "TF-257-08",
@@ -4713,7 +6472,359 @@
       "source_kind": "experience",
       "reviewed_at": "2026-10-04",
       "review": "experience",
-      "confidence": "低"
+      "confidence": "低",
+      "provenance": {
+        "class": "site_authored",
+        "label": "站方自編，無考古題來源"
+      }
+    },
+    {
+      "id": "TF-142",
+      "type": "true_false",
+      "category": "rights",
+      "question": "基礎訓練體能測驗以3,000公尺徒手跑步測驗為原則，若患有痼疾無法受測3,000公尺徒手跑步者，經檢附相關醫療證明或體檢資料驗證確認後，得依役男意願自主選擇「仰臥起坐」「伏地挺身」或「單槓引體向上」其中1個測驗項目替代。",
+      "answer": "O",
+      "explanation": "體能測驗的替代項目屬訓練單位規定，收錄的法規中查無明文。彙編標註 205T 考過，答案照彙編。",
+      "exam_tag": "【205T考】",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "是非 96",
+        "tags": "【205T考】"
+      }
+    },
+    {
+      "id": "TF-143",
+      "type": "true_false",
+      "category": "rights",
+      "question": "一般替代役役男退役發給年終工作獎金，於退役當月15日逕入役男帳戶。",
+      "answer": "O",
+      "explanation": "年終工作獎金發放日屬行政作業規定，收錄的法規中查無明文。彙編標註 205T 考過，答案照彙編。",
+      "exam_tag": "【205T考】",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 91",
+        "tags": "【205T考】"
+      }
+    },
+    {
+      "id": "TF-144",
+      "type": "true_false",
+      "category": "rights",
+      "question": "替代役役男之全民健康保險、一般保險及團體意外保險統一由內政部支付。",
+      "answer": "O",
+      "explanation": "《替代役實施條例》第50條：替代役役男之各類保險費、國民年金保險費，由主管機關編列預算支付。但駐外醫療保險及兵災險，由需用機關編列預算支付。條文用語是「由主管機關編列預算支付」，主管機關為內政部。",
+      "exam_tag": "【219T考】【227T考】",
+      "source": "替代役實施條例 第50條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=50",
+      "reviewed_at": "2026-10-04",
+      "confidence": "中",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 95",
+        "tags": "【219T考】［227T考］"
+      }
+    },
+    {
+      "id": "TF-145",
+      "type": "true_false",
+      "category": "management",
+      "question": "替代役管理幹部由服勤單位甄選核定。",
+      "answer": "X",
+      "explanation": "《替代役實施條例施行細則》第12條：本條例第十四條所定管理幹部之甄選，得由需用機關依考核成績擇優甄選，經幹部在職訓練合格後，核定為管理幹部，擔任領導及考核管理工作。甄選與核定是需用機關的權責，不是服勤單位。",
+      "exam_tag": "【219T考】【227T考】【247T考】【257T考選擇】",
+      "source": "替代役實施條例施行細則 第12條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040018&flno=12",
+      "reviewed_at": "2026-10-04",
+      "confidence": "高",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 97",
+        "tags": "【219T考】［227T考］【247T考】【257T考選擇】"
+      }
+    },
+    {
+      "id": "TF-146",
+      "type": "true_false",
+      "category": "management",
+      "question": "管理幹部經需用機關在職訓練後始可擔任。",
+      "answer": "O",
+      "explanation": "《替代役實施條例施行細則》第12條：本條例第十四條所定管理幹部之甄選，得由需用機關依考核成績擇優甄選，經幹部在職訓練合格後，核定為管理幹部，擔任領導及考核管理工作。",
+      "exam_tag": "【219T考】【227T考】",
+      "source": "替代役實施條例施行細則 第12條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040018&flno=12",
+      "reviewed_at": "2026-10-04",
+      "confidence": "中",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 98",
+        "tags": "【219T考】［227T考］"
+      }
+    },
+    {
+      "id": "TF-147",
+      "type": "true_false",
+      "category": "volunteer",
+      "question": "志工服務年資滿1年，服務時數達150小時以上者，得向志願服務運用單位申請認證服務績效及發給志願服務績效證明書。",
+      "answer": "O",
+      "explanation": "《志願服務法》條文中查無「滿一年、一百五十小時」的文字，這項規定出自子法，本站未收錄。彙編標註 257T 考過，答案照彙編。",
+      "exam_tag": "【257T考選擇】",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 105",
+        "tags": "【257T考選擇】"
+      }
+    },
+    {
+      "id": "TF-148",
+      "type": "true_false",
+      "category": "regulations",
+      "question": "在老人中心服役為社會役。",
+      "answer": "O",
+      "explanation": "《替代役實施條例施行細則》第3條：本條例第四條第一項第一款所定一般替代役，其勤務如下：三、社會役：擔任兒童與少年、老人與傷病榮民及身心障礙者之照顧，協助推動社會保險、社會救助、福利服務、國民就業、國民保健、殯葬管理及其他社會福利等相關輔助勤務。照顧老人屬社會役的勤務內容。",
+      "exam_tag": "",
+      "source": "替代役實施條例施行細則 第3條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040018&flno=3",
+      "reviewed_at": "2026-10-04",
+      "confidence": "中",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 107",
+        "tags": ""
+      }
+    },
+    {
+      "id": "TF-149",
+      "type": "true_false",
+      "category": "rights",
+      "question": "目前台灣長照為長照2.0。",
+      "answer": "O",
+      "explanation": "長照政策不在收錄的法規內。彙編列為 257T 考點，答案欄空白，依彙編敘述收錄為「正確」。",
+      "exam_tag": "【257T考】",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 102",
+        "tags": "【257T考】"
+      }
+    },
+    {
+      "id": "TF-150",
+      "type": "true_false",
+      "category": "rights",
+      "question": "目前長照專線為1966。",
+      "answer": "O",
+      "explanation": "長照政策不在收錄的法規內。彙編列為 257T 考點，答案欄空白，依彙編敘述收錄為「正確」。",
+      "exam_tag": "【257T考是非】",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 103",
+        "tags": "【257T考是非】"
+      }
+    },
+    {
+      "id": "TF-151",
+      "type": "true_false",
+      "category": "rights",
+      "question": "長照服務對象為65歲以上老人、55歲以上原住民、50歲以上失智症者、失能身心障礙者。",
+      "answer": "O",
+      "explanation": "長照政策不在收錄的法規內。彙編列為 257T 考點，答案欄空白，依彙編敘述收錄為「正確」。",
+      "exam_tag": "【257T考】【257T考選擇】",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 104",
+        "tags": "【257T考】"
+      }
+    },
+    {
+      "id": "TF-152",
+      "type": "true_false",
+      "category": "management",
+      "question": "民安演習時間為9-10月。",
+      "answer": "X",
+      "explanation": "彙編註記「正確為 4-7 月」。演習時間每年由主管機關公告，可能變動。",
+      "exam_tag": "",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_minor",
+        "label": "彙編收錄（用字微調）",
+        "source_id": "R01",
+        "source_item": "選擇 108",
+        "tags": ""
+      }
+    },
+    {
+      "id": "TF-153",
+      "type": "true_false",
+      "category": "rights",
+      "question": "性霸凌：指透過語言、肢體或其他暴力，對於他人之性別特徵、性別特質、性傾向或性別認同進行貶抑、攻擊或威脅之行為。",
+      "answer": "O",
+      "explanation": "定義出自性別平等相關法規，本站未收錄。彙編答案欄空白，依彙編敘述收錄為「正確」。",
+      "exam_tag": "",
+      "source": "歷屆考古題（未能以法規查核）",
+      "source_url": "",
+      "reviewed_at": "2026-10-04",
+      "confidence": "低",
+      "review": "unverified",
+      "source_kind": "past",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 112",
+        "tags": ""
+      }
+    },
+    {
+      "id": "MC-099",
+      "type": "multiple_choice",
+      "category": "rights",
+      "question": "替代役役男發生死亡，依法給予之年撫卹金年限雖然屆滿，而子女尚未成年者，得繼續給卹至",
+      "options": [
+        "大學畢業",
+        "研究所畢業",
+        "成年",
+        "高中畢業"
+      ],
+      "answer": 2,
+      "explanation": "《替代役實施條例》第32條：第三項所定給與年限屆滿而子女尚未成年者，得繼續給卹至成年；或子女雖已成年，學校教育未中斷者，得繼續給卹至大學畢業。",
+      "exam_tag": "【203T考】【205T考】",
+      "source": "替代役實施條例 第32條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=32",
+      "reviewed_at": "2026-10-04",
+      "confidence": "高",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 29",
+        "tags": "【203T考】【205T考】"
+      }
+    },
+    {
+      "id": "MC-100",
+      "type": "multiple_choice",
+      "category": "regulations",
+      "question": "常備役體位因家庭因素服替代役者役期為",
+      "options": [
+        "較常備兵役長2個月",
+        "較常備兵役長4個月",
+        "與常備兵役同",
+        "較常備兵役長15日"
+      ],
+      "answer": 2,
+      "explanation": "《替代役實施條例》第7條：替代役體位或以家庭因素申請服一般替代役之役期，與常備兵役同；以常備役體位申請服一般替代役之役期，較常備兵役長六個月以內。",
+      "exam_tag": "【205T考】",
+      "source": "替代役實施條例 第7條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=7",
+      "reviewed_at": "2026-10-04",
+      "confidence": "高",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 49",
+        "tags": "【205T考】"
+      }
+    },
+    {
+      "id": "MC-101",
+      "type": "multiple_choice",
+      "category": "management",
+      "question": "替代役役男懲處種類包含哪些？",
+      "options": [
+        "罰勤、禁足、罰站",
+        "申誡、記過",
+        "罰薪、輔導教育",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "explanation": "《替代役實施條例》第55條：一般替代役役男與第一階段研發替代役或產業訓儲替代役役男違反生活、訓練及勤務管理規定者，視情節輕重，予以罰站、罰勤、禁足、申誡、記過、罰薪或輔導教育。",
+      "exam_tag": "【219T考】【227T考】",
+      "source": "替代役實施條例 第55條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=55",
+      "reviewed_at": "2026-10-04",
+      "confidence": "高",
+      "source_kind": "law",
+      "review": "law",
+      "provenance": {
+        "class": "compiled_verbatim",
+        "label": "彙編逐字收錄",
+        "source_id": "R01",
+        "source_item": "選擇 99",
+        "tags": "【219T考】［227T考］"
+      }
     }
   ]
 }

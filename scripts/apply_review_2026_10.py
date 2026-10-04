@@ -161,6 +161,10 @@ LAW_BASIS = {
     "TF-091": (EARLY, 2, "未滿十二歲"), "TF-108": (EARLY, 3, ""), "TF-112": (EARLY, 3, ""),
     "TF-069": (FAMILY, 10, "一次安家費"), "TF-068": (FAMILY, 10, "最高以六口為限"), "MC-004": (FAMILY, 10, "最高以六口為限"),
     "TF-106": (RECALL, 3, "演訓召集"), "MC-DOC2-06": (RECALL, 3, "演訓召集"),
+    # ---- 2026-10-04 自彙編補回的題目
+    "TF-144": (A, 50, ""), "TF-145": (B, 12, "管理幹部之甄選"), "TF-146": (B, 12, "管理幹部之甄選"),
+    "TF-148": (B, 3, "社會役"), "MC-099": (A, 32, "得繼續給卹至成年"), "MC-100": (A, 7, "與常備兵役同"),
+    "MC-101": (A, 55, "視情節輕重"),
     # ---- 志願服務法
     "TF-124": (VOLUNTEER, 3, "志願服務"), "MC-086": (VOLUNTEER, 4, "衛生福利部"),
     "TF-127": (VOLUNTEER, 16, ""), "TF-128": (VOLUNTEER, 16, ""),
@@ -217,6 +221,10 @@ FIXES = {
         "options": ["一等給與終身", "二等給與20年", "三等給與15年", "重度機能障礙給與20年"], "answer": 0,
         "revised": "原選項「二等殘給與10年」「三等殘給與5年」依第34條也是正確敘述，不是唯一正解；已改寫干擾選項。",
     },
+    "TF-097": {
+        "question": "替代役役男入營後應親自填寫替代役役男一般保險及團體保險意外保險受益人指定書。",
+        "revised": "站方先前把題幹縮寫成「應親自填寫保險受益指定書」，已還原為彙編原文。",
+    },
     "MC-DOC2-03": {
         "options": ["直轄市、縣（市）政府", "鄉鎮市區公所", "主管機關（內政部）", "服勤單位"], "answer": 2,
         "revised": "原選項寫「內政部（役政署）」；役政署已改制，條文用語為主管機關。",
@@ -235,7 +243,7 @@ PARTIAL = {
 # 判定為核實、但信心為「中」的題目（條文用語與題幹不完全相同，或需要推論）
 MEDIUM = {
     "TF-003", "TF-004", "TF-010", "TF-012", "TF-026", "TF-046", "TF-055", "TF-063", "TF-087", "TF-097", "TF-099",
-    "TF-101", "TF-141", "MC-009", "MC-016", "MC-019", "MC-065", "MC-067", "MC-069", "MC-088", "MC-096",
+    "TF-101", "TF-141", "TF-144", "TF-146", "TF-148", "MC-009", "MC-016", "MC-019", "MC-065", "MC-067", "MC-069", "MC-088", "MC-096",
 }
 
 # 條文原文之外需要補一句說明的題目
@@ -253,6 +261,10 @@ SUFFIX = {
     "TF-026": "題幹只列出部分懲處種類。",
     "TF-046": "題幹只列出部分役別。",
     "TF-010": "條文用語是「一般替代役」。",
+    "TF-097": "條文只就一般保險規定，團體意外保險不在本條範圍。",
+    "TF-144": "條文用語是「由主管機關編列預算支付」，主管機關為內政部。",
+    "TF-145": "甄選與核定是需用機關的權責，不是服勤單位。",
+    "TF-148": "照顧老人屬社會役的勤務內容。",
     "TF-141": "受理申訴機關應自收受申訴書之日起三十日內以書面答覆，必要時得延長十日（第21條）。",
     "TF-073": "例外是喪假與病假，不是婚假與陪產假。",
 }
@@ -265,15 +277,25 @@ OUTDATED = {
     "TF-113": "現行《役男申請服替代役辦法》第11條所列家庭因素，已無「父、母或配偶患有重大傷病，或家屬二人以上患有輕度身心障礙」這一項。",
     "MC-053": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。",
     "MC-058": "現行《替代役役男請假規則》第7條已無「事假累計八小時折算一日」的規定。",
+    "MC-012": "彙編編者已把這題的答案改註為「35%」，但四個選項（45%、40%、22.5%、42.5%）都沒有這個答案；配分由訓練單位公告，各梯次可能不同。",
     "TF-123": "現行《役男申請服替代役辦法》第11條為「役男育有子女或配偶懷孕」，已無「懷孕6個月以上」的限制；同一考點已由 TF-111 依現行條文改寫。",
 }
 OUTDATED_SOURCE = {
     "TF-029": (A, 56), "TF-060": (REWARD, 20), "TF-079": (EARLY, 2), "TF-093": (LEAVE, 7),
     "TF-113": (APPLY, 11), "MC-053": (LEAVE, 7), "MC-058": (LEAVE, 7), "TF-123": (APPLY, 11),
+    "MC-012": (MANAGE, 7),
 }
 
 # 條文只有部分依據、或題目涉及未收錄的規定：保留歷屆答案並附上說明
 NOTES = {
+    "TF-142": "體能測驗的替代項目屬訓練單位規定，收錄的法規中查無明文。彙編標註 205T 考過，答案照彙編。",
+    "TF-143": "年終工作獎金發放日屬行政作業規定，收錄的法規中查無明文。彙編標註 205T 考過，答案照彙編。",
+    "TF-147": "《志願服務法》條文中查無「滿一年、一百五十小時」的文字，這項規定出自子法，本站未收錄。彙編標註 257T 考過，答案照彙編。",
+    "TF-149": "長照政策不在收錄的法規內。彙編列為 257T 考點，答案欄空白，依彙編敘述收錄為「正確」。",
+    "TF-150": "長照政策不在收錄的法規內。彙編列為 257T 考點，答案欄空白，依彙編敘述收錄為「正確」。",
+    "TF-151": "長照政策不在收錄的法規內。彙編列為 257T 考點，答案欄空白，依彙編敘述收錄為「正確」。",
+    "TF-152": "彙編註記「正確為 4-7 月」。演習時間每年由主管機關公告，可能變動。",
+    "TF-153": "定義出自性別平等相關法規，本站未收錄。彙編答案欄空白，依彙編敘述收錄為「正確」。",
     "TF-011": "《替代役實施條例》第7條只規定常備役體位申請服一般替代役的役期「較常備兵役長六個月以內」，實際月數由行政院核定，條文沒有寫明。",
     "TF-013": "《替代役實施條例》第7條未就宗教因素另定役期，實際役期由行政院核定。",
     "TF-089": "《替代役實施條例》第7條只規定「較常備兵役長六個月以內」，實際役期由行政院核定。",
@@ -300,8 +322,42 @@ NOTES = {
 UNVERIFIED_NOTE = "收錄的現行法規中查無對應條文，這題的答案來自歷屆考古題，請以當梯次教材為準。"
 
 
+# 彙編（增補至 257T）裡有、但網站先前漏收的題目。題幹與選項照彙編原文，梯次標記也照彙編。
+# 彙編「選擇題」區後段混有是非敘述；答案欄空白的幾則是 257T 考點紀錄，彙編把它們列為正確敘述。
+def _new(qid, kind, category, question, answer, tag, options=None):
+    q = {"id": qid, "type": kind, "category": category, "question": question}
+    if options:
+        q["options"] = options
+    q.update({"answer": answer, "explanation": "", "exam_tag": tag, "source": "", "source_url": ""})
+    return q
+
+
+NEW_QUESTIONS = [
+    _new("TF-142", "true_false", "rights", "基礎訓練體能測驗以3,000公尺徒手跑步測驗為原則，若患有痼疾無法受測3,000公尺徒手跑步者，經檢附相關醫療證明或體檢資料驗證確認後，得依役男意願自主選擇「仰臥起坐」「伏地挺身」或「單槓引體向上」其中1個測驗項目替代。", "O", "【205T考】"),
+    _new("TF-143", "true_false", "rights", "一般替代役役男退役發給年終工作獎金，於退役當月15日逕入役男帳戶。", "O", "【205T考】"),
+    _new("TF-144", "true_false", "rights", "替代役役男之全民健康保險、一般保險及團體意外保險統一由內政部支付。", "O", "【219T考】【227T考】"),
+    _new("TF-145", "true_false", "management", "替代役管理幹部由服勤單位甄選核定。", "X", "【219T考】【227T考】【247T考】【257T考選擇】"),
+    _new("TF-146", "true_false", "management", "管理幹部經需用機關在職訓練後始可擔任。", "O", "【219T考】【227T考】"),
+    _new("TF-147", "true_false", "volunteer", "志工服務年資滿1年，服務時數達150小時以上者，得向志願服務運用單位申請認證服務績效及發給志願服務績效證明書。", "O", "【257T考選擇】"),
+    _new("TF-148", "true_false", "regulations", "在老人中心服役為社會役。", "O", ""),
+    _new("TF-149", "true_false", "rights", "目前台灣長照為長照2.0。", "O", "【257T考】"),
+    _new("TF-150", "true_false", "rights", "目前長照專線為1966。", "O", "【257T考是非】"),
+    _new("TF-151", "true_false", "rights", "長照服務對象為65歲以上老人、55歲以上原住民、50歲以上失智症者、失能身心障礙者。", "O", "【257T考】【257T考選擇】"),
+    _new("TF-152", "true_false", "management", "民安演習時間為9-10月。", "X", ""),
+    _new("TF-153", "true_false", "rights", "性霸凌：指透過語言、肢體或其他暴力，對於他人之性別特徵、性別特質、性傾向或性別認同進行貶抑、攻擊或威脅之行為。", "O", ""),
+    _new("MC-099", "multiple_choice", "rights", "替代役役男發生死亡，依法給予之年撫卹金年限雖然屆滿，而子女尚未成年者，得繼續給卹至", 2, "【203T考】【205T考】",
+         ["大學畢業", "研究所畢業", "成年", "高中畢業"]),
+    _new("MC-100", "multiple_choice", "regulations", "常備役體位因家庭因素服替代役者役期為", 2, "【205T考】",
+         ["較常備兵役長2個月", "較常備兵役長4個月", "與常備兵役同", "較常備兵役長15日"]),
+    _new("MC-101", "multiple_choice", "management", "替代役役男懲處種類包含哪些？", 3, "【219T考】【227T考】",
+         ["罰勤、禁足、罰站", "申誡、記過", "罰薪、輔導教育", "以上皆是"]),
+]
+
+
 def review_recruit():
     data = load("questions.json")
+    have = {q["id"] for q in data["questions"]}
+    data["questions"] += [dict(q) for q in NEW_QUESTIONS if q["id"] not in have]
     summary = {"law": 0, "partial": 0, "unverified": 0, "experience": 0, "outdated": 0}
     for q in data["questions"]:
         qid = q["id"]
@@ -314,7 +370,7 @@ def review_recruit():
         if qid in OUTDATED:
             pcode, no = OUTDATED_SOURCE[qid]
             q.update({
-                "status": "outdated", "status_note": OUTDATED[qid] + "本題依舊規定出題，不列入測驗。",
+                "status": "outdated", "status_note": OUTDATED[qid] + ("本題不列入測驗。" if qid == "MC-012" else "本題依舊規定出題，不列入測驗。"),
                 "explanation": "", "review": "outdated", "source_kind": "law",
                 "source": "%s 第%s條" % (LAWS[pcode]["name"], no), "source_url": single_url(pcode, no),
             })
@@ -438,10 +494,49 @@ EMT_CAUTION = {
 }
 
 
+def recalled_questions():
+    """把 scripts/emt_recalled.py 的考點題轉成題庫格式。"""
+    import emt_recalled as src
+    out = []
+    for qid, item, category, stem, options, answer, options_by, note, law, retired in src.RECALLED:
+        round_label = "270T" if qid.startswith("EMT-270") else "梯次不明（講師提供的舊考古題）"
+        q = {
+            "id": qid, "type": "multiple_choice", "category": category, "category_name": src.CATEGORY_NAME[category],
+            "question": stem, "options": options, "answer": answer, "exam_tag": "【270T考】" if qid.startswith("EMT-270") else "",
+            "reviewed_at": REVIEWED_AT,
+            "provenance": {
+                "class": "recalled", "label": "考生回憶的考點", "source_id": src.SOURCE_ID, "source_item": item,
+                "round": round_label, "options_by": options_by,
+            },
+        }
+        tail = "選項是站方依考點自編的。" if options_by == "site" else "選項依回憶者所記。"
+        if law:
+            pcode, no, keyword = law
+            basis(q, pcode, no, keyword)
+            q["explanation"] += (chr(10) + note if note else "")
+            q["confidence"] = "高"
+        else:
+            q.update({
+                "review": "recalled", "source_kind": "recalled", "confidence": "中",
+                "source": "270T 考生回憶（Dcard 軍旅板），%s" % item, "source_url": src.SOURCE_URL,
+                "explanation": (note + chr(10) if note else "") + "答案照回憶者所記，沒有逐題對照現行教材原文。" + tail,
+            })
+        if retired:
+            q.update({"status": "outdated", "status_note": retired + "本題不列入測驗。", "review": "outdated", "confidence": "低"})
+        out.append(q)
+    return out
+
+
 def review_emt():
     data = load("emt_questions.json")
-    summary = {"law": 0, "partial": 0, "textbook": 0}
+    recalled = recalled_questions()
+    keep = [q for q in data["questions"] if q.get("provenance", {}).get("class") != "recalled"]
+    data["questions"] = recalled + keep  # 有考過證據的題目排在前面
+    summary = {"law": 0, "partial": 0, "textbook": 0, "recalled": 0, "outdated": 0}
     for q in data["questions"]:
+        if q.get("provenance", {}).get("class") == "recalled":
+            summary[q["review"]] += 1
+            continue
         q["reviewed_at"] = REVIEWED_AT
         q["confidence"] = "高"
         q.pop("caution", None)
@@ -469,6 +564,9 @@ def review_emt():
     data["updatedAt"] = REVIEWED_AT
     data["subtitle"] = "依消防署初級救護技術員教材與歷屆役男分享整理；法規題已對照現行條文"
     data["stats"]["review"] = summary
+    data["stats"]["total"] = data["total"] = len(data["questions"])
+    data["stats"].pop("multiple_choice_count", None)
+    data["stats"].pop("categories", None)
     save("emt_questions.json", data)
     return data, summary
 
@@ -598,10 +696,12 @@ def review_study():
 # ---------------------------------------------------------------- 查核紀錄與逐題審核表
 REVIEWER = "Claude（AI）；尚無人工複核"
 STATUS = {
+    "recalled": "考生回憶的答案（未對照現行教材原文）",
     "law": "核實", "partial": "待補證（條文只支持一部分）", "unverified": "待補證（查無條文）",
     "experience": "待補證（經驗題）", "outdated": "舊法停用", "textbook": "待補證（教材題，未對照現行教材原文）",
 }
 METHOD = {
+    "recalled": "題幹由站方依考生回憶的考點重寫；答案照回憶者所記，另以急救常識檢查有無明顯矛盾",
     "law": "題幹、選項與所引條文逐字比對，列出不見於條文的片段後逐題裁定",
     "partial": "題幹、選項與所引條文逐字比對；條文只支持一部分",
     "unverified": "在收錄的 20 部法規中檢索，查無對應條文",
@@ -610,6 +710,7 @@ METHOD = {
     "textbook": "檢查題目、答案與解析是否一致；未取得現行教材原文，未逐題對照",
 }
 SUPPORT = {
+    "recalled": "未對照教材原文",
     "law": "是", "partial": "部分", "unverified": "無條文可對照", "experience": "無條文可對照",
     "outdated": "否（舊法）", "textbook": "未對照教材原文",
 }
@@ -642,7 +743,14 @@ def law_date(q):
 def write_csv(recruit, emt):
     import csv
     before = original_answers()
-    verified = {"recruit": ("law",), "emt": ("law", "textbook")}
+    # 模擬考題池：新訓＝彙編收錄且已對照現行條文；EMT＝考生回憶的考點題（含其中的法規題）
+    def in_exam(bank, q):
+        cls = q.get("provenance", {}).get("class", "")
+        if q.get("status") == "outdated":
+            return False
+        if bank == "recruit":
+            return cls.startswith("compiled") and q["review"] == "law"
+        return cls == "recalled"
     rows = []
     for bank, data in (("recruit", recruit), ("emt", emt)):
         for q in data["questions"]:
@@ -661,12 +769,13 @@ def write_csv(recruit, emt):
                 "題型": "是非" if q["type"] == "true_false" else "選擇", "分類": q["category"],
                 "出題梯次": q.get("exam_tag", ""), "題幹": q["question"],
                 "選項": " ／ ".join(q.get("options", [])),
-                "原始答案（改版前）": old_answer, "核定答案": answer_text(q),
+                "舊版網站答案（不是歷史考卷答案）": old_answer, "核定答案": answer_text(q),
                 "題目或答案是否更動": "是" if changed else "否",
                 "來源": q["source"], "來源連結": q.get("source_url", ""), "來源日期": law_date(q),
                 "所引來源是否支持題幹的關鍵限制詞": SUPPORT[review], "是否唯一正解": unique,
                 "處理狀態": status,
-                "列入模擬考": "是" if review in verified[bank] else "否",
+                "來源等級": q.get("provenance", {}).get("label", ""),
+                "列入模擬考": "是" if in_exam(bank, q) else "否",
                 "信心": q.get("confidence", ""), "解析": q.get("explanation", "") or q.get("status_note", ""),
                 "改動原因或備註": " ".join(x for x in (q.get("revised", ""), q.get("caution", "")) if x),
                 "審核者": REVIEWER, "審核日期": q["reviewed_at"], "審核方式": METHOD[review],

@@ -284,11 +284,12 @@ def run(base):
               and "第13條" in page.inner_text("#bank-list details.explain-fold"))
 
         print("出題範圍")
-        verified = {q["id"] for q in recruit.values() if q.get("review") == "law"}
+        verified = {q["id"] for q in recruit.values() if q.get("review") == "law"
+                    and q["provenance"]["class"].startswith("compiled") and q.get("status") != "outdated"}
         outdated = {q["id"] for q in recruit.values() if q.get("status") == "outdated"}
         page.evaluate("localStorage.clear()")
         go("quiz")
-        check("模擬考說明標示只抽已對照法條的題目", str(len(verified)) in page.inner_text("#mock-scope"))
+        check("模擬考說明標示題池來源與題數", str(len(verified)) in page.inner_text("#mock-scope") and "彙編" in page.inner_text("#mock-scope"))
         drawn = set()
         for _ in range(4):
             page.click('[data-mode="mock"]')
@@ -296,7 +297,7 @@ def run(base):
             page.click('.quiz-bar [data-action="quiz-pause"]')
             page.click('[data-action="quiz-discard"]')
             page.click('#dialog [data-dialog="1"]')
-        check("模擬考 4 次抽題都只含已核實題", drawn <= verified and not (drawn & outdated), sorted(drawn - verified)[:5])
+        check("新訓模擬考 4 次抽題都只含彙編收錄且已對照法條的題目", drawn <= verified and not (drawn & outdated), sorted(drawn - verified)[:5])
         page.select_option("#opt-cat", "shooting")
         page.click('[data-mode="category"]')
         check("章節沒有已核實題時不出題並提示", session(page, "recruit") is None and "納入" in page.inner_text("#toast"))
@@ -308,6 +309,40 @@ def run(base):
         page.click('.quiz-bar [data-action="quiz-pause"]')
         page.click('[data-action="quiz-discard"]')
         page.click('#dialog [data-dialog="1"]')
+
+        go("emt")
+        recalled = {q["id"] for q in emt.values() if q["provenance"]["class"] == "recalled" and q.get("status") != "outdated"}
+        check("EMT 模擬考說明標示考生回憶考點", str(len(recalled)) in page.inner_text("#mock-scope") and "270T" in page.inner_text("#mock-scope"))
+        drawn = set()
+        for _ in range(3):
+            page.click('[data-mode="mock"]')
+            items = session(page, "emt")["items"]
+            drawn |= {it["id"] for it in items}
+            page.click('.quiz-bar [data-action="quiz-pause"]')
+            page.click('[data-action="quiz-discard"]')
+            page.click('#dialog [data-dialog="1"]')
+        check("EMT 模擬考 40 題且只含考生回憶考點題", len(items) == 40 and drawn <= recalled, sorted(drawn - recalled)[:5])
+        page.click('[data-mode="quick"]')
+        quick = {it["id"] for it in session(page, "emt")["items"]}
+        check("EMT 快速練習預設不含站方自編題", quick <= recalled)
+        page.click('.quiz-bar [data-action="quiz-pause"]')
+        page.click('[data-action="quiz-discard"]')
+        page.click('#dialog [data-dialog="1"]')
+        go("emt-bank")
+        page.fill("#bank-search", "EMT-270-06")
+        page.wait_for_timeout(300)
+        card = page.inner_text("#bank-list")
+        check("回憶考點題標示來源與梯次", "考生回憶考點" in card and "270T" in card and "黃色" in page.inner_text("#bank-list .is-answer"))
+        page.fill("#bank-search", "")
+        page.wait_for_timeout(300)
+        page.select_option("#bank-scope", "authored")
+        authored = sum(q["provenance"]["class"] == "site_authored" for q in emt.values())
+        check("可篩出站方自編題並有標示", "找到 %d 題" % authored in page.inner_text("#bank-count") and "站方自編，非考古題" in page.inner_text("#bank-list"))
+        go("bank")
+        page.fill("#bank-search", "TF-145")
+        page.wait_for_timeout(300)
+        check("自彙編補回的題目標示彙編原題與梯次", "彙編原題" in page.inner_text("#bank-list") and "257T" in page.inner_text("#bank-list"))
+        go("quiz")
 
         print("多分頁與紀錄匯出匯入")
         page.click('[data-mode="quick"]')
