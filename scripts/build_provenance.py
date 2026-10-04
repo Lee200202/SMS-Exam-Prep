@@ -201,7 +201,11 @@ LABEL = {
     "recalled": "考生回憶的考點",
     "compiled_verbatim": "彙編逐字收錄", "compiled_minor": "彙編收錄（用字微調）",
     "compiled_adapted": "彙編收錄，依現行法規改寫", "site_authored": "站方自編，無考古題來源",
+    "recalled_verbatim": "205T A 卷考生回憶題（依現行法校字）",
+    "recalled_adapted": "205T A 卷考生回憶考點（本站改寫）",
 }
+
+P10_ORIGINAL_IDS = {"TF-154", "MC-102"}
 
 
 def main():
@@ -212,12 +216,29 @@ def main():
     recruit = load("questions.json")
     used = {}
     for q in recruit["questions"]:
+        if q["id"] in P10_ORIGINAL_IDS:
+            evidence = next((e for e in q.get("exam_evidence", []) if e.get("source_id") == "P10"), None)
+            if evidence is None:
+                raise ValueError("205T A 卷題缺少逐題來源定位：" + q["id"])
+            cls = "recalled_verbatim"
+            q["provenance"] = {
+                "class": cls, "label": LABEL[cls], "source_id": "P10",
+                "source_item": evidence["source_item"], "tags": "【205T A卷回憶】",
+            }
+            counts[cls] = counts.get(cls, 0) + 1
+            rows.append(row("新訓", q, old.get(q["id"]), None, 1.0, cls))
+            continue
         item, score = match(q, old.get(q["id"]), items)
         if q["id"] in MANUAL:
             item = next(i for i in items if (i["kind"], i["no"]) == MANUAL[q["id"]])
         cls = classify(q, old.get(q["id"]), item, score)
+        p10 = next((e for e in q.get("exam_evidence", []) if e.get("source_id") == "P10"), None)
+        if cls == "site_authored" and p10:
+            cls = "recalled_adapted"
         prov = {"class": cls, "label": LABEL[cls]}
-        if cls != "site_authored":
+        if cls == "recalled_adapted":
+            prov.update({"source_id": "P10", "source_item": p10["source_item"], "tags": "【205T A卷回憶】"})
+        elif cls != "site_authored":
             key = "%s %d" % ("是非" if item["kind"] == "TF" else "選擇", item["no"])
             prov.update({"source_id": SOURCE_ID, "source_item": key, "tags": item["tags"]})
             if key in UPSTREAM:
@@ -295,7 +316,7 @@ def row(bank, q, old, item, score, cls):
         "site_answer_text": current, "site_exam_tag": q.get("exam_tag", ""),
         "site_review_status": q.get("review", ""),
         "old_site_answer_text（改版前網站答案，不是歷史考卷答案）": answer_text(old) if old else "",
-        "source_id": SOURCE_ID if item else "", "source_item": ("%s %d" % ("是非" if item["kind"] == "TF" else "選擇", item["no"])) if item else "",
+        "source_id": SOURCE_ID if item else q.get("provenance", {}).get("source_id", ""), "source_item": ("%s %d" % ("是非" if item["kind"] == "TF" else "選擇", item["no"])) if item else q.get("provenance", {}).get("source_item", ""),
         "source_original_stem": item["stem"] if item else "",
         "source_original_options": " ／ ".join(item["options"]) if item else "",
         "source_original_answer": (item["answer"] if item else ""),
@@ -305,7 +326,7 @@ def row(bank, q, old, item, score, cls):
         "stem_diff": "" if not item else ("相同" if stem_same else "不同"),
         "option_diff": "" if not item or not item["options"] else ("相同" if opts_same else "不同"),
         "answer_diff": "" if not item else ("相同" if ans_same else "不同"),
-        "has_batch_evidence": "是" if item and item["tags"] else "否",
+        "has_batch_evidence": "是" if (item and item["tags"]) or cls == "recalled_verbatim" else "否",
         "ptt_upstream_rounds": "、".join(q.get("provenance", {}).get("upstream", [])),
         "current_basis": q.get("source", ""), "current_basis_url": q.get("source_url", ""),
         "revision_note": q.get("revised", "") or q.get("status_note", ""),
@@ -315,6 +336,8 @@ def row(bank, q, old, item, score, cls):
 
 
 def decision(cls, q, item):
+    if cls == "recalled_verbatim":
+        return "205T A 卷考生回憶有題文、沒有原標答案；現行答案已對照法條，列入來源題模擬考"
     if cls == "site_authored":
         return "站方自編練習題：不得稱為考古題，不列入「考古題模擬考」"
     if q.get("review") == "outdated":

@@ -181,7 +181,7 @@ def main():
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
     allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "textbook114", "recalled", "recalled_conflict", "imported", "imported_conflict"}
-    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled", "uploaded", "site_authored"}
+    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled_verbatim", "recalled_adapted", "recalled", "uploaded", "site_authored"}
 
     def in_exam(name, q):
         cls = q.get("provenance", {}).get("class", "")

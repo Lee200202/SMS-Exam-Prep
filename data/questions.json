@@ -2,23 +2,25 @@
   "version": "2026.10",
   "updatedAt": "2026-10-04",
   "stats": {
-    "total": 287,
+    "total": 289,
     "active": 278,
-    "true_false": 166,
-    "multiple_choice": 121,
+    "true_false": 167,
+    "multiple_choice": 122,
     "with_explanation": 278,
     "review": {
-      "law": 182,
+      "law": 184,
       "partial": 4,
-      "unverified": 65,
+      "unverified": 63,
       "experience": 27,
-      "outdated": 9
+      "outdated": 11
     },
     "provenance": {
       "compiled_verbatim": 182,
       "compiled_minor": 25,
       "compiled_adapted": 30,
-      "site_authored": 50
+      "site_authored": 49,
+      "recalled_adapted": 1,
+      "recalled_verbatim": 2
     }
   },
   "questions": [
@@ -152,7 +154,14 @@
         "source_id": "R01",
         "source_item": "是非 6",
         "tags": "【215T考】［227T考］【247T考】【257T考】【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 24",
+          "relationship": "題型不同、同考點"
+        }
+      ]
     },
     {
       "id": "TF-007",
@@ -399,7 +408,14 @@
         "upstream": [
           "154T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 14",
+          "relationship": "題型不同、同考點"
+        }
+      ]
     },
     {
       "id": "TF-018",
@@ -728,7 +744,14 @@
         "source_id": "R01",
         "source_item": "是非 32",
         "tags": "【205T考】【215T考】【219T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 1",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-033",
@@ -818,7 +841,14 @@
         "upstream": [
           "154T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 12",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-037",
@@ -1004,7 +1034,14 @@
           "153T",
           "154T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 7",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-045",
@@ -1305,7 +1342,14 @@
           "153T",
           "154T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 4",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-058",
@@ -1353,7 +1397,14 @@
           "153T",
           "154T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 24",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-060",
@@ -1421,7 +1472,14 @@
         "source_id": "R01",
         "source_item": "是非 63",
         "tags": "［227T考］【257T考選擇】【203T考】【205T考】【215T考】【219T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 23",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-063",
@@ -1710,7 +1768,14 @@
         "source_id": "R01",
         "source_item": "是非 76",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 10",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-076",
@@ -1753,7 +1818,14 @@
         "source_id": "R01",
         "source_item": "是非 59",
         "tags": "【205T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 2",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-078",
@@ -1824,7 +1896,14 @@
         "source_id": "R01",
         "source_item": "是非 80",
         "tags": "【205T考】【215T考】【219T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 16",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-081",
@@ -1832,21 +1911,30 @@
       "category": "regulations",
       "question": "替代役役男接受訓練期間，體格狀況不適服替代役時應向內政部役政署(訓練組)提出申請驗退複檢。",
       "answer": "O",
-      "explanation": "內政部役政署已於民國 112 年改制，替代役訓練業務現由內政部替代役訓練及管理中心辦理。本題保留歷屆答案。",
+      "explanation": "",
       "exam_tag": "【205T考】【215T考】【219T考】",
-      "source": "替代役實施條例",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040017",
+      "source": "替代役實施條例施行細則 第9條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040018&flno=9",
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
-      "review": "unverified",
-      "confidence": "低",
+      "review": "outdated",
+      "confidence": "高",
       "provenance": {
         "class": "compiled_verbatim",
         "label": "彙編逐字收錄",
         "source_id": "R01",
         "source_item": "是非 81",
         "tags": "［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 3",
+          "relationship": "站內已有同題或改寫"
+        }
+      ],
+      "status": "outdated",
+      "status_note": "題幹仍稱內政部役政署（訓練組），但該機關已改制；205T 回憶只能用於歷史對照。現行訓練及驗退流程見內政部替代役暨社會韌性訓練執行中心公告。本題依舊規定出題，不列入測驗。"
     },
     {
       "id": "TF-082",
@@ -1911,7 +1999,14 @@
         "source_id": "R01",
         "source_item": "是非 85",
         "tags": "【205T考】【215T考】【219T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 18",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-085",
@@ -2096,7 +2191,14 @@
         "source_id": "R01",
         "source_item": "是非 93",
         "tags": "【205T考】【219T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 14",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-093",
@@ -2170,7 +2272,14 @@
         "upstream": [
           "153T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 22",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-096",
@@ -2220,7 +2329,14 @@
           "154T"
         ]
       },
-      "revised": "站方先前把題幹縮寫成「應親自填寫保險受益指定書」，已還原為彙編原文。"
+      "revised": "站方先前把題幹縮寫成「應親自填寫保險受益指定書」，已還原為彙編原文。",
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 6",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-098",
@@ -2340,7 +2456,14 @@
         "upstream": [
           "153T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 13",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-103",
@@ -2365,7 +2488,14 @@
         "upstream": [
           "153T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 21",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-104",
@@ -2693,7 +2823,14 @@
         "source_id": "R01",
         "source_item": "是非 119",
         "tags": "【205T考】【219T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 25",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-118",
@@ -3319,7 +3456,14 @@
           "153T",
           "154T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 16",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-007",
@@ -3456,7 +3600,14 @@
         "source_id": "R01",
         "source_item": "選擇 11",
         "tags": "【205T考】［227T考］【247T考】【257T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 11",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-012",
@@ -3684,7 +3835,14 @@
         "source_id": "R01",
         "source_item": "選擇 19",
         "tags": "【205T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 23",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-020",
@@ -3794,7 +3952,14 @@
         "source_id": "R01",
         "source_item": "選擇 23",
         "tags": "【205T考】【247T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 9",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-024",
@@ -3903,7 +4068,14 @@
         "source_id": "R01",
         "source_item": "選擇 27",
         "tags": "【205T考】【215T考】【219T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 22",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-028",
@@ -4270,7 +4442,14 @@
         "source_id": "R01",
         "source_item": "選擇 41",
         "tags": "［227T考］【205T考】【215T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 4",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-041",
@@ -4326,7 +4505,14 @@
         "source_id": "R01",
         "source_item": "選擇 43",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 13",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-043",
@@ -4382,7 +4568,14 @@
         "source_id": "R01",
         "source_item": "選擇 45",
         "tags": "［227T考］【205T考】【219T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 5",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-045",
@@ -4409,7 +4602,14 @@
         "source_id": "R01",
         "source_item": "選擇 46",
         "tags": ""
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 11",
+          "relationship": "題型不同、同考點"
+        }
+      ]
     },
     {
       "id": "MC-046",
@@ -4801,7 +5001,14 @@
         "source_id": "R01",
         "source_item": "選擇 60",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 12",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-060",
@@ -4856,7 +5063,14 @@
         "source_id": "R01",
         "source_item": "選擇 62",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 2",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-062",
@@ -4883,7 +5097,14 @@
         "source_id": "R01",
         "source_item": "選擇 63",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 1",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-063",
@@ -4911,7 +5132,14 @@
         "source_id": "R01",
         "source_item": "選擇 64",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 15",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-064",
@@ -5047,7 +5275,14 @@
         "source_id": "R01",
         "source_item": "選擇 69",
         "tags": "【205T考】［227T考］【257T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 19",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-069",
@@ -5078,7 +5313,14 @@
         "upstream": [
           "153T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 10",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-070",
@@ -5469,7 +5711,14 @@
         "upstream": [
           "153T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 17",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-083",
@@ -5527,7 +5776,14 @@
         "source_id": "R01",
         "source_item": "選擇 84",
         "tags": "【205T考】【215T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 25",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-085",
@@ -6016,9 +6272,19 @@
       "review": "law",
       "confidence": "高",
       "provenance": {
-        "class": "site_authored",
-        "label": "站方自編，無考古題來源"
-      }
+        "class": "recalled_adapted",
+        "label": "205T A 卷考生回憶考點（本站改寫）",
+        "source_id": "P10",
+        "source_item": "選擇 6",
+        "tags": "【205T A卷回憶】"
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 6",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-257-04",
@@ -6090,7 +6356,14 @@
         "source_id": "R01",
         "source_item": "是非 83",
         "tags": "【203T考】【205T考】【215T考】［227T考］【247T考選擇】【257T考選擇】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 9",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-DOC2-02",
@@ -6112,7 +6385,14 @@
         "source_id": "R01",
         "source_item": "是非 116",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 19",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-DOC2-01",
@@ -6206,7 +6486,14 @@
         "upstream": [
           "179T"
         ]
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 3",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-DOC2-04",
@@ -6249,20 +6536,29 @@
         "較常備兵軍事訓練役期長4個月(共8個月)"
       ],
       "answer": 2,
-      "explanation": "《替代役實施條例》第7條只規定「較常備兵役長六個月以內」，實際役期由行政院核定。",
-      "source": "替代役實施條例",
-      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0040017",
+      "explanation": "",
+      "source": "替代役實施條例 第7條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=7",
       "source_kind": "law",
       "reviewed_at": "2026-10-04",
-      "review": "unverified",
-      "confidence": "低",
+      "review": "outdated",
+      "confidence": "高",
       "provenance": {
         "class": "compiled_adapted",
         "label": "彙編收錄，依現行法規改寫",
         "source_id": "R01",
         "source_item": "選擇 90",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 20",
+          "relationship": "站內已有同題或改寫"
+        }
+      ],
+      "status": "outdated",
+      "status_note": "題幹只寫「83年次以後」，現行 83–93 年次與 94 年次以後役期不同，沒有唯一選項；須加出生年次區間後重新出題。本題依舊規定出題，不列入測驗。"
     },
     {
       "id": "TF-DOC2-03",
@@ -6284,7 +6580,14 @@
         "source_id": "R01",
         "source_item": "選擇 92",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 5",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-DOC2-06",
@@ -6312,7 +6615,14 @@
         "source_id": "R01",
         "source_item": "選擇 93",
         "tags": "【205T考】［227T考］【215T考】【219T考】【247T考】【257T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 7",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-DOC2-07",
@@ -6340,7 +6650,14 @@
         "source_id": "R01",
         "source_item": "選擇 94",
         "tags": ""
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 18",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-DOC2-04",
@@ -6678,7 +6995,14 @@
         "source_id": "R01",
         "source_item": "是非 96",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 15",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-143",
@@ -6700,7 +7024,14 @@
         "source_id": "R01",
         "source_item": "選擇 91",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 8",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-144",
@@ -6722,7 +7053,14 @@
         "source_id": "R01",
         "source_item": "選擇 95",
         "tags": "【219T考】［227T考］"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 17",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "TF-145",
@@ -6976,7 +7314,14 @@
         "source_id": "R01",
         "source_item": "選擇 49",
         "tags": "【205T考】"
-      }
+      },
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 21",
+          "relationship": "站內已有同題或改寫"
+        }
+      ]
     },
     {
       "id": "MC-101",
@@ -7004,6 +7349,70 @@
         "source_id": "R01",
         "source_item": "選擇 99",
         "tags": "【219T考】［227T考］"
+      }
+    },
+    {
+      "id": "TF-154",
+      "type": "true_false",
+      "category": "rights",
+      "question": "替代役役男因公死亡，遺族年撫卹金給與十五年；年限屆滿而子女尚未成年者，得繼續給卹至成年。",
+      "answer": "O",
+      "exam_tag": "【205T A卷回憶】",
+      "explanation": "《替代役實施條例》第32條：替代役役男死亡時，除依下列規定給與一次撫卹金外，每年給與五個基數之年撫卹金：一、因公死亡：給與十五年。但因冒險犯難殉職者，加給五年。同條並規定：給與年限屆滿而子女尚未成年者，得繼續給卹至成年；若已成年而學校教育未中斷，還有延至大學畢業的條件。",
+      "source": "替代役實施條例 第32條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040017&flno=32",
+      "source_kind": "law",
+      "review": "law",
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "是非 20",
+          "relationship": "原題校字"
+        }
+      ],
+      "reviewed_at": "2026-10-04",
+      "confidence": "高",
+      "provenance": {
+        "class": "recalled_verbatim",
+        "label": "205T A 卷考生回憶題（依現行法校字）",
+        "source_id": "P10",
+        "source_item": "是非 20",
+        "tags": "【205T A卷回憶】"
+      }
+    },
+    {
+      "id": "MC-102",
+      "type": "multiple_choice",
+      "category": "management",
+      "question": "需用機關對服勤單位提出的罰薪或輔導教育懲處案件，應於幾日內核定？",
+      "options": [
+        "三日",
+        "五日",
+        "七日",
+        "十日"
+      ],
+      "answer": 3,
+      "exam_tag": "【205T A卷回憶】",
+      "explanation": "《替代役役男獎懲辦法》第19條：需用機關對於服勤單位所提替代役役男罰薪或輔導教育之懲處案件，應於十日內核定。",
+      "source": "替代役役男獎懲辦法 第19條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0040028&flno=19",
+      "source_kind": "law",
+      "review": "law",
+      "exam_evidence": [
+        {
+          "source_id": "P10",
+          "source_item": "選擇 8",
+          "relationship": "原題校字"
+        }
+      ],
+      "reviewed_at": "2026-10-04",
+      "confidence": "高",
+      "provenance": {
+        "class": "recalled_verbatim",
+        "label": "205T A 卷考生回憶題（依現行法校字）",
+        "source_id": "P10",
+        "source_item": "選擇 8",
+        "tags": "【205T A卷回憶】"
       }
     }
   ]
