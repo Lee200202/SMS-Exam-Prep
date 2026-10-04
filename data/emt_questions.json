@@ -2,20 +2,23 @@
   "version": "2026-10",
   "title": "EMT-1 初級救護技術員學科題庫",
   "subtitle": "依 270T 考生回憶的考點重寫；不是逐字原題",
-  "total": 46,
+  "total": 107,
   "stats": {
-    "total": 46,
+    "total": 107,
     "review": {
-      "law": 7,
+      "law": 9,
       "partial": 0,
       "textbook": 0,
       "textbook114": 35,
       "recalled": 2,
       "recalled_conflict": 1,
+      "imported": 57,
+      "imported_conflict": 2,
       "outdated": 1
     },
     "provenance": {
-      "recalled": 46
+      "recalled": 57,
+      "uploaded": 50
     }
   },
   "questions": [
@@ -32,7 +35,7 @@
         "民國 96 年 7 月 11 日"
       ],
       "answer": 0,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -40,7 +43,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 1 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 1 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -68,7 +74,7 @@
         "急產的孕婦"
       ],
       "answer": 1,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -76,7 +82,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 2 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 2 題"
+        ]
       },
       "source_kind": "law",
       "source": "緊急醫療救護法施行細則 第2條",
@@ -134,7 +143,7 @@
         "新臺幣 10 萬元以上 50 萬元以下"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -142,7 +151,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 4 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 5 題"
+        ]
       },
       "source_kind": "law",
       "source": "緊急醫療救護法 第42條",
@@ -164,7 +176,7 @@
         "使用聲門上呼吸道"
       ],
       "answer": 3,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -172,7 +184,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 5 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 4 題"
+        ]
       },
       "source_kind": "law",
       "source": "救護技術員管理辦法 第14條",
@@ -260,7 +275,7 @@
         "氣管隆凸"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -268,7 +283,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 8 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 8 題"
+        ]
       },
       "review": "recalled",
       "source_kind": "recalled",
@@ -296,7 +314,7 @@
         "水平切面"
       ],
       "answer": 1,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -304,7 +322,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 9 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 7 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -332,7 +353,7 @@
         "90"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -340,7 +361,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 10 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 10 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -368,7 +392,7 @@
         "血糖"
       ],
       "answer": 3,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -376,7 +400,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 11 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 11 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -440,7 +467,7 @@
         "按人中"
       ],
       "answer": 0,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -448,7 +475,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 13 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 13 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -476,7 +506,7 @@
         "120～140 次"
       ],
       "answer": 1,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -484,7 +514,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 14 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 14 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -512,7 +545,7 @@
         "38.0～39.0 度"
       ],
       "answer": 1,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -520,7 +553,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 15 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 16 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -548,7 +584,7 @@
         "96%"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -556,7 +592,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 16 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 17 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -584,7 +623,7 @@
         "對痛刺激沒有反應"
       ],
       "answer": 3,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -592,7 +631,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 17 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 18 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -728,7 +770,7 @@
         "擠壓到胸部有起伏"
       ],
       "answer": 0,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -736,7 +778,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 21 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 20 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -764,7 +809,7 @@
         "15～20%"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -772,7 +817,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 22 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 22 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -832,7 +880,7 @@
         "高級心肺復甦"
       ],
       "answer": 0,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -840,7 +888,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 24 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 24 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -905,7 +956,7 @@
         "意識 → 循環 → 呼吸道 → 呼吸 → 輔助檢查"
       ],
       "answer": 0,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -913,7 +964,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 26 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 26 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -977,7 +1031,7 @@
         "微血管充填時間超過 2 秒"
       ],
       "answer": 1,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -985,7 +1039,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 28 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 27 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1013,7 +1070,7 @@
         "肩部頸椎減移"
       ],
       "answer": 1,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1021,7 +1078,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 29 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 34 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1049,7 +1109,7 @@
         "完全重疊"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1057,7 +1117,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 30 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 31 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1157,7 +1220,7 @@
         "止血帶止血"
       ],
       "answer": 0,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1165,7 +1228,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 33 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 30 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1193,7 +1259,7 @@
         "骨折處和上下兩個關節"
       ],
       "answer": 3,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1201,7 +1267,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 34 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 32 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1265,7 +1334,7 @@
         "血糖"
       ],
       "answer": 3,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1273,7 +1342,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 36 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 36 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1373,7 +1445,7 @@
         "三度、36%"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1381,7 +1453,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 39 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 38 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1409,7 +1484,7 @@
         "30 人"
       ],
       "answer": 2,
-      "exam_tag": "",
+      "exam_tag": "【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1417,7 +1492,10 @@
         "source_id": "E02",
         "source_item": "Part 1 第 40 題",
         "round": "梯次不明（講師提供的舊考古題）",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 40 題"
+        ]
       },
       "source_kind": "law",
       "source": "緊急醫療救護法施行細則 第2條",
@@ -1445,7 +1523,7 @@
         "袋瓣罩甦醒球"
       ],
       "answer": 2,
-      "exam_tag": "【270T考】",
+      "exam_tag": "【270T考】【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1453,7 +1531,10 @@
         "source_id": "E02",
         "source_item": "Part 2 第 1 題",
         "round": "270T",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 29 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1481,7 +1562,7 @@
         "看兩眼是否偏向一側"
       ],
       "answer": 0,
-      "exam_tag": "【270T考】",
+      "exam_tag": "【270T考】【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1489,7 +1570,10 @@
         "source_id": "E02",
         "source_item": "Part 2 第 2 題",
         "round": "270T",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 37 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1553,7 +1637,7 @@
         "肩部頸椎減移"
       ],
       "answer": 0,
-      "exam_tag": "【270T考】",
+      "exam_tag": "【270T考】【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1561,7 +1645,10 @@
         "source_id": "E02",
         "source_item": "Part 2 第 4 題",
         "round": "270T",
-        "options_by": "site"
+        "options_by": "site",
+        "also": [
+          "274T 整理檔第 33 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1589,7 +1676,7 @@
         "常出現在心跳停止後一分鐘內"
       ],
       "answer": 0,
-      "exam_tag": "【270T考】",
+      "exam_tag": "【270T考】【274T考】",
       "reviewed_at": "2026-10-04",
       "provenance": {
         "class": "recalled",
@@ -1597,7 +1684,10 @@
         "source_id": "E02",
         "source_item": "Part 2 第 5 題",
         "round": "270T",
-        "options_by": "source"
+        "options_by": "source",
+        "also": [
+          "274T 整理檔第 9 題"
+        ]
       },
       "review": "textbook114",
       "source_kind": "textbook",
@@ -1647,6 +1737,1839 @@
         "summary": "START 檢傷依呼吸是否超過每分鐘 30 次、橈動脈或微血管充填時間、能否遵從指令來分類。",
         "url": "https://ebook.nfa.gov.tw/1140527/files/basic-html/page426.html"
       }
+    },
+    {
+      "id": "EMT-274-03",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "下列何者不是緊急醫療救護人員？",
+      "options": [
+        "醫師",
+        "護理人員",
+        "救護技術員",
+        "救護車駕駛"
+      ],
+      "answer": 3,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 3 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法 第4條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=4",
+      "review": "law",
+      "explanation": "《緊急醫療救護法》第4條：本法所稱緊急醫療救護人員（以下簡稱救護人員），指醫師、護理人員、救護技術員。\n整理檔的答案：醫師、護理人員、救護技術員以外的人不算。選項是站方補寫的。",
+      "confidence": "中"
+    },
+    {
+      "id": "EMT-274-06",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "依《緊急醫療救護法》第 45 條，救護技術員未依規定施救，罰鍰是多少？",
+      "options": [
+        "新臺幣 5 千元以上 2 萬 5 千元以下",
+        "新臺幣 1 萬元以上 5 萬元以下",
+        "新臺幣 6 萬元以上 30 萬元以下",
+        "新臺幣 10 萬元以上 50 萬元以下"
+      ],
+      "answer": 1,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 6 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "source_kind": "law",
+      "source": "緊急醫療救護法 第45條",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020045&flno=45",
+      "review": "law",
+      "explanation": "《緊急醫療救護法》第45條：有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：一、救護技術員違反第二十六條或第二十七條第一項規定。二、救護人員違反第二十九條或第三十三條規定。三、救護技術員及其他參與緊急醫療救護業務之機關（構）所屬人員違反第三十五條規定。四、醫院違反第三十六條第二項所定轉診辦法之轉診要件、方式及應辦理之醫院聯繫與協調事項或第三十七條第二項規定。\n選項是站方補寫的。",
+      "confidence": "中"
+    },
+    {
+      "id": "EMT-274-12",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "20 歲女性昏迷，給痛刺激會睜眼、會發出聲音、肢體伸直，昏迷指數是幾分？",
+      "options": [
+        "5 分",
+        "6 分",
+        "7 分",
+        "8 分"
+      ],
+      "answer": 1,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 12 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 12 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "整理檔的答案：E2 + V2 + M2 = 6 分。選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-15",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "血壓低於多少算有危險？",
+      "options": [
+        "80/50 mmHg",
+        "90/60 mmHg",
+        "100/70 mmHg",
+        "110/70 mmHg"
+      ],
+      "answer": 1,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 15 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 15 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-19",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "下列哪一種情況應該使用袋瓣罩甦醒球？",
+      "options": [
+        "意識清醒、血氧 96%",
+        "已使用非再吸入型面罩，血氧仍低於 90%",
+        "輕微喘、能說完整句子",
+        "手指擦傷"
+      ],
+      "answer": 1,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 19 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 19 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "整理檔的答案：心跳停止、沒有適當呼吸、用了非再吸入型面罩血氧仍低於 90%、意識不清且通氣不足等。選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-21",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "嬰兒異物哽塞時怎麼處理？",
+      "options": [
+        "腹部推擠法",
+        "拍背壓胸法",
+        "用手指伸進嘴裡挖",
+        "倒提雙腳拍打"
+      ],
+      "answer": 1,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 21 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 21 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-23",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "成人 CPR 的口訣是什麼？",
+      "options": [
+        "快快壓、重重壓、胸回彈、莫中斷",
+        "慢慢壓、輕輕壓、胸回彈、莫中斷",
+        "快快壓、輕輕壓、不回彈、可中斷",
+        "慢慢壓、重重壓、胸回彈、常中斷"
+      ],
+      "answer": 0,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 23 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 23 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-25",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "臍帶還連在母親身上的新生兒沒有脈搏，壓胸與吹氣的比例是多少？",
+      "options": [
+        "3：1",
+        "5：1",
+        "15：2",
+        "30：2"
+      ],
+      "answer": 0,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 25 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 25 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-28",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "非再吸入型面罩的氧氣流量是每分鐘幾公升？",
+      "options": [
+        "1～6 公升",
+        "6～10 公升",
+        "10～15 公升",
+        "20～25 公升"
+      ],
+      "answer": 2,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 28 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 28 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "整理檔的答案：鼻導管 1～6、簡單面罩 6～10、非再吸入型面罩 10～15、袋瓣罩甦醒球約 15。選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-35",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "頸圈的大小怎麼量？",
+      "options": [
+        "下顎到鎖骨的距離",
+        "耳垂到肩膀的距離",
+        "頸部一圈的長度",
+        "下顎到胸骨下緣的距離"
+      ],
+      "answer": 0,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 35 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 35 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-274-39",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "小兒評估三角包含哪三項？",
+      "options": [
+        "外觀、呼吸作功、皮膚循環",
+        "意識、血壓、體溫",
+        "呼吸道、呼吸、循環",
+        "瞳孔、膚色、血氧"
+      ],
+      "answer": 0,
+      "exam_tag": "【274T考】",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "recalled",
+        "label": "考生回憶的考點",
+        "source_id": "E05",
+        "source_item": "274T 第 39 題",
+        "round": "274T（使用者提供的整理檔）",
+        "options_by": "site"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "274T 考古題整理檔（使用者提供），274T 第 39 題",
+      "source_url": "https://www.scribd.com/document/1057074543/",
+      "explanation": "選項是站方補寫的。\n依使用者指示直接匯入，答案照整理檔所記，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-01",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "初級救護技術員得施行之救護項目，下列何者為非？",
+      "options": [
+        "檢傷分類",
+        "急產接生",
+        "使用自動心臟電擊器",
+        "使用沖洗用生理食鹽水沖洗眼睛"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 1 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported_conflict",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 1 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。",
+      "caution": "文件的答案是「沖洗眼睛」。現行《救護技術員管理辦法》第 13 條已把沖洗眼睛列為初級救護技術員的救護項目，這個答案依的是舊規定。本題不列入模擬考。"
+    },
+    {
+      "id": "EMT-2022-02",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "初級救護技術員教育訓練 W 小時，證書有效期為 X 年，於 Y 年內需繼續教育 Z 小時，請問 W+X+Y+Z=？",
+      "options": [
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 2 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported_conflict",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 2 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。",
+      "caution": "文件的答案是 70（40+3+3+24）。現行附表一的訓練時數是 56 小時，這個答案依的是舊制。本題不列入模擬考。"
+    },
+    {
+      "id": "EMT-2022-03",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "未依緊急傷病患作業救護程序施行救護者，依緊急醫療救護法第 45 條，處多少罰鍰？",
+      "options": [
+        "處新台幣 5 千元以上 2 萬 5 千元以下罰鍰",
+        "處新台幣 1 萬元以上 5 萬元以下罰鍰",
+        "處新台幣 6 萬元以上 30 萬元以下罰鍰",
+        "處新台幣 10 萬元以上 50 萬元以下罰鍰"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 3 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 3 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-04",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "救護車載送病患至少要有幾名緊急醫療救護人員？",
+      "options": [
+        "2 人",
+        "3 人",
+        "4 人",
+        "沒有限制"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 4 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 4 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-05",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "救護紀錄表要存放幾年才能銷毀？",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 5 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 5 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-06",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "請問頸動脈、肱動脈、股動脈、橈動脈、足背動脈，分別為多少？",
+      "options": [
+        "60.70.70.90.90",
+        "60.70.80.80.80",
+        "60.70.70.80.90",
+        "70.70.80.80.90"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 6 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 6 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-07",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "成人共有幾塊骨頭？",
+      "options": [
+        "205",
+        "206",
+        "207",
+        "208"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 7 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 7 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-08",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "緊急醫療的運作需要分為四個階段，請排出正確的順序？（1 到院前救護單位的派遣　2 轉送到適當的醫療場所　3 報告及啟動緊急醫療系統　4 救護技術員的醫療評及現場處置）",
+      "options": [
+        "1234",
+        "2143",
+        "3142",
+        "4312"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 8 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 8 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-09",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "鼻咽呼吸道測量方式為何？",
+      "options": [
+        "測量嘴角到耳垂距離",
+        "測量鼻尖到下巴距離",
+        "測量鼻尖到嘴角距離",
+        "測量鼻尖到耳垂距離"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 9 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 9 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-10",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "創傷患者要暢通呼吸道時，需使用？",
+      "options": [
+        "壓額抬下顎法",
+        "拇食指交叉法",
+        "食拇指交叉法",
+        "下顎推舉法"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 10 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 10 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-11",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "遇到低血壓患者，應給予？",
+      "options": [
+        "平躺",
+        "頭高腳低",
+        "腳高頭低",
+        "半坐臥"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 11 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 11 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-12",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "一名燒燙傷患者，左手臂（整隻手）以及左腳（整隻腳）二度燒燙傷，試問它的燒燙傷面積為何？",
+      "options": [
+        "18",
+        "27",
+        "36",
+        "45"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 12 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 12 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-13",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "一名患者意識清楚，從火場被救出，在檢查時發現患者鼻毛燒焦，試問患者氧氣治療需選擇？",
+      "options": [
+        "氧氣鼻管",
+        "氧氣面罩",
+        "非再吸入型面罩",
+        "不用給患者氧氣治療"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 13 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 13 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "文件上選項 C 寫作「非在吸入型面罩」，是錯字。\n題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-14",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "對孕婦的哈姆立克急救法應採用？",
+      "options": [
+        "腹部推擠法",
+        "胸部推擠法",
+        "背部敲擊法",
+        "倒立法"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 14 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 14 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-15",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "沒有施行心肺復甦術，其存活率每分鐘約減少多少？",
+      "options": [
+        "7-10%",
+        "10-15%",
+        "15-20%",
+        "20-25%"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 15 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 15 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-16",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "基本心肺復甦術下壓深度？",
+      "options": [
+        "5-6 公分",
+        "2-4 公分",
+        "7-8 公分",
+        "8 公分以上"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 16 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 16 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-17",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "危急度判斷呼吸速率大於幾次為危急個案？",
+      "options": [
+        "每分鐘>29 次",
+        "每分鐘>35 次",
+        "每分鐘>20 次",
+        "每分鐘>10 次"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 17 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 17 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-18",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "下列何者為危急個案患者？",
+      "options": [
+        "血壓 120/80、心跳 90、血氧 95%、意識昏迷的患者。",
+        "血壓 120/80、心跳 90、血氧 95%、主訴胸悶/痛。",
+        "血壓 120/80、心跳 90、血氧 95%、左側肢體無力患者。",
+        "以上皆是。"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 18 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 18 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-19",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "快速最有效的簡單止血方法有？",
+      "options": [
+        "直接加壓止血",
+        "止血帶止血法",
+        "止血點止血法",
+        "全部皆可"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 19 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 19 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-20",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "為患者進行止血包紮時，應該要注意事項，何者為非？",
+      "options": [
+        "優先使用止血帶止血",
+        "敷料要大於傷口邊緣",
+        "無菌技術",
+        "清潔傷口"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 20 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 20 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-21",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "從正趴翻身至患者已呈現頭頸一直線之狀態，此時救護人員之主手該以何種頸椎限制固定？好讓副手使用肩部頸椎限制固定。",
+      "options": [
+        "頭部頸椎限制",
+        "胸骨前額頸椎限制",
+        "胸骨脊椎頸椎限制",
+        "胸骨枕骨頸椎限制"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 21 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 21 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-22",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "（接續上一題：病人已由俯臥翻成仰躺）救護人員為患者上完頸圈後，救護人員之副手該以何種頸椎保護固定？好準備將患者固定上長背板。",
+      "options": [
+        "肩部頸椎限制",
+        "頭肩部頸椎限制",
+        "胸骨前額頸椎限制",
+        "胸骨脊椎頸椎限制"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 22 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 22 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "文件原文為「承上題」。\n題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-23",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "(1)儘早 CPR (2)儘早高級心臟救命術 (3)儘早求救 (4)完整的復甦後照顧 (5)儘早去顫，有關生命之鏈順序，何者正確？",
+      "options": [
+        "12345",
+        "13254",
+        "31254",
+        "31524"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 23 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 23 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-24",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "患者對聲音無反應，給他疼痛刺激時眼睛會睜開，會呻吟，手腳伸展僵直，請問 GCS？",
+      "options": [
+        "E2V3M2",
+        "E2V2M3",
+        "E1V3M2",
+        "E2V2M2"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 24 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 24 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-25",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "下列危急個案判斷的敘述何者錯誤？",
+      "options": [
+        "生命徵象-急性意識不清",
+        "GCS-14 分",
+        "特殊情況-持續抽搐",
+        "創傷機轉-成人高度 5 公尺墜落",
+        "創傷部位-嚴重撕裂傷"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 25 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 25 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "文件上這一題有五個選項。\n題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-26",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "在發生車禍時，操作傷患車內脫困過程中，下列何者為常見的錯誤？",
+      "options": [
+        "車體尚未熄火前即接觸傷患",
+        "未確實做好傷患的頭頸部保護",
+        "操作人員未做好自我保護",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 26 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 26 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-27",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "在非創傷二度評估時，操作項目「全身皮膚是否有異常」指的是檢查皮膚有無下列何者異常？",
+      "options": [
+        "紅疹",
+        "紫斑",
+        "針孔",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 27 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 27 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-28",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "下列何者不是非創傷二度評估的操作項目？",
+      "options": [
+        "氣管是否偏移",
+        "聽診兩側肺音",
+        "胸部觸診是否有壓痛",
+        "腹部觸診是否有壓痛"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 28 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 28 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-29",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "檢查氣管是否偏移，應使用幾隻手指操作？",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 29 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 29 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-30",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "中風的黃金治療時間？",
+      "options": [
+        "1 小時",
+        "2 小時",
+        "3 小時",
+        "30 分鐘"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 30 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 30 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-31",
+      "type": "multiple_choice",
+      "category": "emt_medical",
+      "category_name": "急症評估處置與休克",
+      "question": "老人評估中，若有神經學症狀時，辛辛那提檢查任何一項不正常且新發作患者，可能為腦中風之可能性為 _%，三項均不正常 _%？",
+      "options": [
+        "70%、80%",
+        "72%、85%",
+        "75%、85%",
+        "80%、90%"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 31 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 31 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-32",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "欲用夾板固定肢體骨折，夾板長度必須至少涵蓋？",
+      "options": [
+        "整個肢體",
+        "骨斷端及其上面的關節",
+        "骨斷端及上下兩個關節",
+        "骨斷端及其下面的關節"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 32 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 32 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-33",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "下列何者為錯誤的？",
+      "options": [
+        "到達現場時應注意現場是否安全",
+        "推擔架床上救護車時僅需注意前方就好",
+        "患者資料及病情不可以隨意洩漏",
+        "接觸病人時應做好適當防護"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 33 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 33 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-34",
+      "type": "multiple_choice",
+      "category": "emt_mci",
+      "category_name": "大量傷病患與檢傷分類",
+      "question": "有關大量傷病患事故，其敘述下列何者錯？",
+      "options": [
+        "一般而言在大量傷病患事故中，常使用 START 檢法",
+        "傷票顏色分為黑、紅、黃、綠共四色",
+        "大量傷病患的定義為單一事故中，災害發生時傷病患人數達 15 人以上或預判可能發生 15 人以上之緊急醫療救護",
+        "依傷票顏色判定後送醫院優先順序，黑色應該要優先後送"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 34 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 34 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-35",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "下列哪一種結常用於三角巾包紮？",
+      "options": [
+        "滑結",
+        "爪結",
+        "死結",
+        "平結"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 35 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 35 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-36",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "下列何種器材常使用於車禍患者脫困？",
+      "options": [
+        "抽吸式護木",
+        "KED",
+        "椅式擔架",
+        "搬運毯"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 36 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 36 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-37",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "救護技術員應該知道什麼事情？",
+      "options": [
+        "心肺復甦術",
+        "辨識生命危急的問題",
+        "控制出血",
+        "以上皆是"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 37 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 37 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-38",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "利用 AVPU 來表示意識程度，其中 V 是表示病人？",
+      "options": [
+        "清醒",
+        "對聲音有反應",
+        "對疼痛刺激有反應",
+        "昏迷"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 38 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 38 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-39",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "下列敘述何者不是長骨？",
+      "options": [
+        "鎖骨",
+        "股骨",
+        "脛骨",
+        "腓骨"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 39 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 39 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-40",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "當前臂骨折，固定前/後應檢查？",
+      "options": [
+        "檢查頸動脈、感覺運動功能",
+        "檢查股動脈、感覺運動功能",
+        "檢查橈動脈、感覺運動功能",
+        "檢查肱動脈、感覺運動功能"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 40 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 40 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-41",
+      "type": "multiple_choice",
+      "category": "emt_cpr",
+      "category_name": "心肺復甦術與 AED",
+      "question": "成人 CPR 對於無呼吸的病人，在給予第一次正壓給氧後，若無法吹入氣體，則施救者應該？",
+      "options": [
+        "重新打開呼吸道，再給予正壓給氧",
+        "開始胸外按壓",
+        "檢查脈搏",
+        "檢查是否有異物堵塞呼吸道"
+      ],
+      "answer": 0,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 41 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 41 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-42",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "您救護一患者騎機車自摔，主訴頸部及雙手麻麻的、有刺痛感，欲為其上頸圈，此時您要如何測量頸圈大小？",
+      "options": [
+        "下巴的平行切線至鎖骨之平行切線",
+        "下頜骨轉角的平行線至肩膀",
+        "下巴的平行切線至肩膀",
+        "患者中指後兩節"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 42 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 42 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-43",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "對於呼吸困難的傷患，應採取何種姿勢運送？",
+      "options": [
+        "平躺",
+        "左側躺",
+        "半坐臥",
+        "無限制姿勢"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 43 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 43 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-44",
+      "type": "multiple_choice",
+      "category": "emt_laws",
+      "category_name": "緊急醫療救護法規與倫理",
+      "question": "「緊急醫療救護法」，於民國幾年發布？",
+      "options": [
+        "82",
+        "84",
+        "86",
+        "88"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 44 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 44 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-45",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "腦神經共有幾對？",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "answer": 1,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 45 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 45 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-46",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "請問骨盆骨折，則出血量大約為？",
+      "options": [
+        "500 C.C.",
+        "1000 C.C.",
+        "3000 C.C.",
+        "10000 C.C."
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 46 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 46 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "文件上選項 A 寫作「500°C.C」，是錯字。\n題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-47",
+      "type": "multiple_choice",
+      "category": "emt_anatomy",
+      "category_name": "基礎解剖與八大生命徵象",
+      "question": "下列何者非「生命徵象」檢查項目？",
+      "options": [
+        "意識",
+        "血壓",
+        "瞳孔",
+        "血糖"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 47 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 47 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-48",
+      "type": "multiple_choice",
+      "category": "emt_trauma",
+      "category_name": "創傷評估止血固定搬運",
+      "question": "檢查骨盆是否穩定與疼痛，檢查方式為？",
+      "options": [
+        "向外側擠壓一次為限",
+        "向左側擠壓一次為限",
+        "向右側擠壓一次為限",
+        "向內側擠壓一次為限"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 48 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 48 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-49",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "下列何者錯誤？",
+      "options": [
+        "氧氣鼻導管，1~6 L/min",
+        "氧氣面罩，6~10 L/min",
+        "非再吸入型氧氣面罩，10~15 L/min",
+        "甦醒球，10~15 L/min"
+      ],
+      "answer": 3,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 49 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 49 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
+    },
+    {
+      "id": "EMT-2022-50",
+      "type": "multiple_choice",
+      "category": "emt_airway",
+      "category_name": "呼吸道處置與氧氣治療",
+      "question": "抽吸操作規範，下列何者正確？",
+      "options": [
+        "抽吸前應先給予氧氣鼻導管之氧氣治療",
+        "抽吸導管欲深入之長度(嘴角至下巴)",
+        "抽吸時間<15 秒",
+        "抽吸時間<10 秒"
+      ],
+      "answer": 2,
+      "exam_tag": "",
+      "reviewed_at": "2026-10-04",
+      "provenance": {
+        "class": "uploaded",
+        "label": "2022 年考古題文件",
+        "source_id": "E01",
+        "source_item": "第 50 題",
+        "round": "2022 年（文件沒有標示考試單位或梯次）",
+        "options_by": "source"
+      },
+      "review": "imported",
+      "source_kind": "recalled",
+      "confidence": "低",
+      "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），第 50 題",
+      "source_url": "https://www.scribd.com/document/846175657/",
+      "explanation": "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。"
     }
   ],
   "updatedAt": "2026-10-04"

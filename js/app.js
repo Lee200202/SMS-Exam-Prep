@@ -135,7 +135,7 @@
       quizRoute: 'emt', bankRoute: 'emt-bank',
       cats: {},
       // 模擬考題池：270T 考生回憶的考點題
-      inExam: (q) => q.provenance === 'recalled' && q.review !== 'recalled_conflict',
+      inExam: (q) => (q.provenance === 'recalled' || q.provenance === 'uploaded') && !/_conflict$/.test(q.review),
       examLabel: '考生回憶考點',
       otherLabel: '站方依教材自編的練習題',
     },
@@ -194,6 +194,8 @@
       fromSource: /^compiled/.test((q.provenance && q.provenance.class) || ''),
       sourceItem: (q.provenance && q.provenance.source_item) || '',
       upstream: (q.provenance && q.provenance.upstream) || [],
+      sourceId: (q.provenance && q.provenance.source_id) || '',
+      also: (q.provenance && q.provenance.also) || [],
       sourceRound: (q.provenance && q.provenance.round) || '',
       optionsBy: (q.provenance && q.provenance.options_by) || '',
       caution: q.caution || '',
@@ -246,7 +248,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004f';
+  const ASSET_VERSION = '20261004g';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -507,7 +509,7 @@
   /** 列出所有選項並標示正解；chosen 為使用者選的原始索引（可省略）。 */
   function answerList(q, order, chosen, kw) {
     return `<ul class="answers">${order.map((orig, pos) => {
-      const key = q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCD'[pos];
+      const key = q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCDE'[pos];
       const isAnswer = orig === q.answer;
       const marks = [];
       if (isAnswer) marks.push('正確答案');
@@ -525,6 +527,8 @@
     textbook114: ['chip-ok', '已對照 114 年教材'],
     recalled: ['', '答案照回憶者所記'],
     recalled_conflict: ['chip-amber', '回憶題幹與教材條件不符'],
+    imported: ['chip-amber', '直接匯入，未核實'],
+    imported_conflict: ['chip-amber', '答案依舊制，不出題'],
   };
   const reviewChip = (q) => (REVIEW_CHIP[q.review]
     ? `<span class="chip ${REVIEW_CHIP[q.review][0]}">${REVIEW_CHIP[q.review][1]}</span>` : '');
@@ -535,13 +539,20 @@
     compiled_minor: ['chip-primary', '彙編原題（用字微調）'],
     compiled_adapted: ['chip-amber', '彙編題，已依現行法改寫'],
     recalled: ['chip-primary', '考生回憶考點'],
+    uploaded: ['chip-primary', '2022 年考古題文件'],
     site_authored: ['chip-amber', '站方自編，非考古題'],
   };
   const originChip = (q) => (ORIGIN_CHIP[q.provenance]
     ? `<span class="chip ${ORIGIN_CHIP[q.provenance][0]}">${ORIGIN_CHIP[q.provenance][1]}</span>` : '');
   const originLine = (q) => {
+    if (q.provenance === 'uploaded') {
+      return `<p class="small muted">來源：〈2022 EMT-1 筆試考古題〉文件${esc(q.sourceItem)}，題幹、選項與答案照文件轉錄。文件沒有標示考試單位或梯次，內容沒有核實。</p>`;
+    }
+    if (q.provenance === 'recalled' && q.sourceId === 'E05') {
+      return `<p class="small muted">考點來源：274T 考古題整理檔${esc(q.sourceItem)}（使用者提供）。整理檔沒有選項，選項是站方補寫的。</p>`;
+    }
     if (q.provenance === 'recalled') {
-      return `<p class="small muted">考點來源：Dcard 270T 文章（${esc(q.sourceItem)}，${esc(q.sourceRound)}）。題幹為站方重寫${q.optionsBy === 'site' ? '，回憶者沒有記下選項，選項是站方自編' : ''}。</p>`;
+      return `<p class="small muted">考點來源：Dcard 270T 文章（${esc(q.sourceItem)}，${esc(q.sourceRound)}）。題幹為站方重寫${q.optionsBy === 'site' ? '，回憶者沒有記下選項，選項是站方自編' : ''}。${q.also.length ? `${esc(q.also.join('、'))}也有這個考點。` : ''}</p>`;
     }
     if (q.fromSource) return `<p class="small muted">考古題來源：成功嶺新訓考古題彙編（增補至 257T）${esc(q.sourceItem)} 題。${q.upstream.length ? `PTT 的 ${esc(q.upstream.join('、'))} 回憶文裡也有這一題。` : ''}</p>`;
     if (q.provenance === 'site_authored') return '<p class="small muted">這一題在歷屆彙編與考生回憶裡都找不到，是站方編寫的練習題，沒有考過的證據。</p>';
@@ -579,8 +590,8 @@
         <a class="btn btn-primary btn-lg" href="#quiz">開始新訓學科測驗</a>
         <a class="btn btn-primary btn-lg" href="#emt">開始 EMT-1 測驗</a>
       </div>
-      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 回憶考點 ${e.questions.filter(q => q.provenance === 'recalled').length} 題、自編練習 ${e.questions.filter(q => q.provenance === 'site_authored').length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
-      <p class="small muted" id="home-origin">模擬考只出指定來源的題目：新訓 ${r.verified.length} 題（民間彙編收錄並已對照現行法條）、EMT-1 ${e.verified.length} 題（Dcard 文章中的舊考點與 270T 回憶新題）。自編題須在練習時自行勾選。</p>
+      <p class="small muted" id="home-stats">新訓學科 ${r.questions.length} 題（是非 ${tf}、選擇 ${r.questions.length - tf}）・EMT-1 有來源題 ${e.questions.filter(q => q.provenance !== 'site_authored').length} 題（回憶考點 ${e.questions.filter(q => q.provenance === 'recalled').length}、2022 年考古題文件 ${e.questions.filter(q => q.provenance === 'uploaded').length}）、自編練習 ${e.questions.filter(q => q.provenance === 'site_authored').length} 題・資料整理日 ${esc(state.meta.updatedAt)}</p>
+      <p class="small muted" id="home-origin">模擬考只出指定來源的題目：新訓 ${r.verified.length} 題（民間彙編收錄並已對照現行法條）、EMT-1 ${e.verified.length} 題（Dcard 270T 文章的回憶考點、274T 考古題整理檔、2022 年考古題文件；後兩者為直接匯入，未核實）。自編題須在練習時自行勾選。</p>
     </section>
     <div class="stack">
       ${resumeBanner(r)}${resumeBanner(e)}
@@ -623,6 +634,7 @@
           <p>「有沒有考過」和「答案對不對」是分開標示的。</p>
           <p>新訓題庫對照的是〈成功嶺新訓考古題〉彙編（增補至 257T）。每一題會標示「彙編原題」「彙編題，已依現行法改寫」或「站方自編，非考古題」；彙編是役男整理的民間資料，不是考試單位的原卷。答案另外對照全國法規資料庫的現行條文。</p>
           <p>EMT-1 的 46 題取自 270T 役男文章：Part 1 是梯次不明的舊考點，只有 Part 2 六題是作者記下的當梯新題。題幹由本站重寫，多數選項由本站補寫，均非正式原卷。另有 96 題由 AI 依教材編寫，獨立放在自編練習區，預設不出題；尚未逐題對照 114 年教材。</p>
+          <p>274T 考古題整理檔的 11 個新考點與〈2022 EMT-1 筆試考古題〉文件的 50 題，是依站主提供的資料直接匯入的，題目上標示「直接匯入，未核實」；2022 年那份文件沒有標示考試單位或梯次。</p>
           <p>醫學內容沒有逐題對照現行教材原文，請以訓練單位教學為準，不適合作為現場急救的依據。</p>
           <p>用品清單、成績配分與薪給等內容屬於歷屆經驗，實際以徵集令、當梯次營區通知與主管機關公告為準。</p>
         </div>
@@ -642,7 +654,7 @@
     const others = bank.pool.length - bank.verified.length - authored;
     const scope = cfg.id === 'recruit'
       ? `只從歷屆彙編（增補至 257T）收錄、而且答案已對照現行法條的 ${bank.verified.length} 題出題。`
-      : `只從 Dcard 文章的 ${bank.verified.length} 題回憶考點出題；Part 1 是梯次不明的舊考點，Part 2 六題是 270T 當梯新題。題幹由本站重寫，不是逐字原題。`;
+      : `從 ${bank.verified.length} 題出題：Dcard 270T 文章的回憶考點、274T 考古題整理檔，以及〈2022 EMT-1 筆試考古題〉文件。後兩者是依使用者提供的資料直接匯入，沒有核實。`;
     return `
     <div class="stack">
       ${resumeBanner(bank)}
@@ -702,7 +714,7 @@
     const flagged = s.flags.includes(i);
 
     const options = item.order.map((orig, pos) => {
-      const key = q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCD'[pos];
+      const key = q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCDE'[pos];
       let cls = '', mark = '';
       if (locked) {
         if (orig === q.answer) { cls = ' is-correct'; mark = chosen === orig ? '✓ 你答對了' : '✓ 正確答案'; }
@@ -716,7 +728,7 @@
     if (locked) {
       const ok = chosen === q.answer;
       const pos = item.order.indexOf(q.answer);
-      const answerText = q.type === 'tf' ? q.options[q.answer] : `${'ABCD'[pos]}．${q.options[q.answer]}`;
+      const answerText = q.type === 'tf' ? q.options[q.answer] : `${'ABCDE'[pos]}．${q.options[q.answer]}`;
       feedback = `<section class="feedback ${ok ? 'is-ok' : 'is-bad'}" id="feedback" tabindex="-1">
         <h3>${ok ? '✓ 答對了' : `✕ 答錯了，正確答案是「${esc(answerText)}」`}</h3>
         ${explainBlock(q)}
@@ -905,7 +917,7 @@
     const order = q.options.map((_, i) => i);
     const inExplanation = kw && q.explanation.toLowerCase().includes(kw.toLowerCase());
     const body = hidden
-      ? `<ul class="answers">${order.map((orig, pos) => `<li><span aria-hidden="true">${q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCD'[pos]}</span><span>${hl(q.options[orig], kw)}</span></li>`).join('')}</ul>
+      ? `<ul class="answers">${order.map((orig, pos) => `<li><span aria-hidden="true">${q.type === 'tf' ? (orig === 0 ? '○' : '✕') : 'ABCDE'[pos]}</span><span>${hl(q.options[orig], kw)}</span></li>`).join('')}</ul>
          <button type="button" class="btn" data-action="bank-reveal" data-id="${esc(q.id)}">顯示答案與解析</button>`
       : `${answerList(q, order, undefined, kw)}
          ${q.caution ? `<p class="notice notice-warn small">${esc(q.caution)}</p>` : ''}

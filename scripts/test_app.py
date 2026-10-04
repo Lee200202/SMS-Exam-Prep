@@ -322,7 +322,8 @@ def run(base):
         page.click('#dialog [data-dialog="1"]')
 
         go("emt")
-        recalled = {q["id"] for q in emt.values() if q["provenance"]["class"] == "recalled" and q.get("status") != "outdated" and q.get("review") != "recalled_conflict"}
+        recalled = {q["id"] for q in emt.values() if q["provenance"]["class"] in ("recalled", "uploaded") and q.get("status") != "outdated"
+                    and q.get("review") not in ("recalled_conflict", "imported_conflict")}
         check("EMT 模擬考說明標示考生回憶考點", str(len(recalled)) in page.inner_text("#mock-scope") and "270T" in page.inner_text("#mock-scope"))
         drawn = set()
         for _ in range(3):
@@ -354,7 +355,7 @@ def run(base):
         check("回憶考點題標示來源與梯次", "考生回憶考點" in card and "270T" in card and "黃色" in page.inner_text("#bank-list .is-answer"))
         page.fill("#bank-search", "")
         page.wait_for_timeout(300)
-        check("EMT 題庫預設排除自編題", "找到 46 題" in page.inner_text("#bank-count") and page.locator('#bank-scope').input_value() == 'sourced')
+        check("EMT 題庫預設排除自編題", "找到 %d 題" % len(emt) in page.inner_text("#bank-count") and page.locator('#bank-scope').input_value() == 'sourced')
         page.select_option("#bank-scope", "authored")
         authored = len(emt_practice)
         check("可篩出站方自編題並有標示", "找到 %d 題" % authored in page.inner_text("#bank-count") and "站方自編，非考古題" in page.inner_text("#bank-list"))
@@ -363,6 +364,25 @@ def run(base):
         page.wait_for_timeout(300)
         check("自彙編補回的題目標示彙編原題與梯次", "彙編原題" in page.inner_text("#bank-list") and "257T" in page.inner_text("#bank-list"))
         go("quiz")
+
+        print("直接匯入的 274T 與 2022 年題目")
+        go("emt-bank")
+        page.locator('.toolbar [data-action="bank-reset"]').click()
+        page.fill("#bank-search", "EMT-2022-25")
+        page.wait_for_timeout(300)
+        card = page.inner_text("#bank-list")
+        check("2022 年文件的五選項題完整顯示", "嚴重撕裂傷" in card and page.locator("#bank-list .answers li").count() == 5)
+        check("2022 年文件題標示來源與未核實", "2022 年考古題文件" in card and "未核實" in card)
+        page.fill("#bank-search", "EMT-2022-01")
+        page.wait_for_timeout(300)
+        check("答案依舊制的題目有警示且不進模擬考", "不列入模擬考" in page.inner_text("#bank-list") and "EMT-2022-01" not in recalled)
+        page.fill("#bank-search", "EMT-274-12")
+        page.wait_for_timeout(300)
+        check("274T 新考點已匯入並標示", "274T" in page.inner_text("#bank-list") and "6 分" in page.inner_text("#bank-list .is-answer"))
+        page.fill("#bank-search", "EMT-P1-10")
+        page.wait_for_timeout(300)
+        check("既有考點加註 274T 也有", "274T 整理檔第 10 題" in page.inner_text("#bank-list"))
+        check("EMT 模擬考題池包含匯入題", len(recalled) == sum(1 for q in emt.values()) - 4, len(recalled))
 
         print("114 年教材與 PTT 上游")
         go("emt-bank")

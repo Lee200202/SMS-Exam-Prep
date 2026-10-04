@@ -543,6 +543,53 @@ def recalled_questions():
         if qid == "EMT-P1-25":
             q.update({"review": "recalled_conflict", "confidence": "低", "caution": "來源回憶與 114 年消防署教材第 125 頁的脈搏條件矛盾；本站題幹改為有脈搏，不列入模擬考。"})
         out.append(q)
+    return out + imported_questions(out, src)
+
+
+def imported_questions(existing, src):
+    """使用者提供、依指示直接匯入的題目（scripts/emt_imported.py）。沒有逐題核實。"""
+    import emt_imported as imp
+    by_id = {q["id"]: q for q in existing}
+    for no, qid in imp.ALSO_274T.items():
+        q = by_id[qid]
+        q["provenance"]["also"] = ["274T 整理檔第 %d 題" % no]
+        if "274T" not in q["exam_tag"]:
+            q["exam_tag"] += "【274T考】"
+    out = []
+    for qid, item, category, stem, options, answer, note in imp.T274:
+        q = {
+            "id": qid, "type": "multiple_choice", "category": category, "category_name": src.CATEGORY_NAME[category],
+            "question": stem, "options": options, "answer": answer, "exam_tag": "【274T考】", "reviewed_at": REVIEWED_AT,
+            "provenance": {"class": "recalled", "label": "考生回憶的考點", "source_id": "E05", "source_item": item,
+                           "round": "274T（使用者提供的整理檔）", "options_by": "site"},
+        }
+        law = {"EMT-274-03": (EMS, 4, ""), "EMT-274-06": (EMS, 45, "一萬元以上五萬元以下")}.get(qid)
+        if law:
+            basis(q, *law)
+            q["explanation"] += chr(10) + note
+            q["confidence"] = "中"
+        else:
+            q.update({
+                "review": "imported", "source_kind": "recalled", "confidence": "低",
+                "source": "274T 考古題整理檔（使用者提供），%s" % item, "source_url": imp.E05_URL,
+                "explanation": note + chr(10) + "依使用者指示直接匯入，答案照整理檔所記，沒有核實。",
+            })
+        out.append(q)
+    for qid, item, category, stem, options, answer, note in imp.Y2022:
+        conflict = note.startswith("CONFLICT:")
+        note = note[len("CONFLICT:"):] if conflict else note
+        q = {
+            "id": qid, "type": "multiple_choice", "category": category, "category_name": src.CATEGORY_NAME[category],
+            "question": stem, "options": options, "answer": answer, "exam_tag": "", "reviewed_at": REVIEWED_AT,
+            "provenance": {"class": "uploaded", "label": "2022 年考古題文件", "source_id": "E01", "source_item": item,
+                           "round": "2022 年（文件沒有標示考試單位或梯次）", "options_by": "source"},
+            "review": "imported_conflict" if conflict else "imported", "source_kind": "recalled", "confidence": "低",
+            "source": "2022 EMT-1 筆試考古題文件（使用者提供截圖），%s" % item, "source_url": imp.E01_URL,
+            "explanation": (note + chr(10) if note and not conflict else "") + "題幹、選項與答案照文件轉錄，依使用者指示直接匯入，沒有核實。",
+        }
+        if conflict:
+            q["caution"] = note + "本題不列入模擬考。"
+        out.append(q)
     return out
 
 
@@ -551,9 +598,10 @@ def review_emt():
     recalled = recalled_questions()
     # 自編 96 題另存於 data/emt_practice_questions.json，使用者須明確選擇才進入練習。
     data["questions"] = recalled
-    summary = {"law": 0, "partial": 0, "textbook": 0, "textbook114": 0, "recalled": 0, "recalled_conflict": 0, "outdated": 0}
+    summary = {"law": 0, "partial": 0, "textbook": 0, "textbook114": 0, "recalled": 0, "recalled_conflict": 0,
+               "imported": 0, "imported_conflict": 0, "outdated": 0}
     for q in data["questions"]:
-        if q.get("provenance", {}).get("class") == "recalled":
+        if q.get("provenance", {}).get("class") in ("recalled", "uploaded"):
             summary[q["review"]] += 1
             continue
         q["reviewed_at"] = REVIEWED_AT
@@ -715,6 +763,8 @@ def review_study():
 # ---------------------------------------------------------------- 查核紀錄與逐題審核表
 REVIEWER = "Claude（AI）；尚無人工複核"
 STATUS = {
+    "imported": "使用者提供，直接匯入（未核實）",
+    "imported_conflict": "使用者提供，直接匯入；答案依舊制，不列入模擬考",
     "textbook114": "已對照消防署 114 年版教材",
     "recalled": "考生回憶的答案（114 年版教材中找不到這個考點）",
     "recalled_conflict": "回憶題幹與 114 年教材條件矛盾（不列入模擬考）",
@@ -722,6 +772,8 @@ STATUS = {
     "experience": "待補證（經驗題）", "outdated": "舊法停用", "textbook": "待補證（教材題，未對照現行教材原文）",
 }
 METHOD = {
+    "imported": "依使用者指示照來源文件匯入，沒有核實",
+    "imported_conflict": "照來源文件匯入；已知文件答案依舊制，與現行法規不同",
     "textbook114": "下載消防署 114 年版教材全書文字層，以關鍵字檢索到對應頁面後，逐題比對答案與適用條件",
     "recalled": "題幹由站方依考生回憶的考點重寫；114 年版教材全書文字層檢索不到這個考點，答案照回憶者所記",
     "recalled_conflict": "核對消防署 114 年教材第 125 頁；回憶題幹的脈搏條件與教材表格不符，先排除模擬考",
@@ -733,6 +785,8 @@ METHOD = {
     "textbook": "檢查題目、答案與解析是否一致；未取得現行教材原文，未逐題對照",
 }
 SUPPORT = {
+    "imported": "未核實",
+    "imported_conflict": "否（文件答案依舊制）",
     "textbook114": "是（教材內容支持答案）",
     "recalled": "教材中找不到",
     "recalled_conflict": "回憶條件與教材矛盾",
@@ -775,7 +829,7 @@ def write_csv(recruit, emt):
             return False
         if bank == "recruit":
             return cls.startswith("compiled") and q["review"] == "law"
-        return cls == "recalled" and q.get("review") != "recalled_conflict"
+        return cls in ("recalled", "uploaded") and q.get("review") not in ("recalled_conflict", "imported_conflict")
     rows = []
     practice = load("emt_practice_questions.json")
     for bank, data in (("recruit", recruit), ("emt", emt), ("emt-practice", practice)):
@@ -873,6 +927,8 @@ def write_textbook_csv(emt):
     label = {"supported": "教材支持", "not_found": "教材中找不到", "conflict": "教材條件與回憶題幹不符", "": "法規題，未另查教材"}
     rows = []
     for q in emt["questions"]:
+        if q["provenance"].get("source_id") != "E02":
+            continue  # 只有 Dcard 270T 文章的 46 題做過教材對照；直接匯入的題目沒有
         tb = q.get("textbook", {})
         rows.append({
             "題號": q["id"], "題幹": q["question"], "核定答案": answer_text(q),

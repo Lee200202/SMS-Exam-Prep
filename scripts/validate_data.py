@@ -50,7 +50,7 @@ def check_bank(name, data, categories, law_names):
                 errors.append("%s %s 是非題答案必須是 O 或 X" % (name, qid))
         elif q["type"] == "multiple_choice":
             options = q.get("options", [])
-            if not 3 <= len(options) <= 4 or len(set(options)) != len(options):
+            if not 3 <= len(options) <= 5 or len(set(options)) != len(options):
                 errors.append("%s %s 選項數量或內容異常" % (name, qid))
             if not (isinstance(q["answer"], int) and 0 <= q["answer"] < len(options)):
                 errors.append("%s %s 正解索引超出範圍" % (name, qid))
@@ -180,14 +180,14 @@ def main():
             errors.append("逐題審核表列數 %d 與題數不符" % len(rows))
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
-    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "textbook114", "recalled", "recalled_conflict"}
-    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled", "site_authored"}
+    allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "textbook114", "recalled", "recalled_conflict", "imported", "imported_conflict"}
+    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "recalled", "uploaded", "site_authored"}
 
     def in_exam(name, q):
         cls = q.get("provenance", {}).get("class", "")
         if q.get("status") == "outdated":
             return False
-        return (cls.startswith("compiled") and q.get("review") == "law") if name == "新訓" else cls == "recalled" and q.get("review") != "recalled_conflict"
+        return (cls.startswith("compiled") and q.get("review") == "law") if name == "新訓" else cls in ("recalled", "uploaded") and q.get("review") not in ("recalled_conflict", "imported_conflict")
 
     for name, data, need in (("新訓", recruit, 50), ("EMT", emt, 40)):
         for q in data["questions"]:

@@ -197,6 +197,7 @@ def classify(q, old, item, score):
 UPSTREAM = upstream()
 
 LABEL = {
+    "uploaded": "2022 年考古題文件",
     "recalled": "考生回憶的考點",
     "compiled_verbatim": "彙編逐字收錄", "compiled_minor": "彙編收錄（用字微調）",
     "compiled_adapted": "彙編收錄，依現行法規改寫", "site_authored": "站方自編，無考古題來源",
@@ -239,12 +240,23 @@ def main():
     emt_counts = {}
     for q in emt["questions"]:
         prov = q.get("provenance", {})
-        if prov.get("class") != "recalled":
+        if prov.get("class") not in ("recalled", "uploaded"):
             prov = {"class": "site_authored", "label": LABEL["site_authored"]}
         q["provenance"] = prov
         emt_counts[prov["class"]] = emt_counts.get(prov["class"], 0) + 1
         r = row("EMT-1", q, old.get(q["id"]), None, 0, "site_authored")
-        if prov["class"] == "recalled":
+        if prov["class"] == "uploaded" or prov.get("source_id") == "E05":
+            uploaded = prov["class"] == "uploaded"
+            r.update({
+                "source_id": prov["source_id"], "source_item": prov["source_item"], "source_exam_round": prov["round"],
+                "source_original_stem": "與本站題文相同（照文件轉錄）" if uploaded else "題幹依使用者提供的整理檔",
+                "source_original_options": "文件有完整選項" if uploaded else "整理檔沒有選項，本站選項為站方補寫",
+                "source_original_answer_text": answer_text(q),
+                "match_class": "2022 年考古題文件（照文件轉錄）" if uploaded else "274T 整理檔的考點",
+                "answer_diff": "相同", "has_batch_evidence": "否（文件未標梯次）" if uploaded else "整理檔標示 274T，未另行查證",
+                "decision": "答案依舊制：不列入模擬考" if q.get("review") == "imported_conflict" else "依使用者指示直接匯入，未核實：列入 EMT-1 模擬考",
+            })
+        elif prov["class"] == "recalled":
             r.update({
                 "source_id": prov["source_id"], "source_item": prov["source_item"], "source_exam_round": prov["round"],
                 "source_original_stem": "（不轉錄原文，請看來源連結）",
