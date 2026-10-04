@@ -374,3 +374,7 @@ dialog::backdrop { background: rgba(10, 18, 32, .6); }
   .sub-nav li { flex: none; }
   .sub-nav li:last-child { padding-right: 32px; }
 }
+
+/* 題庫載入前先佔滿一個畫面高，避免內容出現時把頁尾往下推（版面位移） */
+#app { min-height: 100vh; }
+@media print { #app { min-height: 0; } }

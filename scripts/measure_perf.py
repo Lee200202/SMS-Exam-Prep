@@ -54,7 +54,10 @@ def measure(browser, base, profile, warm=False):
     cdp.send("Emulation.setCPUThrottlingRate", {"rate": profile["cpu"]})
     failed = []
     page.on("requestfailed", lambda r: failed.append(r.url))
-    page.goto(base + "#home")
+    if warm:
+        page.reload()  # 同一網址只換 # 不會重新載入，暖快取要明確重新整理
+    else:
+        page.goto(base + "#home")
     page.wait_for_selector("#home-stats")
     page.wait_for_timeout(1200)
     data = page.evaluate(COLLECT)
