@@ -94,7 +94,8 @@ main:focus { outline: none; }
 .stack-sm > * + * { margin-top: 12px; }
 .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .row-between { justify-content: space-between; }
-.read { max-width: 46em; }
+/* 文字一律排到容器全寬才換行；容器寬度由 .wrap 控制 */
+.read { max-width: none; }
 
 .skip-link { position: absolute; left: 8px; top: -60px; background: var(--surface); color: var(--text); padding: 8px 16px; border-radius: 6px; z-index: 100; }
 .skip-link:focus { top: 8px; }
@@ -125,7 +126,7 @@ main:focus { outline: none; }
 
 main { flex: 1; padding-top: 32px; padding-bottom: 64px; }
 .page-head { margin-bottom: 24px; }
-.page-head p { color: var(--muted); margin: 0; max-width: 46em; }
+.page-head p { color: var(--muted); margin: 0; }
 
 .site-footer { border-top: 1px solid var(--border); background: var(--surface); color: var(--muted); padding: 24px 0; font-size: .9375rem; }
 .site-footer p { margin: 0 0 8px; }
@@ -199,8 +200,8 @@ tbody th { font-weight: 700; }
 
 /* ---------- 首頁 ---------- */
 .hero { padding: 8px 0 8px; }
-.hero h1 { font-size: 2rem; max-width: 18em; }
-.hero p { color: var(--muted); max-width: 40em; }
+.hero h1 { font-size: 2rem; }
+.hero p { color: var(--muted); }
 .task-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .task-list li { margin: 0; }
 .task-list a { display: block; height: 100%; padding: 16px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); text-decoration: none; }

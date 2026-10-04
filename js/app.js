@@ -246,7 +246,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004e';
+  const ASSET_VERSION = '20261004f';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');

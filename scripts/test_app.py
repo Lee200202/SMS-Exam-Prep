@@ -478,6 +478,34 @@ def run(base):
             check("%dpx 選項文字至少 16px" % width, font >= 16, font)
             mobile.close()
 
+        print("文字排到容器全寬才換行")
+        narrow_js = """() => {
+          const out = [];
+          for (const el of document.querySelectorAll('#app p, #app h1, #app h2, #app h3, #app li, .site-footer p')) {
+            if (!el.offsetParent) continue;
+            const cs = getComputedStyle(el);
+            const lineHeight = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.6;
+            const box = el.getBoundingClientRect();
+            if (box.height < lineHeight * 1.8 || cs.maxWidth === 'none') continue;   // 只看有折行、又被限制寬度的文字
+            const parent = getComputedStyle(el.parentElement);
+            const available = el.parentElement.clientWidth - parseFloat(parent.paddingLeft) - parseFloat(parent.paddingRight);
+            if (box.width < available - 2) out.push(el.textContent.trim().slice(0, 20));
+          }
+          return out; }"""
+        for width in (1440, 390):
+            wrap_ctx = browser.new_context(viewport={"width": width, "height": 900})
+            wp = wrap_ctx.new_page()
+            early = {}
+            for route in ROUTES:
+                wp.goto(base + "#" + route)
+                wp.wait_for_selector("#app > *")
+                wp.wait_for_timeout(120)
+                found = wp.evaluate(narrow_js)
+                if found:
+                    early[route] = found[:3]
+            check("%dpx 各頁沒有未到全寬就換行的文字" % width, not early, early)
+            wrap_ctx.close()
+
         check("全程沒有 JS 錯誤", not errors, errors[:3])
         browser.close()
 
