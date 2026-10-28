@@ -258,7 +258,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261028a';
+  const ASSET_VERSION = '20261028b';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -558,11 +558,12 @@
   };
   const originChip = (q) => (ORIGIN_CHIP[q.provenance]
     ? `<span class="chip ${ORIGIN_CHIP[q.provenance][0]}">${ORIGIN_CHIP[q.provenance][1]}</span>` : '');
+  const ONLINE_BANK_URL = 'https://script.google.com/macros/s/AKfycbyEymfWDEAGfy1hyGFX8oLWchjPhjOThQZnqyHeBTyFO__NKIttV1hp7BDN-HAIiTTD/exec';
   const originLine = (q) => {
     if (q.provenance === 'paper_verbatim') return `<p class="small muted">題目收錄於${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}${esc(q.sourceItem)}；來源未附答案，本站依現行法條判定。</p>`;
     if (q.provenance === 'paper_adapted') return `<p class="small muted">本題依${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}的${esc(q.sourceItem)}考點改寫，並非逐字原題；來源未附答案。</p>`;
     if (q.provenance === 'online_bank') {
-      return `<p class="small muted">來源：${ext(q.sourceUrl, '替代役線上考試系統')}的題庫（社群架設的線上測驗，2026-10-28 取得），題幹、選項與答案照原樣收錄，含原文錯字。該系統沒有標示梯次，內容沒有核實。</p>`;
+      return `<p class="small muted">題目來源：${ext(ONLINE_BANK_URL, '替代役線上考試系統')}的題庫（社群架設的線上測驗，2026-10-28 取得，沒有標示梯次）。題幹、選項與答案照原樣收錄，含原文錯字；解析由本站依收錄的法規撰寫。</p>`;
     }
     if (q.provenance === 'uploaded') {
       return `<p class="small muted">來源：〈2022 EMT-1 筆試考古題〉文件${esc(q.sourceItem)}，題幹、選項與答案照文件轉錄。文件沒有標示考試單位或梯次，內容沒有核實。</p>`;

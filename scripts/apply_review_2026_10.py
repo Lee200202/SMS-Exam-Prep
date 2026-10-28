@@ -327,6 +327,55 @@ NOTES = {
 }
 UNVERIFIED_NOTE = "收錄的現行法規中查無對應條文，這題的答案來自歷屆考古題，請以當梯次教材為準。"
 
+# 〈替代役線上考試系統〉新增題的查核結果（題幹、選項、答案照來源，不改動；這裡只決定解析與查核狀態）
+#   ("law", 法規, 條號, 關鍵字, 補充)       條文支持來源答案
+#   ("partial", 法規, 條號, 關鍵字, 說明)   條文只支持一部分
+#   ("conflict", 法規, 條號, 關鍵字, 補充)  條文與來源答案不符：保留來源答案，不出題
+#   ("note", 查核狀態, 說明)                收錄的法規查無條文
+ONLINE_REVIEW = {
+    "TF-OL-01": ("note", "unverified", "兩性交往觀念題，收錄的法規中查無對應條文。雙方價值觀與信念差異很大、衝突不斷時，應坦誠溝通，必要時理性分手，不宜期待「結婚後一切就會好轉」。答案照來源，請以當梯次課程為準。"),
+    "TF-OL-02": ("note", "unverified", "成績配分屬訓練單位規定，各梯次可能不同。歷屆（247T）役男分享的基礎訓練配分為：學科 35%、術科 35%、EMT-1 20%（術科 12%、學科 8%）、內務 10%，與本題相符；實際依當梯次公告為準。"),
+    "TF-OL-03": ("note", "unverified", "性別平等相關法規本站未收錄。在網路上公開以言論貶抑、攻擊他人的性別、性傾向或性別認同，可能涉及刑法的公然侮辱、誹謗等責任，也符合性別平等課程所稱性霸凌的定義（見 TF-153），不能以言論自由免責。答案照來源。"),
+    "TF-OL-04": ("partial", A, 50, "", "第50條支持「保險費由主管機關（內政部）編列預算支付」；題幹的「投保單位為內政部」「不含補充保險費」不在本站收錄的條文內。"),
+    "TF-OL-05": ("law", A, 13, "由需用機關辦理", ""),
+    "TF-OL-06": ("law", REWARD, 4, "", ""),
+    "TF-OL-07": ("law", B, 12, "管理幹部之甄選", "甄選是需用機關的權責，不是主管機關。"),
+    "TF-OL-08": ("law", A, 4, "替代役之類別", "社會役列在一般替代役之下。"),
+    "TF-OL-09": ("law", MANAGE, 20, "", ""),
+    "MC-OL-01": ("law", APPLY, 15, "", "家庭因素申請服替代役，由戶籍所在地鄉（鎮、市、區）公所受理、實地調查後，再陳報直轄市、縣（市）政府核辦，所以應向戶籍地公所提出。"),
+    "MC-OL-02": ("law", B, 2, "", "「擔任輔助勤務處所之管理單位」是服勤單位的定義，不是需用機關。"),
+    "MC-OL-03": ("partial", A, 11, "免予回役", "第11條的原則是停役原因消滅後應予回役；傷病停役須經主管機關審查實際情形、核定免予回役，才不必回役。題目沒有寫明是否核定免予回役，「毋須回役」只在核定後成立。"),
+    "TF-OL-10": ("partial", VOLUNTEER, 12, "", "第12條規定運用單位應發給志工志願服務證及服務紀錄冊；「完成基礎及特殊訓練」這項核發條件出自《志願服務證及服務紀錄冊管理辦法》，本站未收錄該辦法全文。"),
+    "TF-OL-11": ("conflict", RECALL, 3, "演訓召集", "「每次1日以內，必要時得延長為3日至5日」是舊規定的寫法（TF-106 已依現行條文改寫）。"),
+    "MC-OL-04": ("law", A, 2, "", ""),
+    "TF-OL-12": ("experience", "題幹的「105k2」應為 T65K2，照來源原文保留。嚴禁在草地、砂地上實施槍枝分解與結合，以避免砂石塵土進入機匣磨損零件，並防細小機件遺失（同 TF-257-03）。"),
+    "TF-OL-13": ("law", A, 55, "報請需用機關核定", "題幹把兩種程序混在一起：要報請需用機關核定的是罰薪與輔導教育，不是罰站至記過。"),
+    "TF-OL-14": ("conflict", APPLY, 11, "六十五歲以上", "條文也沒有「均無收入」這項要件。"),
+    "TF-OL-15": ("law", MANAGE, 20, "", "條文用語是「函請司法機關究辦」。"),
+    "TF-OL-16": ("law", A, 55, "罰勤，平日", ""),
+    "TF-OL-17": ("note", "unverified", "《替代役實施條例》第7條未就宗教因素另定役期，實際役期由行政院核定。本題答案照來源。"),
+    "TF-OL-18": ("note", "unverified", "健保轉出與健保卡的處理屬全民健康保險作業規定，收錄的法規中查無對應條文。答案照來源，請以當梯次教材為準。"),
+    "MC-OL-05": ("law", LEAVE, 4, "", "題幹的「陪產假三日」是舊規定，現行為陪產檢及陪產假七日；陪產假須在配偶分娩當日及前後合計十五日內請畢。"),
+    "TF-OL-19": ("law", APPLY, 11, "役男育有子女", "現行條文為「役男育有子女或配偶懷孕」，已無子女年齡與懷孕月數的限制，題幹所述情形仍符合。"),
+    "TF-OL-20": ("law", A, 7, "六個月以內", "與常備兵役相同的是替代役體位或以家庭因素申請者；常備役體位申請服一般替代役，役期較常備兵役長。"),
+    "TF-OL-21": ("conflict", REWARD, 10, "未達四小時", "四小時以上未達一日才予記過（第11條）。"),
+    "MC-OL-06": ("note", "unverified", UNVERIFIED_NOTE),
+    "TF-OL-22": ("conflict", B, 3, "消防役", "題幹與條文內容相符，答案應為「正確」。"),
+    "TF-OL-23": ("law", A, 53, "", "題幹的「達抗」應為「違抗」，照來源原文保留。"),
+    "TF-OL-24": ("note", "unverified", UNVERIFIED_NOTE),
+    "MC-OL-07": ("law", A, 50, "", "主管機關為內政部。"),
+    "TF-OL-25": ("law", REWARD, 10, "未達四小時", "四小時以上未達一日才予記過（第11條）。"),
+    "MC-OL-08": ("conflict", A, 32, "大學畢業", "題幹問的是子女已成年而學校教育未中斷的情形，條文規定給卹至大學畢業。"),
+    "TF-OL-26": ("conflict_note", "成功嶺新訓考古題彙編（257T）記載：避火罩有減音、滅光、減少後座力之功用為錯誤，正確為「減光」（同 TF-257-01）。"),
+    "MC-OL-09": ("law", A, 12, "家庭發生重大變故", ""),
+    "TF-OL-27": ("law", RIGHTS, 4, "", ""),
+    "MC-OL-10": ("note", "unverified", "成績配分屬訓練單位規定，各梯次可能不同。歷屆（247T）役男分享的學科測驗比例為 35%，彙編編者也把同題（MC-012）的答案改註為 35%。本題答案照來源。"),
+}
+# 條文用語與題幹不完全相同、需要推論的題目
+ONLINE_MEDIUM = {"TF-OL-08", "MC-OL-01", "TF-OL-19", "TF-OL-20", "TF-OL-15", "MC-OL-07"}
+SHOOTING_SOURCE = "替代役線上考試系統題庫（射擊經驗題，非官方）"
+
+
 
 # 彙編（增補至 257T）裡有、但網站先前漏收的題目。題幹與選項照彙編原文，梯次標記也照彙編。
 # 彙編「選擇題」區後段混有是非敘述；答案欄空白的幾則是 257T 考點紀錄，彙編把它們列為正確敘述。
@@ -374,19 +423,36 @@ def online_questions(have):
 
 
 def review_online(q, conflict):
+    """題幹、選項、答案照來源；依 ONLINE_REVIEW 寫入解析與查核狀態，寫法與其他題目相同。"""
     import online_bank as ob
-    q.pop("status", None)
-    q.pop("status_note", None)
-    q.update({
-        "reviewed_at": ob.FETCHED_AT, "confidence": "低", "source_kind": "online_bank", "exam_tag": "",
-        "source": ob.SOURCE_NAME, "source_url": ob.SOURCE_URL,
-        "review": "imported_conflict" if conflict else "imported",
-        "explanation": "題目、選項與答案照〈替代役線上考試系統〉題庫原樣匯入（%s 取得），沒有核實。" % ob.FETCHED_AT,
-    })
-    if conflict:
-        q["caution"] = conflict + "本題不列入測驗。"
+    for key in ("status", "status_note", "caution"):
+        q.pop(key, None)
+    q.update({"reviewed_at": ob.FETCHED_AT, "exam_tag": "", "confidence": "低"})
+    rule = ONLINE_REVIEW[q["id"]]
+    kind = rule[0]
+    if kind in ("law", "partial", "conflict"):
+        _, pcode, no, keyword, extra = rule
+        basis(q, pcode, no, keyword)
+        if kind == "law":
+            q["explanation"] += extra
+            q["confidence"] = "中" if q["id"] in ONLINE_MEDIUM else "高"
+        elif kind == "partial":
+            q["review"] = "partial"
+            q["explanation"] += "\n" + extra + "本題保留來源答案，不列入模擬考。"
+        else:
+            q["review"] = "imported_conflict"
+            q["explanation"] += "\n" + extra
+    elif kind == "conflict_note":
+        q.update({"review": "imported_conflict", "explanation": rule[1], "source_kind": "experience",
+                  "source": SHOOTING_SOURCE, "source_url": ob.SOURCE_URL})
+    elif kind == "experience":
+        q.update({"review": "experience", "explanation": rule[1], "source_kind": "experience",
+                  "source": SHOOTING_SOURCE, "source_url": ob.SOURCE_URL})
     else:
-        q.pop("caution", None)
+        q.update({"review": rule[1], "explanation": rule[2], "source_kind": "past",
+                  "source": "歷屆考古題（未能以法規查核）", "source_url": ""})
+    if q["review"] == "imported_conflict":
+        q["caution"] = conflict + "本題不列入測驗。"
 
 
 def review_recruit():
@@ -397,7 +463,7 @@ def review_recruit():
     data["questions"] += [dict(q) for q in NEW_QUESTIONS if q["id"] not in have]
     data["questions"] += online_questions(have)
     summary = {"law": 0, "partial": 0, "unverified": 0, "experience": 0, "outdated": 0,
-               "imported": 0, "imported_conflict": 0}
+               "imported_conflict": 0}
     for q in data["questions"]:
         qid = q["id"]
         if qid in online:
