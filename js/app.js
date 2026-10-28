@@ -135,7 +135,7 @@
       // 模擬考題池：彙編或 205T A 卷收錄，且答案已對照現行條文
       inExam: (q) => q.fromSource && q.review === 'law',
       examLabel: '歷屆來源且已對照法條',
-      otherLabel: '答案待補證的彙編題、射擊經驗題與站方自編題',
+      otherLabel: '答案待補證的彙編題、線上考試系統題庫題、射擊經驗題與站方自編題',
     },
     emt: {
       id: 'emt', label: 'EMT-1', pass: 70, mockCount: 40, mockMinutes: 50, quickCount: 20,
@@ -224,7 +224,8 @@
     const keep = (set) => new Set(Array.from(set).filter((qid) => byId.has(qid)));
     const bank = {
       cfg, questions, byId,
-      pool: questions.filter((q) => !q.outdated),
+      // 舊法題與「來源答案有疑義」的匯入題只在題庫查閱，不進入任何測驗
+      pool: questions.filter((q) => !q.outdated && q.review !== 'imported_conflict'),
       verified: questions.filter((q) => !q.outdated && cfg.inExam(q)),
       keep,
       mistakes: keep(loadSet(cfg.mistakesKey)),
@@ -257,7 +258,7 @@
     state.checked = loadSet('sms_checklist');
   }
 
-  const ASSET_VERSION = '20261004h';
+  const ASSET_VERSION = '20261028a';
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -538,7 +539,7 @@
     recalled: ['', '答案照回憶者所記'],
     recalled_conflict: ['chip-amber', '回憶題幹與教材條件不符'],
     imported: ['chip-amber', '直接匯入，未核實'],
-    imported_conflict: ['chip-amber', '答案依舊制，不出題'],
+    imported_conflict: ['chip-amber', '來源答案有疑義，不出題'],
   };
   const reviewChip = (q) => (REVIEW_CHIP[q.review]
     ? `<span class="chip ${REVIEW_CHIP[q.review][0]}">${REVIEW_CHIP[q.review][1]}</span>` : '');
@@ -552,6 +553,7 @@
     paper_adapted: ['chip-amber', '205T A 卷來源題，本站改寫'],
     recalled: ['chip-primary', '考生回憶考點'],
     uploaded: ['chip-primary', '2022 年考古題文件'],
+    online_bank: ['chip-primary', '替代役線上考試系統題庫'],
     site_authored: ['chip-amber', '站方自編，非考古題'],
   };
   const originChip = (q) => (ORIGIN_CHIP[q.provenance]
@@ -559,6 +561,9 @@
   const originLine = (q) => {
     if (q.provenance === 'paper_verbatim') return `<p class="small muted">題目收錄於${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}${esc(q.sourceItem)}；來源未附答案，本站依現行法條判定。</p>`;
     if (q.provenance === 'paper_adapted') return `<p class="small muted">本題依${ext('https://www.ptt.cc/bbs/SMSlife/M.1570117334.A.953.html', '205T A 卷來源文件')}的${esc(q.sourceItem)}考點改寫，並非逐字原題；來源未附答案。</p>`;
+    if (q.provenance === 'online_bank') {
+      return `<p class="small muted">來源：${ext(q.sourceUrl, '替代役線上考試系統')}的題庫（社群架設的線上測驗，2026-10-28 取得），題幹、選項與答案照原樣收錄，含原文錯字。該系統沒有標示梯次，內容沒有核實。</p>`;
+    }
     if (q.provenance === 'uploaded') {
       return `<p class="small muted">來源：〈2022 EMT-1 筆試考古題〉文件${esc(q.sourceItem)}，題幹、選項與答案照文件轉錄。文件沒有標示考試單位或梯次，內容沒有核實。</p>`;
     }

@@ -363,13 +363,47 @@ NEW_QUESTIONS = [
 ]
 
 
+def online_questions(have):
+    """〈替代役線上考試系統〉題庫裡本站原本沒有的題目（scripts/online_bank.py）。題文照原樣，不核實。"""
+    import online_bank as ob
+    out = []
+    for qid, category, stem, options, answer, _ in ob.ITEMS:
+        if qid not in have:
+            out.append(_new(qid, "multiple_choice" if options else "true_false", category, stem, answer, "", options))
+    return out
+
+
+def review_online(q, conflict):
+    import online_bank as ob
+    q.pop("status", None)
+    q.pop("status_note", None)
+    q.update({
+        "reviewed_at": ob.FETCHED_AT, "confidence": "低", "source_kind": "online_bank", "exam_tag": "",
+        "source": ob.SOURCE_NAME, "source_url": ob.SOURCE_URL,
+        "review": "imported_conflict" if conflict else "imported",
+        "explanation": "題目、選項與答案照〈替代役線上考試系統〉題庫原樣匯入（%s 取得），沒有核實。" % ob.FETCHED_AT,
+    })
+    if conflict:
+        q["caution"] = conflict + "本題不列入測驗。"
+    else:
+        q.pop("caution", None)
+
+
 def review_recruit():
+    import online_bank as ob
+    online = {item[0]: item[5] for item in ob.ITEMS}
     data = load("questions.json")
     have = {q["id"] for q in data["questions"]}
     data["questions"] += [dict(q) for q in NEW_QUESTIONS if q["id"] not in have]
-    summary = {"law": 0, "partial": 0, "unverified": 0, "experience": 0, "outdated": 0}
+    data["questions"] += online_questions(have)
+    summary = {"law": 0, "partial": 0, "unverified": 0, "experience": 0, "outdated": 0,
+               "imported": 0, "imported_conflict": 0}
     for q in data["questions"]:
         qid = q["id"]
+        if qid in online:
+            review_online(q, online[qid])
+            summary[q["review"]] += 1
+            continue
         if qid in {"TF-154", "MC-102"}:
             q["exam_tag"] = "【205T A卷】"
         if qid in FIXES:
@@ -775,7 +809,7 @@ def review_study():
 REVIEWER = "Claude（AI）；尚無人工複核"
 STATUS = {
     "imported": "使用者提供，直接匯入（未核實）",
-    "imported_conflict": "使用者提供，直接匯入；答案依舊制，不列入模擬考",
+    "imported_conflict": "照來源匯入；來源答案與現行法規或其他來源不符，不列入測驗",
     "textbook114": "已對照消防署 114 年版教材",
     "recalled": "考生回憶的答案（114 年版教材中找不到這個考點）",
     "recalled_conflict": "回憶題幹與 114 年教材條件矛盾（不列入模擬考）",
@@ -784,7 +818,7 @@ STATUS = {
 }
 METHOD = {
     "imported": "依使用者指示照來源文件匯入，沒有核實",
-    "imported_conflict": "照來源文件匯入；已知文件答案依舊制，與現行法規不同",
+    "imported_conflict": "照來源匯入；已知來源答案與現行法規或其他來源不符",
     "textbook114": "下載消防署 114 年版教材全書文字層，以關鍵字檢索到對應頁面後，逐題比對答案與適用條件",
     "recalled": "題幹由站方依考生回憶的考點重寫；114 年版教材全書文字層檢索不到這個考點，答案照回憶者所記",
     "recalled_conflict": "核對消防署 114 年教材第 125 頁；回憶題幹的脈搏條件與教材表格不符，先排除模擬考",
@@ -797,7 +831,7 @@ METHOD = {
 }
 SUPPORT = {
     "imported": "未核實",
-    "imported_conflict": "否（文件答案依舊制）",
+    "imported_conflict": "否（來源答案與現行規定或其他來源不符）",
     "textbook114": "是（教材內容支持答案）",
     "recalled": "教材中找不到",
     "recalled_conflict": "回憶條件與教材矛盾",

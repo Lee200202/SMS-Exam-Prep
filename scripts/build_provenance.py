@@ -197,6 +197,7 @@ def classify(q, old, item, score):
 UPSTREAM = upstream()
 
 LABEL = {
+    "online_bank": "替代役線上考試系統題庫",
     "uploaded": "2022 年考古題文件",
     "recalled": "考生回憶的考點",
     "compiled_verbatim": "彙編逐字收錄", "compiled_minor": "彙編收錄（用字微調）",
@@ -216,6 +217,13 @@ def main():
     recruit = load("questions.json")
     used = {}
     for q in recruit["questions"]:
+        if q["id"].startswith(("TF-OL-", "MC-OL-")):
+            cls = "online_bank"
+            q["provenance"] = {"class": cls, "label": LABEL[cls], "source_id": "E06", "source_item": "",
+                               "fetched_at": "2026-10-28"}
+            counts[cls] = counts.get(cls, 0) + 1
+            rows.append(row("新訓", q, old.get(q["id"]), None, 1.0, cls))
+            continue
         if q["id"] in P10_ORIGINAL_IDS:
             evidence = next((e for e in q.get("exam_evidence", []) if e.get("source_id") == "P10"), None)
             if evidence is None:
@@ -336,6 +344,9 @@ def row(bank, q, old, item, score, cls):
 
 
 def decision(cls, q, item):
+    if cls == "online_bank":
+        return "線上考試系統題庫照原樣匯入，未核實：不列入模擬考，可在練習中選用" if q.get("review") == "imported" \
+            else "線上考試系統題庫照原樣匯入；來源答案與現行規定或其他來源不符，不列入測驗"
     if cls.startswith("paper_"):
         return "205T A 卷有題文、沒有原標答案；現行答案已對照法條，列入來源題模擬考"
     if cls == "site_authored":

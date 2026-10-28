@@ -50,7 +50,9 @@ def check_bank(name, data, categories, law_names):
                 errors.append("%s %s 是非題答案必須是 O 或 X" % (name, qid))
         elif q["type"] == "multiple_choice":
             options = q.get("options", [])
-            if not 3 <= len(options) <= 5 or len(set(options)) != len(options):
+            # 照原樣匯入的線上題庫有一題只有兩個選項，保留原貌
+            least = 2 if q.get("provenance", {}).get("class") == "online_bank" else 3
+            if not least <= len(options) <= 5 or len(set(options)) != len(options):
                 errors.append("%s %s 選項數量或內容異常" % (name, qid))
             if any(re.match(r"^\s*[（(][A-Ea-e][）)]", option) for option in options):
                 errors.append("%s %s 選項資料含多餘標號，PDF 會重複顯示" % (name, qid))
@@ -183,7 +185,8 @@ def main():
 
     # 模擬考只抽已核實的題目：確認數量足夠，且沒有舊法題或待補證題混入
     allowed = {"law", "partial", "unverified", "experience", "outdated", "textbook", "textbook114", "recalled", "recalled_conflict", "imported", "imported_conflict"}
-    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "paper_verbatim", "paper_adapted", "recalled", "uploaded", "site_authored"}
+    origins = {"compiled_verbatim", "compiled_minor", "compiled_adapted", "paper_verbatim", "paper_adapted", "recalled", "uploaded",
+               "online_bank", "site_authored"}
 
     def in_exam(name, q):
         cls = q.get("provenance", {}).get("class", "")
